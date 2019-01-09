@@ -24,7 +24,7 @@ class OpdController extends Controller
      */
     public function create()
     {
-        //
+        return view('opd.create');
     }
 
     /**

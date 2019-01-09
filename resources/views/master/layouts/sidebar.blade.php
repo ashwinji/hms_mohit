@@ -2,24 +2,39 @@
 <aside class="app-sidebar">
 
   <ul class="side-menu">
-    <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-dashboard "></i><span class="side-menu__label">Dashboard</span><i class="angle fa fa-angle-right"></i></a>
+    <li>
+      <a href="{{route('opd-create')}}" class="slide-item">
+        <i class="side-menu__icon fa fa-users"></i>
+      <span class="side-menu__label">Dashboard</span>
+      </a>
+    </li>
+
+      <li>
+        <a href="{{route('opd-create')}}" class="slide-item">
+          <i class="side-menu__icon fa fa-users"></i>
+        <span class="side-menu__label">OPD</span>
+        </a>
+      </li>
 
     </li>
-    <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label">OPD</span><i class="angle fa fa-angle-right"></i></a>
-
+    <li>
+      <a href="{{route('opd-create')}}" class="slide-item">
+        <i class="side-menu__icon fa fa-users"></i>
+      <span class="side-menu__label">IPD</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{route('opd-create')}}" class="slide-item">
+        <i class="side-menu__icon fa fa-users"></i>
+      <span class="side-menu__label">OT</span>
+      </a>
     </li>
     <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-check"></i><span class="side-menu__label">IPD</span><i class="angle fa fa-angle-right"></i></a>
-
-    </li>
-    <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-check"></i><span class="side-menu__label">OT</span><i class="angle fa fa-angle-right"></i></a>
-
-    </li>
-    <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-circle-o"></i><span class="side-menu__label">Test Reports</span><i class="angle fa fa-angle-right"></i></a>
+      <a class="side-menu__item" data-toggle="slide" href="#">
+        <i class="side-menu__icon fa fa-circle-o"></i>
+        <span class="side-menu__label">Test Reports</span>
+        <i class="angle fa fa-angle-right"></i>
+      </a>
       <ul class="slide-menu">
         <li>
           <a href="modal.html" class="slide-item">Blood Examination</a>
@@ -45,18 +60,26 @@
         <li>
           <a href="headers.html" class="slide-item">ECG</a>
         </li>
-
       </ul>
     </li>
     <li>
-      <a class="side-menu__item" href=""><i class="side-menu__icon fa fa fa-list"></i><span class="side-menu__label">Physiotherpy</span></a>
-    </li>
+    <a href="{{route('opd-create')}}" class="slide-item">
+      <i class="side-menu__icon fa fa-users"></i>
+    <span class="side-menu__label">Physiotherpy</span>
+    </a>
+  </li>
+  <li>
+  <a href="{{route('opd-create')}}" class="slide-item">
+    <i class="side-menu__icon fa fa-users"></i>
+  <span class="side-menu__label">Yoga</span>
+  </a>
+</li>
     <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-list"></i><span class="side-menu__label">Yoga</span><i class="angle fa fa-angle-right"></i></a>
-
-    </li>
-    <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-circle-o"></i><span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i></a>
+      <a class="side-menu__item" data-toggle="slide" href="#">
+        <i class="side-menu__icon fa fa-circle-o"></i>
+        <span class="side-menu__label">Reports</span>
+        <i class="angle fa fa-angle-right"></i>
+      </a>
       <ul class="slide-menu">
         <li>
           <a href=""class="slide-item">OPD Date Wise</a>
@@ -109,29 +132,12 @@
 
       </ul>
     </li>
-    <li class="slide">
-      <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-list"></i><span class="side-menu__label">Patient History</span><i class="angle fa fa-angle-right"></i></a>
-
-    </li>
+    <li>
+    <a href="{{route('opd-create')}}" class="slide-item">
+      <i class="side-menu__icon fa fa-users"></i>
+    <span class="side-menu__label">Patient History</span>
+    </a>
+  </li>
 
   </ul>
 </aside>
-
-<div class="app-content  my-3 my-md-5">
-  <div class="side-app">
-    <div class="page-header">
-      <h4 class="page-title">Dashboard</h4>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">IT Dashboard</li>
-      </ol>
-    </div>
-
-
-
-
-
-
-
-  </div>
-</div>

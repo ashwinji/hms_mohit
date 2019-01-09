@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('master.layouts.app');
 });
+Route::get('opd-create','OpdController@create')->name('opd-create');
+Route::post('opd-store','OpdController@store')->name('opd-store');
