@@ -35,8 +35,28 @@ class OpdController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+
+        $this->validate($request,[
+          'regNum'=>'required'
+        ]);
+        $opdnew post;
+        $opd->$PatientTitle=$request->$PatientTitle;
+        $opd->$patientName=$request->$patientName;
+        $opd->$regNum=$request->$regNum;
+        $opd->$regDate=$request->$regDate;
+        $opd->$regAmount=$request->$regAmount;
+        $opd->$address=$request->$address;
+        $opd->$age	=$request->$age	;
+        $opd->$gender	=$request->$gender	;
+        $opd->$contactNum	=$request->$contactNum;
+        $opd->$consultant	=$request->$consultant;
+        $opd->$otherConsultant	=$request->otherConsultant;
+        $opd->$patientType	=$request->$patientType;
+        $opd->$patientTypeIpd	=$request->$patientTypeIpd;
+        $opd->$dltStatus	=$request->$dltStatuse	;
+      opd->save();
+
+        }
 
     /**
      * Display the specified resource.

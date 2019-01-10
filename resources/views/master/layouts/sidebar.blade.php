@@ -3,8 +3,8 @@
 
   <ul class="side-menu">
     <li>
-      <a href="{{route('opd-create')}}" class="slide-item">
-        <i class="side-menu__icon fa fa-users"></i>
+      <a href="" class="slide-item">
+        <i class="side-menu__icon fa fa-dashboard"></i>
       <span class="side-menu__label">Dashboard</span>
       </a>
     </li>
@@ -18,14 +18,14 @@
 
     </li>
     <li>
-      <a href="{{route('opd-create')}}" class="slide-item">
-        <i class="side-menu__icon fa fa-users"></i>
+      <a href=" " class="slide-item">
+      <i class="side-menu__icon fa fa-check"></i>
       <span class="side-menu__label">IPD</span>
       </a>
     </li>
     <li>
-      <a href="{{route('opd-create')}}" class="slide-item">
-        <i class="side-menu__icon fa fa-users"></i>
+      <a href="{{route('ot-create')}} " class="slide-item">
+        <i class="side-menu__icon fa fa fa-check"></i>
       <span class="side-menu__label">OT</span>
       </a>
     </li>
@@ -63,14 +63,14 @@
       </ul>
     </li>
     <li>
-    <a href="{{route('opd-create')}}" class="slide-item">
-      <i class="side-menu__icon fa fa-users"></i>
+    <a href=" " class="slide-item">
+      <i class="side-menu__icon fa fa-list"></i>
     <span class="side-menu__label">Physiotherpy</span>
     </a>
   </li>
   <li>
-  <a href="{{route('opd-create')}}" class="slide-item">
-    <i class="side-menu__icon fa fa-users"></i>
+  <a href=" " class="slide-item">
+    <i class="side-menu__icon fa fa-list"></i>
   <span class="side-menu__label">Yoga</span>
   </a>
 </li>
@@ -133,8 +133,8 @@
       </ul>
     </li>
     <li>
-    <a href="{{route('opd-create')}}" class="slide-item">
-      <i class="side-menu__icon fa fa-users"></i>
+    <a href="" class="slide-item">
+      <i class="side-menu__icon fa fa-list"></i>
     <span class="side-menu__label">Patient History</span>
     </a>
   </li>

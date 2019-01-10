@@ -24,7 +24,7 @@ class OtController extends Controller
      */
     public function create()
     {
-        //
+        return view('ot.create');
     }
 
     /**

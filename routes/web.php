@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 Route::get('opd-create','OpdController@create')->name('opd-create');
 Route::post('opd-store','OpdController@store')->name('opd-store');
+Route::get('ot-create','OtController@create')->name('ot-create');
+Route::post('ot-create','OtController@create')->name('ot-store');
