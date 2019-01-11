@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ipd extends Model
+class xray extends Model
 {
     //
 }

@@ -15,11 +15,11 @@ class CreateOtsTable extends Migration
     {
         Schema::create('ots', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('patientId');
-            $table->string('opdDate');
-            $table->string('ipdRegNum');
-            $table->string('ipdRegDate');
-            $table->string('otDate');
+            $table->string('patientId')->nullable();
+            $table->string('opdDate')->nullable();
+            $table->string('ipdRegNum')->nullable();
+            $table->string('ipdRegDate')->nullable();
+            $table->string('otDate')->nullable();
             $table->text('dignosis');
             $table->text('otProcessure');
             $table->string('consultant');

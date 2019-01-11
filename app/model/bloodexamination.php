@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class opdtreatments extends Model
+class bloodexamination extends Model
 {
     //
 }

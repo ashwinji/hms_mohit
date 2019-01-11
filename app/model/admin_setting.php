@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class generalblood extends Model
+class admin_setting extends Model
 {
     //
 }

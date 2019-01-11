@@ -10,7 +10,7 @@
 
                 </div>
                 <div class="card-body">
-                  {!! Form::open(array('route' => 'opd-store','files'=>'true','id'=>'profile-form')) !!}
+                  {!! Form::open(array('route' => 'opd.store','files'=>'true','id'=>'profile-form')) !!}
                         <div class="col-md-12">
                            <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
@@ -30,7 +30,7 @@
                                                     'Baby' => 'Baby',
                                                     ),
                                                      'S',
-                                                    ['class' => 'form-control','id'=>'patientTitle'])
+                                                    ['class' => 'form-control','id'=>'patientTitle','name'=>'patientTitle'])
                                                 !!}
 
                                         </div>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                         <div class="form-group">
-                                                {!! Form::text('patientName', '', ['class' => 'form-control','id'=>'patientName']) !!}
+                                                {!! Form::text('patientName', '', ['class' => 'form-control','id'=>'patientName','name'=>'patientName']) !!}
                                         </div>
                                 </div>
                            </div>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                         <div class="form-group">
-                                                {!! Form::date('regDate', '', ['class' => 'form-control','id'=>'regDate']) !!}
+                                                {!! Form::date('regDate', '', ['class' => 'form-control','id'=>'regDate','name'=>'regDate']) !!}
                                         </div>
                                 </div>
                            </div>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                         <div class="form-group">
-                                                {!! Form::text('address', '', ['class' => 'form-control','id'=>'address']) !!}
+                                                {!! Form::text('address', '', ['class' => 'form-control','id'=>'address','name'=>'address']) !!}
                                         </div>
                                 </div>
                            </div>
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                         <div class="form-group">
-                                                {!! Form::text('Age', '', ['class' => 'form-control','id'=>'Age']) !!}
+                                                {!! Form::text('Age', '', ['class' => 'form-control','id'=>'Age','name'=>'Age']) !!}
                                         </div>
                                 </div>
                            </div>
@@ -112,7 +112,7 @@
                                                     'female' => 'Female.',
                                                     ),
                                                      'S',
-                                                    ['class' => 'form-control','id'=>'gender'])
+                                                    ['class' => 'form-control','id'=>'gender','name'=>'gender'])
                                                 !!}
                                         </div>
                                 </div>
@@ -136,7 +136,7 @@
                                                      'Others' => 'Others'
                                                      ),
                                                       'S',
-                                                     ['class' => 'form-control','id'=>'Consultant'])
+                                                     ['class' => 'form-control','id'=>'Consultant','name'=>'Consultant'])
                                                  !!}
                                          </div>
                                  </div>
@@ -149,7 +149,7 @@
                                             </div>
                                             <div class="col-sm-8">
                                                     <div class="form-group">
-                                                            {!! Form::text('otherConsultant', '', ['class' => 'form-control','id'=>'otherConsultant']) !!}
+                                                            {!! Form::text('otherConsultant', '', ['class' => 'form-control','id'=>'otherConsultant','name'=>'otherConsultant']) !!}
                                                     </div>
                                             </div>
                                     </div>
@@ -172,7 +172,7 @@
                                                                 'Others' => 'Others',
                                                                 ),
                                                                 'S',
-                                                                ['class' => 'form-control','id'=>'department'])
+                                                                ['class' => 'form-control','id'=>'department','name'=>'department'])
                                                             !!}
                                                     </div>
                                             </div>

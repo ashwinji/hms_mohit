@@ -10,23 +10,11 @@
 
                 </div>
                 <div class="card-body">
-                  {!! Form::open(array('route' => 'ot-store','files'=>'true','id'=>'profile-form')) !!}
+                  {!! Form::open(array('route' => 'ot.store','files'=>'true','id'=>'profile-form')) !!}
                         <div class="col-md-12">
                            <div class="row">
 
                            </div>
-                           <!-- <div class="row">
-                                <div class="col-md-offset-3 col-sm-2">
-                                        <div class="form-group">
-                                                {!! Form::label('Patient Name', 'Patient Name:*') !!}
-                                        </div>
-                                </div>
-                                <div class="col-sm-8">
-                                        <div class="form-group">
-                                                {!! Form::text('patientName', '', ['class' => 'form-control','id'=>'patientName']) !!}
-                                        </div>
-                                </div>
-                           </div> -->
                            <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
@@ -35,17 +23,17 @@
                                 </div>
                                 <div class="col-sm-3">
                                         <div class="form-group">
-                                                {!! Form::text('opdNum', '', ['class' => 'form-control','id'=>'opdNum','placeholder'=>'OPD Registration number']) !!}
+                                       {!! Form::text('opdNum', '',['class' => 'form-control','id'=>'opdNum','name'=>'opdNum','placeholder'=>'OPD Registration number']) !!}
                                         </div>
                                 </div>
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
-                                                {!! Form::label('opdNUM', 'OPD Date:*') !!}
+                                                {!! Form::label('opdDate', 'OPD Date:*') !!}
                                         </div>
                                </div>
                                <div class="col-sm-3">
                                        <div class="form-group">
-                                               {!! Form::text('opdDate', '', ['class' => 'form-control','id'=>'opddate','placeholder'=>'OPD date']) !!}
+                                               {!! Form::text('opdDate', '', ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD date']) !!}
                                        </div>
                                </div>
                          </div>
@@ -57,7 +45,7 @@
                               </div>
                               <div class="col-sm-8">
                                       <div class="form-group">
-                                              {!! Form::text('patientName', '', ['class' => 'form-control','id'=>'patientName']) !!}
+                                              {!! Form::text('patientName', '', ['class' => 'form-control','name'=>'patientName','id'=>'patientName']) !!}
                                       </div>
                               </div>
                          </div>
@@ -69,7 +57,7 @@
                               </div>
                               <div class="col-sm-3">
                                       <div class="form-group">
-                                              {!! Form::text('ipdRegNum', '', ['class' => 'form-control','id'=>'ipdRegNum','placeholder'=>'IPD Registration number']) !!}
+                                              {!! Form::text('ipdRegNum', '', ['class' => 'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD Registration number']) !!}
                                       </div>
                               </div>
                               <div class="col-md-offset-3 col-sm-2">
@@ -79,7 +67,7 @@
                              </div>
                              <div class="col-sm-3">
                                      <div class="form-group">
-                                             {!! Form::text('ipdDate', '', ['class' => 'form-control','id'=>'ipddate','placeholder'=>'IPD date']) !!}
+                                             {!! Form::text('ipdDate', '', ['class' => 'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD date']) !!}
                                      </div>
                              </div>
                            </div>
@@ -91,7 +79,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                         <div class="form-group">
-                                                {!! Form::text('age', '', ['class' => 'form-control','id'=>'age','placeholder'=>'AGE']) !!}
+                                                {!! Form::text('age', '', ['class' => 'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE']) !!}
                                         </div>
                                 </div>
                                 <div class="col-md-offset-3 col-sm-2">
@@ -101,7 +89,7 @@
                                </div>
                                <div class="col-sm-3">
                                        <div class="form-group">
-                                               {!! Form::text('gender', '', ['class' => 'form-control','id'=>'gender','placeholder'=>'GENDER']) !!}
+                                               {!! Form::text('gender', '', ['class' => 'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER']) !!}
                                        </div>
                                </div>
                              </div>
@@ -125,7 +113,7 @@
                                   </div>
                                   <div class="col-sm-3">
                                           <div class="form-group">
-                                                  {!! Form::date('otDate', '', ['class' => 'form-control','id'=>'otDate']) !!}
+                                                  {!! Form::date('otDate', '', ['class' => 'form-control','id'=>'otDate','name'=>'otDate']) !!}
                                           </div>
                                   </div>
                              </div>
@@ -137,7 +125,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-                                                {!! Form::textarea('diagnosis',null,['class'=>'form-control', 'id'=>'diagnosis','rows' => 3, 'cols' => 40,'placeholder'=>'diagnosis']) !!}
+                                                {!! Form::textarea('diagnosis',null,['class'=>'form-control', 'id'=>'diagnosis','name'=>'diagnosis','rows' => 3, 'cols' => 40,'placeholder'=>'diagnosis']) !!}
                                           </div>
                                   </div>
                              </div>
@@ -149,7 +137,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-                                                {!! Form::textarea('otProcessure',null,['class'=>'form-control', 'id'=>'otProcessure','rows' => 3, 'cols' => 40,'placeholder'=>'otprocessre']) !!}
+                                                {!! Form::textarea('otProcessure',null,['class'=>'form-control', 'id'=>'otProcessure','name'=>'otProcessure','rows' => 3, 'cols' => 40,'placeholder'=>'otprocessre']) !!}
                                           </div>
                                   </div>
                              </div>
@@ -172,7 +160,7 @@
                                                       'Others' => 'Others'
                                                       ),
                                                        'S',
-                                                      ['class' => 'form-control','id'=>'Consultant'])
+                                                      ['class' => 'form-control','id'=>'Consultant','name'=>'Consultant'])
                                                   !!}
                                           </div>
                                   </div>
@@ -185,7 +173,7 @@
                                       </div>
                                       <div class="col-sm-8">
                                               <div class="form-group">
-                                                      {!! Form::text('otherConsultant', '', ['class' => 'form-control','id'=>'otherConsultant']) !!}
+                                                      {!! Form::text('otherConsultant', '', ['class' => 'form-control','id'=>'otherConsultant','name'=>'otherConsultant']) !!}
                                               </div>
                                       </div>
                               </div>
@@ -197,7 +185,7 @@
                                    </div>
                                    <div class="col-sm-8">
                                            <div class="form-group">
-                                                 {!! Form::textarea('adviceTreatment',null,['class'=>'form-control', 'id'=>'adviceTreatment','rows' => 3, 'cols' => 40,'placeholder'=>'adviceTreatment']) !!}
+                                                 {!! Form::textarea('adviceTreatment',null,['class'=>'form-control', 'id'=>'adviceTreatment','name'=>'adviceTreatment','rows' => 3, 'cols' => 40,'placeholder'=>'adviceTreatment']) !!}
                                            </div>
                                    </div>
                               </div>
@@ -220,7 +208,7 @@
                                                           'Others' => 'Others',
                                                           ),
                                                           'S',
-                                                          ['class' => 'form-control','id'=>'medicine1'])
+                                                          ['class' => 'form-control','id'=>'medicine1','name'=>'medicine1'])
                                                       !!}
                                               </div>
                                       </div>
@@ -244,7 +232,7 @@
                                                               'Others' => 'Others',
                                                               ),
                                                               'S',
-                                                              ['class' => 'form-control','id'=>'medicine2'])
+                                                              ['class' => 'form-control','id'=>'medicine2','name'=>'medicine2'])
                                                           !!}
                                                   </div>
                                           </div>
@@ -268,7 +256,7 @@
                                                                   'Others' => 'Others',
                                                                   ),
                                                                   'S',
-                                                                  ['class' => 'form-control','id'=>'medicine3'])
+                                                                  ['class' => 'form-control','id'=>'medicine3','name'=>'medicine3'])
                                                               !!}
                                                       </div>
                                               </div>
@@ -281,7 +269,7 @@
                                                </div>
                                                <div class="col-sm-8">
                                                        <div class="form-group">
-                                                             {!! Form::textarea('Remark',null,['class'=>'form-control', 'id'=>'Remark','rows' => 3, 'cols' => 40,'placeholder'=>'Remark']) !!}
+                                                             {!! Form::textarea('Remark',null,['class'=>'form-control', 'id'=>'Remark','rows' => 3, 'cols' => 40,'placeholder'=>'Remark','name'=>'Remark']) !!}
                                                        </div>
                                                </div>
                                           </div>

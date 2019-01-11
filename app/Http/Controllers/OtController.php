@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ot;
+use App\Model\ot;
 use Illuminate\Http\Request;
 
 class OtController extends Controller
@@ -35,7 +35,31 @@ class OtController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+                'opdNum'=>'required',
+                'ipdRegNum'=>'required'
+        ]);
+        $ot=new ot;
+        $ot->patientId=$request->opdNum;
+        $ot->opdDate=$request->opdDate;
+        //$ot->patientName=$request->patientName;
+        $ot->ipdRegNum=$request->ipdRegNum;
+        $ot->ipdRegDate=$request->ipdRegDate;
+        // $ot->age=$request->age;
+        // $ot->gender=$request->gender;
+        //$ot->address=$request->address;
+        $ot->otDate=$request->otDate;
+        $ot->dignosis=$request->dignosis;
+        $ot->otProcessure=$request->otProcessure;
+        $ot->consultant=$request->consultant;
+        $ot->otherConsultant=$request->otherConsultant;
+        $ot->adviceTreatment=$request->adviceTreatment;
+        $ot->medicine1=$request->medicine1;
+        $ot->medicine2=$request->medicine2;
+        $ot->medicine3=$request->medicine3;
+        $ot->remark=$request->Remark;
+        $ot->save();
+          
     }
 
     /**
