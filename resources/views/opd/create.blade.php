@@ -10,6 +10,7 @@
 
                 </div>
                 <div class="card-body">
+                 @include('verror.error')
                   {!! Form::open(array('route' => 'opd.store','files'=>'true','id'=>'profile-form')) !!}
                         <div class="col-md-12">
                            <div class="row">

@@ -10,7 +10,8 @@
 
                 </div>
                 <div class="card-body">
-                  {!! Form::open(array('route' => 'ot.store','files'=>'true','id'=>'profile-form')) !!}
+                @include('verror.error')
+                  {!! Form::open(array('route' => 'ot.store','files'=>'true','id'=>'profile-form','autocomplete'=>'off')) !!}
                         <div class="col-md-12">
                            <div class="row">
 
@@ -24,6 +25,7 @@
                                 <div class="col-sm-3">
                                         <div class="form-group">
                                        {!! Form::text('opdNum', '',['class' => 'form-control','id'=>'opdNum','name'=>'opdNum','placeholder'=>'OPD Registration number']) !!}
+                                        <div id="opd-reg-list"></div>
                                         </div>
                                 </div>
                                 <div class="col-md-offset-3 col-sm-2">
@@ -33,7 +35,7 @@
                                </div>
                                <div class="col-sm-3">
                                        <div class="form-group">
-                                               {!! Form::text('opdDate', '', ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD date']) !!}
+                                               {!! Form::date('opdDate', '', ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD date']) !!}
                                        </div>
                                </div>
                          </div>
@@ -160,7 +162,7 @@
                                                       'Others' => 'Others'
                                                       ),
                                                        'S',
-                                                      ['class' => 'form-control','id'=>'Consultant','name'=>'Consultant'])
+                                                      ['class' => 'form-control','id'=>'consultant','name'=>'consultant'])
                                                   !!}
                                           </div>
                                   </div>
@@ -292,3 +294,66 @@
                 </div>
             </div>
 @endsection
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    @push('script')
+
+  <script type="text/javascript">
+        jQuery(document).ready(function(){alert();
+        jQuery('#opdNum').on('keyup',function(){
+         var opd= $(this).val();
+            $('#opdNum').html("");
+            if(opd !='')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+
+                    url:"{{ route('ot.fetch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                      $('#opd-reg-list').fadeIn();
+                      $('#opd-reg-list').html(data);
+                    }
+
+                });
+            }
+        });
+       
+    });
+        $(document).on('click', 'li', function(){  
+       $('#opdNum').val($(this).text()); 
+       var opd=$('#opdNum').val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({ 
+                    url:"{{ route('ot.fetchSearch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                    console.log(data);
+                    $('#opdDate').val(data.regDate);
+                    $('#patientName').val(data.patientName);
+                    $('#consultant').val(data.consultant);
+                    $('#otherConsultant').val(data.otherConsultant);
+                    $('#age').val(data.age);
+                    $('#gender').val(data.gender);
+                    $('#address').val(data.address);
+                   // $('#otDate').val(data.otDate);
+                    
+
+
+                    }
+
+                });
+        $('#opd-reg-list').fadeOut();  
+    }); 
+
+         
+    
+
+
+        
+   </script>
+        
+    @endpush

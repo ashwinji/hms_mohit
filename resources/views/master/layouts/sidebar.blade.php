@@ -18,7 +18,7 @@
 
     </li>
     <li>
-      <a href=" " class="slide-item">
+      <a href="{{ route('ipd-create') }} " class="slide-item">
       <i class="side-menu__icon fa fa-check"></i>
       <span class="side-menu__label">IPD</span>
       </a>

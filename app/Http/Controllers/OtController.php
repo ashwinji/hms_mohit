@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\ot;
 use Illuminate\Http\Request;
+use DB;
 
 class OtController extends Controller
 {
@@ -40,6 +41,7 @@ class OtController extends Controller
                 'ipdRegNum'=>'required'
         ]);
         $ot=new ot;
+
         $ot->patientId=$request->opdNum;
         $ot->opdDate=$request->opdDate;
         //$ot->patientName=$request->patientName;
@@ -106,4 +108,38 @@ class OtController extends Controller
     {
         //
     }
+    public function fetch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum', 'LIKE', '%'.$query.'%')
+            ->get();
+          $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
+          foreach($data as $row)
+          {
+           $output .= '
+           <li><a href="#">'.$row->regNum.'</a></li>
+           ';
+          }
+          $output .= '</ul>';
+          echo $output;
+     }
+    }
+
+    public function fetchSearch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum',$query)
+            ->first();
+
+            return response()->json($data);
+         
+     }
+    }
+    
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ipd;
+use App\model\ipd;
 use Illuminate\Http\Request;
 
 class IpdController extends Controller
@@ -24,7 +24,7 @@ class IpdController extends Controller
      */
     public function create()
     {
-        //
+        return view('ipd.create');
     }
 
     /**
@@ -35,7 +35,14 @@ class IpdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+
+
+        
+        ]);
+        $ipd=ipd::create($request->all());
+        $ipd->save();
+
     }
 
     /**

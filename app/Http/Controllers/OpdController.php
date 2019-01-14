@@ -59,7 +59,7 @@ class OpdController extends Controller
         $opd->patientTypeIpd=$request->patientTypeIpd;
         $opd->dltStatus	=$request->dltStatuse	;
         $opd->save();
-        return redirect(route('opd-create'));
+        return redirect(route('opd-create'))->with('message','data save sussefully');
 
         }
 
