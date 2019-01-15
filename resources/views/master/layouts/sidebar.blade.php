@@ -37,28 +37,28 @@
       </a>
       <ul class="slide-menu">
         <li>
-          <a href="modal.html" class="slide-item">Blood Examination</a>
+          <a href="" class="slide-item">Blood Examination</a>
         </li>
         <li>
-          <a href="tooltipandpopover.html" class="slide-item">General Blood</a>
+          <a href="" class="slide-item">General Blood</a>
         </li>
         <li>
-          <a href="progress.html" class="slide-item">Semen Exaination</a>
+          <a href="" class="slide-item">Semen Exaination</a>
         </li>
         <li>
-          <a href="chart.html" class="slide-item">Serun of widal</a>
+          <a href="" class="slide-item">Serun of widal</a>
         </li>
         <li>
-          <a href="carousel.html" class="slide-item">Stool Examination </a>
+          <a href="" class="slide-item">Stool Examination </a>
         </li>
         <li>
-          <a href="accordion.html" class="slide-item">Urin Examination</a>
+          <a href="" class="slide-item">Urin Examination</a>
         </li>
         <li>
-          <a href="tabs.html" class="slide-item">X-Ray</a>
+          <a href="" class="slide-item">X-Ray</a>
         </li>
         <li>
-          <a href="headers.html" class="slide-item">ECG</a>
+          <a href="" class="slide-item">ECG</a>
         </li>
       </ul>
     </li>

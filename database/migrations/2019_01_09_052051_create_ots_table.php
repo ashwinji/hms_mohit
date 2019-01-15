@@ -20,7 +20,7 @@ class CreateOtsTable extends Migration
             $table->string('ipdRegNum')->nullable();
             $table->string('ipdRegDate')->nullable();
             $table->string('otDate')->nullable();
-            $table->text('dignosis');
+            $table->text('dignosis')->nullable();
             $table->text('otProcessure');
             $table->string('consultant');
             $table->string('otherConsultant');

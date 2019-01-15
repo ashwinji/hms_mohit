@@ -9,7 +9,7 @@
                     <h6 class="pull-right card-title btn btn-pill btn-default" style="margin-left: 400px; background-color:#1fb5ad;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6>
                 </div>
                 <div class="card-body">
-                 
+                 @include('verror.error')
                 {!! Form::open(array('route'=>'ipd.store','files'=>'true','id'=>'opd-form','autocomplete'=>'off')) !!}
                 {{ Form::hidden('status', '1') }}
                 <div class="row">
@@ -38,6 +38,7 @@
                                     'placeholder' => 'Enter OPD Date',
                                     'id'=>'id-opddate',
 									'name'=>'id-opddate',
+                                    'readonly' => 'true',
                                 ]) !!}
                            </div>
                         </div>
@@ -87,6 +88,7 @@
                                     ['class' => 'form-control',
                                         'id'=>'otherConsultant',
 										'name'=>'otherConsultant',
+                                        'readonly' => 'true',
                                     'placeholder' => 'Enter Other Consultant']) 
                                   !!}
                             </div>
@@ -99,6 +101,7 @@
                                 'placeholder' => 'Enter Registration Amount',
                                 'id'=>'patientName',
 								 'name'=>'patientName',
+                                 'readonly' => 'true',
                                 ]) !!}
                             </div>
                         </div>
@@ -110,6 +113,7 @@
                                  'placeholder' => 'Enter Age' ,
                                         'id'=>'age',
 										 'name'=>'age',
+                                         'readonly' => 'true',
                                  ]) !!}
                             </div>
                         </div>
@@ -143,7 +147,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Gender') !!}
-                                {!! Form::select('gender', ['Male Adult' => 'Male Adult', 'Female Adult' => 'Female Adult', 'Male Child' => 'Male Child','Male Child' => 'Male Child','Female Child' => 'Female Child',],  null, ['class' => 'form-control','id'=>'gender','name'=>'gender']) !!}
+                                {!! Form::select('gender', ['Male Adult' => 'Male Adult', 'Female Adult' => 'Female Adult', 'Male Child' => 'Male Child','Male Child' => 'Male Child','Female Child' => 'Female Child',],  null, ['class' => 'form-control','id'=>'gender','name'=>'gender','readonly' => 'true']) !!}
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -539,4 +543,66 @@
     </div>
 </div>
     @endsection
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    @push('script')
 
+  <script type="text/javascript">
+        jQuery(document).ready(function(){alert();
+        jQuery('#id-opd-regnum').on('keyup',function(){
+         var opd= $(this).val();
+            $('#id-opd-regnum').html("");
+            if(opd !='')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+
+                    url:"{{ route('ipd.fetch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                      $('#opd-reg-list').fadeIn();
+                      $('#opd-reg-list').html(data);
+                    }
+
+                });
+            }
+        });
+       
+    });
+        $(document).on('click', 'li', function(){  
+       $('#id-opd-regnum').val($(this).text()); 
+       var opd=$('#id-opd-regnum').val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({ 
+                    url:"{{ route('ipd.fetchSearch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                    console.log(data);
+                    $('#id-opddate').val(data.regDate);
+                    $('#patientName').val(data.patientName);
+                    $('#consultant').val(data.consultant);
+                    $('#otherConsultant').val(data.otherConsultant);
+                    $('#age').val(data.age);
+                    //$('#gender').val(data.gender);
+                    $('#address').val(data.address);
+                   // $('#otDate').val(data.otDate);
+                    
+
+
+                    }
+
+                });
+        $('#opd-reg-list').fadeOut();  
+    }); 
+
+         
+    
+
+
+        
+   </script>
+        
+    @endpush

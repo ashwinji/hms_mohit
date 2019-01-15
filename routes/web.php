@@ -12,3 +12,5 @@ Route::get('ipd-create','ipdController@create')->name('ipd-create');
 Route::post('ipd-store','ipdController@store')->name('ipd.store');
 Route::post('/ot/fetch', 'OtController@fetch')->name('ot.fetch');
 Route::post('/ot/fetch-search', 'OtController@fetchSearch')->name('ot.fetchSearch');
+Route::post('/ipd/fetch', 'ipdController@fetch')->name('ipd.fetch');
+Route::post('/ipd/fetch-search', 'ipdController@fetchSearch')->name('ipd.fetchSearch');

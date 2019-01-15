@@ -41,7 +41,6 @@ class OtController extends Controller
                 'ipdRegNum'=>'required'
         ]);
         $ot=new ot;
-
         $ot->patientId=$request->opdNum;
         $ot->opdDate=$request->opdDate;
         //$ot->patientName=$request->patientName;
@@ -61,6 +60,7 @@ class OtController extends Controller
         $ot->medicine3=$request->medicine3;
         $ot->remark=$request->Remark;
         $ot->save();
+        return redirect(route('ot-create'))->with('message','data save sussefully');
           
     }
 

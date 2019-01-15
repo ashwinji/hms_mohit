@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\ipd;
 use Illuminate\Http\Request;
-
+use DB;
 class IpdController extends Controller
 {
     /**
@@ -36,12 +36,13 @@ class IpdController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-
+           
 
         
         ]);
         $ipd=ipd::create($request->all());
         $ipd->save();
+        return redirect (route('ipd-create'))->with('message','data save sussefully');
 
     }
 
@@ -89,4 +90,38 @@ class IpdController extends Controller
     {
         //
     }
+      public function fetch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum', 'LIKE', '%'.$query.'%')
+            ->get();
+          $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
+          foreach($data as $row)
+          { 
+           $output .= '
+           <li><a href="#">'.$row->regNum.'</a></li>
+           ';
+          }
+          $output .= '</ul>';
+          echo $output;
+     }
+    }
+      public function fetchSearch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum',$query)
+            ->first();
+
+            return response()->json($data);
+         
+     }
+    }
+
+
 }
