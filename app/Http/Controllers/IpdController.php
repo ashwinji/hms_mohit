@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\model\ipd;
 use Illuminate\Http\Request;
 use DB;
+use Log;
+use DataTables;
 class IpdController extends Controller
 {
     /**
@@ -90,6 +92,22 @@ class IpdController extends Controller
     {
         //
     }
+        public function datatable()
+    {
+        return view('ipd.ipdfilter');
+    }
+    public function getIpd(Request $request)
+    {
+        //Log::info('IpdController@getIpd=');
+       
+        $ipds = DB::table('ipds')
+            ->select('ipds.id','ipds.ipdRegNum','ipds.ipdRegDate','ipds.wardName','ipds.bedNum','ipds.consultant','opds.RegNum','opds.patientName')
+            ->join('opds', 'ipds.patientId', '=', 'opds.regNum');
+          
+        return DataTables::of($ipds)       
+            ->make(true);
+    }
+    
       public function fetch(Request $request)
     {
        if($request->get('query')){

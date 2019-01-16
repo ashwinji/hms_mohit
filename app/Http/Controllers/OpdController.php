@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\opd;
 use Illuminate\Http\Request;
+use DataTables;
 
 class OpdController extends Controller
 {
@@ -106,5 +107,16 @@ class OpdController extends Controller
     public function destroy(opd $opd)
     {
         //
+    }
+    public function datatable()
+    {
+        return view('opd.opdfilter');
+    }
+    public function getOpd()
+    {
+        $opds = opd::select('id','patientName','regNum','regDate','address','gender','consultant');
+        return DataTables::of($opds)
+        
+            ->make(true);
     }
 }

@@ -2,11 +2,11 @@
 @section('main-content')
 <div class="container" style="width: 1195px;">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="card">
                 <div class="card-header">
-                    <h6 class="card-title btn btn-pill btn-info">IPD - NEW PATIENT REGISTRATION</h6>
-                    <h6 class="pull-right card-title btn btn-pill btn-default" style="margin-left: 400px; background-color:#1fb5ad;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6>
+                    <h6 class="card-title btn btn-pill btn-success">IPD - NEW PATIENT REGISTRATION</h6>
+                    <a href="{{route('ipd-filter')}}"><h6  class="pull-right card-title btn btn-pill btn-success" style="margin-left: 400px; background-color:#5ed84f;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6></a>
                 </div>
                 <div class="card-body">
                  @include('verror.error')
@@ -16,12 +16,12 @@
                       <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'OPD Registration Number') !!}
-                                {!! Form::text('opd_id',  null, 
+                                {!! Form::text('patientId',  null, 
                                 [
                                     'class' => 'form-control opd',
                                     'placeholder' => 'Enter OPD  Registration Number',
                                     'id'=>'id-opd-regnum',
-									'name'=>'id-opd-regnum',
+									
                                 ]) !!}
                                 <div id="opd-reg-list">
                                 </div>
@@ -50,7 +50,7 @@
                                     'class' => 'form-control',
                                     'placeholder' => 'Enter IPD  Registration Number',
                                     'id'=>'regnum',
-									'name'=>'regnum',
+									
                                 ]) !!}
                             </div>
                         </div>
@@ -166,25 +166,25 @@
                             <div class="form-group">
                                  <div>Bed Number</div>
                                  <div style="margin-left: 20px;">
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum1']) !!}
                                     {!! Form::label('name', '1') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum2']) !!}
                                     {!! Form::label('name', '2') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum3']) !!}
                                     {!! Form::label('name', '3') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum4']) !!}
                                     {!! Form::label('name', '4') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum5']) !!}
                                     {!! Form::label('name', '5') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum6']) !!}
                                     {!! Form::label('name', '6') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum7']) !!}
                                     {!! Form::label('name', '7') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum8']) !!}
                                     {!! Form::label('name', '8') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum9']) !!}
                                     {!! Form::label('name', '9') !!}
-                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum']) !!}
+                                    {!! Form::radio('bedNum',  null, ['class' => 'form-control','id'=>'bedNum10']) !!}
                                     {!! Form::label('name', '10') !!}
 
                                 </div>
@@ -193,44 +193,44 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Date of Discharge') !!}
-                                {!! Form::date('dod',  null, ['class' => 'form-control','placeholder' => 'Enter Mobile Number']) !!}
+                                {!! Form::date('dod',  null, ['class' => 'form-control','id'=>'dod','name'=>'dod','placeholder' => 'Enter Mobile Number']) !!}
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Provisional Diagnosis') !!}
-                                {!! Form::textarea('provisionalDiagnosis',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('provisionalDiagnosis',  null, ['class' => 'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Chief Complaints') !!}
-                                {!! Form::textarea('chiefComplaints',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('chiefComplaints',  null, ['class' => 'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
                         <div class="col-md-12">
                              <div class="form-group">
                                  {!! Form::label('name', 'Past History') !!}
-                                 {!! Form::textarea('pastHistory',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                 {!! Form::textarea('pastHistory',  null, ['class' => 'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
                         <div class="col-md-12">
                             <h3 align="center"> Family History</h3>
                             <div class="form-group">
-                                 {!! Form::label('name', 'Maternal') !!}
-                                 {!! Form::textarea('fh_maternal',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::label('name', 'Maternal') !!}
+                                {!! Form::textarea('fh_maternal',  null, ['class' => 'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 " class="form-control">
                             <div class="form-group">
                                 {!! Form::label('name', 'Paternal') !!}
-                                {!! Form::textarea('fh_paternal',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('fh_paternal',  null, ['class' => 'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
                         <div class="col-md-12">
                              <div class="form-group">
                                 {!! Form::label('name', 'Other') !!}
-                                {!! Form::textarea('fh_other',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('fh_other',  null, ['class' => 'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                              </div>
                         </div>
                         <div class="col-md-12">
@@ -239,49 +239,49 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'GC:') !!}
-                                        {!! Form::text('ge_gc',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_gc',  null, ['class' => 'form-control','id'=>'ge_gc','name'=>'ge_gc','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                      <div class="form-group">
                                         {!! Form::label('name', 'Pulse:') !!}
-                                        {!! Form::text('ge_pulse',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_pulse',  null, ['class' => 'form-control','id'=>'ge_pulse','name'=>'ge_pulse','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                      <div class="form-group">
                                         {!! Form::label('name', 'Temp:') !!}
-                                        {!! Form::text('ge_temp',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_temp',  null, ['class' => 'form-control','id'=>'ge_temp','name'=>'ge_temp','placeholder' => 'Enter Age']) !!}
                                      </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'Resp:') !!}
-                                        {!! Form::text('ge_resp',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_resp',  null, ['class' => 'form-control','id'=>'ge_resp','name'=>'ge_resp','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'B.P.:') !!}
-                                        {!! Form::text('ge_bp',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_bp',  null, ['class' => 'form-control','id'=>'ge_bp','name'=>'ge_bp','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'Tongue:') !!}
-                                        {!! Form::text('ge_tongue',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_tongue',  null, ['class' => 'form-control','id'=>'ge_tongue','name'=>'ge_tongue','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'Conjunctiva/Icterus:') !!}
-                                        {!! Form::text('ge_conjective',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_conjective',  null, ['class' => 'form-control','id'=>'ge_conjective','name'=>'ge_conjective','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'Anaemla/Pallor:') !!}
-                                        {!! Form::text('ge_anaemla',  null, ['class' => 'form-control','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_anaemla',  null, ['class' => 'form-control','id'=>'ge_anaemla','name'=>'ge_anaemla','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -462,7 +462,7 @@
                                 {!! Form::select('potency3', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
-                         <div class="col-md-12">
+                         <div class="col-md-10">
                                 <h3 align="center">Auxiliary Treatment</h3>
                                 <div class="<ro>                </ro>w">
                                     <div class="col-md-6">
@@ -524,7 +524,7 @@
                             <div class="col-md-6" >
                                 <div class="form-group">
                                   <div style="float: right;">
-                                     {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+                                     {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
                                   </div>
                                 </div>
                             </div>
