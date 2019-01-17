@@ -67,4 +67,5 @@ class ipd extends Model
 'remark',
 'dltStatus'
     ];
+   // protected $primaryKey = 'patientId';
 }

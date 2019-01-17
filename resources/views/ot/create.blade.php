@@ -1,17 +1,17 @@
 @extends('master.layouts.app')
 @section('main-content')
 <div class="container" style="width: 1175px;">
-    <div class="row">
+    <div class="row ">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title btn btn-pill btn-success">OT - NEW PATIENT REGISTRATION</h6>
-                    <h6 class="pull-right card-title btn btn-pill btn-default" style="margin-left: 400px; background-color:#5ed84f;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6>
+                    <a href="{{route('ot-filter')}}"><h6 class="pull-right card-title btn btn-pill btn-default" style="margin-left: 400px; background-color:#5ed84f;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6></a>
 
                 </div>
                 <div class="card-body">
                 @include('verror.error')
-                  {!! Form::open(array('route' => 'ot.store','files'=>'true','id'=>'profile-form','autocomplete'=>'off')) !!}
+                  {!! Form::open(array('route' => 'ot.store','files'=>'true','class'=>'fixed','id'=>'profile-form','autocomplete'=>'off')) !!}
                         <div class="col-md-12">
                            <div class="row">
 
@@ -300,7 +300,7 @@
     @push('script')
 
   <script type="text/javascript">
-        jQuery(document).ready(function(){alert();
+        jQuery(document).ready(function(){
         jQuery('#opdNum').on('keyup',function(){
          var opd= $(this).val();
             $('#opdNum').html("");

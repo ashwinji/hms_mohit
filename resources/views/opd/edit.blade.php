@@ -5,7 +5,7 @@
         <div class="col-lg-10">
             <div class="card">
                 <div class="card-header">
-                    <h6 class="card-title btn btn-pill btn-success">OPD - NEW PATIENT REGISTRATION</h6>
+                    <h6 class="card-title btn btn-pill btn-success">OPD - Update PATIENT Details</h6>
                     <a href="{{route('opd-filter')}}"><h6 class="pull-right card-title btn btn-pill btn-default" style="margin-left: 400px; background-color:#5ed84f;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6></a>
 
                 </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\model\opd;
+use App\model\ipd;
+use App\model\ot;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -81,9 +83,10 @@ class OpdController extends Controller
      * @param  \App\opd  $opd
      * @return \Illuminate\Http\Response
      */
-    public function edit(opd $opd)
+    public function edit($id)
     {
-        //
+        $opd=opd::where('id',$id)->first();
+        return view('opd.edit',compact('opd'));
     }
 
     /**
@@ -104,9 +107,10 @@ class OpdController extends Controller
      * @param  \App\opd  $opd
      * @return \Illuminate\Http\Response
      */
-    public function destroy(opd $opd)
+    public function destroy($id)
     {
-        //
+        opd::where('id',$id)->delete();
+      return back()->with('message','opd data  is deleted successfuly');
     }
     public function datatable()
     {
@@ -114,8 +118,13 @@ class OpdController extends Controller
     }
     public function getOpd()
     {
+        $data=opd::all();
         $opds = opd::select('id','patientName','regNum','regDate','address','gender','consultant');
-        return DataTables::of($opds)
+        return DataTables::of($opds)->addColumn('action', function($data){
+
+              return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('opd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+              
+            })       
         
             ->make(true);
     }

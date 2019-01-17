@@ -15,6 +15,18 @@ Route::post('/ot/fetch-search', 'OtController@fetchSearch')->name('ot.fetchSearc
 Route::post('/ipd/fetch', 'IpdController@fetch')->name('ipd.fetch');
 Route::post('/ipd/fetch-search', 'IpdController@fetchSearch')->name('ipd.fetchSearch');
 Route::get('datatable1', 'OpdController@datatable')->name('opd-filter');
-Route::get('datatable/getposts', 'OpdController@getOpd')->name('datatable.getopd');
-Route::get('datatable', 'IpdController@datatable')->name('ipd-filter');
-Route::get('getposts', 'IpdController@getIpd')->name('getipd');
+Route::get('datatable/getopd', 'OpdController@getOpd')->name('datatable.getopd');
+Route::get('datatable2', 'IpdController@datatable')->name('ipd-filter');
+Route::get('getposts1', 'IpdController@getIpd')->name('getipd');
+Route::get('delete/{id}','OpdController@destroy')->name('opd.delete');
+Route::get('opd-edit','OpdController@edit')->name('opd.edit');
+Route::get('ipd-edit','IpdController@edit')->name('ipd.edit');
+Route::get('delete1/{id}','OpdController@destroy')->name('ipd.delete');
+Route::get('datatable3', 'OtController@datatable')->name('ot-filter');
+Route::get('getposts2', 'OtController@getOt')->name('getot');
+Route::get('delete2/{id}','OtController@destroy')->name('ot.delete');
+Route::get('ot-edit','OtController@edit')->name('ot.edit');
+
+
+ // Route::resource('opd','OpdController');
+

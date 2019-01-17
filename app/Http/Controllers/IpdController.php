@@ -67,7 +67,8 @@ class IpdController extends Controller
      */
     public function edit(ipd $ipd)
     {
-        //
+         $ipd=ipd::where('id',$ipd)->first();
+        return view('ipd.edit',compact('ipd'));
     }
 
     /**
@@ -88,9 +89,10 @@ class IpdController extends Controller
      * @param  \App\ipd  $ipd
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ipd $ipd)
+    public function destroy($id)
     {
-        //
+          ipd::where('id',$id)->delete();
+      return back()->with('message','ipd data  is deleted successfuly');
     }
         public function datatable()
     {
@@ -98,13 +100,16 @@ class IpdController extends Controller
     }
     public function getIpd(Request $request)
     {
-        //Log::info('IpdController@getIpd=');
-       
-        $ipds = DB::table('ipds')
-            ->select('ipds.id','ipds.ipdRegNum','ipds.ipdRegDate','ipds.wardName','ipds.bedNum','ipds.consultant','opds.RegNum','opds.patientName')
-            ->join('opds', 'ipds.patientId', '=', 'opds.regNum');
-          
-        return DataTables::of($ipds)       
+        
+        $data=ipd::all();
+        $ipds = ipd::select('ipds.id','ipds.ipdRegNum','ipds.ipdRegDate','ipds.wardName','ipds.bedNum','ipds.consultant','opds.RegNum','opds.patientName')
+            ->join('opds', 'ipds.patientId', '=', 'opds.regNum')
+            ->get();
+             return DataTables::of($ipds)->addColumn('action', function($data){
+
+              return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>  ',route('ipd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('ipd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('ipd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+              
+            })        
             ->make(true);
     }
     

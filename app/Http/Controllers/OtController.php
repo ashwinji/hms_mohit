@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Model\ot;
+use App\Model\opd;
+use App\Model\ipd;
 use Illuminate\Http\Request;
 use DB;
-
+use DataTables;
 class OtController extends Controller
 {
     /**
@@ -107,6 +109,24 @@ class OtController extends Controller
     public function destroy(ot $ot)
     {
         //
+    }
+    public function datatable()
+    {
+        return view('ot.otfilter');
+    }
+    public function getOt()
+    {
+        $data=ot::all();
+        $ots = ot::select('ots.id','ots.consultant','ots.otDate','opds.regNum','opds.patientName','ots.opdDate')
+            ->join('opds', 'ots.patientId', '=', 'opds.regNum')
+            ->get();
+        return DataTables::of($ots)->addColumn('action', function($data){
+
+              return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('ot.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+              
+            })       
+        
+            ->make(true);
     }
     public function fetch(Request $request)
     {

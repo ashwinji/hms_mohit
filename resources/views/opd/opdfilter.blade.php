@@ -4,8 +4,10 @@
 @endsection
 @section('main-content')
 <body>
-<div class="container">
-  <table id="users" class=" table table-bordered table-hover table-condensed" style="width:100%">
+ @include('verror.error')
+<div class="container col-lg-12" >
+
+  <table id="opduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-info " style="width:100%">
     <thead>
         <tr>
             <th>Id</th>
@@ -15,6 +17,7 @@
             <th>Address</th>
             <th>Gender</th>
             <th>Consultant</th>
+            <th>Action</th>
             
     </thead>
   </table>
@@ -28,7 +31,7 @@
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    oTable = $('#users').DataTable({
+    oTable = $('#opduser').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": "{{ route('datatable.getopd') }}",
@@ -40,6 +43,7 @@ $(document).ready(function() {
             {data: 'address', name: 'address'},
             {data: 'gender', name: 'gender'},
             {data: 'consultant', name: 'consultant'},
+            {data: 'action', name: 'action'},
             
             
         ]
