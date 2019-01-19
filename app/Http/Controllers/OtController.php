@@ -106,13 +106,19 @@ class OtController extends Controller
      * @param  \App\ot  $ot
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ot $ot)
+    public function destroy($id)
     {
-        //
+         ot::find($id)->delete($id);
+         return 'success';
+
+          // return response()->json([
+          // 'success' => 'Record deleted successfully!'
+    // ]);
     }
     public function datatable()
     {
         return view('ot.otfilter');
+
     }
     public function getOt()
     {
@@ -122,7 +128,7 @@ class OtController extends Controller
             ->get();
         return DataTables::of($ots)->addColumn('action', function($data){
 
-              return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('ot.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+        return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('ot.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash deleteotRecord"></i>',route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editotRecord"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus createotRecord"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
               
             })       
         

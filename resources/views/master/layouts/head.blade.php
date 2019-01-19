@@ -37,6 +37,7 @@
 
 		<!---Font icons-->
 		<link href="assets/plugins/iconfonts/plugin.css" rel="stylesheet" />
-@section('headSection')
+				
+		@section('headSection')
 
-@show
+		@show

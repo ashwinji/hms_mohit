@@ -110,7 +110,7 @@ class OpdController extends Controller
     public function destroy($id)
     {
         opd::where('id',$id)->delete();
-      return back()->with('message','opd data  is deleted successfuly');
+        return back()->with('message','opd data  is deleted successfuly');
     }
     public function datatable()
     {
@@ -122,7 +122,7 @@ class OpdController extends Controller
         $opds = opd::select('id','patientName','regNum','regDate','address','gender','consultant');
         return DataTables::of($opds)->addColumn('action', function($data){
 
-              return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('opd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+        return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('opd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
               
             })       
         

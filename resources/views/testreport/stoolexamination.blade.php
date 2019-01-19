@@ -1,0 +1,1 @@
+stoolexamination.blade.php

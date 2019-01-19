@@ -1,0 +1,1 @@
+bloodexamination.blade.php

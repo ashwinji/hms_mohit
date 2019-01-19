@@ -15,52 +15,53 @@
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel2">Enter Project Details</h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">×</span>
-  </button>
+      <h5 class="modal-title" id="exampleModalLabel2">Enter Project Details</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
 </div>
 <div class="card-body">
-  <form>
-    <div class="form-group">
-      <label for="listname">Project name</label>
-      <input type="text" class="form-control" name="listname" id="listname" placeholder="Enter your listname">
-    </div>
-    <div class="form-group">
-      <label for="listname">Backend</label>
-      <select name="Language" id="select-Language" class="form-control custom-select">
-        <option value="ph" data-data="">PHP</option>
-        <option value="aj" data-data="">Angular js</option>
-        <option value="jv" data-data="">Java</option>
-        <option value="nt" data-data="" selected="">.Net</option>
-        <option value="py" data-data="" >Phython</option>
-        <option value="js" data-data="" >Javascript</option>
-        <option value="ui" data-data="" >UI Design</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label >Deadline</label>
-      <input type="Date" name="Date" class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="listname">Team Members</label>
-      <input type="text" class="form-control" name="listname" id="listname2" placeholder="How many Team memebers?">
-    </div>
-    <div class="form-group">
-      <label for="listname">Description</label>
-      <textarea class="form-control" name="example-textarea-input" rows="3" placeholder="text here.."></textarea>
-    </div>
-    <div class="form-group">
-      <label>Add a list item</label>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" name="example-file-input-custom">
-        <label class="custom-file-label">Choose file</label>
-      </div>
-    </div>
-    <div class="form-group text-center">
-      <button type="submit" class="btn btn-block btn-primary">Sign in</button>
-    </div>
-  </form>
+    <form>
+            <div class="form-group">
+                <label for="listname">Project name</label>
+                <input type="text" class="form-control" name="listname" id="listname" placeholder="Enter your listname">
+            </div>
+            <div class="form-group">
+                <label for="listname">Backend</label>
+                      <select name="Language" id="select-Language" class="form-control custom-select">
+                            <option value="ph" data-data="">PHP</option>
+                            <option value="aj" data-data="">Angular js</option>
+                            <option value="jv" data-data="">Java</option>
+                            <option value="nt" data-data="" selected="">.Net</option>
+                            <option value="py" data-data="" >Phython</option>
+                            <option value="js" data-data="" >Javascript</option>
+                            <option value="ui" data-data="" >UI Design</option>
+                      </select>
+            </div>
+
+            <div class="form-group">
+                  <label >Deadline</label>
+                  <input type="Date" name="Date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="listname">Team Members</label>
+                <input type="text" class="form-control" name="listname" id="listname2" placeholder="How many Team memebers?">
+            </div>
+            <div class="form-group">
+                <label for="listname">Description</label>
+                <textarea class="form-control" name="example-textarea-input" rows="3" placeholder="text here.."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Add a list item</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="example-file-input-custom">
+                    <label class="custom-file-label">Choose file</label>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                 <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+            </div>
+    </form>
 </div>
 </div>
 </div>

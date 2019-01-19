@@ -69,7 +69,7 @@
                              </div>
                              <div class="col-sm-3">
                                      <div class="form-group">
-                                             {!! Form::text('ipdDate', '', ['class' => 'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD date']) !!}
+                                             {!! Form::date('ipdDate', '', ['class' => 'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD date']) !!}
                                      </div>
                              </div>
                            </div>

@@ -1,0 +1,1 @@
+generalblood.blade.php
