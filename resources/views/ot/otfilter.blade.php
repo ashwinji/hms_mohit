@@ -50,7 +50,13 @@
         });
     </script>
     <script type="text/javascript">
+    $('.deleteotRecord').on('click', function () {
+        return confirm('Are you sure?');
+    });
+</script>
+    <script type="text/javascript">
         $(".deleteotRecord").click(function(){
+            
     var id = $(this).data("id");
     var token = $("meta[name='csrf-token']").attr("content");
    

@@ -109,11 +109,9 @@ class OtController extends Controller
     public function destroy($id)
     {
          ot::find($id)->delete($id);
-         return 'success';
-
-          // return response()->json([
-          // 'success' => 'Record deleted successfully!'
-    // ]);
+         return response()->json([
+           'success' => 'Record deleted successfully!'
+     ]);
     }
     public function datatable()
     {
