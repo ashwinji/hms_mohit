@@ -4,24 +4,28 @@
 @endsection
 @section('main-content')
 <body>
-    @include('verror.error')
-    <div class="container col-lg-12">
-          <table id="ipduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-info" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>opdno</th>
-                    <th>ipdno</th>
-                    <th>ipdDate</th>
-                    <th>wardno</th>
-                    <th>bedno</th>
-                    <th>Consultant</th>
-                    <th>Action</th>
-                    
-            </thead>
-          </table>
-    </div>
+     <div class="page">
+        <div class="row">
+            @include('verror.error')
+            <div class="container col-lg-12">
+                  <table id="ipduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>opdno</th>
+                            <th>ipdno</th>
+                            <th>ipdDate</th>
+                            <th>wardno</th>
+                            <th>bedno</th>
+                            <th>Consultant</th>
+                            <th>Action</th>
+                            
+                    </thead>
+                  </table>
+            </div>
+        </div>
+</div>
 </body>
 @endsection
 

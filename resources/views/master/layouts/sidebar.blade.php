@@ -37,39 +37,39 @@
           </a>
           <ul class="slide-menu">
               <li>
-                <a href="" class="slide-item">Blood Examination</a>
+                <a href="{{ route('blood-create') }}" class="slide-item">Blood Examination</a>
               </li>
               <li>
-                <a href="" class="slide-item">General Blood</a>
+                <a href="{{ route('generalblood-create') }}" class="slide-item">General Blood</a>
               </li>
               <li>
-                <a href="" class="slide-item">Semen Exaination</a>
+                <a href="{{ route('semen-create') }}" class="slide-item">Semen Exaination</a>
               </li>
               <li>
-                <a href="" class="slide-item">Serun of widal</a>
+                <a href="{{ route('serun-create') }}" class="slide-item">Serun of widal</a>
               </li>
               <li>
-                <a href="" class="slide-item">Stool Examination </a>
+                <a href="{{ route('stool-create') }}" class="slide-item">Stool Examination </a>
               </li>
               <li>
-                <a href="" class="slide-item">Urin Examination</a>
+                <a href="{{ route('urine-create') }}" class="slide-item">Urin Examination</a>
               </li>
               <li>
-                <a href="" class="slide-item">X-Ray</a>
+                <a href="{{ route('xray-create') }}" class="slide-item">X-Ray</a>
               </li>
               <li>
-                <a href="" class="slide-item">ECG</a>
+                <a href="{{ route('ecg-create') }}" class="slide-item">ECG</a>
               </li>
           </ul>
       </li>
       <li>
-        <a href=" " class="slide-item">
+        <a href="{{ route('physiotherpy-create') }} " class="slide-item">
           <i class="side-menu__icon fa fa-list"></i>
         <span class="side-menu__label">Physiotherpy</span>
         </a>
     </li>
     <li>
-      <a href=" " class="slide-item">
+      <a href="{{ route('yoga-create') }} " class="slide-item">
         <i class="side-menu__icon fa fa-list"></i>
       <span class="side-menu__label">Yoga</span>
       </a>

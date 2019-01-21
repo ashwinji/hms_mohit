@@ -39,7 +39,7 @@ class IpdController extends Controller
     {
         $this->validate($request,[
            
-
+          'patientId'=>'required'
         
         ]);
         $ipd=ipd::create($request->all());

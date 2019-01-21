@@ -5,11 +5,11 @@
         <div class="col-lg-11">
             <div class="card">
                  <div class="card-header">
-                      <h3 class="mb-0 card-title">OT - NEW PATIENT REGISTRATION</h3>
+                      <h3 class="mb-0 card-title">YOGA EXAMINATION</h3>
                       <div class="card-body">
                       <div class="btn-list" style="float: right;">
                         
-                        <a href="{{route('ot-filter')}}" class="btn btn-xs btn-success">Show / Search Old OT Patients </a>
+                        <a href="#" class="btn btn-xs btn-success">Show Yoga Examination Patient List</a>
                         
                       </div>
 
@@ -17,7 +17,7 @@
                     </div>
                 <div class="card-body">
                 @include('verror.error')
-                  {!! Form::open(array('route' => 'ot.store','files'=>'true','class'=>'fixed','id'=>'profile-form','autocomplete'=>'off')) !!}
+                  {!! Form::open(array('route' => 'yoga.store','files'=>'true','class'=>'fixed','id'=>'profile-form','autocomplete'=>'off')) !!}
                         <div class="col-md-12">
                            <div class="row">
 
@@ -109,166 +109,100 @@
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-                                                  {!! Form::text('address', '', ['class' => 'form-control','id'=>'address']) !!}
+                                                  {!! Form::text('address', '', ['class' => 'form-control','id'=>'address','placeholder'=>'address']) !!}
+                                          </div>
+                                  </div>
+                             </div>
+                               <div class="row">
+                                  <div class="col-md-offset-3 col-sm-2">
+                                          <div class="form-group">
+                                                  {!! Form::label('address', 'Reffered By:*') !!}
+                                          </div>
+                                  </div>
+                                  <div class="col-sm-8">
+                                          <div class="form-group">
+                                                  {!! Form::text('refferedby', '', ['class' => 'form-control','id'=>'refferedby','placeholder'=>'RefferedBY']) !!}
                                           </div>
                                   </div>
                              </div>
                              <div class="row">
                                   <div class="col-md-offset-3 col-sm-2">
                                           <div class="form-group">
-                                                  {!! Form::label('otDate', 'Ot Date:*') !!}
+                                                  {!! Form::label('otDate', 'Test Date:*') !!}
                                           </div>
                                   </div>
                                   <div class="col-sm-3">
                                           <div class="form-group">
-                                                  {!! Form::date('otDate', '', ['class' => 'form-control','id'=>'otDate','name'=>'otDate']) !!}
+                                                  {!! Form::date('testDate', '', ['class' => 'form-control','id'=>'otDate','name'=>'testDate']) !!}
                                           </div>
                                   </div>
                              </div>
                              <div class="row">
                                   <div class="col-md-offset-3 col-sm-2">
                                           <div class="form-group">
-                                                  {!! Form::label('diagnosis', 'Diagnosis:*') !!}
-                                          </div>
-                                  </div>
-                                  <div class="col-sm-8">
-                                          <div class="form-group">
-                                                {!! Form::textarea('diagnosis',null,['class'=>'form-control', 'id'=>'diagnosis','name'=>'diagnosis','rows' => 3, 'cols' => 40,'placeholder'=>'diagnosis']) !!}
-                                          </div>
-                                  </div>
-                             </div>
-                             <div class="row">
-                                  <div class="col-md-offset-3 col-sm-2">
-                                          <div class="form-group">
-                                                  {!! Form::label('otProcessure', 'OT Processure:*') !!}
-                                          </div>
-                                  </div>
-                                  <div class="col-sm-8">
-                                          <div class="form-group">
-                                                {!! Form::textarea('otProcessure',null,['class'=>'form-control', 'id'=>'otProcessure','name'=>'otProcessure','rows' => 3, 'cols' => 40,'placeholder'=>'otprocessre']) !!}
-                                          </div>
-                                  </div>
-                             </div>
-                             <div class="row">
-                                  <div class="col-md-offset-3 col-sm-2">
-                                          <div class="form-group">
-                                                  {!! Form::label('Consultant', 'Consultant:*') !!}
+                                                  {!! Form::label('diagnosis', 'Disease diagnosis:*') !!}
                                           </div>
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
 
-                                                  {!! Form::select('Consultant',
+                                                  {!! Form::select('diagnosis',
                                                   array(
-                                                      '' => '----Select Consultant----',
-                                                      'Medicine' => 'Medicine',
-                                                      'Surgery' => 'Surgery',
-                                                      'Obs / Gyne' => 'Obs / Gyne',
-                                                      'Pediatric' => 'Pediatric',
+                                                      '' => '----Select diagnosis----',
+                                                      'Arthrits' => 'Arthrits',
+                                                      'Backache&amp Stiffness' => 'Backache&amp Stiffness',
+                                                      'Bodyache' => 'Bodyache',
+                                                      'Knee Joint Pain' => 'Knee Joint Pain',
+                                                      'Cervical  Pain' => 'Cervical  Pain',
                                                       'Others' => 'Others'
                                                       ),
                                                        'S',
-                                                      ['class' => 'form-control','id'=>'consultant','name'=>'consultant'])
+                                                      ['class' => 'form-control','id'=>'consultant','name'=>'diagnosis'])
                                                   !!}
                                           </div>
                                   </div>
                               </div>
-                              <div class="row">
+                             
+                               <div class="row">
                                       <div class="col-md-offset-3 col-sm-2">
                                               <div class="form-group">
-                                                      {!! Form::label('otherConsultant', 'Other Consultant') !!}
+                                                      {!! Form::label('advicedTherapy', 'Adviced Therapy') !!}
                                               </div>
                                       </div>
                                       <div class="col-sm-8">
                                               <div class="form-group">
-                                                      {!! Form::text('otherConsultant', '', ['class' => 'form-control','id'=>'otherConsultant','name'=>'otherConsultant']) !!}
+                                                      {!! Form::text('advicedTherapy', '', ['class' => 'form-control','id'=>'otherConsultant','placeholder'=>'Adviced Therapy','name'=>'advicedTherapy']) !!}
                                               </div>
                                       </div>
-                              </div>
-                              <div class="row">
-                                   <div class="col-md-offset-3 col-sm-2">
-                                           <div class="form-group">
-                                                   {!! Form::label('adviceTreatment', 'advice & Treatment:*') !!}
-                                           </div>
-                                   </div>
-                                   <div class="col-sm-8">
-                                           <div class="form-group">
-                                                 {!! Form::textarea('adviceTreatment',null,['class'=>'form-control', 'id'=>'adviceTreatment','name'=>'adviceTreatment','rows' => 3, 'cols' => 40,'placeholder'=>'adviceTreatment']) !!}
-                                           </div>
-                                   </div>
                               </div>
                               <div class="row">
                                       <div class="col-md-offset-3 col-sm-2">
                                               <div class="form-group">
-                                                      {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">1</span>',[],false) !!}
+                                                      {!! Form::label('exersize', 'Exersize') !!}
                                               </div>
                                       </div>
                                       <div class="col-sm-8">
                                               <div class="form-group">
-
-                                                      {!! Form::select('medicine1',
-                                                      array(
-                                                          '' => '-- Select Medicine --',
-                                                          'Medicine' => 'Medicine',
-                                                          'Surgery' => 'Surgery',
-                                                          'Obs / Gyne' => 'Obs / Gyne',
-                                                          'Pediatric' => 'Pediatric',
-                                                          'Others' => 'Others',
-                                                          ),
-                                                          'S',
-                                                          ['class' => 'form-control','id'=>'medicine1','name'=>'medicine1'])
-                                                      !!}
+                                                      {!! Form::text('exersize', '', ['class' => 'form-control','id'=>'exersize','name'=>'exersize','placeholder'=>'exersize']) !!}
                                               </div>
                                       </div>
-                                  </div>
-                                  <div class="row">
-                                          <div class="col-md-offset-3 col-sm-2">
-                                                  <div class="form-group">
-                                                          {!! Form::label('medicine2', 'Medicine<span class="badge badge-danger control-label">2</span>',[],false) !!}
-                                                  </div>
-                                          </div>
-                                          <div class="col-sm-8">
-                                                  <div class="form-group">
-
-                                                          {!! Form::select('medicine1',
-                                                          array(
-                                                              '' => '-- Select Medicine --',
-                                                              'Medicine' => 'Medicine',
-                                                              'Surgery' => 'Surgery',
-                                                              'Obs / Gyne' => 'Obs / Gyne',
-                                                              'Pediatric' => 'Pediatric',
-                                                              'Others' => 'Others',
-                                                              ),
-                                                              'S',
-                                                              ['class' => 'form-control','id'=>'medicine2','name'=>'medicine2'])
-                                                          !!}
-                                                  </div>
-                                          </div>
+                              </div>
+                            
+                              <div class="row">
+                                      <div class="col-md-offset-3 col-sm-2">
+                                              <div class="form-group">
+                                                      {!! Form::label('other', 'Other') !!}
+                                              </div>
                                       </div>
-                                      <div class="row">
-                                              <div class="col-md-offset-3 col-sm-2">
-                                                      <div class="form-group">
-                                                              {!! Form::label('medicine3', 'Medicine<span class="badge badge-danger control-label">3</span>',[],false) !!}
-                                                      </div>
+                                      <div class="col-sm-8">
+                                              <div class="form-group">
+                                                      {!! Form::text('other', '', ['class' => 'form-control','id'=>'other','name'=>'other','placeholder'=>'other']) !!}
                                               </div>
-                                              <div class="col-sm-8">
-                                                      <div class="form-group">
-
-                                                              {!! Form::select('medicine1',
-                                                              array(
-                                                                  '' => '-- Select Medicine --',
-                                                                  'Medicine' => 'Medicine',
-                                                                  'Surgery' => 'Surgery',
-                                                                  'Obs / Gyne' => 'Obs / Gyne',
-                                                                  'Pediatric' => 'Pediatric',
-                                                                  'Others' => 'Others',
-                                                                  ),
-                                                                  'S',
-                                                                  ['class' => 'form-control','id'=>'medicine3','name'=>'medicine3'])
-                                                              !!}
-                                                      </div>
-                                              </div>
-                                          </div>
+                                      </div>
+                              </div>
+                            
+                             
+                                 
                                           <div class="row">
                                                <div class="col-md-offset-3 col-sm-2">
                                                        <div class="form-group">
@@ -300,66 +234,3 @@
                 </div>
             </div>
 @endsection
-<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-    @push('script')
-
-  <script type="text/javascript">
-        jQuery(document).ready(function(){
-        jQuery('#opdNum').on('keyup',function(){
-         var opd= $(this).val();
-            $('#opdNum').html("");
-            if(opd !='')
-            {
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-
-                    url:"{{ route('ot.fetch') }}",
-                    method:"POST",
-                    data:{query:opd,_token:_token},
-                    success:function(data){
-                      $('#opd-reg-list').fadeIn();
-                      $('#opd-reg-list').html(data);
-                    }
-
-                });
-            }
-        });
-       
-    });
-        $(document).on('click', 'li', function(){  
-       $('#opdNum').val($(this).text()); 
-       var opd=$('#opdNum').val();
-        var _token = $('input[name="_token"]').val();
-        $.ajax({ 
-                    url:"{{ route('ot.fetchSearch') }}",
-                    method:"POST",
-                    data:{query:opd,_token:_token},
-                    success:function(data){
-                    console.log(data);
-                    $('#opdDate').val(data.regDate);
-                    $('#patientName').val(data.patientName);
-                    $('#consultant').val(data.consultant);
-                    $('#otherConsultant').val(data.otherConsultant);
-                    $('#age').val(data.age);
-                    $('#gender').val(data.gender);
-                    $('#address').val(data.address);
-                   // $('#otDate').val(data.otDate);
-                    
-
-
-                    }
-
-                });
-        $('#opd-reg-list').fadeOut();  
-    }); 
-
-         
-    
-
-
-        
-   </script>
-        
-    @endpush

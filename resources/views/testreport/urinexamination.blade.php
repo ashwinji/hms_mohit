@@ -2,17 +2,17 @@
     @section('main-content')
 	<div class="page">
 				<div class="page-main">
-							
+
 							<div class="row">
 								<div class="col-md-12">
 
 									<div class="card">
 										<div class="card-header">
-											 <h3 class="mb-0 card-title">BLOOD EXAMINATION</h3>
+											<h3 class="mb-0 card-title">URINE EXAMINATION</h3>
 											<div class="card-body">
 											<div class="btn-list" style="float: right;">
 												
-												<a href="" class="btn btn-xs btn-success">Show Blood Examination Pateints List</a>
+												<a href="#" class="btn btn-xs btn-success">Show Urine Examination Pateints List</a>
 												
 											</div>
 
@@ -33,7 +33,7 @@
 											<div class="row">
 												
 						<div class="col-md-12">
-							{!! Form::open(['route' => ['blood.store'],'autocomplete'=>'off']) !!}
+							{!! Form::open(['route' => ['urine.store'],'autocomplete'=>'off']) !!}
 
 							{!! csrf_field() !!}
 
@@ -77,7 +77,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::select('referredBy', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control','disabled']) !!}
+	        {!! Form::select('consultant', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control','disabled']) !!}
 							    </div>
 								</div>
 
@@ -85,7 +85,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Investigation Advised') !!}
-	        {!! Form::text('investigationAdvised',  null, ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name',]) !!}
+	        {!! Form::text('patientName',  null, ['class' => 'form-control','placeholder' => 'Enter Investigation Advised','id'=>'opd_name',]) !!}
 							    </div>
 								</div>
 
@@ -94,7 +94,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Test Date') !!}
-	        {!! Form::date('date',  null, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
+	        {!! Form::date('otDate',  null, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
 							    </div>
 								</div>
 								
@@ -102,127 +102,120 @@
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Haemoglobin') !!}
-	        {!! Form::text('haemoglobin',  null, ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+								{!! Form::label('name', 'Sample') !!}
+	        {!! Form::text('sample',  null, ['class' => 'form-control','placeholder' => 'Enter Sample']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Total RBC Count') !!}
-	        {!! Form::text('totalRBCCount',  null, ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
+								{!! Form::label('name', 'Quantity') !!}
+	        {!! Form::text('quantity',  null, ['class' => 'form-control','placeholder' => 'Enter Quantity']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Total WBC Count') !!}
-	        {!! Form::text('totalWBCCount',  null, ['class' => 'form-control','placeholder' => 'Enter Total WBC Count']) !!}
+								{!! Form::label('name', 'Colour') !!}
+	        {!! Form::text('colour',  null, ['class' => 'form-control','placeholder' => 'Enter Colour']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Polymorphs') !!}
-	        {!! Form::text('polymorphs',  null, ['class' => 'form-control','placeholder' => 'Enter Polymorphs']) !!}
+								{!! Form::label('name', 'SP Gravity') !!}
+	        {!! Form::text('spGravity',  null, ['class' => 'form-control','placeholder' => 'Enter SP Gravity']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Lymphocytes') !!}
-	        {!! Form::text('lymphocytes',  null, ['class' => 'form-control','placeholder' => 'Enter Lymphocytes']) !!}
+								{!! Form::label('name', 'Reaction') !!}
+	        {!! Form::text('reaction',  null, ['class' => 'form-control','placeholder' => 'Enter Reaction']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Eosinophils') !!}
-	        {!! Form::text('eosinophils',  null, ['class' => 'form-control','placeholder' => 'Enter Eosinophils']) !!}
+								{!! Form::label('name', 'Albumin') !!}
+	        {!! Form::text('albumin',  null, ['class' => 'form-control','placeholder' => 'Enter Albumin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Monocytes') !!}
-	        {!! Form::text('monocytes',  null, ['class' => 'form-control','placeholder' => 'Enter Monocytes']) !!}
+								{!! Form::label('name', 'Suger') !!}
+	        {!! Form::text('suger',  null, ['class' => 'form-control','placeholder' => 'Enter Suger']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Basophils') !!}
-	        {!! Form::text('basophils',  null, ['class' => 'form-control','placeholder' => 'Enter Basophils']) !!}
+								{!! Form::label('name', 'BileSalts') !!}
+	        {!! Form::text('bileSalts',  null, ['class' => 'form-control','placeholder' => 'Enter BileSalts']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'ERS') !!}
-	        {!! Form::text('ers',  null, ['class' => 'form-control','placeholder' => 'Enter ERS']) !!}
+								{!! Form::label('name', 'Bile Pigments') !!}
+	        {!! Form::text('bilePigments',  null, ['class' => 'form-control','placeholder' => 'Enter Bile Pigments']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Platelet Count') !!}
-	        {!! Form::text('plateletCount',  null, ['class' => 'form-control','placeholder' => 'Enter Platelet Count']) !!}
+								{!! Form::label('name', 'Acetone') !!}
+	        {!! Form::text('acetone',  null, ['class' => 'form-control','placeholder' => 'Enter Acetone']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Reticulocytes') !!}
-	        {!! Form::text('reticulocytes',  null, ['class' => 'form-control','placeholder' => 'Enter Reticulocytes']) !!}
+								{!! Form::label('name', 'Bence Jones Proteins') !!}
+	        {!! Form::text('benceJonesProteins',  null, ['class' => 'form-control','placeholder' => 'Enter Bence Jones Proteins']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'PCV') !!}
-	        {!! Form::text('pcv',  null, ['class' => 'form-control','placeholder' => 'Enter PCV']) !!}
+								{!! Form::label('name', 'Pus Cells') !!}
+	        {!! Form::text('pusCells',  null, ['class' => 'form-control','placeholder' => 'Enter Pus Cells']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'MCV') !!}
-	        {!! Form::text('mcv',  null, ['class' => 'form-control','placeholder' => 'Enter MCV']) !!}
+								{!! Form::label('name', 'Epithellal Cells') !!}
+	        {!! Form::text('epithellalCells',  null, ['class' => 'form-control','placeholder' => 'Enter Epithellal Cells']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'MCH') !!}
-	        {!! Form::text('mch',  null, ['class' => 'form-control','placeholder' => 'Enter MCH']) !!}
+								{!! Form::label('name', 'Crystals') !!}
+	        {!! Form::text('crystals',  null, ['class' => 'form-control','placeholder' => 'Enter Crystals']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'MCHC') !!}
-	        {!! Form::text('mchc',  null, ['class' => 'form-control','placeholder' => 'Enter MCHC']) !!}
+								{!! Form::label('name', 'RBS') !!}
+	        {!! Form::text('rbs',  null, ['class' => 'form-control','placeholder' => 'Enter RBS']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Bleeding Time') !!}
-	        {!! Form::text('bleedingTime',  null, ['class' => 'form-control','placeholder' => 'Enter Bleeding Time']) !!}
+								{!! Form::label('name', 'Bacteria') !!}
+	        {!! Form::text('bacteria',  null, ['class' => 'form-control','placeholder' => 'Enter Bacteria']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
-								{!! Form::label('name', 'Clotting Time') !!}
-	        {!! Form::text('clottingTime',  null, ['class' => 'form-control','placeholder' => 'Enter Clotting Time']) !!}
-							    </div>
-								</div>
-								<div class="col-md-6">
-								<div class="form-group">
-								
-								{!! Form::label('name', 'Malarial Parasite') !!}
-	        {!! Form::text('malarialParasite',  null, ['class' => 'form-control','placeholder' => 'Enter Malarial Parasite']) !!}
+								{!! Form::label('name', 'Cast') !!}
+	        {!! Form::text('cast',  null, ['class' => 'form-control','placeholder' => 'Enter Cast']) !!}
 							    </div>
 								</div>
 
@@ -230,7 +223,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('remark',  null, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('others',  null, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
 							    </div>
 								</div>
 
@@ -270,5 +263,6 @@
 	</div>
 
 	</div>
+
 
 	@endsection

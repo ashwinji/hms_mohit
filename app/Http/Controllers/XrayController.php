@@ -24,7 +24,7 @@ class XrayController extends Controller
      */
     public function create()
     {
-        //
+       return view('testreport.xray');
     }
 
     /**

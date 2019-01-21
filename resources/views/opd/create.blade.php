@@ -1,13 +1,19 @@
 @extends('master.layouts.app')
 @section('main-content')
-    <div class="container" style="width: 1175px;">
+    <div class="page">
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="card-title btn btn-pill btn-success">OPD - NEW PATIENT REGISTRATION</h6>
-                        <a href="{{route('opd-filter')}}"><h6 class="pull-right card-title btn btn-pill btn-default" style="margin-left: 400px; background-color:#5ed84f;color:white;"><i class="fa fa-list"></i>  SHOW/SEARCH OLD PATIENT</h6></a>
+                      <h3 class="mb-0 card-title">OPD - NEW PATIENT REGISTRATION</h3>
+                      <div class="card-body">
+                      <div class="btn-list" style="float: right;">
+                        
+                        <a href="{{route('opd-filter')}}" class="btn btn-xs btn-success">Show / Search Old Opd Patients </a>
+                        
+                      </div>
 
+                  </div>
                     </div>
                     <div class="card-body">
                      @include('verror.error')

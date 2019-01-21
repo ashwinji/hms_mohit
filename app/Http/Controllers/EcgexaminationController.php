@@ -24,7 +24,7 @@ class EcgexaminationController extends Controller
      */
     public function create()
     {
-        //
+        return view('testreport.ecg');
     }
 
     /**

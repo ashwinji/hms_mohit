@@ -5,25 +5,29 @@
 @section('main-content')
 <body>
      @include('verror.error')
-     
-    <div class="container col-lg-12" >
-
-          <table id="opduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-info " style="width:100%">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>RegNUM</th>
-                    <th>Date</th>
-                    <th>Address</th>
-                    <th>Gender</th>
-                    <th>Consultant</th>
-                    <th>Action</th>
-                </tr>   
-            </thead>
-          </table>
-    </div>
+     <div class="page">
+        <div class="row">
+            <div class="container col-lg-12" >
+                 
+                  <table id="opduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success " style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>RegNUM</th>
+                            <th>Date</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Consultant</th>
+                            <th>Action</th>
+                        </tr>   
+                    </thead>
+                  </table>
+            </div>
+        </div>
+</div>
 </body>
+
 @endsection
 
 @section('footerSection')
