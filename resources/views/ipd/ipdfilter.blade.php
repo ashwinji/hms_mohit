@@ -20,12 +20,12 @@
                             <th>bedno</th>
                             <th>Consultant</th>
                             <th>Action</th>
-                            
+                        </tr>    
                     </thead>
                   </table>
             </div>
         </div>
-</div>
+  </div>
 </body>
 @endsection
 
@@ -34,6 +34,7 @@
         <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
         <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
         <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             oTable = $('#ipduser').DataTable({
@@ -57,4 +58,5 @@
             });
         });
     </script>
+    
 @endsection

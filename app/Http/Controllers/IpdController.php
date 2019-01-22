@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\model\ipd;
 use Illuminate\Http\Request;
 use DB;

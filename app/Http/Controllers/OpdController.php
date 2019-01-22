@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\model\opd;
 use App\model\ipd;
 use App\model\ot;
@@ -83,10 +82,9 @@ class OpdController extends Controller
      * @param  \App\opd  $opd
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $opd=opd::where('id',$id)->first();
-        return view('opd.edit',compact('opd'));
+     return  view('opd.edit');
     }
 
     /**
@@ -109,20 +107,31 @@ class OpdController extends Controller
      */
     public function destroy($id)
     {
-        opd::where('id',$id)->delete();
-        return back()->with('message','opd data  is deleted successfuly');
+         opd::find($id)->delete($id);
+         return response()->json([
+           'success' => 'Record deleted successfully!'
+     ]);
     }
+
     public function datatable()
     {
         return view('opd.opdfilter');
     }
+
     public function getOpd()
     {
         $data=opd::all();
         $opds = opd::select('id','patientName','regNum','regDate','address','gender','consultant');
         return DataTables::of($opds)->addColumn('action', function($data){
 
-        return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('opd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+       return sprintf('<button class="deleteopdRecord" id="del" data-id="%s">%s</button > 
+                        <button class="editotRecord" id="edit" data-id="%s">%s</button >
+             <a href="%s">%s</a>
+             <a href="%s">%s</a>',
+             $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
+             $data['id'],'<i class="btn btn-danger fa fa-edit editotRecord"></i>',
+             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus createotRecord"></i>',
+             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
               
             })       
         

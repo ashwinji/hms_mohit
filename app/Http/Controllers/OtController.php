@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\ot;
 use App\Model\opd;
 use App\Model\ipd;
@@ -113,11 +112,13 @@ class OtController extends Controller
            'success' => 'Record deleted successfully!'
      ]);
     }
+    
     public function datatable()
     {
         return view('ot.otfilter');
 
     }
+
     public function getOt()
     {
         $data=ot::all();
@@ -126,12 +127,20 @@ class OtController extends Controller
             ->get();
         return DataTables::of($ots)->addColumn('action', function($data){
 
-        return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('ot.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash deleteotRecord"></i>',route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editotRecord"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus createotRecord"></i>',route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+        return sprintf('<button class="deleteotRecord" id="del" data-id="%s">%s</button > 
+                        <button class="editotRecord" id="edit" data-id="%s">%s</button >
+             <a href="%s">%s</a>
+             <a href="%s">%s</a>',
+             $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
+             $data['id'],'<i class="btn btn-danger fa fa-edit editotRecord"></i>',
+             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus createotRecord"></i>',
+             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
               
             })       
         
             ->make(true);
     }
+
     public function fetch(Request $request)
     {
        if($request->get('query')){

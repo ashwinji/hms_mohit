@@ -5,19 +5,17 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="mb-0 card-title">OPD - NEW PATIENT REGISTRATION</h3>
-                      <div class="card-body">
-                      <div class="btn-list" style="float: right;">
-                        
-                        <a href="{{route('opd-filter')}}" class="btn btn-xs btn-success">Show / Search Old Opd Patients </a>
-                        
-                      </div>
-
-                  </div>
+                            <h3 class="mb-0 card-title">OPD - NEW PATIENT REGISTRATION</h3>
+                          <div class="card-body">
+                              <div class="btn-list" style="float: right;">
+                                <a href="{{route('opd-filter')}}" class="btn btn-xs btn-success">Show / Search Old Opd Patients 
+                                </a>
+                              </div>
+                         </div>
                     </div>
                     <div class="card-body">
-                     @include('verror.error')
-                      {!! Form::open(array('route' => 'opd.store','files'=>'true','id'=>'profile-form')) !!}
+                              @include('verror.error')
+                             {!! Form::open(array('route' => 'opd.store','files'=>'true','id'=>'profile-form')) !!}
                             <div class="col-md-12">
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
@@ -26,6 +24,7 @@
                                             </div>
                                     </div>
                                     <div class="col-sm-8">
+
                                             <div class="form-group">
                                                     {!! Form::select('patientTitle',
                                                     array(
@@ -39,60 +38,73 @@
                                                          'S',
                                                         ['class' => 'form-control','id'=>'patientTitle','name'=>'patientTitle'])
                                                     !!}
-
                                             </div>
                                     </div>
                                </div>
+
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
+
                                             <div class="form-group">
                                                     {!! Form::label('Patient Name', 'Patient Name:*') !!}
                                             </div>
                                     </div>
                                     <div class="col-sm-8">
+
                                             <div class="form-group">
                                                     {!! Form::text('patientName', '', ['class' => 'form-control','id'=>'patientName']) !!}
                                             </div>
                                     </div>
                                </div>
+
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
+
                                             <div class="form-group">
                                                     {!! Form::label('regNum', 'Registration Number:*') !!}
                                             </div>
                                     </div>
                                     <div class="col-sm-8">
+
                                             <div class="form-group">
                                                     {!! Form::text('regNum', '', ['class' => 'form-control','id'=>'regNum','name'=>'regNum']) !!}
                                             </div>
                                     </div>
                                </div>
+
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
+
                                             <div class="form-group">
                                                     {!! Form::label('regDate', 'Registration Date:*') !!}
                                             </div>
                                     </div>
                                     <div class="col-sm-8">
+
                                             <div class="form-group">
                                                     {!! Form::date('regDate', '', ['class' => 'form-control','id'=>'regDate','name'=>'regDate']) !!}
                                             </div>
                                     </div>
                                </div>
+
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
+
                                             <div class="form-group">
                                                     {!! Form::label('Address', 'Address:*') !!}
                                             </div>
                                     </div>
                                     <div class="col-sm-8">
+
                                             <div class="form-group">
                                                     {!! Form::text('address', '', ['class' => 'form-control','id'=>'address','name'=>'address']) !!}
                                             </div>
                                     </div>
                                </div>
+
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
+
                                             <div class="form-group">
                                                     {!! Form::label('Age', 'Age:*') !!}
                                             </div>
@@ -103,8 +115,10 @@
                                             </div>
                                     </div>
                                </div>
+
                                <div class="row">
                                     <div class="col-md-offset-3 col-sm-2">
+
                                             <div class="form-group">
                                                     {!! Form::label('Gender', 'Gender:*') !!}
                                             </div>
@@ -124,15 +138,17 @@
                                             </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                      <div class="col-md-offset-3 col-sm-2">
+
                                              <div class="form-group">
                                                      {!! Form::label('Consultant', 'Consultant:*') !!}
                                              </div>
                                      </div>
                                      <div class="col-sm-8">
-                                             <div class="form-group">
 
+                                             <div class="form-group">
                                                      {!! Form::select('Consultant',
                                                      array(
                                                          '' => '----Select Consultant----',
@@ -148,13 +164,16 @@
                                              </div>
                                      </div>
                                  </div>
+
                                         <div class="row">
                                                 <div class="col-md-offset-3 col-sm-2">
+
                                                         <div class="form-group">
                                                                 {!! Form::label('otherConsultant', 'Other Consultant') !!}
                                                         </div>
                                                 </div>
                                                 <div class="col-sm-8">
+
                                                         <div class="form-group">
                                                                 {!! Form::text('otherConsultant', '', ['class' => 'form-control','id'=>'otherConsultant','name'=>'otherConsultant']) !!}
                                                         </div>
@@ -162,13 +181,14 @@
                                         </div>
                                         <div class="row">
                                                 <div class="col-md-offset-3 col-sm-2">
+
                                                         <div class="form-group">
                                                                 {!! Form::label('department', 'Department') !!}
                                                         </div>
                                                 </div>
                                                 <div class="col-sm-8">
-                                                        <div class="form-group">
 
+                                                        <div class="form-group">
                                                                 {!! Form::select('department',
                                                                 array(
                                                                     '' => '-- Select Department Name --',
@@ -186,10 +206,11 @@
                                             </div>
 
 
-                                                   <center >    <button class="btn btn-success" type="submit" >Save</button>
-
-
-                                                            <button class="btn btn-danger" type="reset">Cancel</button>
+                                                   <center >   
+                                                        <button class="btn btn-success" type="submit">Save
+                                                        </button>
+                                                        <button class="btn btn-danger" type="reset">Cancel
+                                                        </button>
 
                                                     </center>
 

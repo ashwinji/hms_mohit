@@ -6,21 +6,20 @@
             <div class="card" >
                 <div class="card-header">
                       <h3 class="mb-0 card-title">IPD - NEW PATIENT REGISTRATION</h3>
-                      <div class="card-body">
+                   <div class="card-body">
                       <div class="btn-list" style="float: right;">
-                        
-                        <a href="{{route('ipd-filter')}}" class="btn btn-xs btn-success">Show / Search Old IPD Patients </a>
-                        
+                            <a href="{{route('ipd-filter')}}" class="btn btn-xs btn-success">Show / Search Old IPD Patients 
+                            </a>
                       </div>
-
                   </div>
-                    </div>
+              </div>
                 <div class="card-body">
-                 @include('verror.error')
-                {!! Form::open(array('route'=>'ipd.store','files'=>'true','id'=>'opd-form','autocomplete'=>'off')) !!}
-                {{ Form::hidden('status', '1') }}
+                         @include('verror.error')
+                        {!! Form::open(array('route'=>'ipd.store','files'=>'true','id'=>'opd-form','autocomplete'=>'off')) !!}
+                        {{ Form::hidden('status', '1') }}
                 <div class="row">
                       <div class="col-md-6">
+
                             <div class="form-group">
                                 {!! Form::label('name', 'OPD Registration Number') !!}
                                 {!! Form::text('patientId',  null, 
@@ -37,6 +36,7 @@
                        </div>
 
                         <div class="col-md-6">
+
                             <div class="form-group">
                                 {!! Form::label('opd', 'OPD Date') !!}
                                 {!! Form::date('opdDate', '',
@@ -48,8 +48,11 @@
                                     'readonly' => 'true',
                                 ]) !!}
                            </div>
+
                         </div>
+
                         <div class="col-md-6">
+
                             <div class="form-group">
                                 {!! Form::label('ipdnum', 'IPD Registration Number') !!}
                                 {!! Form::text('ipdRegNum','',
@@ -60,8 +63,10 @@
 									
                                 ]) !!}
                             </div>
+
                         </div>
                         <div class="col-md-6">
+
                             <div class="form-group">
                                 {!! Form::label('name', 'IPD Registration Date') !!}
                                 {!! Form::date('ipdRegDate','',
@@ -70,8 +75,10 @@
                                         'placeholder' => 'Enter  Registration Date'
                                 ]) !!}
                             </div>
+
                         </div>
                         <div class="col-md-6">
+
                              <div class="form-group">
                                 {!! Form::label('consultant', 'Consultant Name') !!}
                                 
@@ -84,11 +91,13 @@
                                                 'placeholder' => '--Select Consultant Name--'
                                             ])   
                                             
-                                        !!} 
-                                            
+                                        !!}              
                             </div>
+
                         </div>
+
                         <div class="col-md-6">
+
                             <div class="form-group">
                                  {!! Form::label('name', 'Other Consultant') !!}
                                  {!! Form::text('otherConsultant',  null,
@@ -99,8 +108,11 @@
                                     'placeholder' => 'Enter Other Consultant']) 
                                   !!}
                             </div>
+
                         </div>
+
                         <div class="col-md-6">
+
                             <div class="form-group">
                                 {!! Form::label('name', 'Patient Name') !!}
                                 {!! Form::text('patientName','', 
@@ -111,7 +123,9 @@
                                  'readonly' => 'true',
                                 ]) !!}
                             </div>
+
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                  {!! Form::label('name', 'Age') !!}
@@ -124,6 +138,7 @@
                                  ]) !!}
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'S/o') !!}
@@ -151,6 +166,7 @@
                                 !!}
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Gender') !!}
@@ -158,18 +174,21 @@
                             </div>
 
                         </div>
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Address') !!}
                                 {!! Form::textarea('address',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,'id'=>'address','name'=>'address']) !!}
                             </div>
                         </div>
+
                          <div class="col-md-12">
                             <div class="form-group">
                                  {!! Form::label('name', 'Ward Name') !!}
                                  {!! Form::select('wardName', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control','id'=>'wardName','name'=>'wardName']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-12">
                             <div class="form-group">
                                  <div>Bed Number</div>
@@ -198,30 +217,35 @@
                                 </div>
                              </div>
                          </div>
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Date of Discharge') !!}
                                 {!! Form::date('dod',  null, ['class' => 'form-control','id'=>'dod','name'=>'dod','placeholder' => 'Enter Mobile Number']) !!}
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Provisional Diagnosis') !!}
                                 {!! Form::textarea('provisionalDiagnosis',  null, ['class' => 'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Chief Complaints') !!}
                                 {!! Form::textarea('chiefComplaints',  null, ['class' => 'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
+
                         <div class="col-md-12">
                              <div class="form-group">
                                  {!! Form::label('name', 'Past History') !!}
                                  {!! Form::textarea('pastHistory',  null, ['class' => 'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <h3 align="center"> Family History</h3>
                             <div class="form-group">
@@ -229,20 +253,23 @@
                                 {!! Form::textarea('fh_maternal',  null, ['class' => 'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
+
                         <div class="col-md-12 " class="form-control">
                             <div class="form-group">
                                 {!! Form::label('name', 'Paternal') !!}
                                 {!! Form::textarea('fh_paternal',  null, ['class' => 'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
+
                         <div class="col-md-12">
                              <div class="form-group">
                                 {!! Form::label('name', 'Other') !!}
                                 {!! Form::textarea('fh_other',  null, ['class' => 'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                              </div>
                         </div>
+
                         <div class="col-md-12">
-                            <h3 align="left" class="offset-1"> General Examination</h3>
+                              <h3 align="left" class="offset-1"> General Examination</h3>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group ">
@@ -368,6 +395,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="offset-2 col-md-1">
@@ -380,30 +408,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+
+                      <div class="col-md-12">
                              <div class="form-group">
                                 {!! Form::label('name', 'Respiratory System') !!}
                                 {!! Form::textarea('respiratorySystem',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                                 </div>
                         </div>
-                         <div class="col-md-12">
+
+                    <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Gastro - Intestinal System') !!}
                                 {!! Form::textarea('gastroIntestinalSystem',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols'         => 10,]) !!}
                          </div>
                     </div>
+
                          <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Cardio - Vascular System') !!}
                                 {!! Form::textarea('cardioVascularSystem',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols'       => 10,]) !!}
                          </div>
                     </div>
+
                          <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Central Nervous System') !!}
                                 {!! Form::textarea('centralNervousSystem',  null, ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols'       => 10,]) !!}
-                         </div>
-                    </div>
+                           </div>
+                        </div>
 
                          <div class="col-md-12">
                             <div class="form-group">
@@ -418,54 +450,63 @@
                                 {!! Form::select('investigation1', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-12">
                             <div class="form-group">
                                   {!! Form::label('name', 'Investigation<span class="badge badge-success control-label">2</span>',[],false) !!}
                                 {!! Form::select('investigation2', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-12">
                             <div class="form-group">
                                   {!! Form::label('name', 'Investigation<span class="badge badge-success control-label">3</span>',[],false) !!}
                                 {!! Form::select('investigation3', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-6">
                             <div class="form-group">
                                {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">1</span>',[],false) !!}
                                 {!! Form::select('medicine1', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
                                 {!! Form::select('potency1', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-6">
                             <div class="form-group">
                              {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">2</span>',[],false) !!}
                                 {!! Form::select('medicine2', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
                                 {!! Form::select('potency2', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-6">
                             <div class="form-group">
                                {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">3</span>',[],false) !!}
                                 {!! Form::select('medicine3', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                       <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
                                 {!! Form::select('potency3', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
+
                          <div class="col-md-12">
                                 <h3 align="left">Auxiliary Treatment</h3>
                                    <div class="row"> 
@@ -491,6 +532,7 @@
                                             {!! Form::textarea('diet2Text',  null, ['class' => 'form-control','placeholder' => 'Diet 2 Plan Text','rows' => 3, 'cols' => 10,      ]) !!}
                                         </div>
                                      </div>
+
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -503,6 +545,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -515,6 +558,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             {!! Form::label('name', 'Remarks') !!}
@@ -523,6 +567,7 @@
                                     </div>
                                 </div>
                            </div>
+
                             <div class="col-md-6" >
                                 <div class="form-group">
                                   <div style="float: right;">
@@ -530,13 +575,16 @@
                                   </div>
                                 </div>
                             </div>
+
                             <div class="col-md-6" >
                                 <div class="form-group">
                                   <div >
-                                    <a href="#"> <button class="btn btn-primary">Cancel</button></a>
+                                    <a href="#"> <button class="btn btn-primary">Cancel</button>
+                                    </a>
                                   </div>
                                 </div>
                             </div>
+
                        {!! Form::close() !!}
                    </div>
                 </div>
@@ -547,7 +595,9 @@
     @endsection
 <script  src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+      
+</script>
     @push('script')
 
   <script type="text/javascript">
@@ -599,12 +649,7 @@
                 });
         $('#opd-reg-list').fadeOut();  
     }); 
-
-         
-    
-
-
-        
+     
    </script>
         
     @endpush
