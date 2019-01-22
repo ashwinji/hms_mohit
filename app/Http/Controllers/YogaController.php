@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\yoga;
+use App\model\yoga;
 use Illuminate\Http\Request;
 
 class YogaController extends Controller
@@ -24,7 +24,7 @@ class YogaController extends Controller
      */
     public function create()
     {
-        //
+        return view('yoga.create');
     }
 
     /**

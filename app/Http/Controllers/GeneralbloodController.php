@@ -24,7 +24,7 @@ class GeneralbloodController extends Controller
      */
     public function create()
     {
-        //
+         return view('testreport.generalblood');
     }
 
     /**

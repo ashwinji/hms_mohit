@@ -24,7 +24,7 @@ class BloodexaminationController extends Controller
      */
     public function create()
     {
-        //
+        return view('testreport.bloodexamination');
     }
 
     /**

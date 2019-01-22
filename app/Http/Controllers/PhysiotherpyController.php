@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\physiotherpy;
+use App\model\physiotherpy;
 use Illuminate\Http\Request;
 
 class PhysiotherpyController extends Controller
@@ -24,7 +24,7 @@ class PhysiotherpyController extends Controller
      */
     public function create()
     {
-        //
+        return view('physiotherpy.create');
     }
 
     /**
@@ -35,7 +35,14 @@ class PhysiotherpyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+
+
+        ]);
+
+        $physiotherpy=physiotherpy::create($request->all());
+        $physiotherpy->save();
+        return redirect (route('physiotherpy-create'))->with('message','data save sussefully');
     }
 
     /**

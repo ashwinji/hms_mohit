@@ -24,7 +24,7 @@ class StoolexaminationController extends Controller
      */
     public function create()
     {
-        //
+        return view('testreport.stoolexamination');
     }
 
     /**

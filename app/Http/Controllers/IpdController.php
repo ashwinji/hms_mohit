@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\ipd;
 use App\Model\ot;
 use App\Model\opd;
@@ -41,7 +40,7 @@ class IpdController extends Controller
     {
         $this->validate($request,[
            
-
+          'patientId'=>'required'
         
         ]);
         $ipd=ipd::create($request->all());
@@ -70,7 +69,7 @@ class IpdController extends Controller
     public function edit(ipd $ipd)
     {
          $ipd=ipd::where('id',$ipd)->first();
-        return view('ipd.edit',compact('ipd'));
+         return view('ipd.edit',compact('ipd'));
     }
 
     /**
@@ -94,11 +93,11 @@ class IpdController extends Controller
     public function destroy($id)
     {
           ipd::where('id',$id)->delete();
-      return back()->with('message','ipd data  is deleted successfuly');
+          return back()->with('message','ipd data  is deleted successfuly');
     }
         public function datatable()
     {
-        return view('ipd.ipdfilter');
+          return view('ipd.ipdfilter');
     }
     public function getIpd(Request $request)
     {
@@ -107,7 +106,7 @@ class IpdController extends Controller
         $ipds = ipd::select('ipds.id','ipds.ipdRegNum','ipds.ipdRegDate','ipds.wardName','ipds.bedNum','ipds.consultant','opds.RegNum','opds.patientName')
             ->join('opds', 'ipds.patientId', '=', 'opds.regNum')
             ->get();
-             return DataTables::of($ipds)->addColumn('action', function($data){
+              return DataTables::of($ipds)->addColumn('action', function($data){
 
               return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>  ',route('ipd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('ipd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('ipd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
               

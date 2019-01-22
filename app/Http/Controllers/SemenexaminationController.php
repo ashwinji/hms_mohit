@@ -24,7 +24,7 @@ class SemenexaminationController extends Controller
      */
     public function create()
     {
-        //
+        return view('testreport.semenexamination');
     }
 
     /**

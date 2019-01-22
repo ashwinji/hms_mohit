@@ -15,15 +15,15 @@ class CreatePhysiotherpiesTable extends Migration
     {
         Schema::create('physiotherpies', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('patientId');
-          $table->string('referredBy');
-          $table->string('age');
-          $table->text('investigationAdvised');
-          $table->string('phyadate');
-          $table->string('disease');
-          $table->string('therapy');
-          $table->string('other');
-          $table->text('remark');
+          $table->string('patientId')->nullable();
+          $table->string('referredBy')->nullable();
+          $table->string('age')->nullable();
+          $table->text('investigationAdvised')->nullable();
+          $table->string('phyadate')->nullable();
+          $table->string('disease')->nullable();
+          $table->string('therapy')->nullable();
+          $table->string('other')->nullable();
+          $table->text('remark')->nullable();
           $table->timestamps();
         });
     }
