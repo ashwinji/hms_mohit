@@ -8,7 +8,7 @@ class CreateOtsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *v
      * @return void
      */
     public function up()
@@ -21,14 +21,14 @@ class CreateOtsTable extends Migration
             $table->string('ipdRegDate')->nullable();
             $table->string('otDate')->nullable();
             $table->text('dignosis')->nullable();
-            $table->text('otProcessure');
-            $table->string('consultant');
-            $table->string('otherConsultant');
-            $table->text('adviceTreatment');
-            $table->text('medicine1');
-            $table->text('medicine2');
-            $table->text('medicine3');
-            $table->text('remark');
+            $table->text('otProcessure')->nullable();
+            $table->string('consultant')->nullable();
+            $table->string('otherConsultant')->nullable();
+            $table->text('adviceTreatment')->nullable();
+            $table->text('medicine1')->nullable();
+            $table->text('medicine2')->nullable();
+            $table->text('medicine3')->nullable();
+            $table->text('remark')->nullable();
             $table->timestamps('');
         });
     }

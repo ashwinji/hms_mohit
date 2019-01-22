@@ -1,6 +1,6 @@
 @extends('master.layouts.app')
 @section('headSection')
- 
+
 @endsection
 @section('main-content')
 <body>
@@ -18,7 +18,7 @@
             <th>Gender</th>
             <th>Consultant</th>
             <th>Action</th>
-            
+         </tr>   
     </thead>
   </table>
 </div>
@@ -26,14 +26,26 @@
 @endsection
 @section('footerSection')
 <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
-    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+ <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript">    
 $(document).ready(function() {
     oTable = $('#opduser').DataTable({
         "processing": true,
         "serverSide": true,
+
+            dom: 'Bflrtip',
+    buttons: [
+        'print', 'pdf','csv',
+    ],
         "ajax": "{{ route('datatable.getopd') }}",
         "columns": [
             {data: 'id', name: 'id'},

@@ -29,5 +29,4 @@
 
 @stack('script')
 	</body>
-<!-- NRTindex.html by NRT, Mon, 31 Dec 2018 06:26:03 GMT -->
 </html>

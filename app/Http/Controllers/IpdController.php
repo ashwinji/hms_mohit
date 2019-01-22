@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\model\ipd;
+use App\Model\ipd;
+use App\Model\ot;
+use App\Model\opd;
 use Illuminate\Http\Request;
 use DB;
 use Log;

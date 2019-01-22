@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\model\opd;
-use App\model\ipd;
-use App\model\ot;
+use App\Model\opd;
+use App\Model\ipd;
+use App\Model\ot;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -124,7 +124,8 @@ class OpdController extends Controller
 
               return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>',route('opd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('opd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
               
-            })       
+            })  
+                 
         
             ->make(true);
     }
