@@ -22,6 +22,7 @@
                 <td>{{ $data->regDate }}</td>
             </tr>
             <tr>
+            
                 <th>Name </th>
                 <td colspan="3">{{ $data->patientName }} </td>
             </tr>
@@ -51,7 +52,7 @@
 
 
 
-
+<!-- 
     @if(!empty($data->PatientTreatmentDetails))
 
       @foreach($data->PatientTreatmentDetails as $patient)
@@ -122,4 +123,4 @@
            </table>
            @endforeach
       @endif
-        </div>
+        </div> -->

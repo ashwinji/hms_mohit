@@ -2,14 +2,14 @@
 @section('main-content')
 <div class="page">
     <div class="row ">
-        <div class="col-lg-11">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                       <h3 class="mb-0 card-title">PHYSIOTHERPY EXAMINATION</h3>
                       <div class="card-body">
                       <div class="btn-list" style="float: right;">
                         
-                        <a href="#" class="btn btn-xs btn-success">Show Physiotherpy Examination Patient List</a>
+                        <a href="{{route('physiotherpy-filter')}}" class="btn btn-xs btn-success">Show Physiotherpy Examination Patient List</a>
                         
                       </div>
 
@@ -30,8 +30,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                         <div class="form-group">
-                                       {!! Form::text('opdNum', '',['class' => 'form-control','id'=>'opdNum','name'=>'
-                                       ','placeholder'=>'OPD Registration number']) !!}
+                                       {!! Form::text('patientId','',['class' => 'form-control','id'=>'patientId','placeholder'=>'OPD Registration number']) !!}
                                         <div id="opd-reg-list"></div>
                                         </div>
                                 </div>
@@ -221,4 +220,65 @@
                     </div>
                 </div>
             </div>
+@endsection
+@section('footerSection')
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+    
+</script>
+  <script type="text/javascript">
+
+        jQuery(document).ready(function(){
+        jQuery('#opdNum').on('keyup',function(){
+         var opd= $(this).val();
+            $('#opdNum').html("");
+            if(opd !='')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+
+                    url:"{{ route('physiotherpy.fetch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                      $('#opd-reg-list').fadeIn();
+                      $('#opd-reg-list').html(data);
+                    }
+
+                });
+            }
+        });
+       
+    });
+        $(document).on('click', 'li', function(){  
+       $('#opdNum').val($(this).text()); 
+       var opd=$('#opdNum').val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({ 
+                    url:"{{ route('physiotherpy.fetchSearch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                    console.log(data);
+                    $('#opdDate').val(data.regDate);
+                    $('#patientName').val(data.patientName);
+                    $('#consultant').val(data.consultant);
+                    $('#otherConsultant').val(data.otherConsultant);
+                    $('#age').val(data.age);
+                    $('#gender').val(data.gender);
+                    $('#address').val(data.address);
+                   // $('#otDate').val(data.otDate);
+                    
+
+
+                    }
+
+                });
+        $('#opd-reg-list').fadeOut();  
+    }); 
+        
+   </script>
+        
+
 @endsection

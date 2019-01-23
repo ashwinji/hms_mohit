@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\model\physiotherpy;
+use App\Model\opd;
+use App\Model\ipd;
+use App\Model\ot;
+use App\Model\physiotherpy;
+use DataTables;
+use DB;
 use Illuminate\Http\Request;
 
 class PhysiotherpyController extends Controller
@@ -35,6 +39,7 @@ class PhysiotherpyController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $this->validate($request,[
 
 
@@ -89,4 +94,65 @@ class PhysiotherpyController extends Controller
     {
         //
     }
+    public function getphysco(Request $request)
+    {
+         $data=physiotherpy::all();
+         $physiotherpy=physiotherpy::select('physiotherpies.id','physiotherpies.referredBy','physiotherpies.phyadate','opds.RegNum','opds.patientName')
+            ->join('opds', 'physiotherpies.patientId', '=', 'opds.regNum')
+            ->get();
+              return DataTables::of( $physiotherpy)->addColumn('action', function($data){
+
+              return sprintf('<button class="deleteipdrecord" data-id="%s">%s</button>
+                <button class="viewipdrecord" data-id="%s">%s</button>
+                <button class="addrecord" data-id="%s">%s</button>
+                <button class="editipdrecord" data-id="%s">%s</button>',
+                $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-edit"></i>');
+              
+            })        
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('physiotherpy.physcofilter');
+    }
+
+    public function fetch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum', 'LIKE', '%'.$query.'%')
+            ->get();
+          $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
+          foreach($data as $row)
+          {
+           $output .= '
+           <li><a href="#">'.$row->regNum.'</a></li>
+           ';
+          }
+          $output .= '</ul>';
+          echo $output;
+     }
+    }
+
+    public function fetchSearch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum',$query)
+            ->first();
+
+            return response()->json($data);
+         
+     }
+    }
+    
+
+    
 }

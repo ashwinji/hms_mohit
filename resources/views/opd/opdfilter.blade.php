@@ -25,7 +25,26 @@
             </div>
        </div>
     </div>
-
+<div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+                <div class="modal-dialog modal-lg " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="largemodal1">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="add">
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 @endsection
 
@@ -41,7 +60,13 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript">    
+<script type="text/javascript"
+ src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css"> 
+
+<script type="text/javascript">
+
 $(document).ready(function() {
     oTable = $('#opduser').DataTable({
         "processing": true,
@@ -67,9 +92,9 @@ $(document).ready(function() {
                });
         });
     </script>
-   
+
 <script type="text/javascript">
-    $(document).on('click',".deleteopdRecord",function(e){debugger
+    $(document).on('click',".deleteopdRecord",function(e){
        if(!confirm('Are you sure?')){
             e.preventDefault();
             return false;
@@ -93,7 +118,7 @@ $(document).ready(function() {
            $('#opduser').DataTable().ajax.reload();
         },
         error: function (data) {
-                     alert(data);
+                     
                }
     });
     }
@@ -101,5 +126,36 @@ $(document).ready(function() {
 });
    
     </script>
+
+    <script type="text/javascript">
+    $(document).on('click',".viewRecord",function(e){
+       var id=$(this).data('id');
+       var token = $("meta[name='csrf-token']").attr("content");
+       
+       $.ajax(
+    {
+        url: '{{route("opd-show")}}',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: id,
+            _token: token,
+        },
+        success:function (res){
+        
+           if(res.status==true){
+            $('#add').html(res.html);
+            $("#largemodal").modal('show');
+           }
+        },
+        error: function (data) {
+                     
+               }
+    });
+    
+  });
+   
+    </script>
+    
 
 @endsection

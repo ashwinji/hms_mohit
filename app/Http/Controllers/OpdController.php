@@ -71,9 +71,20 @@ class OpdController extends Controller
      * @param  \App\opd  $opd
      * @return \Illuminate\Http\Response
      */
-    public function show(opd $opd)
+    public function show(Request $request )
     {
-        //
+        $id=$request->id;
+        $data=opd::where('id','=',$id)->first();
+        $content=\View::make('opd.opdtreatment',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
+    }
+    public function addtreatment()
+    {
+
     }
 
     /**
@@ -107,8 +118,9 @@ class OpdController extends Controller
      */
     public function destroy($id)
     {
-         opd::find($id)->delete($id);
-         return response()->json([
+       
+         opd::where('id',$id)->delete();
+            return response()->json([
            'success' => 'Record deleted successfully!'
      ]);
     }
@@ -125,13 +137,13 @@ class OpdController extends Controller
         return DataTables::of($opds)->addColumn('action', function($data){
 
        return sprintf('<button class="deleteopdRecord" id="del" data-id="%s">%s</button > 
-                        <button class="editotRecord" id="edit" data-id="%s">%s</button >
-             <a href="%s">%s</a>
-             <a href="%s">%s</a>',
+                        <button class="viewRecord" id="view" data-id="%s">%s</button >
+                        <button class="addRecord" id="" data-id="%s">%s</button >
+                         <button class="editRecord" id="" data-id="%s">%s</button >',
              $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-edit editotRecord"></i>',
-             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus createotRecord"></i>',
-             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+             $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
+             $data['id'],'<i class="btn btn-danger fa fa-plus "></i>',
+             $data['id'],'<i class="btn btn-danger fa fa-edit"></i>');
               
             })  
                  

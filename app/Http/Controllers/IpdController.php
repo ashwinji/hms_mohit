@@ -93,7 +93,9 @@ class IpdController extends Controller
     public function destroy($id)
     {
           ipd::where('id',$id)->delete();
-          return back()->with('message','ipd data  is deleted successfuly');
+          return response()->json([
+           'success' => 'Record deleted successfully!'
+          ]);
     }
         public function datatable()
     {
@@ -108,7 +110,14 @@ class IpdController extends Controller
             ->get();
               return DataTables::of($ipds)->addColumn('action', function($data){
 
-              return sprintf('<a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a> <a href="%s">%s</a>  ',route('ipd.delete',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-trash"></i>',route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',route('ipd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus"></i>',route('ipd-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+              return sprintf('<button class="deleteipdrecord" data-id="%s">%s</button>
+                <button class="viewipdrecord" data-id="%s">%s</button>
+                <button class="addrecord" data-id="%s">%s</button>
+                <button class="editipdrecord" data-id="%s">%s</button>',
+                $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-edit"></i>');
               
             })        
             ->make(true);

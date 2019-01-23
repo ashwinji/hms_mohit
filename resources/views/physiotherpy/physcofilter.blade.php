@@ -8,17 +8,15 @@
         <div class="row">
             @include('verror.error')
             <div class="container col-lg-12">
-                  <table id="ipduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success" style="width:100%">
+                  <table id="physcouser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>opdno</th>
-                            <th>ipdno</th>
-                            <th>ipdDate</th>
-                            <th>wardno</th>
-                            <th>bedno</th>
-                            <th>Consultant</th>
+                            <th>opdReg</th>
+                            <th>RegDate</th>
+                            <th>Reffered by</th>
+                            <th>TestDate</th>
                             <th>Action</th>
                         </tr>    
                     </thead>
@@ -59,60 +57,24 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            oTable = $('#ipduser').DataTable({
+            oTable = $('#physcouser').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "{{ route('getipd') }}",
+                "ajax": "{{ route('getphysco') }}",
                 "columns": [
                     {data: 'id', name: 'id'},
                     {data: 'patientName', name: 'patientName'},
-                    {data: 'RegNum', name: 'RegNum'},
-                    {data: 'ipdRegNum', name: 'ipdRegNum'},
-                    {data: 'ipdRegDate', name: 'ipdRegDate'},
-                    {data: 'wardName', name: 'wardName'},
-                    {data: 'bedNum', name: 'bedNum'},
-                    {data: 'consultant', name: 'consultant'},
+                    {data: 'regNum', name: 'regNum'},
+                    {data:  'regDate',name:'regDate'},           
+                    {data:'referredBy',name:'referredBy'},
+                    {data:'phyadate',name:'phyadate'},
                     {data: 'action', name: 'action'},
                
-                
-                
-                ]
-            });
+                 ]
+               });
         });
     </script>
 
-    <script type="text/javascript">
-    $(document).on('click',".deleteipdrecord",function(e){
-       if(!confirm('Are you sure?')){
-            e.preventDefault();
-            return false;
-        }
-        var a= true;
-    if(a==true)
-    {
-        var id = $(this).data("id");
-    var token = $("meta[name='csrf-token']").attr("content");
-   
-    $.ajax(
-    {
-        url: "delete1/"+id,
-        type: 'DELETE',
-        dataType: 'json',
-        data: {
-            id: id,
-            _token: token,
-        },
-        success: function (res){
-           $('#ipduser').DataTable().ajax.reload();
-        },
-        error: function (data) {
-                     
-               }
-    });
-    }
-   
-});
-   
-    </script>
+  
     
 @endsection
