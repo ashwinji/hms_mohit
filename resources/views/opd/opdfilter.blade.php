@@ -45,6 +45,27 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="largemodalt" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+                <div class="modal-dialog modal-lg " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="largemodal1">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="addtreatment">
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                             <button type="button" id="at"class="btn btn-secondary pull-left" data-dismiss="modal">Submit</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 @endsection
 
@@ -154,6 +175,68 @@ $(document).ready(function() {
     });
     
   });
+        //<script type="text/javascript">
+    $(document).on('click',".addRecord",function(e){
+       var id=$(this).data('id');
+       var token = $("meta[name='csrf-token']").attr("content");
+       
+       $.ajax(
+    {
+        url: '{{route("opd-add")}}',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: id,
+            _token: token,
+        },
+        success:function (res){
+        
+           if(res.status==true){
+            $('#addtreatment').html(res.html);
+            $("#largemodalt").modal('show');
+           }
+        },
+        error: function (data) {
+                     
+               }
+    });
+    
+  });
+    $(document).on('click',"#at",function(e){debugger
+     var token = $("meta[name='csrf-token']").attr("content");
+     alert();
+     var pId=$('#patientId').val();
+     var cId=$('#id-complaint').val();
+     var rDate=$('#regDate').val();
+     var  t   =$('#treatment').val();
+$.ajax(
+  {
+     url: '{{route("opdt.store")}}',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            pId: pId,
+            cId:cId,
+            rDate:rDate,
+            t:t ,
+       _token: token,
+        },
+        success:function (res){
+        
+           if(res.status==true){
+            $('#addtreatment').html(res.html);
+            $("#largemodalt").modal('show');
+           }
+        },
+        error: function (data) {
+                     
+               }
+    });
+
+    });
+   
+    </script>
+
    
     </script>
     

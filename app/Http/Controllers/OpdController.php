@@ -82,9 +82,16 @@ class OpdController extends Controller
         'html'=>$a,
       ]);
     }
-    public function addtreatment()
+    public function addtreatment(Request $request)
     {
-
+         $id=$request->id;
+         $data=opd::where('id','=',$id)->first();
+         $content=\View::make('opd.opdaddtreatment',compact('data'));
+         $b=$content->render();
+         return response()->json([
+           'status'=>true,
+           'html'=>$b,
+         ]);
     }
 
     /**

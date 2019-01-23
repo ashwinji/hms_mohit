@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\opdtreatments;
+use App\Model\opds;
+use App\Model\ipds;
+use App\Model\ots;
+use App\Model\opdtreatments;
 use Illuminate\Http\Request;
 
 class OpdtreatmentsController extends Controller
@@ -35,7 +37,13 @@ class OpdtreatmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $opdtreatments=new opdtreatments;
+        $opdtreatments->patientId=$request->pId;
+         $opdtreatments->complaint=$request->cId;
+          //$opdtreatments->patientTitle=$request->rDate;
+           $opdtreatments->treatment=$request->t;
+           $opdtreatments->save();
+
     }
 
     /**
