@@ -34,11 +34,17 @@
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <div id="add">
-                                
+                        <div class="page">
+                            <div class="col-lg-12">
+                                <div class="row">
+                            <div class="modal-body">
+                                <div id="add">
+                                    
+                                </div>
                             </div>
                         </div>
+                    </div>
+                      </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
@@ -49,7 +55,7 @@
                 <div class="modal-dialog modal-lg " role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="largemodal1">Modal title</h5>
+                            <h5 class="modal-title" id="largemodal1"> model title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -60,7 +66,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                             <button type="button" id="at"class="btn btn-secondary pull-left" data-dismiss="modal">Submit</button>
+                             <button type="button" id="at"class="btn btn-success pull-left" data-dismiss="modal">Submit</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -175,7 +181,9 @@ $(document).ready(function() {
     });
     
   });
-        //<script type="text/javascript">
+        </script>
+
+        <script type="text/javascript">
     $(document).on('click',".addRecord",function(e){
        var id=$(this).data('id');
        var token = $("meta[name='csrf-token']").attr("content");
@@ -202,24 +210,46 @@ $(document).ready(function() {
     });
     
   });
+     </script>
+
+     <script type="text/javascript">
     $(document).on('click',"#at",function(e){debugger
      var token = $("meta[name='csrf-token']").attr("content");
      alert();
-     var pId=$('#patientId').val();
-     var cId=$('#id-complaint').val();
-     var rDate=$('#regDate').val();
-     var  t   =$('#treatment').val();
+     var patientId=$('#patientId').val();
+     var complaint=$('#id-complaint').val();
+     var regDate=$('#regDate').val();
+     var treatment=$('#treatment').val();
+     var medicine=$('#medicine').val();
+     var potency=$('#potency').val();
+     var nod=$('#nod').val();
+     var advice=$('#advice').val();
+     var remark=$('#remark').val();
+     var myCheckboxes = new Array();
+     $("input:checked").each(function() {
+           myCheckboxes.push($(this).val());
+        });
+     var consultant=$('#consultant').val();
+alert(myCheckboxes);
+
 $.ajax(
   {
      url: '{{route("opdt.store")}}',
         type: 'POST',
         dataType: 'json',
         data: {
-            pId: pId,
-            cId:cId,
-            rDate:rDate,
-            t:t ,
-       _token: token,
+            patientId:patientId,
+            complaint:complaint,
+            regDate:regDate,
+            treatment:treatment ,
+            medicine:medicine,
+            potency:potency,
+            nod:nod,
+            advice:advice,
+            remark:remark,
+            myCheckboxes:myCheckboxes ,
+            consultant:consultant,
+            _token: token,
         },
         success:function (res){
         
@@ -234,9 +264,6 @@ $.ajax(
     });
 
     });
-   
-    </script>
-
    
     </script>
     

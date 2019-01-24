@@ -1,4 +1,7 @@
-<div>
+<div class="page">
+  <div class="row">
+    <div class="col-lg-12">
+<div cmedicineListlass>
 	<style>
   th{
         font-weight: bold;
@@ -84,10 +87,130 @@
 		                    	</div>
 		                    </div>
 	                    </div>
-						<div class="row">
-		                    <div class="col-lg-6">
-	                      	    <div class="form-group ">
-		                          {!! Form::label('name','')!!}
-		                      </div>
-		                  </div>
-		              </div>
+						  <div class="row">
+                        <div class="col-lg-6">
+                              <div class="form-group ">
+                              {!! Form::label('name', 'Medicine ') !!}
+                                    {!! Form::select('medicine',$medicinelist,'' ,
+                                    ['class' => 'form-control',
+                                      'id'=>'medicine',
+                                      'placeholder' => '--Select Medicine--']) !!}
+                            </div>
+                          </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                              {!! Form::label('name', 'Potency') !!}
+                             {!! Form::select('potency1', array(''=>'--Select Potency--','6' => '6', '30' => '30', '200' => '200','1M' => '1M', '10M' => '10M', '50M' => '50M','1X' => '1X','3X' => '3X', '6X' => '6X', '12X' => '12X','Q' => 'Q'),'S', ['class' => 'form-control','id'=>'potency']) !!}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group ">
+                              {!! Form::label('name', 'Number of Days',['class'=>'control-label col-lg-3']) !!}
+                                
+                                {!! Form::text('nod', '',['class'=>'form-control','id'=>'nod','placeholder'=>'Treatment Number of Days']) !!}
+                            </div>
+                        </div>
+            </div>
+                      <div class="col-lg-12">
+                      {!! Form::label('name', 'Investigation 1') !!}
+                        <div class="form-group">
+                               {!! Form::select('advice[]',  array(''=>'--SELECT INVESTIGATION--','BLOOD GROUP & RH TYPE' => 'BLOOD GROUP & RH TYPE', 'BLOOD SUGAR' => 'BLOOD SUGAR', 'BLOOD UREA' => 'BLOOD UREA','BLOOD WIDAL TEST' => 'BLOOD WIDAL TEST','BT/CT' => 'BT/CT','CBC' => 'CBC','CBP' => 'CBP', 'CBP/ESR' => 'CBP/ESR', 'ECG' => 'ECG','ESR' => 'ESR','HUMOGLOBIN (HB%)' => 'HUMOGLOBIN (HB%)','LFT' => 'LFT','PS FOR MP' => 'PS FOR MP', 'RA FACTORE' => 'RA FACTORE', 'REFFERED TO OTHER PATHOLOGY' => 'REFFERED TO OTHER PATHOLOGY','RFT' => 'RFT','SEMEN ANALYSIS' => 'SEMEN ANALYSIS','SERUM BILIRUBIN' => 'SERUM BILIRUBIN','SERUM CALCIUM' => 'SERUM CALCIUM', 'SERUM CREATININE' => 'SERUM CREATININE', 'SERUM URIC ACID' => 'SERUM URIC ACID','STOOL R/M' => 'STOOL R/M','T3 T4 TSH' => 'T3 T4 TSH','TOTAL LIPIDS PROFILE' => 'TOTAL LIPIDS PROFILE', 'URINE FOR BILE SALT / BILE PIGMENT' => 'URINE FOR BILE SALT / BILE PIGMENT','URINE FOR SUGAR/ALBUMIN/KETONE' => 'URINE FOR SUGAR/ALBUMIN/KETONE','URINE R/M' => 'URINE R/M','X-RAY ' => 'X-RAY ',),'S', ['class' => 'form-control','id'=>'advice',]) !!}
+                          </div>
+                      </div>
+                      
+                      
+                      <div class="form-group">
+                        <div class="col-lg-12">
+                          {!! Form::label('remark', 'Remark') !!}
+                             {!! Form::textarea('remark',  null, ['class' => 'form-control ','placeholder' => 'Enter remark','rows' => 3, 'cols' => 10,'id'=>'remark']) !!}
+                          </div>
+                      </div>
+                      <div class="col-lg-12">
+                      <div class="row">
+                        <div class="form-group">
+                          {!! Form::label('refTo', 'Referred To') !!}
+                          <div class="col-lg-3">
+                          {{--  {!! Form::checkbox('refTo[]', 'OT', ['class' => 'form-control checkbox','id'=>'id-ot']) !!} --}}
+                          <input type="checkbox" name="refTo[]" value="OT" id="id-ot" class="check">
+              
+                           
+                            {!! Form::label('ot', 'OT') !!}
+                          </div>
+                          <div class="col-lg-3">
+                          
+                              
+                  <input type="checkbox" name="refTo[]" value="IPD" id="id-ipd" class="check">
+                           
+                             {!! Form::label('IPD', 'IPD') !!}
+                          </div>
+                          <div class="col-lg-3">
+                            
+                            <input type="checkbox" name="refTo[]" value="PATHOLOGY" id="id-PATHOLOGY" class="check">
+                            {!! Form::label('PATHOLOGY', 'PATHOLOGY') !!}
+                          </div>
+                        </div>
+                        <div class="form-group ">
+                          <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
+                          <div class="col-lg-3">
+                            
+                             <input type="checkbox" name="refTo[]" value="XRay" id="id-XRay" class="check">
+                             {!! Form::label('XRay', 'XRay') !!}
+                          </div>
+
+                          <div class="col-lg-3">
+                            <input type="checkbox" name="refTo[]" value="PHYSIOTHERPHY" id="id-PHYSIOTHERPHY" class="check">
+                             {!! Form::label('PHYSIOTHERPHY', 'PHYSIOTHERPHY') !!}
+                          </div>
+
+                          <div class="col-lg-3">
+                            
+                            
+                            <input type="checkbox" name="refTo[]" value="YOGA" id="id-YOGA" class="check">
+                             {!! Form::label('YOGA', 'YOGA') !!}
+                          </div>
+                        </div>
+                        <div class="form-group ">
+                          <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
+                          <div class="col-lg-3">
+                            
+                            <input type="checkbox" name="refTo[]" value="DISPENSARY" id="id-DISPENSARY" class="check">
+                             {!! Form::label('DISPENSARY', 'DISPENSARY') !!}
+                          </div>
+                          <div class="col-lg-3">
+                             <input type="checkbox" name="refTo[]" value="OTHER HOSPITAL" id="id-OTHERHOSPITAL" class="check">
+                             {!! Form::label('OTHER HOSPITAL', 'OTHER HOSPITAL') !!}
+
+                          </div>
+
+                          <div class="col-lg-3">
+                             <input type="checkbox" name="refTo[]" value="ECG" id="id-ECG" class="check">
+                             {!! Form::label('ECG', 'ECG') !!}
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                        <div class="form-group">
+                        <div class="col-lg-12">
+                         {!! Form::label('consultant', 'IPD Consultant Name',['class' => 'control-label col-lg-3',]) !!}
+                          {!! 
+                                 Form::select('consultant', $docterlist,'',
+                              [
+                                  'class' => 'form-control',
+                                  'id'=>'consultant',
+                                  'placeholder' => '--Select Consultant Name--'
+                              ])   
+                              
+                          !!} 
+                        
+                        </div>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  {!! Form::close() !!}
+                </div>
+              </div>
+            </div>
+   

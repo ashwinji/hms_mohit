@@ -6,11 +6,12 @@
  });
 //opd routes
 Route::get('create','OpdController@create')->name('opd-create');
-Route::post('store','OpdController@store')->name('opd.store');	
+Route::post('opdstore','OpdController@store')->name('opd.store');	
 Route::post('show','OpdController@show')->name('opd-show');
 Route::post('add','OpdController@addtreatment')->name('opd-add');
 Route::DELETE('delete/{id}','OpdController@destroy')->name('opd.delete');
-Route::get('opd-edit','OpdController@edit')->name('opd.edit');
+Route::get('opd/edit/{id}','OpdController@edit')->name('opd.edit');
+Route::PUT('opd/update/{id}','OpdController@update')->name('opd.update');
 Route::get('datatable1', 'OpdController@datatable')->name('opd-filter');
 Route::get('datatable/getopd', 'OpdController@getOpd')->name('datatable.getopd');
 //opd treatement

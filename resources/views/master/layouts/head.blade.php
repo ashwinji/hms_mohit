@@ -15,28 +15,28 @@
 
 		<!-- Title -->
 		<title>Admin Dashboard</title>
-		<link rel="stylesheet" href="assets/fonts/fonts/font-awesome.min.css">
+		<link rel="stylesheet" href="{{asset('assets/fonts/fonts/font-awesome.min.css')}}">
 
 		<!-- Font Family-->
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
 
 		<!-- Dashboard Css -->
-		<link href="assets/css/dashboard.css" rel="stylesheet" />
+		<link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet" />
 
 		<!-- c3.js Charts Plugin -->
-		<link href="assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
+		<link href="{{asset('assets/plugins/charts-c3/c3-chart.css')}}" rel="stylesheet" />
 
 		<!-- Morris.js Charts Plugin -->
-		<link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+		<link href="{{asset('assets/plugins/morris/morris.css')}}" rel="stylesheet" />
 
 		<!-- Custom scroll bar css-->
-		<link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+		<link href="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.css')}}" rel="stylesheet" />
 
 		<!-- Sidemenu Css -->
-		<link href="assets/plugins/toggle-sidebar/sidemenu.css" rel="stylesheet" />
+		<link href="{{asset('assets/plugins/toggle-sidebar/sidemenu.css')}}" rel="stylesheet" />
 
 		<!---Font icons-->
-		<link href="assets/plugins/iconfonts/plugin.css" rel="stylesheet" />
+		<link href="{{asset('assets/plugins/iconfonts/plugin.css')}}" rel="stylesheet" />
 				
 		@section('headSection')
 

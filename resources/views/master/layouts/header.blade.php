@@ -6,7 +6,7 @@
         <div class="container-fluid">
           <div class="d-flex">
             <a class="header-brand" href="index.html">
-              <img src="assets/images/photos/nrt.png " class="header-brand-img" alt="NRT logo">
+              <img src="{{asset('assets/images/photos/nrt.png')}} " class="header-brand-img" alt="NRT logo">
             </a>
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
             <div class="d-none d-lg-block horizontal">
@@ -52,7 +52,7 @@
 
                 <div class="dropdown">
                   <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-                  <img src="assets/images/userimage/user1.png" alt="Profile-img" class="avatar avatar-md brround"><span class="username">mohit@nrt.co.in</span>
+                  <img src="{{asset('assets/images/userimage/user1.png')}}" alt="Profile-img" class="avatar avatar-md brround"><span class="username">mohit@nrt.co.in</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
                     <div class="text-center">

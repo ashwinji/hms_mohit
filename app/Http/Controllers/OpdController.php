@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Model\opd;
 use App\Model\ipd;
 use App\Model\ot;
+use App\Model\doctorlist;
+use App\Model\medicine;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -74,6 +76,7 @@ class OpdController extends Controller
     public function show(Request $request )
     {
         $id=$request->id;
+      
         $data=opd::where('id','=',$id)->first();
         $content=\View::make('opd.opdtreatment',compact('data'));
         $a=$content->render();
@@ -84,9 +87,11 @@ class OpdController extends Controller
     }
     public function addtreatment(Request $request)
     {
-         $id=$request->id;
+        $id=$request->id;
+        $docterlist=doctorlist::all()->pluck('name','id');
+        $medicinelist=medicine::all()->pluck('name','id');
          $data=opd::where('id','=',$id)->first();
-         $content=\View::make('opd.opdaddtreatment',compact('data'));
+         $content=\View::make('opd.opdaddtreatment',compact('data','docterlist','medicinelist'));
          $b=$content->render();
          return response()->json([
            'status'=>true,
@@ -100,9 +105,10 @@ class OpdController extends Controller
      * @param  \App\opd  $opd
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-     return  view('opd.edit');
+           $opd=opd::where('id',$id)->first();
+        return view('opd.edit',compact('opd'));
     }
 
     /**
@@ -112,9 +118,29 @@ class OpdController extends Controller
      * @param  \App\opd  $opd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, opd $opd)
+    public function update(Request $request,$id)
     {
-        //
+        
+        $opd=opd::find($id);
+        $opd->patientTitle=$request->patientTitle;
+        $opd->patientName=$request->patientName;
+        $opd->regNum=$request->regNum;
+        $opd->id=$request->regNum;
+        $opd->regDate=$request->regDate;
+        $opd->regAmount=$request->regAmount;
+        $opd->address=$request->address;
+        $opd->age=$request->Age ;
+        $opd->gender=$request->gender   ;
+        $opd->contactNum=$request->contactNum;
+        $opd->consultant=$request->Consultant;
+        $opd->otherConsultant=$request->otherConsultant;
+        $opd->department=$request->department;
+        $opd->patientType=$request->patientType;
+        $opd->patientTypeIpd=$request->patientTypeIpd;
+        $opd->dltStatus =$request->dltStatuse;
+        $opd->save();
+        return redirect(route('opd-create'))->with('message','record update sussesfuly');
+
     }
 
     /**
@@ -146,11 +172,11 @@ class OpdController extends Controller
        return sprintf('<button class="deleteopdRecord" id="del" data-id="%s">%s</button > 
                         <button class="viewRecord" id="view" data-id="%s">%s</button >
                         <button class="addRecord" id="" data-id="%s">%s</button >
-                         <button class="editRecord" id="" data-id="%s">%s</button >',
+             <a href="%s">%s</a>',
              $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
              $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
              $data['id'],'<i class="btn btn-danger fa fa-plus "></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-edit"></i>');
+             route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
               
             })  
                  
