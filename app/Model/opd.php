@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class opd extends Model
 {
-    //protected $primaryKey = 'regNum';
+    public function ot()
+    {
+    	return $this->belongsTo('App\Model\ot','patientId');
+    }
 }

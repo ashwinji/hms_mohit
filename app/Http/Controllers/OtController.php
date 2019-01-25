@@ -37,6 +37,7 @@ class OtController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request,[
                 'opdNum'=>'required',
                 'ipdRegNum'=>'required'
@@ -44,14 +45,10 @@ class OtController extends Controller
         $ot=new ot;
         $ot->patientId=$request->opdNum;
         $ot->opdDate=$request->opdDate;
-        //$ot->patientName=$request->patientName;
         $ot->ipdRegNum=$request->ipdRegNum;
-        $ot->ipdRegDate=$request->ipdRegDate;
-        // $ot->age=$request->age;
-        // $ot->gender=$request->gender;
-        //$ot->address=$request->address;
+        $ot->ipdRegDate=$request->ipdDate;
         $ot->otDate=$request->otDate;
-        $ot->dignosis=$request->dignosis;
+        $ot->dignosis=$request->diagnosis;
         $ot->otProcessure=$request->otProcessure;
         $ot->consultant=$request->consultant;
         $ot->otherConsultant=$request->otherConsultant;
@@ -71,9 +68,18 @@ class OtController extends Controller
      * @param  \App\ot  $ot
      * @return \Illuminate\Http\Response
      */
-    public function show(ot $ot)
+    public function show(Request $request )
     {
-        //
+        
+        $id=$request->id;
+      
+        $data=opd::where('id','=',$id)->first();
+        $content=\View::make('ot.ottreatment',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
 
     /**
@@ -82,9 +88,12 @@ class OtController extends Controller
      * @param  \App\ot  $ot
      * @return \Illuminate\Http\Response
      */
-    public function edit(ot $ot)
+    public function edit($id)
     {
-        //
+        
+        $ot=ot::where('id',$id)->first();
+       // dd($ot);
+        return view('ot.edit',compact('ot'));
     }
 
     /**
@@ -94,9 +103,26 @@ class OtController extends Controller
      * @param  \App\ot  $ot
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ot $ot)
+    public function update(Request $request,$id)
     {
-        //
+        // dd($request->all());
+        $ot=ot::find($id);
+        $ot->patientId=$request->opdNum;
+        $ot->opdDate=$request->opdDate;
+        $ot->ipdRegNum=$request->ipdRegNum;
+        $ot->ipdRegDate=$request->ipdDate;
+        $ot->otDate=$request->otDate;
+        $ot->dignosis=$request->diagnosis;
+        $ot->otProcessure=$request->otProcessure;
+        $ot->consultant=$request->consultant;
+        $ot->otherConsultant=$request->otherConsultant;
+        $ot->adviceTreatment=$request->adviceTreatment;
+        $ot->medicine1=$request->medicine1;
+        $ot->medicine2=$request->medicine2;
+        $ot->medicine3=$request->medicine3;
+        $ot->remark=$request->Remark;
+        $ot->save();
+        return redirect(route('ot-create'))->with('message','data update sussefully');
     }
 
     /**
@@ -127,14 +153,12 @@ class OtController extends Controller
             ->get();
         return DataTables::of($ots)->addColumn('action', function($data){
 
-        return sprintf('<button class="deleteotRecord" id="del" data-id="%s">%s</button > 
-                        <button class="editotRecord" id="edit" data-id="%s">%s</button >
-             <a href="%s">%s</a>
+        return sprintf('<button class="deleteotRecord" id="del"  data-id="%s">%s</button > 
+                        <button class="viewRecord" id="view" data-id="%s">%s</button >
              <a href="%s">%s</a>',
              $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-edit editotRecord"></i>',
-             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-plus createotRecord"></i>',
-             route('ot-create',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-eye"></i>');
+             $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
+             route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
               
             })       
         

@@ -12,18 +12,17 @@ Route::post('add','OpdController@addtreatment')->name('opd-add');
 Route::DELETE('delete/{id}','OpdController@destroy')->name('opd.delete');
 Route::get('opd/edit/{id}','OpdController@edit')->name('opd.edit');
 Route::PUT('opd/update/{id}','OpdController@update')->name('opd.update');
-Route::get('datatable1', 'OpdController@datatable')->name('opd-filter');
+Route::get('opd-datatable', 'OpdController@datatable')->name('opd-filter');
 Route::get('datatable/getopd', 'OpdController@getOpd')->name('datatable.getopd');
 //opd treatement
 Route::post('store','OpdtreatmentsController@store')->name('opdt.store');
 
 
-
 //ipd routes
 Route::post('/ipd/fetch', 'IpdController@fetch')->name('ipd.fetch');
 Route::post('/ipd/fetch-search', 'IpdController@fetchSearch')->name('ipd.fetchSearch');
-Route::get('datatable2', 'IpdController@datatable')->name('ipd-filter');
-Route::get('getposts1', 'IpdController@getIpd')->name('getipd');
+Route::get('ipd-datatable', 'IpdController@datatable')->name('ipd-filter');
+Route::get('getipd', 'IpdController@getIpd')->name('getipd');
 Route::get('ipd-edit','IpdController@edit')->name('ipd.edit');
 Route::DELETE('delete1/{id}','IpdController@destroy')->name('ipd.delete');
 Route::get('ipd-create','IpdController@create')->name('ipd-create');
@@ -33,10 +32,12 @@ Route::get('ot-create','OtController@create')->name('ot-create');
 Route::post('ot-store','OtController@store')->name('ot.store');
 Route::post('/ot/fetch', 'OtController@fetch')->name('ot.fetch');
 Route::post('/ot/fetch-search', 'OtController@fetchSearch')->name('ot.fetchSearch');
-Route::get('datatable3', 'OtController@datatable')->name('ot-filter');
+Route::get('ot-datatable', 'OtController@datatable')->name('ot-filter');
 Route::get('getposts2', 'OtController@getOt')->name('getot');
 Route::delete('delete2/{id}','OtController@destroy')->name('ot.delete');
-Route::get('ot-edit','OtController@edit')->name('ot.edit');
+Route::PUT('ot/update/{id}','OtController@update')->name('ot.update');
+Route::get('ot/edit/{id}','OtController@edit')->name('ot.edit');
+Route::post('ot/show','OtController@show')->name('ot-show');
 
 
 //blood routes
@@ -67,7 +68,7 @@ Route::post('ecg-store','EcgexaminationControllerr@store')->name('ecg.store');
 //physiotherpy routes
 Route::get('physiotherpy-create','PhysiotherpyController@create')->name('physiotherpy-create');
 Route::post('physiotherpy-store','PhysiotherpyController@store')->name('physiotherpy.store');
-Route::get('getposts1', 'PhysiotherpyController@getphysco')->name('getphysco');
+Route::get('getphysco', 'PhysiotherpyController@getphysco')->name('getphysco');
 Route::get('datatable4', 'PhysiotherpyController@datatable')->name('physiotherpy-filter');
 Route::post('/physiotherpy/fetch', 'PhysiotherpyController@fetch')->name('physiotherpy.fetch');
 Route::post('/ot/physiotherpy-search', 'PhysiotherpyController@fetchSearch')->name('physiotherpy.fetchSearch');

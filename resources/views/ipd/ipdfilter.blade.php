@@ -62,7 +62,7 @@
             oTable = $('#ipduser').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "{{ route('getipd') }}",
+                "ajax":"{{route('getipd') }}",
                 "columns": [
                     {data: 'id', name: 'id'},
                     {data: 'patientName', name: 'patientName'},
