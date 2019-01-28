@@ -9,7 +9,7 @@
                       <div class="card-body">
                       <div class="btn-list" style="float: right;">
                         
-                        <a href="#" class="btn btn-xs btn-success">Show Yoga Examination Patient List</a>
+                        <a href="{{route('yoga-filter')}}" class="btn btn-xs btn-success">Show Yoga Examination Patient List</a>
                         
                       </div>
 
@@ -128,12 +128,12 @@
                              <div class="row">
                                   <div class="col-md-offset-3 col-sm-2">
                                           <div class="form-group">
-                                                  {!! Form::label('otDate', 'Test Date:*') !!}
+                                                  {!! Form::label('otDate', 'TESTDate:*') !!}
                                           </div>
                                   </div>
                                   <div class="col-sm-3">
                                           <div class="form-group">
-                                                  {!! Form::date('testDate', '', ['class' => 'form-control','id'=>'otDate','name'=>'testDate']) !!}
+                                                  {!! Form::date('yogadate', '', ['class' => 'form-control','id'=>'yogadate','name'=>'yogadate']) !!}
                                           </div>
                                   </div>
                              </div>
@@ -233,4 +233,65 @@
                     </div>
                 </div>
             </div>
+@endsection
+@section('footerSection')
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+    
+</script>
+  <script type="text/javascript">
+
+        jQuery(document).ready(function(){ 
+        jQuery('#opdNum').on('keyup',function(){
+         var opd= $(this).val();
+            $('#opdNum').html("");
+            if(opd !='')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+
+                    url:"{{ route('yoga.fetch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                      $('#opd-reg-list').fadeIn();
+                      $('#opd-reg-list').html(data);
+                    }
+
+                });
+            }
+        });
+       
+    });
+        $(document).on('click', 'li', function(){ 
+       $('#opdNum').val($(this).text()); 
+       var opd=$('#opdNum').val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({ 
+                    url:"{{ route('yoga.fetchSearch') }}",
+                    method:"POST",
+                    data:{query:opd,_token:_token},
+                    success:function(data){
+                    console.log(data);
+                    $('#opdDate').val(data.regDate);
+                    $('#patientName').val(data.patientName);
+                    $('#age').val(data.age);
+                    $('#gender').val(data.gender);
+                    $('#address').val(data.address);
+                    $('#refferedby').val(data.referredBy);
+                    $('#yogadate').val(data.yogadate);
+                   // $('#otDate').val(data.otDate);
+                    
+
+
+                    }
+
+                });
+        $('#opd-reg-list').fadeOut();  
+    }); 
+        
+   </script>
+        
+
 @endsection

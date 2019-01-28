@@ -157,8 +157,8 @@ class OtController extends Controller
              $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
              $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
              route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
-              
             })       
+              
         
             ->make(true);
     }

@@ -18,21 +18,12 @@
 
 									</div>
 										</div>
-										<div>
-											@if ($errors->any())
-											    <div class="alert alert-danger">
-											        <ul>
-											            @foreach ($errors->all() as $error)
-											                <li>{{ $error }}</li>
-											            @endforeach
-											        </ul>
-											    </div>
-											@endif
-										</div>
+										
 										<div class="card-body">
 											<div class="row">
 												
 						<div class="col-md-12">
+							 @include('verror.error')
 							{!! Form::open(['route' => ['blood.store'],'autocomplete'=>'off']) !!}
 
 							{!! csrf_field() !!}
@@ -44,7 +35,7 @@
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
 		
-	        {!! Form::text('opd_id',  null, ['class' => 'form-control dynamic_opd',
+	        {!! Form::text('opdNum',  null, ['class' => 'form-control dynamic_opd',
 	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
 	         <div id="opd_list">
 	         </div>

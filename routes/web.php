@@ -49,7 +49,7 @@ Route::get('generalblood-create','GeneralbloodController@create')->name('general
 Route::post('generalblood-store','GeneralbloodController@store')->name('generalblood.store');
 //semen routes
 Route::get('semen-create','SemenexaminationController@create')->name('semen-create');
-Route::post('semen-store','SemenexaminationControllerr@store')->name('semen.store');
+Route::post('semen-store','SemenexaminationController@store')->name('semen.store');
 //serun routes
 Route::get('serun-create','SerumofwidalController@create')->name('serun-create');
 Route::post('serun-store','SerumofwidalController@store')->name('serun.store');
@@ -59,24 +59,34 @@ Route::post('stool-store','StoolexaminationController@store')->name('stool.store
 
 //urine routes
 Route::get('urine-create','UrineexaminationController@create')->name('urine-create');
-Route::post('urine-store','UrineexaminationControllerr@store')->name('urine.store');
+Route::post('urine-store','UrineexaminationController@store')->name('urine.store');
 //xray routes
 Route::get('xray-create','XrayController@create')->name('xray-create');
-Route::post('xray-store','XrayControllerr@store')->name('xray.store');
+Route::post('xray-store','XrayController@store')->name('xray.store');
 //ecg routes
 Route::get('ecg-create','EcgexaminationController@create')->name('ecg-create');
-Route::post('ecg-store','EcgexaminationControllerr@store')->name('ecg.store');
+Route::post('ecg-store','EcgexaminationController@store')->name('ecg.store');
+
 //physiotherpy routes
+
 Route::get('physiotherpy-create','PhysiotherpyController@create')->name('physiotherpy-create');
 Route::post('physiotherpy-store','PhysiotherpyController@store')->name('physiotherpy.store');
+Route::delete('physiotherpy/delete/{id}','PhysiotherpyController@destroy')->name('physco.delete');
+// Route::PUT('physiotherpy/update/{id}','PhysiotherpyController@update')->name('physiotherpy.update');
+Route::get('physiotherpy/edit/{id}','PhysiotherpyController@edit')->name('physiotherpy.edit');
 Route::get('getphysco', 'PhysiotherpyController@getphysco')->name('getphysco');
-Route::get('datatable4', 'PhysiotherpyController@datatable')->name('physiotherpy-filter');
+Route::get('Physiotherpy/datatable', 'PhysiotherpyController@datatable')->name('physiotherpy-filter');
 Route::post('/physiotherpy/fetch', 'PhysiotherpyController@fetch')->name('physiotherpy.fetch');
-Route::post('/ot/physiotherpy-search', 'PhysiotherpyController@fetchSearch')->name('physiotherpy.fetchSearch');
-//yoga
-Route::get('yoga-create','YogaController@create')->name('yoga-create');
-Route::post('yoga-store','YogaController@store')->name('yoga.store');
+Route::post('/physiotherpy/physiotherpy-search', 'PhysiotherpyController@fetchSearch')->name('physiotherpy.fetchSearch');
 
+//yoga routes
+Route::get('yoga-create','YogaController@create')->name('yoga.create');
+Route::post('yoga-store','YogaController@store')->name('yoga.store');
+Route::get('getyoga', 'YogaController@getyoga')->name('getyoga');
+Route::get('yoga/datatable', 'YogaController@datatable')->name('yoga-filter');
+Route::post('/yoga/fetch', 'YogaController@fetch')->name('yoga.fetch');
+Route::post('/yoga/yoga-search', 'YogaController@fetchSearch')->name('yoga.fetchSearch');
+Route::DELETE('yoga/delete/{id}','YogaController@destroy')->name('yoga.delete');
 
 
 

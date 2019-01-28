@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                      <h3 class="mb-0 card-title">PHYSIOTHERPY EXAMINATION</h3>
+                      <h3 class="mb-0 card-title">UPDATE PHYSIOTHERPY EXAMINATION</h3>
                       <div class="card-body">
                       <div class="btn-list" style="float: right;">
                         

@@ -601,7 +601,7 @@
     @push('script')
 
   <script type="text/javascript">
-        jQuery(document).ready(function(){alert();
+        jQuery(document).ready(function(){
         jQuery('#id-opd-regnum').on('keyup',function(){
          var opd= $(this).val();
             $('#id-opd-regnum').html("");

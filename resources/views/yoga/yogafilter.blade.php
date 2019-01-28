@@ -8,7 +8,7 @@
         <div class="row">
             @include('verror.error')
             <div class="container col-lg-12">
-                  <table id="physcouser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success" style="width:100%">
+                  <table id="yogauser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -28,12 +28,7 @@
   <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
                 <div class="modal-dialog modal-lg " role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="largemodal1">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
+                        
                         <div class="modal-body">
                             <div id="add">
                                 
@@ -57,27 +52,27 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            oTable = $('#physcouser').DataTable({
+            oTable = $('#yogauser').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "{{ route('getphysco') }}",
+                "ajax": "{{ route('getyoga') }}",
                 "columns": [
                     {data: 'id', name: 'id'},
                     {data: 'patientName', name: 'patientName'},
                     {data: 'regNum', name: 'regNum'},
-                    {data:  'regDate',name:'regDate'},           
+                    {data: 'regDate',name:'regDate'},           
                     {data:'referredBy',name:'referredBy'},
-                    {data:'phyadate',name:'phyadate'},
+                    {data:'yogadate',name:'yogadate'},
                     {data: 'action', name: 'action'},
                
                  ]
                });
         });
     </script>
-
-  <script type="text/javascript">
-
-    $(document).on('click',".deletephyscoRecord",function(e){debugger;
+    <script type="text/javascript">
+        
+   
+    $(document).on('click',".deleteyogaRecord",function(e){
        if(!confirm('Are you sure?')){
             e.preventDefault();
             return false;
@@ -90,13 +85,15 @@
    
     $.ajax(
     {
-        url: "physiotherpy/delete/"+id,
-        type: 'delete',
+        url: "yoga/delete/"+id,
+        type: 'DELETE',
         dataType: 'json',
-        data: { id: id,_token: token,
+        data: {
+            "id": id,
+            "_token": token,
         },
         success: function (res){
-           $('#physcouser').DataTable().ajax.reload();
+           $('#yogauser').DataTable().ajax.reload();
         },
         error: function (data) {
                      
@@ -107,6 +104,5 @@
 });
    
     </script>
-  
-    
+
 @endsection

@@ -35,7 +35,22 @@ class BloodexaminationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+        ]);
+
+              $bloodexamination=new bloodexamination;
+              $bloodexamination->patientId=$request->opdNum;
+              $bloodexamination->referredBy=$request->refferedby;
+              $bloodexamination->age=$request->age;
+              $bloodexamination->investigationAdvised=$request->
+              $bloodexamination->yogadate=$request->yogadate;
+              $bloodexamination->disease=$request->diagnosis;
+              $bloodexamination->exersise=$request->exersize;
+              $bloodexamination->other=$request->other;
+              $bloodexamination->remark=$request->Remark;
+              $bloodexamination->save();
+
+        
     }
 
     /**

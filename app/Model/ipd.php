@@ -71,6 +71,5 @@ class ipd extends Model
 	{
 	   return $this->belongsTo('App\Model\opd','patientId','id');
 	}
-
-   
+  
 }

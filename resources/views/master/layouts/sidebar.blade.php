@@ -69,7 +69,7 @@
         </a>
     </li>
     <li>
-      <a href="{{ route('yoga-create') }} " class="slide-item">
+      <a href="{{ route('yoga.create') }} " class="slide-item">
         <i class="side-menu__icon fa fa-list"></i>
       <span class="side-menu__label">Yoga</span>
       </a>

@@ -67,9 +67,10 @@ class PhysiotherpyController extends Controller
      * @param  \App\physiotherpy  $physiotherpy
      * @return \Illuminate\Http\Response
      */
-    public function edit(physiotherpy $physiotherpy)
+    public function edit($id)
     {
-        //
+        $physiotherpy=physiotherpy::where('id',$id)->first();
+        return view('physiotherpy.edit',compact('physiotherpy'));
     }
 
     /**
@@ -90,26 +91,30 @@ class PhysiotherpyController extends Controller
      * @param  \App\physiotherpy  $physiotherpy
      * @return \Illuminate\Http\Response
      */
-    public function destroy(physiotherpy $physiotherpy)
+    public function destroy($id)
     {
-        //
+       
+          physiotherpy::find($id)->delete($id);
+         return response()->json([
+           'success' => 'Record deleted successfully!'
+     ]);
     }
     public function getphysco(Request $request)
     {
          $data=physiotherpy::all();
-         $physiotherpy=physiotherpy::select('physiotherpies.id','physiotherpies.referredBy','physiotherpies.phyadate','opds.RegNum','opds.patientName')
+         $physiotherpy=physiotherpy::select('physiotherpies.id','physiotherpies.referredBy','physiotherpies.phyadate','opds.regNum','opds.patientName','opds.regDate')
             ->join('opds', 'physiotherpies.patientId', '=', 'opds.regNum')
             ->get();
               return DataTables::of( $physiotherpy)->addColumn('action', function($data){
 
-              return sprintf('<button class="deleteipdrecord" data-id="%s">%s</button>
+              return sprintf('<button class="deletephyscoRecord" data-id="%s">%s</button>
                 <button class="viewipdrecord" data-id="%s">%s</button>
                 <button class="addrecord" data-id="%s">%s</button>
-                <button class="editipdrecord" data-id="%s">%s</button>',
+               <a href="%s">%s</a>',
                 $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-edit"></i>');
+                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
               
             })        
             ->make(true);

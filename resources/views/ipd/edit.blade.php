@@ -222,28 +222,28 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Date of Discharge') !!}
-                                {!! Form::date('dod',  null, ['class' => 'form-control','id'=>'dod','name'=>'dod','placeholder' => 'Enter Mobile Number']) !!}
+                                {!! Form::date('dod',  $ipd->dod, ['class' => 'form-control','id'=>'dod','name'=>'dod','placeholder' => 'Enter Mobile Number']) !!}
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Provisional Diagnosis') !!}
-                                {!! Form::textarea('provisionalDiagnosis',  null, ['class' => 'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('provisionalDiagnosis',$ipd->provisionalDiagnosis, ['class' => 'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Chief Complaints') !!}
-                                {!! Form::textarea('chiefComplaints',  null, ['class' => 'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('chiefComplaints',  $ipd->chiefComplaints, ['class' => 'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
                         <div class="col-md-12">
                              <div class="form-group">
                                  {!! Form::label('name', 'Past History') !!}
-                                 {!! Form::textarea('pastHistory',  null, ['class' => 'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                 {!! Form::textarea('pastHistory',  $ipd->pastHistory, ['class' => 'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
@@ -251,21 +251,21 @@
                             <h3 align="center"> Family History</h3>
                             <div class="form-group">
                                 {!! Form::label('name', 'Maternal') !!}
-                                {!! Form::textarea('fh_maternal',  null, ['class' => 'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('fh_maternal',  $ipd->fh_maternal, ['class' => 'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
                         <div class="col-md-12 " class="form-control">
                             <div class="form-group">
                                 {!! Form::label('name', 'Paternal') !!}
-                                {!! Form::textarea('fh_paternal',  null, ['class' => 'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('fh_paternal',  $ipd->fh_paternal, ['class' => 'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
                         <div class="col-md-12">
                              <div class="form-group">
                                 {!! Form::label('name', 'Other') !!}
-                                {!! Form::textarea('fh_other',  null, ['class' => 'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                {!! Form::textarea('fh_other',  $ipd->fh_other, ['class' => 'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
                              </div>
                         </div>
 
@@ -275,123 +275,123 @@
                                 <div class="col-md-4">
                                     <div class="form-group ">
                                         {!! Form::label('name', 'GC:') !!}
-                                        {!! Form::text('ge_gc',  null, ['class' => 'form-control','id'=>'ge_gc','name'=>'ge_gc','placeholder' => 'Enter G.C']) !!}
+                                        {!! Form::text('ge_gc',  $ipd->ge_gc, ['class' => 'form-control','id'=>'ge_gc','name'=>'ge_gc','placeholder' => 'Enter G.C']) !!}
                                     </div>
                                 
                         
                                      <div class="form-group">
                                         {!! Form::label('name', 'Pulse:') !!}
-                                        {!! Form::text('ge_pulse',  null, ['class' => 'form-control','id'=>'ge_pulse','name'=>'ge_pulse','placeholder' => 'Enter Age']) !!}
+                                        {!! Form::text('ge_pulse',$ipd->ge_pulse, ['class' => 'form-control','id'=>'ge_pulse','name'=>'ge_pulse','placeholder' => 'Enter Age']) !!}
                                     </div>
                                 
                                 
                                      <div class="form-group">
                                         {!! Form::label('name', 'Temp:') !!}
-                                        {!! Form::text('ge_temp',  null, ['class' => 'form-control','id'=>'ge_temp','name'=>'ge_temp','placeholder' => 'Temp']) !!}
+                                        {!! Form::text('ge_temp', $ipd->ge_temp, ['class' => 'form-control','id'=>'ge_temp','name'=>'ge_temp','placeholder' => 'Temp']) !!}
                                      </div>
                                 
                             
                                     <div class="form-group">
                                         {!! Form::label('name', 'Resp:') !!}
-                                        {!! Form::text('ge_resp',  null, ['class' => 'form-control','id'=>'ge_resp','name'=>'ge_resp','placeholder' => 'Resp']) !!}
+                                        {!! Form::text('ge_resp', $ipd->ge_resp, ['class' => 'form-control','id'=>'ge_resp','name'=>'ge_resp','placeholder' => 'Resp']) !!}
                                     </div>
                                 
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'B.P.:') !!}
-                                        {!! Form::text('ge_bp',  null, ['class' => 'form-control','id'=>'ge_bp','name'=>'ge_bp','placeholder' => 'B.P.']) !!}
+                                        {!! Form::text('ge_bp',  $ipd->ge_bp, ['class' => 'form-control','id'=>'ge_bp','name'=>'ge_bp','placeholder' => 'B.P.']) !!}
                                     </div>
                                 
                             
                                     <div class="form-group">
                                         {!! Form::label('name', 'Tongue:') !!}
-                                        {!! Form::text('ge_tongue',  null, ['class' => 'form-control','id'=>'ge_tongue','name'=>'ge_tongue','placeholder' => 'Tongue']) !!}
+                                        {!! Form::text('ge_tongue', $ipd->ge_tongue, ['class' => 'form-control','id'=>'ge_tongue','name'=>'ge_tongue','placeholder' => 'Tongue']) !!}
                                     </div>
                             
                             
                                     <div class="form-group">
                                         {!! Form::label('name', 'Conjunctiva/Icterus:') !!}
-                                        {!! Form::text('ge_conjective',  null, ['class' => 'form-control','id'=>'ge_conjective','name'=>'ge_conjective','placeholder' => 'Conjunctiva/Icterus']) !!}
+                                        {!! Form::text('ge_conjective',  $ipd->ge_conjective, ['class' => 'form-control','id'=>'ge_conjective','name'=>'ge_conjective','placeholder' => 'Conjunctiva/Icterus']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'Anaemla/Pallor:') !!}
-                                        {!! Form::text('ge_anaemla',  null, ['class' => 'form-control','id'=>'ge_anaemla','name'=>'ge_anaemla','placeholder' => 'Anaemla/Pallor']) !!}
+                                        {!! Form::text('ge_anaemla',$ipd->ge_anaemla, ['class' => 'form-control','id'=>'ge_anaemla','name'=>'ge_anaemla','placeholder' => 'Anaemla/Pallor']) !!}
                                     </div>
                                 
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'JVP:') !!}
-                                        {!! Form::text('ge_jvp',  null, ['class' => 'form-control','placeholder' => 'JVP']) !!}
+                                        {!! Form::text('ge_jvp', $ipd->ge_jvp, ['class' => 'form-control','placeholder' => 'JVP']) !!}
                                     </div>
                                 
                              
                                     <div class="form-group">
                                         {!! Form::label('name', 'Oedema:') !!}
-                                        {!! Form::text('ge_oedema',  null, ['class' => 'form-control','placeholder' => 'Oedema']) !!}
+                                        {!! Form::text('ge_oedema',  $ipd->ge_oedema, ['class' => 'form-control','placeholder' => 'Oedema']) !!}
                                      </div>
                                 
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Cyanosis:') !!}
-                                        {!! Form::text('ge_cyanosis',  null, ['class' => 'form-control','placeholder' => 'Cyanosis']) !!}
+                                        {!! Form::text('ge_cyanosis',  $ipd->ge_cyanosis, ['class' => 'form-control','placeholder' => 'Cyanosis']) !!}
                                      </div>
                               
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Appetite:') !!}
-                                        {!! Form::text('ge_appetite',  null, ['class' => 'form-control','placeholder' => 'Appetite']) !!}
+                                        {!! Form::text('ge_appetite',$ipd->ge_appetite, ['class' => 'form-control','placeholder' => 'Appetite']) !!}
                                     </div>
                                 
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Lymph Gland:') !!}
-                                        {!! Form::text('ge_lymph',  null, ['class' => 'form-control','placeholder' => 'Lymph Gland']) !!}
+                                        {!! Form::text('ge_lymph',$ipd->ge_lymph, ['class' => 'form-control','placeholder' => 'Lymph Gland']) !!}
                                      </div>
                             
                                 
                                      <div class="form-group">
                                         {!! Form::label('name', 'Throat:') !!}
-                                        {!! Form::text('ge_throat',  null, ['class' => 'form-control','placeholder' => 'Throat']) !!}
+                                        {!! Form::text('ge_throat',  $ipd->ge_throat, ['class' => 'form-control','placeholder' => 'Throat']) !!}
                                      </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {!! Form::label('name', 'Bowel/Bladder:') !!}
-                                        {!! Form::text('ge_bowel',  null, ['class' => 'form-control','placeholder' => 'Bowel/Bladder']) !!}
+                                        {!! Form::text('ge_bowel',$ipd->ge_bowel, ['class' => 'form-control','placeholder' => 'Bowel/Bladder']) !!}
                                     </div>
                                
                               
                                     <div class="form-group">
                                         {!! Form::label('name', 'Sleep:') !!}
-                                        {!! Form::text('ge_sleep',  null, ['class' => 'form-control','placeholder' => 'Sleep']) !!}
+                                        {!! Form::text('ge_sleep',$ipd->ge_sleep, ['class' => 'form-control','placeholder' => 'Sleep']) !!}
                                     </div>
                                
                                     <div class="form-group">
                                         {!! Form::label('name', 'Allergies:') !!}
-                                        {!! Form::text('ge_allergies',  null, ['class' => 'form-control','placeholder' => 'Allergies']) !!}
+                                        {!! Form::text('ge_allergies',  $ipd->ge_allergies, ['class' => 'form-control','placeholder' => 'Allergies']) !!}
                                      </div>
                                 
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Skin:') !!}
-                                        {!! Form::text('ge_skin',  null, ['class' => 'form-control','placeholder' => 'Skin']) !!}
+                                        {!! Form::text('ge_skin', $ipd->ge_skin, ['class' => 'form-control','placeholder' => 'Skin']) !!}
                                     </div>
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Thirst:') !!}
-                                        {!! Form::text('ge_thirst',  null, ['class' => 'form-control','placeholder' => 'Thirst']) !!}
+                                        {!! Form::text('ge_thirst',$ipd->ge_thirst, ['class' => 'form-control','placeholder' => 'Thirst']) !!}
                                      </div>
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Addictions:') !!}
-                                        {!! Form::text('ge_addictions',  null, ['class' => 'form-control','placeholder' => 'Addictions']) !!}
+                                        {!! Form::text('ge_addictions', $ipd->ge_addictions, ['class' => 'form-control','placeholder' => 'Addictions']) !!}
                                     </div>
                                 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Diet:') !!}
-                                        {!! Form::text('ge_diet',  null, ['class' => 'form-control','placeholder' => 'Diet']) !!}
+                                        {!! Form::text('ge_diet', $ipd->ge_diet, ['class' => 'form-control','placeholder' => 'Diet']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -602,7 +602,7 @@
     @push('script')
 
   <script type="text/javascript">
-        jQuery(document).ready(function(){alert();
+        jQuery(document).ready(function(){
         jQuery('#id-opd-regnum').on('keyup',function(){
          var opd= $(this).val();
             $('#id-opd-regnum').html("");

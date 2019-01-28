@@ -46,7 +46,8 @@
                                  <div class="col-sm-3">
 
                                          <div class="form-group">
-                                                 {!! Form::date('opdDate', $ot->opdDate, ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD date']) !!}
+                                                 {!! Form::date('opdDate', $ot->opdDate, ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','readonly'=>'true',
+                                                 'placeholder'=>'OPD date']) !!}
                                          </div>
                                  </div>
                          </div>
@@ -60,7 +61,8 @@
                               <div class="col-sm-8">
                                
                                       <div class="form-group">
-                                              {!! Form::text('patientName',$ot->opd->patientName, ['class' => 'form-control','name'=>'patientName','id'=>'patientName']) !!}
+                                              {!! Form::text('patientName',$ot->opd->patientName, ['class' => 'form-control','name'=>'patientName','readonly'=>'true',
+                                              'id'=>'patientName']) !!}
                                       </div>
                               </div>
                          </div>
@@ -102,7 +104,8 @@
                                 <div class="col-sm-3">
 
                                         <div class="form-group">
-                                                {!! Form::text('age', $ot->opd->age, ['class' => 'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE']) !!}
+                                                {!! Form::text('age', $ot->opd->age, ['class' => 'form-control','id'=>'age','name'=>'age','readonly'=>'true',
+                                                'placeholder'=>'AGE']) !!}
                                         </div>
                                 </div>
                                 <div class="col-md-offset-3 col-sm-2">
@@ -114,7 +117,8 @@
                                <div class="col-sm-3">
 
                                        <div class="form-group">
-                                               {!! Form::text('gender',$ot->opd->gender, ['class' => 'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER']) !!}
+                                               {!! Form::text('gender',$ot->opd->gender, ['class' => 'form-control','id'=>'gender','name'=>'gender','readonly'=>'true',
+                                               'placeholder'=>'GENDER']) !!}
                                        </div>
                                </div>
                              </div>
@@ -129,7 +133,7 @@
                                   <div class="col-sm-8">
 
                                           <div class="form-group">
-                                                  {!! Form::text('address',$ot->opd->address, ['class' => 'form-control','id'=>'address']) !!}
+                                                  {!! Form::text('address',$ot->opd->address, ['class' => 'form-control','id'=>'address','readonly'=>'true']) !!}
                                           </div>
                                   </div>
                              </div>

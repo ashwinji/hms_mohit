@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\model\yoga;
+use App\Model\yoga;
 use Illuminate\Http\Request;
+use App\Model\ot;
+use App\Model\opd;
+use App\Model\ipd;
+use DB;
+use DataTables;
 
 class YogaController extends Controller
 {
@@ -35,7 +40,22 @@ class YogaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+                
+        ]);
+             $yoga=new yoga;
+             $yoga->patientId=$request->opdNum;
+             $yoga->referredBy=$request->refferedby;
+             $yoga->age=$request->age;
+             $yoga->investigationAdvised=$request->advicedTherapy;
+             $yoga->yogadate=$request->yogadate;
+             $yoga->disease=$request->diagnosis;
+             $yoga->exersise=$request->exersize;
+             $yoga->other=$request->other;
+             $yoga->remark=$request->Remark;
+             $yoga->save();
+             return redirect(route('yoga.create'))->with('message','data save sussessfully');
+
     }
 
     /**
@@ -78,8 +98,72 @@ class YogaController extends Controller
      * @param  \App\yoga  $yoga
      * @return \Illuminate\Http\Response
      */
-    public function destroy(yoga $yoga)
+    public function destroy($id)
     {
-        //
+             
+        yoga::find($id)->delete($id);
+         return response()->json([
+           'success' => 'Record deleted successfully!'
+     ]);
+    }
+    
+        public function datatable()
+    {
+        return view('yoga.yogafilter');
+
+    }
+
+    public function getYoga()
+    {
+        $data=yoga::all();
+        $yogas = yoga::select('yogas.id','yogas.referredBy','yogas.yogadate','opds.regNum','opds.patientName','opds.regDate')
+            ->join('opds', 'yogas.patientId', '=','opds.regNum')
+            ->get();
+        return DataTables::of($yogas)->addColumn('action', function($data){
+
+        return sprintf('<button class="deleteyogaRecord" id="del"  data-id="%s">%s</button > 
+                        <button class="viewRecord" id="view" data-id="%s">%s</button >
+             <a href="%s">%s</a>',
+             $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
+             $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
+             route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
+              
+            })       
+        
+            ->make(true);
+    }
+
+    public function fetch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum', 'LIKE', '%'.$query.'%')
+            ->get();
+          $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
+          foreach($data as $row)
+          {
+           $output .= '
+           <li><a href="#">'.$row->regNum.'</a></li>
+           ';
+          }
+          $output .= '</ul>';
+          echo $output;
+     }
+    }
+
+    public function fetchSearch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum',$query)
+            ->first();
+
+            return response()->json($data);
+         
+     }
     }
 }
