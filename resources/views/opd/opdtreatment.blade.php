@@ -47,6 +47,56 @@
                 <td colspan="3">{{ $data->department }}</td>
             </tr>
         </thead>
+        <tr>
+                    <th>Complaints </th>
+                    <td>pain in abdomen with headache and restlessness 
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <th width="20%">Treatment Date </th>
+                    <td class="text-danger">
+                      05-01-2019                      <span class="badge pull-right">1</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Treatment </th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Medicine </th>
+                    <td>Belladonna </td>
+                  </tr>
+                  <tr>
+                    <th>Potency </th>
+                    <td>200</td>
+                  </tr>
+                  <tr>
+                    <th>Number of Days </th>
+                    <td>tds x 3 days </td>
+                  </tr>
+                  <tr>
+                    <th>Investigation </th>
+                    <td>
+                       <span class="label label-danger">
+                        <span class="text-success">#1</span>
+                         </span><br><br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Remark </th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Referred To </th>
+                    <td> 
+                      <span class="label label-info">DISPENSARY</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Consultant </th>
+                    <td>DR. MAHENDRA SHARMA</td>
+                  </tr>
 
   </table>
 

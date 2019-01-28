@@ -26,15 +26,16 @@
           </div>
      </div>   
 </body>
-<div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+
+<div class="modal fade" id="id-largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
                 <div class="modal-dialog modal-lg " role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <!-- <div class="modal-header">
                             <h5 class="modal-title" id="largemodal1">Modal title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
-                        </div>
+                        </div> -->
                         <div class="page">
                             <div class="col-lg-12">
                                 <div class="row">
@@ -59,6 +60,11 @@
         <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
         <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
         <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript"
+ src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css"> 
+
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -148,10 +154,10 @@
     $(document).on('click',".viewRecord",function(e){
        var id=$(this).data('id');
        var token = $("meta[name='csrf-token']").attr("content");
-       
+       alert(id);
        $.ajax(
     {
-        url: '{{route("ot-show")}}',
+        url:'{{route("ot-show")}}',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -162,7 +168,7 @@
         
            if(res.status==true){
             $('#ot-view').html(res.html);
-            $("#largemodal").modal('show');
+            $("#id-largemodal").modal('show');
            }
         },
         error: function (data) {

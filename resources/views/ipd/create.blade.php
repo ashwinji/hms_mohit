@@ -80,18 +80,18 @@
                         <div class="col-md-6">
 
                              <div class="form-group">
-                                {!! Form::label('consultant', 'Consultant Name') !!}
-                                
-                                        {!! 
-                                               Form::select('consultant',
-                                            [
-                                                'class' => 'form-control',
-                                                'id'=>'consultant',
-												'name'=>'consultant',
-                                                'placeholder' => '--Select Consultant Name--'
-                                            ])   
-                                            
-                                        !!}              
+                            {!! Form::select('Consultant',
+                                                  array(
+                                                      '' => '----Select Consultant----',
+                                                      'Medicine' => 'Medicine',
+                                                      'Surgery' => 'Surgery',
+                                                      'Obs / Gyne' => 'Obs / Gyne',
+                                                      'Pediatric' => 'Pediatric',
+                                                      'Others' => 'Others'
+                                                      ),
+                                                      '',
+                                                      ['class' => 'form-control','id'=>'consultant','name'=>'consultant'])
+                            !!}           
                             </div>
 
                         </div>

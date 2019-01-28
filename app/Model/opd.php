@@ -8,6 +8,10 @@ class opd extends Model
 {
     public function ot()
     {
-    	return $this->belongsTo('App\Model\ot','patientId');
+    	return $this->hasOne('App\Model\ot','patientId','id');
+    }
+    public function ipd()
+    {
+    	return $this->hasOne('App\Model\ipd','patientId','id');
     }
 }

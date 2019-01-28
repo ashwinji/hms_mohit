@@ -66,9 +66,9 @@ class IpdController extends Controller
      * @param  \App\ipd  $ipd
      * @return \Illuminate\Http\Response
      */
-    public function edit(ipd $ipd)
+    public function edit($id)
     {
-         $ipd=ipd::where('id',$ipd)->first();
+         $ipd=ipd::where('id',$id)->first();
          return view('ipd.edit',compact('ipd'));
     }
 
@@ -79,9 +79,13 @@ class IpdController extends Controller
      * @param  \App\ipd  $ipd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ipd $ipd)
+    public function update(Request $request,$id)
     {
-        //
+        //dd($request->all());
+         $ipd=ipd::where('id',$id)->first();
+         $ipd->update($request->all());
+         
+    return redirect(route('ipd-create'))->with('message','upadte  sussefully');
     }
 
     /**
@@ -113,11 +117,14 @@ class IpdController extends Controller
               return sprintf('<button class="deleteipdrecord" data-id="%s">%s</button>
                 <button class="viewipdrecord" data-id="%s">%s</button>
                 <button class="addrecord" data-id="%s">%s</button>
-                <button class="editipdrecord" data-id="%s">%s</button>',
+                 <a href="%s">%s</a>
+                 <button class="discharge" data-id="%s">%s</button>',
                 $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-edit"></i>');
+                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-clock-o"></i>'
+                                                 );
               
             })        
             ->make(true);

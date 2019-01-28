@@ -67,5 +67,10 @@ class ipd extends Model
 'remark',
 'dltStatus'
     ];
-   // protected $primaryKey = 'patientId';
+   public function opd()
+	{
+	   return $this->belongsTo('App\Model\opd','patientId','id');
+	}
+
+   
 }

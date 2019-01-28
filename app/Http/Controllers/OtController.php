@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Model\ot;
 use App\Model\opd;
@@ -72,8 +71,7 @@ class OtController extends Controller
     {
         
         $id=$request->id;
-      
-        $data=opd::where('id','=',$id)->first();
+        $data=ot::where('id','=',$id)->first();
         $content=\View::make('ot.ottreatment',compact('data'));
         $a=$content->render();
       return response()->json([
@@ -149,7 +147,7 @@ class OtController extends Controller
     {
         $data=ot::all();
         $ots = ot::select('ots.id','ots.consultant','ots.otDate','opds.regNum','opds.patientName','ots.opdDate')
-            ->join('opds', 'ots.patientId', '=', 'opds.regNum')
+            ->join('opds', 'ots.patientId', '=','opds.regNum')
             ->get();
         return DataTables::of($ots)->addColumn('action', function($data){
 
