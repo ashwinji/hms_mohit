@@ -42,56 +42,30 @@
                 <th>Address </th>
                 <td colspan="3">{{ $data->opd->address }}</td>
               </tr>
-
+              <th>Referred By </th>
+              <td>DR. MAHENDRA SHARMA</td>
+              <th>Test Date </th>
+              <td>05-01-2019</td>
+              </tr>
               <tr>
-                <th>Referred By</th>
+                <th>Disease diagnosis</th>
+                <td colspan="3">Cervical Pain</td>
+              </tr>
+              <tr>
+                <th>Adviced Therapy</th>
+                <td colspan="3">Neck Rotate Exercise</td>
+              </tr>
+              <tr>
+                <th>Other </th>
                 <td colspan="3"></td>
               </tr>
 
               <tr>
-                <th>Dignosis</th>
+                <th>Remark </th>
                 <td colspan="3"></td>
               </tr>
-
-              <tr>
-                <th>OT Processure</th>
-                <td colspan="3"></td>
-              </tr>
-
-              <tr>
-                <th>Consultant</th>
-                <td colspan="3"></td>
-              </tr>
-
-              <tr>
-                <th>Other Consultant </th>
-                <td colspan="3"></td>
-              </tr>
-
-
-              <tr>
-                <th>Advise &amp; Treatment</th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Medicine <span class="badge badge-danger">1</span></th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Medicine <span class="badge badge-danger">2</span></th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Medicine <span class="badge badge-danger">3</span></th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Remark</th>
-                <td colspan="3"></td>
-              </tr>
-
-
-            </thead>
-
+              <thead>
           </table>
         </div>
+      </div>
+    </div>

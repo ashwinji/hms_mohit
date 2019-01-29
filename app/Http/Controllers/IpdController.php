@@ -122,8 +122,8 @@ class IpdController extends Controller
                 $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
-                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-clock-o"></i>'
+                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit  editRecord"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-clock-o "></i>'
                                                  );
               
             })        

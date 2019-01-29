@@ -8,7 +8,7 @@
      <div class="page">
         <div class="row">
             <div class="col-lg-12" >
-                  <table id="opduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success table-responsive " style="width:100%">
+                  <table id="opduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success  " style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>

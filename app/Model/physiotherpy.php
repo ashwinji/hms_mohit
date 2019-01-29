@@ -3,7 +3,9 @@
 namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Model\opd;
+use App\Model\ot;
+use App\Model\ipd;
 class physiotherpy extends Model
 {
 	 protected $fillable = [
@@ -17,4 +19,9 @@ class physiotherpy extends Model
      'other',
      'remark',
     ];
+    public function opd()
+     {
+        return $this->belongsTo(opd::class,'patientId','id');
+     }
+
 }

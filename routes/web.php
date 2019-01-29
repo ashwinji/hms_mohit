@@ -71,13 +71,14 @@ Route::post('ecg-store','EcgexaminationController@store')->name('ecg.store');
 
 Route::get('physiotherpy-create','PhysiotherpyController@create')->name('physiotherpy-create');
 Route::post('physiotherpy-store','PhysiotherpyController@store')->name('physiotherpy.store');
-Route::delete('physiotherpy/delete/{id}','PhysiotherpyController@destroy')->name('physco.delete');
-// Route::PUT('physiotherpy/update/{id}','PhysiotherpyController@update')->name('physiotherpy.update');
+Route::delete('physiotherpy-delete/{id}','PhysiotherpyController@destroy')->name('physco.delete');
+ Route::PUT('physiotherpy/update/{id}','PhysiotherpyController@update')->name('physiotherpy.update');
 Route::get('physiotherpy/edit/{id}','PhysiotherpyController@edit')->name('physiotherpy.edit');
 Route::get('getphysco', 'PhysiotherpyController@getphysco')->name('getphysco');
 Route::get('Physiotherpy/datatable', 'PhysiotherpyController@datatable')->name('physiotherpy-filter');
 Route::post('/physiotherpy/fetch', 'PhysiotherpyController@fetch')->name('physiotherpy.fetch');
 Route::post('/physiotherpy/physiotherpy-search', 'PhysiotherpyController@fetchSearch')->name('physiotherpy.fetchSearch');
+Route::post('/physiotherpy/view','PhysiotherpyController@show')->name('Physiotherpy-show');
 
 //yoga routes
 Route::get('yoga-create','YogaController@create')->name('yoga.create');
@@ -87,9 +88,6 @@ Route::get('yoga/datatable', 'YogaController@datatable')->name('yoga-filter');
 Route::post('/yoga/fetch', 'YogaController@fetch')->name('yoga.fetch');
 Route::post('/yoga/yoga-search', 'YogaController@fetchSearch')->name('yoga.fetchSearch');
 Route::DELETE('yoga/delete/{id}','YogaController@destroy')->name('yoga.delete');
-
-
-
-
- 
-
+ Route::PUT('yoga/update/{id}','YogaController@update')->name('yoga.update');
+Route::get('yoga/edit/{id}','YogaController@edit')->name('yoga.edit');
+Route::post('/yoga/view','YogaController@show')->name('yoga-show');

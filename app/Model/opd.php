@@ -10,8 +10,12 @@ class opd extends Model
     {
     	return $this->hasOne('App\Model\ot','patientId','id');
     }
-    public function ipd()
-    {
-    	return $this->hasOne('App\Model\ipd','patientId','id');
-    }
+    // public function ipd()
+    // {
+    // 	return $this->hasOne('App\Model\ipd','patientId','id');
+    // }
+    // public function physiotherpy()
+    // {
+    // 	return $this->hasOne('App\Model\physiotherpy','patientId','id');
+    // }
 }

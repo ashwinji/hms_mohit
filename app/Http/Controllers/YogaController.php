@@ -64,9 +64,16 @@ class YogaController extends Controller
      * @param  \App\yoga  $yoga
      * @return \Illuminate\Http\Response
      */
-    public function show(yoga $yoga)
+    public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $data=yoga::where('id','=',$id)->first();
+        $content=\View::make('yoga.view',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
 
     /**
@@ -75,9 +82,10 @@ class YogaController extends Controller
      * @param  \App\yoga  $yoga
      * @return \Illuminate\Http\Response
      */
-    public function edit(yoga $yoga)
+    public function edit($id)
     {
-        //
+        $yoga=yoga::where('id',$id)->first();
+        return view('yoga.edit',compact('yoga'));
     }
 
     /**
@@ -87,9 +95,20 @@ class YogaController extends Controller
      * @param  \App\yoga  $yoga
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, yoga $yoga)
+    public function update(Request $request,$id)
     {
-        //
+             $yoga=yoga::find($id);
+             $yoga->patientId=$request->opdNum;
+             $yoga->referredBy=$request->refferedby;
+             $yoga->age=$request->age;
+             $yoga->investigationAdvised=$request->advicedTherapy;
+             $yoga->yogadate=$request->yogadate;
+             $yoga->disease=$request->diagnosis;
+             $yoga->exersise=$request->exersize;
+             $yoga->other=$request->other;
+             $yoga->remark=$request->Remark;
+             $yoga->save();
+             return redirect(route('yoga.create'))->with('message','data update sussessfully');
     }
 
     /**
@@ -120,16 +139,15 @@ class YogaController extends Controller
             ->join('opds', 'yogas.patientId', '=','opds.regNum')
             ->get();
         return DataTables::of($yogas)->addColumn('action', function($data){
-
-        return sprintf('<button class="deleteyogaRecord" id="del"  data-id="%s">%s</button > 
-                        <button class="viewRecord" id="view" data-id="%s">%s</button >
-             <a href="%s">%s</a>',
-             $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
-             route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
+      
+         return sprintf('<button class="deleteyogaRecord" data-id="%s">%s</button>
+                <button class="viewRecord" data-id="%s">%s</button>
+               <a href="%s">%s</a>',
+                $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
+                $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
+                 route('yoga.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editYoga"></i>');
               
-            })       
-        
+            })
             ->make(true);
     }
 

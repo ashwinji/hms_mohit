@@ -42,56 +42,28 @@
                 <th>Address </th>
                 <td colspan="3">{{ $data->opd->address }}</td>
               </tr>
-
-              <tr>
-                <th>Referred By</th>
-                <td colspan="3"></td>
-              </tr>
-
-              <tr>
-                <th>Dignosis</th>
-                <td colspan="3"></td>
-              </tr>
-
-              <tr>
-                <th>OT Processure</th>
-                <td colspan="3"></td>
-              </tr>
-
-              <tr>
-                <th>Consultant</th>
-                <td colspan="3"></td>
-              </tr>
-
-              <tr>
-                <th>Other Consultant </th>
-                <td colspan="3"></td>
-              </tr>
-
-
-              <tr>
-                <th>Advise &amp; Treatment</th>
-                <td colspan="3"></td>
+              <th>Referred By </th>
+              <td>DR. MAHENDRA SHARMA</td>
+              <th>Test Date </th>
+              <td>05-01-2019</td>
               </tr>
               <tr>
-                <th>Medicine <span class="badge badge-danger">1</span></th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Medicine <span class="badge badge-danger">2</span></th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Medicine <span class="badge badge-danger">3</span></th>
-                <td colspan="3"></td>
-              </tr>
-              <tr>
-                <th>Remark</th>
-                <td colspan="3"></td>
-              </tr>
-
-
-            </thead>
-
+                <tr>
+                      <th>Disease diagnosis</th>
+                      <td></td>
+                      <th>Exercise</th>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Other</th>
+                      <td colspan="3">Migraine -Shavasana</td>
+                    </tr>
+                    <tr>
+                      <th>Remark </th>
+                      <td colspan="3"></td>
+                    </tr>
+              <thead>
           </table>
         </div>
+      </div>
+    </div>

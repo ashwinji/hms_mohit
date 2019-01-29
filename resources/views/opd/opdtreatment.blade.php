@@ -1,108 +1,110 @@
 <style>
-  th{
-        font-weight: bold;
-    }
+  th {
+    font-weight: bold;
+  }
 </style>
 <div class="panel panel-default">
 
   <div class="panel-body">
-      <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span> 
-      <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
-      <span class="pull-right" style="padding-right: 5px">
-        <b style="margin-right: 36px">{{ $data->regNum }}</b>
-      </span> <i class=" pull-right fa fa-print btn btn-warning" style="margin-right: 10px;">  Print</i> <a href="javascript:void(0);"></a>
+    <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span>
+    <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
+    <span class="pull-right" style="padding-right: 5px">
+      <b style="margin-right: 36px">{{ $data->regNum }}</b>
+    </span> <i class=" pull-right fa fa-print btn btn-warning" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
   </div>
 
   <table class="table table-bordered table-striped table-hovered">
-        <thead>
-            <tr>
-                <b><th>Registration Number </th></b>
-                <td>{{ $data->regNum }}</td>
-                <th>Registration Date </th>
-                <td>{{ $data->regDate }}</td>
-            </tr>
-            <tr>
-            
-                <th>Name </th>
-                <td colspan="3">{{ $data->patientName }} </td>
-            </tr>
-            <tr>
-                <th>Gender </th>
-                <td>{{ $data->gender }}</td>
-                <th>Age </th>
-                <td>{{ $data->age }}</td>
-            </tr>
-            <tr>
-                <th>Address </th>
-                <td colspan="3">{{ $data->address }}</td>
-            </tr>
-            <tr>
-                <th>Consultant Name </th>
-                <td>{{ $data->consultant }}</td>
-                <th>Other Consultant </th>
-                <td>{{ $data->otherConsultant }}</td>
-            </tr>
-            <tr>
-                <th>Department </th>
-                <td colspan="3">{{ $data->department }}</td>
-            </tr>
-        </thead>
-        <tr>
-                    <th>Complaints </th>
-                    <td>pain in abdomen with headache and restlessness 
-                    </td>
+    <thead>
+      <tr>
+        <b>
+          <th>Registration Number </th>
+        </b>
+        <td>{{ $data->regNum }}</td>
+        <th>Registration Date </th>
+        <td>{{ $data->regDate }}</td>
+      </tr>
+      <tr>
 
-                  </tr>
-                  <tr>
-                    <th width="20%">Treatment Date </th>
-                    <td class="text-danger">
-                      05-01-2019                      <span class="badge pull-right">1</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Treatment </th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Medicine </th>
-                    <td>Belladonna </td>
-                  </tr>
-                  <tr>
-                    <th>Potency </th>
-                    <td>200</td>
-                  </tr>
-                  <tr>
-                    <th>Number of Days </th>
-                    <td>tds x 3 days </td>
-                  </tr>
-                  <tr>
-                    <th>Investigation </th>
-                    <td>
-                       <span class="label label-danger">
-                        <span class="text-success">#1</span>
-                         </span><br><br>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Remark </th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Referred To </th>
-                    <td> 
-                      <span class="label label-info">DISPENSARY</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Consultant </th>
-                    <td>DR. MAHENDRA SHARMA</td>
-                  </tr>
+        <th>Name </th>
+        <td colspan="3">{{ $data->patientName }} </td>
+      </tr>
+      <tr>
+        <th>Gender </th>
+        <td>{{ $data->gender }}</td>
+        <th>Age </th>
+        <td>{{ $data->age }}</td>
+      </tr>
+      <tr>
+        <th>Address </th>
+        <td colspan="3">{{ $data->address }}</td>
+      </tr>
+      <tr>
+        <th>Consultant Name </th>
+        <td>{{ $data->consultant }}</td>
+        <th>Other Consultant </th>
+        <td>{{ $data->otherConsultant }}</td>
+      </tr>
+      <tr>
+        <th>Department </th>
+        <td colspan="3">{{ $data->department }}</td>
+      </tr>
+    </thead>
+    <tr>
+      <th>Complaints </th>
+      <td>pain in abdomen with headache and restlessness
+      </td>
+
+    </tr>
+    <tr>
+      <th width="20%">Treatment Date </th>
+      <td class="text-danger">
+        05-01-2019 <span class="badge pull-right">1</span>
+      </td>
+    </tr>
+    <tr>
+      <th>Treatment </th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Medicine </th>
+      <td>Belladonna </td>
+    </tr>
+    <tr>
+      <th>Potency </th>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>Number of Days </th>
+      <td>tds x 3 days </td>
+    </tr>
+    <tr>
+      <th>Investigation </th>
+      <td>
+        <span class="label label-danger">
+          <span class="text-success">#1</span>
+        </span><br><br>
+      </td>
+    </tr>
+    <tr>
+      <th>Remark </th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Referred To </th>
+      <td>
+        <span class="label label-info">DISPENSARY</span>
+      </td>
+    </tr>
+    <tr>
+      <th>Consultant </th>
+      <td>DR. MAHENDRA SHARMA</td>
+    </tr>
 
   </table>
 
 
 
-<!-- 
+  <!-- 
     @if(!empty($data->PatientTreatmentDetails))
 
       @foreach($data->PatientTreatmentDetails as $patient)

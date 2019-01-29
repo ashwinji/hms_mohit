@@ -25,18 +25,18 @@
         </div>
   </div>
 
-  <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+  <div class="modal fade" id="id-largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
                 <div class="modal-dialog modal-lg " role="document">
                     <div class="modal-content">
                         
                         <div class="modal-body">
-                            <div id="add">
+                            <div id="yoga-view">
                                 
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+
                         </div>
                     </div>
                 </div>
@@ -49,6 +49,10 @@
         <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
         <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
         <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
+
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -104,5 +108,50 @@
 });
    
     </script>
+    <script type="text/javascript">
+
+    $(document).on('click',".editYoga", function (e) {
+        ;
+        if (!confirm('Are you sure? update')) {
+            e.preventDefault();
+            return false;
+        }
+        var a = true;
+        if (a == true) {
+            var id = $(this).data("id");
+            var token = $("meta[name='csrf-token']").attr("content");
+
+        }
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click', ".viewRecord", function (e) {debugger
+        var id = $(this).data('id');
+        var token = $("meta[name='csrf-token']").attr("content");
+        alert(id);
+        $.ajax(
+            {
+                url: '{{route("yoga-show")}}',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id,
+                    _token: token,
+                },
+                success: function (res) {
+
+                    if (res.status == true) {
+                        $('#yoga-view').html(res.html);
+                        $('#id-largemodal').modal('show');
+                    }
+                },
+                error: function (data) {
+
+                }
+            });
+
+    });
+</script>
 
 @endsection

@@ -56,9 +56,16 @@ class PhysiotherpyController extends Controller
      * @param  \App\physiotherpy  $physiotherpy
      * @return \Illuminate\Http\Response
      */
-    public function show(physiotherpy $physiotherpy)
+    public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $data=physiotherpy::where('id','=',$id)->first();
+        $content=\View::make('physiotherpy.view',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
 
     /**
@@ -80,9 +87,12 @@ class PhysiotherpyController extends Controller
      * @param  \App\physiotherpy  $physiotherpy
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, physiotherpy $physiotherpy)
+    public function update(Request $request,$id)
     {
-        //
+         $physiotherpy=physiotherpy::where('id',$id)->first();
+         $physiotherpy->update($request->all());
+         
+    return redirect(route('physiotherpy-create'))->with('message','upadte  sussefully');
     }
 
     /**
@@ -108,13 +118,11 @@ class PhysiotherpyController extends Controller
               return DataTables::of( $physiotherpy)->addColumn('action', function($data){
 
               return sprintf('<button class="deletephyscoRecord" data-id="%s">%s</button>
-                <button class="viewipdrecord" data-id="%s">%s</button>
-                <button class="addrecord" data-id="%s">%s</button>
+                <button class="viewrecord" data-id="%s">%s</button>
                <a href="%s">%s</a>',
                 $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
                 $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
-                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
+                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editrecord"></i>');
               
             })        
             ->make(true);
