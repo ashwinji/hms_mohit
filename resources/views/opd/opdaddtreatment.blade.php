@@ -107,7 +107,7 @@
                 {!! Form::label('name', 'Potency') !!}
                 {!! Form::select('potency1', array(''=>'--Select Potency--','6' => '6', '30' => '30', '200' =>
                 '200','1M' => '1M', '10M' => '10M', '50M' => '50M','1X' => '1X','3X' => '3X', '6X' => '6X', '12X' =>
-                '12X','Q' => 'Q'),'S', ['class' => 'form-control','id'=>'potency']) !!}
+                '12X','Q' => 'Q'),'Input', ['class' => 'form-control','id'=>'potency']) !!}
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@
               'SERUM CALCIUM', 'SERUM CREATININE' => 'SERUM CREATININE', 'SERUM URIC ACID' => 'SERUM URIC ACID','STOOL
               R/M' => 'STOOL R/M','T3 T4 TSH' => 'T3 T4 TSH','TOTAL LIPIDS PROFILE' => 'TOTAL LIPIDS PROFILE', 'URINE
               FOR BILE SALT / BILE PIGMENT' => 'URINE FOR BILE SALT / BILE PIGMENT','URINE FOR SUGAR/ALBUMIN/KETONE' =>
-              'URINE FOR SUGAR/ALBUMIN/KETONE','URINE R/M' => 'URINE R/M','X-RAY ' => 'X-RAY ',),'S', ['class' =>
+              'URINE FOR SUGAR/ALBUMIN/KETONE','URINE R/M' => 'URINE R/M','X-RAY ' => 'X-RAY ',),'Input', ['class' =>
               'form-control','id'=>'advice',]) !!}
             </div>
           </div>
@@ -149,7 +149,7 @@
           <div class="col-lg-12">
             <div class="row">
               <div class="form-group">
-                {!! Form::label('refTo', 'Referred To') !!}
+                {!! Form::label('', '') !!}
                 <div class="col-lg-3">
                   {{-- {!! Form::checkbox('refTo[]', 'OT', ['class' => 'form-control checkbox','id'=>'id-ot']) !!} --}}
                   <input type="checkbox" name="refTo[]" value="OT" id="id-ot" class="check">
@@ -164,11 +164,12 @@
 
                   {!! Form::label('IPD', 'IPD') !!}
                 </div>
+              </div>
                 <div class="col-lg-3">
 
                   <input type="checkbox" name="refTo[]" value="PATHOLOGY" id="id-PATHOLOGY" class="check">
                   {!! Form::label('PATHOLOGY', 'PATHOLOGY') !!}
-                </div>
+              
               </div>
               <div class="form-group ">
                 <label for="refTo" class="control-label col-lg-3">&nbsp;</label>

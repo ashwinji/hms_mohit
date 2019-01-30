@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\bloodexamination;
+use App\Model\bloodexamination;
 use Illuminate\Http\Request;
+use App\Model\ot;
+use App\Model\opd;
+use DB;
+use DataTables;
 
 class BloodexaminationController extends Controller
 {
@@ -24,7 +28,7 @@ class BloodexaminationController extends Controller
      */
     public function create()
     {
-        return view('testreport.bloodexamination');
+        return view('testreport.bloodexamination.create');
     }
 
     /**
@@ -36,20 +40,14 @@ class BloodexaminationController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+
         ]);
 
-              $bloodexamination=new bloodexamination;
-              $bloodexamination->patientId=$request->opdNum;
-              $bloodexamination->referredBy=$request->refferedby;
-              $bloodexamination->age=$request->age;
-              $bloodexamination->investigationAdvised=$request->
-              $bloodexamination->yogadate=$request->yogadate;
-              $bloodexamination->disease=$request->diagnosis;
-              $bloodexamination->exersise=$request->exersize;
-              $bloodexamination->other=$request->other;
-              $bloodexamination->remark=$request->Remark;
-              $bloodexamination->save();
+         $bloodexamination=bloodexamination::create($request->all());
+         $bloodexamination->save();
+        return redirect (route('blood-create'))->with('message','data save sussefully');
 
+              
         
     }
 
@@ -96,5 +94,19 @@ class BloodexaminationController extends Controller
     public function destroy(bloodexamination $bloodexamination)
     {
         //
+    }
+    public function datatable()
+    {
+        return view('testreport.bloodexamination.bloodexaminationfilter');
+    }
+    public function sendblooddata()
+    {
+      $data=bloodexamination::all();
+       $bloodexaminations= bloodexamination::select('bloodexaminations.id','bloodexaminations.investigationAdvised','bloodexaminations.referredBy','opds.regNum','opds.patientName','bloodexaminations.date','opds.age')
+            ->join('opds', 'bloodexaminations.patientId', '=','opds.regNum')
+            ->get();
+            return DataTables::of($bloodexaminations)
+
+        ->make('true');
     }
 }

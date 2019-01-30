@@ -66,7 +66,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
 
-
 <script type="text/javascript">
     $(document).ready(function () {
         oTable = $('#otuser').DataTable({

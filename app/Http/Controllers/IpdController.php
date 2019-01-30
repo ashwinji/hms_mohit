@@ -6,7 +6,6 @@ use App\Model\ot;
 use App\Model\opd;
 use Illuminate\Http\Request;
 use DB;
-use Log;
 use DataTables;
 class IpdController extends Controller
 {

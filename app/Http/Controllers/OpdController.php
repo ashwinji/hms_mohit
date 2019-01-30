@@ -170,17 +170,22 @@ class OpdController extends Controller
         return DataTables::of($opds)->addColumn('action', function($data){
 
        return sprintf('<button class="deleteopdRecord" id="del" data-id="%s">%s</button > 
-                        <button class="viewRecord" id="view" data-id="%s">%s</button >
+                        <button class="viewRecord "id="view" data-id="%s">%s</button >
                         <button class="addRecord" id="" data-id="%s">%s</button >
              <a href="%s">%s</a>',
              $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-plus "></i>',
-             route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit"></i>');
+             $data['id'],'<i class="btn btn-lime fa fa-eye "></i>',
+             $data['id'],'<i class="btn btn-lime fa fa-plus "></i>',
+             route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-teal fa fa-pencil editotRecord"></i>');
               
             })  
                  
         
             ->make(true);
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard.dashboard');
     }
 }
