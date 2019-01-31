@@ -50,6 +50,13 @@ Route::get('bloodexamination/create','BloodexaminationController@create')->name(
 Route::post('bloodexamination/store','BloodexaminationController@store')->name('blood.store');
 Route::get('bloodexamination/datatable','BloodexaminationController@datatable')->name('blood-filter');
 Route::get('sendblooddata','BloodexaminationController@sendblooddata')->name('sendblooddata');
+Route::delete('blood-delete/{id}','BloodexaminationController@destroy')->name('blood.delete');
+Route::get('/bloodexamination/edit/{id}','BloodexaminationController@edit')->name('bloodexamination.edit');
+Route::PUT('/bloodexamination/update/{id}','BloodexaminationController@update')->name('blood.update');
+Route::post('/bloodexamination/fetch', 'BloodexaminationController@fetch')->name('bloodexamination.fetch');
+Route::post('/bloodexamination/bloodexamination-search', 'BloodexaminationController@fetchSearch')->name('bloodexamination.fetchSearch');
+Route::post('/bloodexamination/view','BloodexaminationController@show')->name('bloodexamination-show');
+
 //general blood routes
 Route::get('generalblood/create','GeneralbloodController@create')->name('generalblood-create');
 Route::post('generalblood/store','GeneralbloodController@store')->name('generalblood.store');

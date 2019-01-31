@@ -24,7 +24,7 @@ class SerumofwidalController extends Controller
      */
     public function create()
     {
-        return view('testreport.serunofwidal');
+        return view('testreport.serunofwidal.create');
     }
 
     /**

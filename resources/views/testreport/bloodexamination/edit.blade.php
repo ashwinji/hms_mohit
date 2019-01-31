@@ -8,7 +8,7 @@
 
 									<div class="card">
 										<div class="card-header">
-											 <h3 class="mb-0 card-title">BLOOD EXAMINATION</h3>
+											 <h3 class="mb-0 card-title">Update BLOOD EXAMINATION</h3>
 											<div class="card-body">
 											<div class="btn-list" style="float: right;">
 												
@@ -28,7 +28,7 @@
 							 <div class="row">
 
                                 </div>
-							{!! Form::open(['route' => ['blood.store'],'autocomplete'=>'off']) !!}
+							{!! Form::open(['route' => ['blood.update',$bloodexamination->id],'autocomplete'=>'off','method'=>'PUT']) !!}
 
 							{!! csrf_field() !!}
 
@@ -40,7 +40,7 @@
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
 		
-	        {!! Form::text('patientId',  '', ['class' => 'form-control',
+	        {!! Form::text('patientId', $bloodexamination->opd->regNum, ['class' => 'form-control',
 	        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
 	         <div id="opd-reg-list">
 
@@ -52,7 +52,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName',  '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','readonly'=>'true',]) !!}
+	        {!! Form::text('patientName',$bloodexamination->opd->patientName, ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','readonly'=>'true',]) !!}
 							    </div>
 								</div>
 
@@ -60,7 +60,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate',  '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true',]) !!}
+	        {!! Form::date('opdDate',$bloodexamination->opd->regDate, ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true',]) !!}
 							    </div>
 								</div>
 
@@ -76,7 +76,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('Age', 'Age') !!}
-	        {!! Form::text('age',  '',['class'=>'form-control','id'=>'age','placeholder' => 'Enter age','readonly'=>'true']) !!}
+	        {!! Form::text('age',$bloodexamination->opd->age,['class'=>'form-control','id'=>'age','placeholder' => 'Enter age','readonly'=>'true']) !!}
 							    </div>
 								</div>
 
@@ -84,7 +84,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Investigation Advised') !!}
-	        {!! Form::text('investigationAdvised',  '', ['class' => 'form-control','placeholder' => 'Enter investigationAdvised','id'=>'investigationAdvised',]) !!}
+	        {!! Form::text('investigationAdvised',$bloodexamination->investigationAdvised, ['class' => 'form-control','placeholder' => 'Enter investigationAdvised','id'=>'investigationAdvised',]) !!}
 							    </div>
 								</div>
 
@@ -93,7 +93,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Test Date') !!}
-	        {!! Form::date('date',  '', ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
+	        {!! Form::date('date',$bloodexamination->date, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
 							    </div>
 								</div>
 								
@@ -109,119 +109,119 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total RBC Count') !!}
-	        {!! Form::text('totalRBCCount',  '', ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
+	        {!! Form::text('totalRBCCount',$bloodexamination->totalRBCCount, ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total WBC Count') !!}
-	        {!! Form::text('totalWBCCount',  '', ['class' => 'form-control','placeholder' => 'Enter Total WBC Count']) !!}
+	        {!! Form::text('totalWBCCount',$bloodexamination->totalWBCCount, ['class' => 'form-control','placeholder' => 'Enter Total WBC Count']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Polymorphs') !!}
-	        {!! Form::text('polymorphs',  '', ['class' => 'form-control','placeholder' => 'Enter Polymorphs']) !!}
+	        {!! Form::text('polymorphs',$bloodexamination->polymorphs, ['class' => 'form-control','placeholder' => 'Enter Polymorphs']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Lymphocytes') !!}
-	        {!! Form::text('lymphocytes',  '', ['class' => 'form-control','placeholder' => 'Enter Lymphocytes']) !!}
+	        {!! Form::text('lymphocytes',$bloodexamination->lymphocytes, ['class' => 'form-control','placeholder' => 'Enter Lymphocytes']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Eosinophils') !!}
-	        {!! Form::text('eosinophils',  '', ['class' => 'form-control','placeholder' => 'Enter Eosinophils']) !!}
+	        {!! Form::text('eosinophils',$bloodexamination->eosinophils, ['class' => 'form-control','placeholder' => 'Enter Eosinophils']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Monocytes') !!}
-	        {!! Form::text('monocytes',  '', ['class' => 'form-control','placeholder' => 'Enter Monocytes']) !!}
+	        {!! Form::text('monocytes', $bloodexamination->monocytes, ['class' => 'form-control','placeholder' => 'Enter Monocytes']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Basophils') !!}
-	        {!! Form::text('basophils',  '', ['class' => 'form-control','placeholder' => 'Enter Basophils']) !!}
+	        {!! Form::text('basophils',  $bloodexamination->basophils, ['class' => 'form-control','placeholder' => 'Enter Basophils']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'ERS') !!}
-	        {!! Form::text('ers',  '', ['class' => 'form-control','placeholder' => 'Enter ERS']) !!}
+	        {!! Form::text('ers',  $bloodexamination->ers, ['class' => 'form-control','placeholder' => 'Enter ERS']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Platelet Count') !!}
-	        {!! Form::text('plateletCount',  '', ['class' => 'form-control','placeholder' => 'Enter Platelet Count']) !!}
+	        {!! Form::text('plateletCount',  $bloodexamination->plateletCount, ['class' => 'form-control','placeholder' => 'Enter Platelet Count']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Reticulocytes') !!}
-	        {!! Form::text('reticulocytes',  '', ['class' => 'form-control','placeholder' => 'Enter Reticulocytes']) !!}
+	        {!! Form::text('reticulocytes',  $bloodexamination->reticulocytes, ['class' => 'form-control','placeholder' => 'Enter Reticulocytes']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'PCV') !!}
-	        {!! Form::text('pcv',  '', ['class' => 'form-control','placeholder' => 'Enter PCV']) !!}
+	        {!! Form::text('pcv',  $bloodexamination->pcv, ['class' => 'form-control','placeholder' => 'Enter PCV']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'MCV') !!}
-	        {!! Form::text('mcv',  '', ['class' => 'form-control','placeholder' => 'Enter MCV']) !!}
+	        {!! Form::text('mcv',  $bloodexamination->mcv, ['class' => 'form-control','placeholder' => 'Enter MCV']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'MCH') !!}
-	        {!! Form::text('mch',  '', ['class' => 'form-control','placeholder' => 'Enter MCH']) !!}
+	        {!! Form::text('mch',  $bloodexamination->mch, ['class' => 'form-control','placeholder' => 'Enter MCH']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'MCHC') !!}
-	        {!! Form::text('mchc',  '', ['class' => 'form-control','placeholder' => 'Enter MCHC']) !!}
+	        {!! Form::text('mchc',  $bloodexamination->mchc, ['class' => 'form-control','placeholder' => 'Enter MCHC']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Bleeding Time') !!}
-	        {!! Form::text('bleedingTime',  '', ['class' => 'form-control','placeholder' => 'Enter Bleeding Time']) !!}
+	        {!! Form::text('bleedingTime',  $bloodexamination->bleedingTime, ['class' => 'form-control','placeholder' => 'Enter Bleeding Time']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Clotting Time') !!}
-	        {!! Form::text('clottingTime',  '', ['class' => 'form-control','placeholder' => 'Enter Clotting Time']) !!}
+	        {!! Form::text('clottingTime',  $bloodexamination->clottingTime, ['class' => 'form-control','placeholder' => 'Enter Clotting Time']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Malarial Parasite') !!}
-	        {!! Form::text('malarialParasite',  '', ['class' => 'form-control','placeholder' => 'Enter Malarial Parasite']) !!}
+	        {!! Form::text('malarialParasite',  $bloodexamination->malarialParasites, ['class' => 'form-control','placeholder' => 'Enter Malarial Parasite']) !!}
 							    </div>
 								</div>
 
@@ -229,7 +229,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('remark',  '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('remark',  $bloodexamination->remark, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
 							    </div>
 								</div>
 
@@ -272,52 +272,5 @@
 
 	@endsection
 	@section('footerSection')
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-
-        </script>
-<script type="text/javascript">
-
-        jQuery(document).ready(function () {
-                jQuery('#patientId').on('keyup', function () {
-                        var opd = $(this).val();
-                        $('#patientId').html("");
-                        if (opd != '') {
-                                var _token = $('input[name="_token"]').val();
-                                $.ajax({
-
-                                        url: "{{ route('bloodexamination.fetch') }}",
-                                        method: "POST",
-                                        data: { query: opd, _token: _token },
-                                        success: function (data) {
-                                                $('#opd-reg-list').fadeIn();
-                                                $('#opd-reg-list').html(data);
-                                        }
-
-                                });
-                        }
-                });
-
-        });
-        $(document).on('click', 'li', function () {
-                $('#patientId').val($(this).text());
-                var opd = $('#patientId').val();
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                        url: "{{ route('bloodexamination.fetchSearch') }}",
-                        method: "POST",
-                        data: { query: opd, _token: _token },
-                        success: function (data) {
-                                console.log(data);
-                                $('#regDate').val(data.regDate);
-                                $('#opd_name').val(data.patientName);
-                                $('#age').val(data.age);
-                                $('#referredBy').val(data.referredBy);
-                        }
-
-                });
-                $('#opd-reg-list').fadeOut();
-        });
-
-</script>
+	
 @endSection

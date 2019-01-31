@@ -24,7 +24,7 @@ class UrineexaminationController extends Controller
      */
     public function create()
     {
-        return view('testreport.urinexamination');
+        return view('testreport.urinexamination.create');
     }
 
     /**

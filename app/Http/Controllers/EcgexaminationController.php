@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\ecgexamination;
+use App\Model\ecgexamination;
 use Illuminate\Http\Request;
+use App\Model\bloodexamination;
+use App\Model\ot;
+use App\Model\opd;
+use DB;
+use DataTables;
+
 
 class EcgexaminationController extends Controller
 {
@@ -24,7 +30,7 @@ class EcgexaminationController extends Controller
      */
     public function create()
     {
-        return view('testreport.ecg');
+        return view('testreport.ecg.create');
     }
 
     /**
@@ -35,7 +41,9 @@ class EcgexaminationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ecg=ecgexamination::create($request->all());
+        $ecg->save();
+         return redirect (route('ecg-create'))->with('message','data save sussefully');
     }
 
     /**

@@ -3,7 +3,9 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Model\opd;
+use App\Model\ot;
+use App\Model\ipd;
 class bloodexamination extends Model
 {
     protected $fillable = [
@@ -34,5 +36,9 @@ class bloodexamination extends Model
    'malarialParasite',
    'remark',
 ];
+public function opd()
+     {
+        return $this->belongsTo(opd::class,'patientId','id');
+     }
 
 }

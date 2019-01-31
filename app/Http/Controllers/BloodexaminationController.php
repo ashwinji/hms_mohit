@@ -57,20 +57,27 @@ class BloodexaminationController extends Controller
      * @param  \App\bloodexamination  $bloodexamination
      * @return \Illuminate\Http\Response
      */
-    public function show(bloodexamination $bloodexamination)
+  public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $data=bloodexamination::where('id','=',$id)->first();
+        $content=\View::make('testreport.bloodexamination.view',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\bloodexamination  $bloodexamination
      * @return \Illuminate\Http\Response
      */
-    public function edit(bloodexamination $bloodexamination)
+    public function edit($id)
     {
-        //
+        $bloodexamination=bloodexamination::where('id',$id)->first();
+        return view('testreport.bloodexamination.edit',compact('bloodexamination'));
     }
 
     /**
@@ -80,9 +87,11 @@ class BloodexaminationController extends Controller
      * @param  \App\bloodexamination  $bloodexamination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, bloodexamination $bloodexamination)
+    public function update(Request $request, $id)
     {
-        //
+        $bloodexamination=bloodexamination::where('id',$id)->first();
+         $bloodexamination->update($request->all());
+          return redirect (route('blood-create'))->with('message','update  sussefully');
     }
 
     /**
@@ -91,9 +100,12 @@ class BloodexaminationController extends Controller
      * @param  \App\bloodexamination  $bloodexamination
      * @return \Illuminate\Http\Response
      */
-    public function destroy(bloodexamination $bloodexamination)
+    public function destroy($id)
     {
-        //
+       bloodexamination::where('id',$id)->delete();
+          return response()->json([
+           'success' => 'Record deleted successfully!'
+          ]);
     }
     public function datatable()
     {
@@ -101,12 +113,57 @@ class BloodexaminationController extends Controller
     }
     public function sendblooddata()
     {
-      $data=bloodexamination::all();
-       $bloodexaminations= bloodexamination::select('bloodexaminations.id','bloodexaminations.investigationAdvised','bloodexaminations.referredBy','opds.regNum','opds.patientName','bloodexaminations.date','opds.age')
+           $data=bloodexamination::all();
+           $bloodexaminations= bloodexamination::select('bloodexaminations.id','bloodexaminations.investigationAdvised','bloodexaminations.referredBy','opds.regNum','opds.patientName','bloodexaminations.date','opds.age')
             ->join('opds', 'bloodexaminations.patientId', '=','opds.regNum')
             ->get();
-            return DataTables::of($bloodexaminations)
+            return DataTables::of($bloodexaminations)->addColumn('action', function($data){
+
+              return sprintf(
+                '<div class="btn btn-group"><button  data-id="%s" class="%s btn btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+                 <a href="%s">%s</a>',
+                $data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                route('bloodexamination.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editRecord"></i>'
+                );
+              
+            })   
 
         ->make('true');
     }
+    public function fetch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum', 'LIKE', '%'.$query.'%')
+            ->get();
+          $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
+          foreach($data as $row)
+          {
+           $output .= '
+           <li><a href="#">'.$row->regNum.'</a></li>
+           ';
+          }
+          $output .= '</ul>';
+          echo $output;
+     }
+    }
+
+    public function fetchSearch(Request $request)
+    {
+       if($request->get('query')){
+
+          $query = $request->get('query');
+          $data = DB::table('opds')
+            ->where('regNum',$query)
+            ->first();
+
+            return response()->json($data);
+         
+     }
+    }
+    
 }
