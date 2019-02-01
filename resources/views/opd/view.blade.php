@@ -9,7 +9,7 @@
     <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
     <span class="pull-right" style="padding-right: 5px">
       <b style="margin-right: 36px">{{ $data->regNum }}</b>
-    </span> <i class=" pull-right fa fa-print btn btn-xs btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
+    </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
                       </div
                     </div>
                   </div>

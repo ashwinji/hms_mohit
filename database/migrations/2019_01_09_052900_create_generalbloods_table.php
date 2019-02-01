@@ -16,25 +16,25 @@ class CreateGeneralbloodsTable extends Migration
         Schema::create('generalbloods', function (Blueprint $table) {
           $table->increments('id');
           $table->string('patientId');
-          $table->string('referredBy');
-          $table->string('age');
-          $table->text('investigationAdvised');
-          $table->string('date');
-          $table->string('bloodFasting');
-          $table->string('bloodRandom');
-          $table->string('bloodPP');
-          $table->string('urea');
-          $table->string('creatinine');
-          $table->string('uricAcid');
-          $table->string('totalBilirubin');
-          $table->string('directBilirubin');
-          $table->string('sgptAlt');
-          $table->string('sgotAst');
-          $table->string('alkPhosphatase');
-          $table->string('totalProtein');
-          $table->string('albumin');
-          $table->string('agRatio');
-          $table->string('created_at');
+          $table->string('referredBy')->nullable();
+          $table->string('age')->nullable();
+          $table->text('investigationAdvised')->nullable();
+          $table->string('date')->nullable();
+          $table->string('bloodFasting')->nullable();
+          $table->string('bloodRandom')->nullable();
+          $table->string('bloodPP')->nullable();
+          $table->string('urea')->nullable();
+          $table->string('creatinine')->nullable();
+          $table->string('uricAcid')->nullable();
+          $table->string('totalBilirubin')->nullable();
+          $table->string('directBilirubin')->nullable();
+          $table->string('sgptAlt')->nullable();
+          $table->string('sgotAst')->nullable();
+          $table->string('alkPhosphatase')->nullable();
+          $table->string('totalProtein')->nullable();
+          $table->string('albumin')->nullable();
+          $table->string('agRatio')->nullable();
+          $table->timestamps();
         });
     }
 

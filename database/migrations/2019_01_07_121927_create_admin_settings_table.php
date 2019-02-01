@@ -15,17 +15,17 @@ class CreateAdminSettingsTable extends Migration
     {
         Schema::create('admin_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('website_title');
-            $table->string('lock_time');
-            $table->string('logo_image');
-            $table->string('fbLink');
-            $table->string('twLink');
-            $table->string('goLink');
-            $table->string('lnLink');
-            $table->string('contact');
-            $table->string('email');
-            $table->string('address');
-            $table->string('openingHrs');
+            $table->string('website_title')->nullable();
+            $table->string('lock_time')->nullable();
+            $table->string('logo_image')->nullable();
+            $table->string('fbLink')->nullable();
+            $table->string('twLink')->nullable();
+            $table->string('goLink')->nullable();
+            $table->string('lnLink')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('openingHrs')->nullable();
           
             $table->timestamps();
         });

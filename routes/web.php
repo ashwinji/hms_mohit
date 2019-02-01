@@ -8,6 +8,7 @@
   //dash route
   Route::get('dashboard','OpdController@dashboard')->name('dashboard');
 
+
 //opd routes
 Route::get('opd/create','OpdController@create')->name('opd-create');
 Route::post('opd/store','OpdController@store')->name('opd.store');	
@@ -17,7 +18,7 @@ Route::DELETE('delete/{id}','OpdController@destroy')->name('opd.delete');
 Route::get('opd/edit/{id}','OpdController@edit')->name('opd.edit');
 Route::PUT('opd/update/{id}','OpdController@update')->name('opd.update');
 Route::get('opd/datatable', 'OpdController@datatable')->name('opd-filter');
-Route::get('datatable/getopd', 'OpdController@getOpd')->name('datatable.getopd');
+Route::get('opd/getopd', 'OpdController@getOpd')->name('datatable.getopd');
 //opd treatement
 Route::post('store','OpdtreatmentsController@store')->name('opdt.store');
 
@@ -25,7 +26,7 @@ Route::post('store','OpdtreatmentsController@store')->name('opdt.store');
 //ipd routes
 Route::post('/ipd/fetch', 'IpdController@fetch')->name('ipd.fetch');
 Route::post('/ipd/fetch-search', 'IpdController@fetchSearch')->name('ipd.fetchSearch');
-Route::get('ipd-datatable', 'IpdController@datatable')->name('ipd-filter');
+Route::get('ipd/datatable', 'IpdController@datatable')->name('ipd-filter');
 Route::get('ipd/getipd', 'IpdController@getIpd')->name('getipd');
 Route::get('ipd/edit/{id}','IpdController@edit')->name('ipd.edit');
 Route::PUT('ipd/update/{id}','IpdController@update')->name('ipd.update');
@@ -38,8 +39,8 @@ Route::post('ot/store','OtController@store')->name('ot.store');
 Route::post('/ot/fetch', 'OtController@fetch')->name('ot.fetch');
 Route::post('/ot/fetch-search', 'OtController@fetchSearch')->name('ot.fetchSearch');
 Route::get('ot/datatable', 'OtController@datatable')->name('ot-filter');
-Route::get('getposts2', 'OtController@getOt')->name('getot');
-Route::delete('delete2/{id}','OtController@destroy')->name('ot.delete');
+Route::get('get/getot', 'OtController@getOt')->name('getot');
+Route::DELETE('ot/delete/{id}','OtController@destroy')->name('ot.delete');
 Route::PUT('ot/update/{id}','OtController@update')->name('ot.update');
 Route::get('ot/edit/{id}','OtController@edit')->name('ot.edit');
 Route::post('ot/show','OtController@show')->name('ot-show');
@@ -60,6 +61,13 @@ Route::post('/bloodexamination/view','BloodexaminationController@show')->name('b
 //general blood routes
 Route::get('generalblood/create','GeneralbloodController@create')->name('generalblood-create');
 Route::post('generalblood/store','GeneralbloodController@store')->name('generalblood.store');
+Route::get('generalblood/datatable','GeneralbloodController@datatable')->name('generalblood-filter');
+Route::get('sendgeneralblooddata','GeneralbloodController@sendgeneralblooddata')->name('sendgeneralblooddata');
+Route::delete('generalblood-delete/{id}','GeneralbloodController@destroy')->name('generalblood.delete');
+Route::get('/generalblood/edit/{id}','GeneralbloodController@edit')->name('generalblood.edit');
+Route::PUT('/generalblood/update/{id}','GeneralbloodController@update')->name('generalblood.update');
+Route::post('/bloodexamination/view','GeneralbloodController@show')->name('generalblood-show');
+
 //semen routes
 Route::get('semen/create','SemenexaminationController@create')->name('semen-create');
 Route::post('semen/store','SemenexaminationController@store')->name('semen.store');
@@ -76,10 +84,18 @@ Route::post('urine/store','UrineexaminationController@store')->name('urine.store
 //xray routes
 Route::get('xray/create','XrayController@create')->name('xray-create');
 Route::post('xray/store','XrayController@store')->name('xray.store');
+
 //ecg routes
 Route::get('ecg/create','EcgexaminationController@create')->name('ecg-create');
 Route::post('ecg/store','EcgexaminationController@store')->name('ecg.store');
-
+Route::post('/ecg/fetch', 'EcgexaminationController@fetch')->name('ecg.fetch');
+Route::post('/ecg/ecg-fetchSearch', 'EcgexaminationController@fetchSearch')->name('ecg.fetchSearch');
+Route::get('ecg/datatable', 'EcgexaminationController@datatable')->name('ecg-filter');
+Route::get('sendecgdata','EcgexaminationController@sendecgdata')->name('sendecgdata');
+Route::delete('ecg-delete/{id}','EcgexaminationController@destroy')->name('ecg.delete');
+Route::post('/ecg/view','EcgexaminationController@show')->name('ecg-show');
+Route::PUT('/ecg/update/{id}','EcgexaminationController@update')->name('ecg.update');
+Route::get('/ecg/edit/{id}','EcgexaminationController@edit')->name('ecg.edit');
 //physiotherpy routes
 
 Route::get('physiotherpy/create','PhysiotherpyController@create')->name('physiotherpy-create');

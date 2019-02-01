@@ -15,8 +15,8 @@ class CreateYogalistsTable extends Migration
     {
         Schema::create('yogalists', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('disease');
-            $table->string('exersise');
+            $table->string('disease')->nullable();
+            $table->string('exersise')->nullable();
             $table->timestamps();
         });
     }

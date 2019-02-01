@@ -78,7 +78,7 @@ class OpdController extends Controller
         $id=$request->id;
       
         $data=opd::where('id','=',$id)->first();
-        $content=\View::make('opd.opdtreatment',compact('data'));
+        $content=\View::make('opd.view',compact('data'));
         $a=$content->render();
       return response()->json([
         'status'=>true,
@@ -169,13 +169,13 @@ class OpdController extends Controller
         $opds = opd::select('id','patientName','regNum','regDate','address','gender','consultant');
         return DataTables::of($opds)->addColumn('action', function($data){
 
-       return sprintf('<button class="deleteopdRecord" id="del" data-id="%s">%s</button > 
-                        <button class="viewRecord "id="view" data-id="%s">%s</button >
-                        <button class="addRecord" id="" data-id="%s">%s</button >
+       return sprintf('<div class=" btn btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
+                       <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+                     <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
              <a href="%s">%s</a>',
-             $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-             $data['id'],'<i class="btn btn-lime fa fa-eye "></i>',
-             $data['id'],'<i class="btn btn-lime fa fa-plus "></i>',
+            route('opd.delete',$data['id']),$data['id'],"deleteopdRecord",'<i class=" fa fa-trash"></i>',
+             $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+             $data['id'],"addRecord",'<i class=" fa fa-plus"></i>',
              route('opd.edit',['id'=>$data['id']]),'<i class="btn btn-teal fa fa-pencil editotRecord"></i>');
               
             })  

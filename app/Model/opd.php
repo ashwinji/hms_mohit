@@ -3,19 +3,12 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Model\opd;
+use App\Model\ot;
+use App\Model\ipd;
+use App\Model\ecgexamination;
 class opd extends Model
 {
-    public function ot()
-    {
-    	return $this->hasOne('App\Model\ot','patientId','id');
-    }
-    // public function ipd()
-    // {
-    // 	return $this->hasOne('App\Model\ipd','patientId','id');
-    // }
-    // public function physiotherpy()
-    // {
-    // 	return $this->hasOne('App\Model\physiotherpy','patientId','id');
-    // }
-}
+
+ }
+

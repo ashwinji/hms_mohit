@@ -16,15 +16,15 @@ class CreateOpdtreatmentsTable extends Migration
         Schema::create('opdtreatments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('patientId');
-            $table->string('refTo');
-            $table->text('complaint');
-            $table->text('treatment');
-            $table->string('medicine');
-            $table->string('potency');
-            $table->string('nod');
-            $table->text('advice');
-            $table->text('remark');
-            $table->string('consultant');
+            $table->string('refTo')->nullable();
+            $table->text('complaint')->nullable();
+            $table->text('treatment')->nullable();
+            $table->string('medicine')->nullable();
+            $table->string('potency')->nullable();
+            $table->string('nod')->nullable();
+            $table->text('advice')->nullable();
+            $table->text('remark')->nullable();
+            $table->string('consultant')->nullable();
             $table->timestamps('');
 
         });

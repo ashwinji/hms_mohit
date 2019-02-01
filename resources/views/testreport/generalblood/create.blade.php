@@ -11,7 +11,7 @@
 											<div class="card-body">
 											<div class="btn-list" style="float: right;">
 												
-												<a href="#" class="btn btn-xs btn-success">Show General Blood Examination Pateints List</a>
+												<a href="{{ route('generalblood-filter') }}" class="btn btn-xs btn-success">Show General Blood Examination Pateints List</a>
 												
 											</div>
 
@@ -35,17 +35,18 @@
 	{!! Form::open(['route' => ['generalblood.store'],'autocomplete'=>'off']) !!}
 
 							{!! csrf_field() !!}
-
+@include('verror.error')
 							{{ Form::hidden('status', '1') }}
 							<div class="row">
 	  							<div class="col-md-6">
+	  								
 								<div class="form-group">
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
 		
-	        {!! Form::text('opd_id',  null, ['class' => 'form-control dynamic_opd',
-	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
-	         <div id="opd_list">
+	        {!! Form::text('patientId',  '', ['class' => 'form-control dynamic_opd',
+	        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
+	         <div id="opd-reg-list">
 	         </div>
 	       
 								</div>
@@ -59,7 +60,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName',  null, ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','Disabled']) !!}
+	        {!! Form::text('patientName',  '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name',]) !!}
 							    </div>
 								</div>
 
@@ -67,7 +68,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate',  null, ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','Disabled']) !!}
+	        {!! Form::date('opdDate',  '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate',]) !!}
 							    </div>
 								</div>
 
@@ -76,7 +77,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::select('referredBy', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control','disabled']) !!}
+	        {!! Form::select('referredBy', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],  '', ['class' => 'form-control',]) !!}
 							    </div>
 								</div>
 
@@ -84,7 +85,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Investigation Advised') !!}
-	        {!! Form::text('investigationAdvised',  null, ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name',]) !!}
+	        {!! Form::text('investigationAdvised',  '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name',]) !!}
 							    </div>
 								</div>
 
@@ -93,7 +94,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Test Date') !!}
-	        {!! Form::date('date',  null, ['class' => 'form-control','placeholder' => 'Enter Date']) !!}
+	        {!! Form::date('date',  '', ['class' => 'form-control','placeholder' => 'Enter Date']) !!}
 							    </div>
 								</div>
 								
@@ -102,98 +103,98 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Blood (Fasting)') !!}
-	        {!! Form::text('bloodFasting',  null, ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+	        {!! Form::text('bloodFasting',  '', ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Blood (Random)') !!}
-	        {!! Form::text('bloodRandom',  null, ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
+	        {!! Form::text('bloodRandom',  '', ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Blood (PP)') !!}
-	        {!! Form::text('bloodPP',  null, ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+	        {!! Form::text('bloodPP',  '', ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Urea') !!}
-	        {!! Form::text('urea',  null, ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
+	        {!! Form::text('urea',  '', ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Creatinine') !!}
-	        {!! Form::text('creatinine',  null, ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+	        {!! Form::text('creatinine',  '', ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Uric Acid') !!}
-	        {!! Form::text('uricAcid',  null, ['class' => 'form-control','placeholder' => 'Enter Uric Acid']) !!}
+	        {!! Form::text('uricAcid',  '', ['class' => 'form-control','placeholder' => 'Enter Uric Acid']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total Bilirubin') !!}
-	        {!! Form::text('totalBilirubin',  null, ['class' => 'form-control','placeholder' => 'Enter Total Bilirubin']) !!}
+	        {!! Form::text('totalBilirubin',  '', ['class' => 'form-control','placeholder' => 'Enter Total Bilirubin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Direct Bilirubin') !!}
-	        {!! Form::text('directBilirubin',  null, ['class' => 'form-control','placeholder' => 'Enter Direct Bilirubin']) !!}
+	        {!! Form::text('directBilirubin',  '', ['class' => 'form-control','placeholder' => 'Enter Direct Bilirubin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'SGPT / ALT') !!}
-	        {!! Form::text('sgptAlt',  null, ['class' => 'form-control','placeholder' => 'Enter SGPT / ALT']) !!}
+	        {!! Form::text('sgptAlt',  '', ['class' => 'form-control','placeholder' => 'Enter SGPT / ALT']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'SGOT / AST') !!}
-	        {!! Form::text('sgotAst',  null, ['class' => 'form-control','placeholder' => 'Enter SGOT / AST']) !!}
+	        {!! Form::text('sgotAst',  '', ['class' => 'form-control','placeholder' => 'Enter SGOT / AST']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'ALK Phosphatase') !!}
-	        {!! Form::text('alkPhosphatase',  null, ['class' => 'form-control','placeholder' => 'Enter ALK Phosphatase']) !!}
+	        {!! Form::text('alkPhosphatase',  '', ['class' => 'form-control','placeholder' => 'Enter ALK Phosphatase']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total Protein') !!}
-	        {!! Form::text('totalProtein',  null, ['class' => 'form-control','placeholder' => 'Enter Total Protein']) !!}
+	        {!! Form::text('totalProtein',  '', ['class' => 'form-control','placeholder' => 'Enter Total Protein']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Albumin') !!}
-	        {!! Form::text('albumin',  null, ['class' => 'form-control','placeholder' => 'Enter Albumin']) !!}
+	        {!! Form::text('albumin',  '', ['class' => 'form-control','placeholder' => 'Enter Albumin']) !!}
 							    </div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'AG Ratio') !!}
-	        {!! Form::text('agRatio',  null, ['class' => 'form-control','placeholder' => 'Enter AG Ratio']) !!}
+	        {!! Form::text('agRatio',  '', ['class' => 'form-control','placeholder' => 'Enter AG Ratio']) !!}
 							    </div>
 								</div>
 								
@@ -235,3 +236,56 @@
 
 
 	@endsection
+	@section('footerSection')
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+
+        </script>
+<script type="text/javascript">
+
+        jQuery(document).ready(function () {debugger
+                jQuery('#patientId').on('keyup', function () {
+                        var opd = $(this).val();
+                        $('#patientId').html("");
+                        if (opd != '') {
+                                var _token = $('input[name="_token"]').val();
+                                $.ajax({
+
+                                        url: "{{ route('ipd.fetch') }}",
+                                        method: "POST",
+                                        data: { query: opd, _token: _token },
+                                        success: function (data) {
+                                                $('#opd-reg-list').fadeIn();
+                                                $('#opd-reg-list').html(data);
+                                        }
+
+                                });
+                        }
+                });
+
+        });
+        $(document).on('click', 'li', function () {
+                $('#patientId').val($(this).text());
+                var opd = $('#patientId').val();
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                        url: "{{ route('ipd.fetchSearch') }}",
+                        method: "POST",
+                        data: { query: opd, _token: _token },
+                        success: function (data) {
+                                console.log(data);
+                                $('#regDate').val(data.regDate);
+                                $('#opd_name').val(data.patientName);
+                                $('#age').val(data.age);
+                                $('#referredBy').val(data.referredBy);
+                        }
+
+                });
+                $('#opd-reg-list').fadeOut();
+        });
+
+</script>
+
+	@endSection

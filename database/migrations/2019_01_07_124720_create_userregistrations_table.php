@@ -15,14 +15,14 @@ class CreateUserregistrationsTable extends Migration
     {
         Schema::create('userregistrations', function (Blueprint $table) {
             $table->increments('userId');
-            $table->string('userType');
-            $table->string('useremail');
-            $table->string('password');
-            $table->string('name');
-            $table->string('mobile');
-            $table->string('website');
-            $table->string('userImage');
-            $table->string('status');
+            $table->string('userType')->nullable();
+            $table->string('useremail')->nullable();
+            $table->string('password')->nullable();
+            $table->string('name')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('website')->nullable();
+            $table->string('userImage')->nullable();
+            $table->string('status')->nullable();
         
             $table->timestamps();
         });

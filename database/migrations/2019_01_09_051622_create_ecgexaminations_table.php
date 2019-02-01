@@ -16,10 +16,10 @@ class CreateEcgexaminationsTable extends Migration
         Schema::create('ecgexaminations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('patientId');
-            $table->string('referredBy');
-            $table->string('age');
-            $table->string('date');
-              $table->text('remark');
+            $table->string('referredBy')->nullable();
+            $table->string('age')->nullable();
+            $table->string('date')->nullable();
+              $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

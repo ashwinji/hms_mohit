@@ -150,17 +150,14 @@ class OtController extends Controller
             ->join('opds', 'ots.patientId', '=','opds.regNum')
             ->get();
         return DataTables::of($ots)->addColumn('action', function($data){
-
-        return sprintf('<button class="deleteotRecord" id="del"  data-id="%s">%s</button > 
-                        <button class="viewRecord" id="view" data-id="%s">%s</button >
-             <a href="%s">%s</a>',
-             $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-             $data['id'],'<i class="btn btn-danger fa fa-eye "></i>',
-             route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit  editotRecord"></i>');
-            })       
-              
-        
-            ->make(true);
+            return sprintf('<div class=" btn btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+                <a href="%s">%s</a></div>',
+                route('ot.delete',$data['id']),$data['id'],"deleteotRecord",'<i class=" fa fa-trash"></i>',
+                $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                route('ot.edit',['id'=>$data['id']]),'<i class="btn btn-success fa fa-edit editotRecord"></i>');
+        })       
+        ->make(true);
     }
 
     public function fetch(Request $request)

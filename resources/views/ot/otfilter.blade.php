@@ -80,9 +80,6 @@
                 { data: 'otDate', name: 'otDate' },
                 { data: 'consultant', name: 'consultant' },
                 { data: 'action', name: 'action' },
-
-
-
             ]
         });
     });
@@ -92,6 +89,7 @@
 <script type="text/javascript">
 
     $(document).on('click', ".deleteotRecord", function (e) {
+        var url = $(this).attr('data-url');
         if (!confirm('Are you sure?delete')) {
             e.preventDefault();
             return false;
@@ -101,22 +99,21 @@
             var id = $(this).data("id");
             var token = $("meta[name='csrf-token']").attr("content");
 
-            $.ajax(
-                {
-                    url: "delete2/" + id,
-                    type: 'DELETE',
-                    dataType: 'json',
-                    data: {
-                        "id": id,
-                        "_token": token,
-                    },
-                    success: function (res) {
-                        $('#otuser').DataTable().ajax.reload();
-                    },
-                    error: function (data) {
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                dataType: 'json',
+                data: {
+                    "id": id,
+                    "_token": token,
+                },
+                success: function (res) {
+                    $('#otuser').DataTable().ajax.reload();
+                },
+                error: function (data) {
 
-                    }
-                });
+                }
+            });
         }
 
     });

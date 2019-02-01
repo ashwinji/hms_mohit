@@ -16,14 +16,14 @@ class CreateYogasTable extends Migration
         Schema::create('yogas', function (Blueprint $table) {
           $table->increments('id');
           $table->string('patientId');
-          $table->string('referredBy');
-          $table->string('age');
-          $table->text('investigationAdvised');
-          $table->string('yogadate');
-          $table->string('disease');
-          $table->string('exersise');
-          $table->string('other');
-          $table->text('remark');
+          $table->string('referredBy')->nullable();
+          $table->string('age')->nullable();
+          $table->text('investigationAdvised')->nullable();
+          $table->string('yogadate')->nullable();
+          $table->string('disease')->nullable();
+          $table->string('exersise')->nullable();
+          $table->string('other')->nullable();
+          $table->text('remark')->nullable();
           $table->timestamps();
         });
     }

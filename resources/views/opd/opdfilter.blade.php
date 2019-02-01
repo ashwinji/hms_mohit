@@ -35,7 +35,7 @@
              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-square btn-info" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div><!-- modal-dialog -->
@@ -56,8 +56,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                             <button type="button" id="at"class="btn btn-success pull-left" data-dismiss="modal">Submit</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                             <button type="button" id="at"class="btn btn-square btn-info pull-left" data-dismiss="modal">Submit</button>
+                            <button type="button" class="btn btn-square btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -120,11 +120,12 @@ $(document).ready(function() {
     if(a==true)
     {
         var id = $(this).data("id");
+        var url = $(this).data("url");
     var token = $("meta[name='csrf-token']").attr("content");
    
     $.ajax(
     {
-        url: "delete/"+id,
+        url: url,
         type: 'DELETE',
         dataType: 'json',
         data: {

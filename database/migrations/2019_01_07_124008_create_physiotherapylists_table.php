@@ -15,8 +15,8 @@ class CreatePhysiotherapylistsTable extends Migration
     {
         Schema::create('physiotherapylists', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('disease');
-            $table->string('therapy');
+            $table->string('disease')->nullable();
+            $table->string('therapy')->nullable();
             $table->timestamps();
         });
     }

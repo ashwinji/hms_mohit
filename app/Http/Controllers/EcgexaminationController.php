@@ -52,20 +52,28 @@ class EcgexaminationController extends Controller
      * @param  \App\ecgexamination  $ecgexamination
      * @return \Illuminate\Http\Response
      */
-    public function show(ecgexamination $ecgexamination)
+public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $data=ecgexamination::where('id','=',$id)->first();
+        $content=\View::make('testreport.ecg.view',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\ecgexamination  $ecgexamination
      * @return \Illuminate\Http\Response
      */
-    public function edit(ecgexamination $ecgexamination)
+    public function edit($id)
     {
-        //
+        $ecg=ecgexamination::where('id',$id)->first();
+        return view('testreport.ecg.edit',compact('ecg'));
+
     }
 
     /**
@@ -75,9 +83,11 @@ class EcgexaminationController extends Controller
      * @param  \App\ecgexamination  $ecgexamination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ecgexamination $ecgexamination)
+    public function update(Request $request,$id)
     {
-        //
+          $ecg=ecgexamination::where('id',$id)->first();
+          $ecg->update($request->all());
+          return redirect (route('ecg-create'))->with('message','update  sussefully');
     }
 
     /**
@@ -86,8 +96,36 @@ class EcgexaminationController extends Controller
      * @param  \App\ecgexamination  $ecgexamination
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ecgexamination $ecgexamination)
+    public function destroy($id)
     {
-        //
+         ecgexamination::where('id',$id)->delete();
+          return response()->json([
+           'success' => 'Record deleted successfully!'
+          ]);
+    }
+   public function datatable()
+    {
+        return view('testreport.ecg.ecgfilter');
+    }
+  public function sendecgdata()
+    {
+           $data=ecgexamination::all();
+           $ecg= ecgexamination::select('ecgexaminations.id','opds.regDate','ecgexaminations.referredBy','opds.regNum','opds.patientName','ecgexaminations.date','opds.age')
+            ->join('opds', 'ecgexaminations.patientId', '=','opds.regNum')
+            ->get();
+            return DataTables::of($ecg)->addColumn('action', function($data){
+
+              return sprintf(
+                '<div class="btn btn-group"><button  data-id="%s" class="%s btn btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+                 <a href="%s">%s</a>',
+                $data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                route('ecg.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editRecord"></i>'
+                );
+              
+            })   
+
+        ->make('true');
     }
 }
