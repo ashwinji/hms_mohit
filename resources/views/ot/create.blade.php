@@ -8,7 +8,7 @@
                                         <h3 class="mb-0 card-title">OT - NEW PATIENT REGISTRATION</h3>
                                         <div class="card-body">
                                                 <div class="btn-list" style="float: right;">
-                                                        <a href="{{route('ot-filter')}}" class="btn btn-xs btn-success">
+                                                        <a href="{{route('ot-filter')}}" class="btn btn-square btn-xs btn-success">
                                                                 Show Search Old OT Patients
                                                         </a>
                                                 </div>
@@ -382,9 +382,9 @@
                                                 </div>
 
                                                 <center>
-                                                        <button class="btn btn-success" type="submit">Submit
+                                                        <button class="btn btn-square btn-success" type="submit">Submit
                                                         </button>
-                                                        <button class="btn btn-danger" type="reset">
+                                                        <button class="btn  btn-square btn-danger" type="reset">
                                                                 Cancel
                                                         </button>
                                                 </center>

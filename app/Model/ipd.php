@@ -1,8 +1,11 @@
 <?php
 
-namespace App\model;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Model\opd;
+use App\Model\ot;
+use App\Model\ipd;
 
 class ipd extends Model
 {
@@ -69,7 +72,7 @@ class ipd extends Model
     ];
    public function opd()
 	{
-	   return $this->belongsTo('App\Model\opd','patientId','id');
+	  return $this->belongsTo(opd::class,'patientId','id');
 	}
   
 }

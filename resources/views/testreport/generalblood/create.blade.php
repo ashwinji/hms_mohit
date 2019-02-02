@@ -11,7 +11,7 @@
 											<div class="card-body">
 											<div class="btn-list" style="float: right;">
 												
-												<a href="{{ route('generalblood-filter') }}" class="btn btn-xs btn-success">Show General Blood Examination Pateints List</a>
+												<a href="{{ route('generalblood-filter') }}" class="btn btn-square btn-xs btn-success">Show General Blood Examination Pateints List</a>
 												
 											</div>
 

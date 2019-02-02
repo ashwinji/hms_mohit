@@ -54,10 +54,31 @@ class IpdController extends Controller
      * @param  \App\ipd  $ipd
      * @return \Illuminate\Http\Response
      */
-    public function show(ipd $ipd)
+    public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $opd=opd::all();
+        $data=ipd::where('id','=',$id)->first();
+        $content=\View::make('ipd.view',compact('data','opd'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
+    public function discharge(Request $request)
+    {
+        $id=$request->id;
+        $opd=opd::all();
+        $data=ipd::where('id','=',$id)->first();
+        $content=\View::make('ipd.discharge',compact('data','opd'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
+    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -113,16 +134,16 @@ class IpdController extends Controller
             ->get();
               return DataTables::of($ipds)->addColumn('action', function($data){
 
-              return sprintf('<button class="deleteipdrecord" data-id="%s">%s</button>
-                <button class="viewipdrecord" data-id="%s">%s</button>
-                <button class="addrecord" data-id="%s">%s</button>
+              return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+                <button  data-id="%s" class="%s btn btn-sm btn-square btn-success">%s</button>
                  <a href="%s">%s</a>
-                 <button class="discharge" data-id="%s">%s</button>',
-                $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-plus"></i>',
-                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit  editRecord"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-clock-o "></i>'
+                  <button  data-id="%s" class="%s btn btn-sm btn-square btn-success">%s</button>',
+                route('ipd.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                 $data['id'],"addRecord",'<i class=" fa fa-plus"></i>',
+                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-warning fa fa-edit  editRecord"></i>',
+                $data['id'],"discharge",'<i class=" fa fa-clock-o"></i>'
                                                  );
               
             })        

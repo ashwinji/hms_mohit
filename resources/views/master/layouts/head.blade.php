@@ -22,6 +22,7 @@
 
 		<!-- Dashboard Css -->
 		<link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet" />
+		<link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" />
 
 		<!-- c3.js Charts Plugin -->
 		<link href="{{asset('assets/plugins/charts-c3/c3-chart.css')}}" rel="stylesheet" />

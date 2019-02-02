@@ -9,7 +9,7 @@
 											<h3 class="mb-0 card-title">ECG EXAMINATION</h3>
 											<div class="card-body">
 												<div class="btn-list" style="float: right;">
-													<a href="{{route('ecg-filter')}}" class="btn btn-xs btn-success">Show ecg Examination Pateints List</a>
+													<a href="{{route('ecg-filter')}}" class="btn btn-square btn-xs btn-success">Show ecg Examination Pateints List</a>
 												</div>
 									        </div>
 									    </div>
@@ -82,7 +82,7 @@
 							
 												<div class="form-group">
 												  <div >
-												    <a href="#"><button class="btn btn-primary">Cancel</button></a>
+												    <a href="{{route('ecg-create')}}"><button class="btn btn-primary">Cancel</button></a>
 											      </div>
 												</div>
 										</div>

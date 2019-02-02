@@ -8,7 +8,7 @@
                                         <h3 class="mb-0 card-title">OPD - NEW PATIENT REGISTRATION</h3>
                                         <div class="card-body">
                                                 <div class="btn-list" style="float: right;">
-                                                        <a href="{{route('opd-filter')}}" class="btn btn-xs btn-success">Show
+                                                        <a href="{{route('opd-filter')}}" class="btn btn-square btn-xs btn-success">Show
                                                                 / Search Old Opd Patients
                                                         </a>
                                                 </div>
@@ -230,9 +230,9 @@
 
 
                                                 <center>
-                                                        <button class="btn btn-success" type="submit">Save
+                                                        <button class="btn btn-square btn-success" type="submit">Save
                                                         </button>
-                                                        <button class="btn btn-danger" type="reset">Cancel
+                                                        <button class="btn btn-square btn-danger" type="reset">Cancel
                                                         </button>
 
                                                 </center>

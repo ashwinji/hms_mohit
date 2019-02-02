@@ -14,16 +14,17 @@
 								</div>
 								<div class="card-body">
                                 	<div class="table-responsive">
-									<table id="bloodexamination" class="table table-striped table-bordered w-100">
+									<table id="semen" class="table table-striped table-bordered w-100">
 										<thead>
 									
 											 <tr>
 				                             <th class="wd-15p">Id</th>
 				                            <th class="wd-15p">Name</th>
-				                            <th class="wd-15p">RegNUM</th>
-				                            <th class="wd-15p">RefferedBy</th>
+				                            <th class="wd-15p">OPDRegNUM</th>
+				                            <th class="wd-15p">OPDdate</th>
+                                            <th class="wd-15p">RefferedBy</th>
 				                            <th class="wd-15p">Age</th>
-				                            <th class="wd-15p">investigationAdvised</th>
+				                            <th class="wd-15p">Investigation</th>
 				                            <th class="wd-15p">TestDate</th>
 				                            <th class="wd-15p">Action</th>
                                                </tr> 
@@ -40,19 +41,19 @@
 						</div>
                     </div>
 
-                      <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
-        <div class="modal-dialog modal-lg " role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div id="b-view">
+ <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+            <div class="modal-dialog modal-lg " role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="b-view">
 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-square btn-info" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class=" btn btn-square btn-info" data-dismiss="modal">Close</button>
-                </div>
             </div>
-        </div>
     </div>
 					</body>
 @endsection
@@ -73,14 +74,15 @@
 
 		<script type="text/javascript">
     $(document).ready(function () {
-        oTable = $('#bloodexamination').DataTable({
+        oTable = $('#semen').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('sendblooddata') }}",
+            "ajax": "{{ route('sendsemendata') }}",
             "columns": [
                 { data: 'id', name: 'id' },
                 { data: 'patientName', name: 'patientName' },
                 { data: 'regNum', name: 'regNum' },
+                { data: 'regDate', name: 'regDate' },
                 { data: 'referredBy', name: 'referredBy' },
                 { data: 'age', name: 'age' },
                 { data: 'investigationAdvised', name: 'investigationAdvised' },
@@ -92,7 +94,8 @@
             ]
         });
     });
-</script>
+ </script>
+
 
 <script type="text/javascript">
     $(document).on('click',".deleteRecord",function(e){
@@ -117,7 +120,7 @@
             "_token": token,
         },
         success: function (res){
-           $('#bloodexamination').DataTable().ajax.reload();
+           $('#semen').DataTable().ajax.reload();
         },
         error: function (data) {
                      
@@ -144,7 +147,7 @@
         }
 
     });
-</script>
+</script> 
 <script type="text/javascript">
     $(document).on('click', ".viewRecord", function (e) {
         
@@ -153,7 +156,7 @@
        
         $.ajax(
             {
-                url: '{{route("bloodexamination-show")}}',
+                url: '{{route("semen-show")}}',
                 type: 'POST',
                 dataType: 'json',
                 data: {

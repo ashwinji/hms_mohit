@@ -4,11 +4,18 @@
 @endsection
 @section('main-content')
 <body>
-     <div class="page">
-        <div class="row">
-            @include('verror.error')
+     @include('verror.error')
+        <div class="page">
+                         <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title"> PATIENTS LIST</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
             <div class="container col-lg-12">
-                  <table id="yogauser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success" style="width:100%">
+                  <table id="yogauser" class=" table table-striped table-bordered w-100" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -24,6 +31,10 @@
             </div>
         </div>
   </div>
+        </div>
+  </div>
+</div>
+</div>
 
   <div class="modal fade" id="id-largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
                 <div class="modal-dialog modal-lg " role="document">
@@ -45,13 +56,10 @@
 @endsection
 
 @section('footerSection')
-    <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
-        <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
-        <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
+<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
+        <link href="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
 
 
     <script type="text/javascript">
@@ -76,7 +84,7 @@
     <script type="text/javascript">
         
    
-    $(document).on('click',".deleteyogaRecord",function(e){
+    $(document).on('click',".deleteRecord",function(e){
        if(!confirm('Are you sure?')){
             e.preventDefault();
             return false;
@@ -85,11 +93,12 @@
     if(a==true)
     {
        var id = $(this).data("id");
+       var url=$(this).data("url")
        var token = $("meta[name='csrf-token']").attr("content");
    
     $.ajax(
     {
-        url: "yoga/delete/"+id,
+        url:url,
         type: 'DELETE',
         dataType: 'json',
         data: {

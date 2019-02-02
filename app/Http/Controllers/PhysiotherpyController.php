@@ -117,12 +117,12 @@ class PhysiotherpyController extends Controller
             ->get();
               return DataTables::of( $physiotherpy)->addColumn('action', function($data){
 
-              return sprintf('<button class="deletephyscoRecord" data-id="%s">%s</button>
-                <button class="viewrecord" data-id="%s">%s</button>
-               <a href="%s">%s</a>',
-                $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
-                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editrecord"></i>');
+              return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
+             <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+               <a href="%s">%s</a></div>',
+                route('physco.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-success fa fa-edit editrecord"></i>');
               
             })        
             ->make(true);

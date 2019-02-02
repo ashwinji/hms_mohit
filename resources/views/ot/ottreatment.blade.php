@@ -14,7 +14,7 @@
             <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
             <span class="pull-right" style="padding-right: 5px">
               <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
-            </span> <i class=" pull-right fa fa-print btn btn-warning" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
+            </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
           </div>
 
           <table class="table table-bordered table-striped table-hovered">

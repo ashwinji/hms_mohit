@@ -148,69 +148,62 @@
           </div>
           <div class="col-lg-12">
             <div class="row">
-              <div class="form-group">
-                {!! Form::label('', '') !!}
-                <div class="col-lg-3">
-                  {{-- {!! Form::checkbox('refTo[]', 'OT', ['class' => 'form-control checkbox','id'=>'id-ot']) !!} --}}
-                  <input type="checkbox" name="refTo[]" value="OT" id="id-ot" class="check">
+             
+                      <div class="form-group ">
+                        <label for="refTo" class="control-label col-lg-3">Referred To</label>
+                        <div class="col-lg-3">
+                          <input id="ot" type="checkbox" name="refTo[]" value="OT">
+                          <label for="ot"><strong>OT</strong></label>
+                        </div>
 
+                        <div class="col-lg-3">
+                          <input id="ipd" type="checkbox" name="refTo[]" value="IPD">
+                          <label for="ipd"><strong>IPD</strong></label>
+                        </div>
 
-                  {!! Form::label('ot', 'OT') !!}
-                </div>
-                <div class="col-lg-3">
+                        <div class="col-lg-3">
+                          <input id="PATHOLOGY" type="checkbox" name="refTo[]" value="PATHOLOGY">
+                          <label for="PATHOLOGY"><strong>PATHOLOGY</strong></label>
+                        </div>
 
+                      </div>
 
-                  <input type="checkbox" name="refTo[]" value="IPD" id="id-ipd" class="check">
+                      <div class="form-group ">
+                        <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
+                        <div class="col-lg-3">
+                          <input id="XRay" type="checkbox" name="refTo[]" value="X-RAY">
+                          <label for="XRay"><strong>X-RAY</strong></label>
+                        </div>
 
-                  {!! Form::label('IPD', 'IPD') !!}
-                </div>
-              </div>
-                <div class="col-lg-3">
+                        <div class="col-lg-3">
+                          <input id="PHYSIOTHERPHY" type="checkbox" name="refTo[]" value="PHYSIOTHERPHY">
+                          <label for="PHYSIOTHERPHY"><strong>PHYSIOTHERPHY</strong></label>
+                        </div>
 
-                  <input type="checkbox" name="refTo[]" value="PATHOLOGY" id="id-PATHOLOGY" class="check">
-                  {!! Form::label('PATHOLOGY', 'PATHOLOGY') !!}
-              
-              </div>
-              <div class="form-group ">
-                <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
-                <div class="col-lg-3">
+                        <div class="col-lg-3">
+                          <input id="YOGA" type="checkbox" name="refTo[]" value="YOGA">
+                          <label for="YOGA"><strong>YOGA</strong></label>
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
+                        <div class="col-lg-3">
+                          <input id="DISPENSARY" type="checkbox" name="refTo[]" value="DISPENSARY">
+                          <label for="DISPENSARY"><strong>DISPENSARY</strong></label>
+                        </div>
+                      
+                        
+                        <div class="col-lg-3">
+                          <input id="OTHER HOSPITAL" type="checkbox" name="refTo[]" value="OTHER HOSPITAL">
+                          <label for="OTHER HOSPITAL"><strong>OTHER HOSPITAL</strong></label>
+                        </div>
 
-                  <input type="checkbox" name="refTo[]" value="XRay" id="id-XRay" class="check">
-                  {!! Form::label('XRay', 'XRay') !!}
-                </div>
-
-                <div class="col-lg-3">
-                  <input type="checkbox" name="refTo[]" value="PHYSIOTHERPHY" id="id-PHYSIOTHERPHY" class="check">
-                  {!! Form::label('PHYSIOTHERPHY', 'PHYSIOTHERPHY') !!}
-                </div>
-
-                <div class="col-lg-3">
-
-
-                  <input type="checkbox" name="refTo[]" value="YOGA" id="id-YOGA" class="check">
-                  {!! Form::label('YOGA', 'YOGA') !!}
-                </div>
-              </div>
-              <div class="form-group ">
-                <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
-                <div class="col-lg-3">
-
-                  <input type="checkbox" name="refTo[]" value="DISPENSARY" id="id-DISPENSARY" class="check">
-                  {!! Form::label('DISPENSARY', 'DISPENSARY') !!}
-                </div>
-                <div class="col-lg-3">
-                  <input type="checkbox" name="refTo[]" value="OTHER HOSPITAL" id="id-OTHERHOSPITAL" class="check">
-                  {!! Form::label('OTHER HOSPITAL', 'OTHER HOSPITAL') !!}
-
-                </div>
-
-                <div class="col-lg-3">
-                  <input type="checkbox" name="refTo[]" value="ECG" id="id-ECG" class="check">
-                  {!! Form::label('ECG', 'ECG') !!}
-                </div>
-              </div>
-            </div>
-          </div>
+                        <div class="col-lg-3">
+                          <input id="ECG" type="checkbox" name="refTo[]" value="ECG">
+                          <label for="ECG"><strong>ECG</strong></label>
+                        </div>
+                      </div>
+                    </div>
           <div class="form-group">
             <div class="col-lg-12">
               {!! Form::label('consultant', 'IPD Consultant Name',['class' => 'control-label col-lg-3',]) !!}

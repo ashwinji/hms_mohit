@@ -4,11 +4,18 @@
 @endsection
 @section('main-content')
 <body>
- @include('verror.error')
-     <div class="page">
-        <div class="row">
-            <div class="col-lg-12" >
-                  <table id="opduser" class=" table table-bordered table-hover table-condensed table-striped table-primary table-hover bg-success  " style="width:100%">
+  @include('verror.error')
+        <div class="page">
+                         <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title"> PATIENTS LIST</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                      <div class="container col-lg-12">
+                  <table id="opduser" class=" table table-striped table-bordered w-100 ">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -25,7 +32,10 @@
             </div>
        </div>
     </div>
-
+</div>
+</div>
+</div>
+</div>
     <div id="largemodal" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content ">
@@ -44,12 +54,7 @@
             <div class="modal fade" id="largemodalt" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
                 <div class="modal-dialog modal-lg " role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="largemodal1"> model title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
+                       
                         <div class="modal-body">
                             <div id="addtreatment">
                                 
@@ -66,21 +71,11 @@
 @endsection
 
 @section('footerSection')
-<link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
- <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript"
- src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css"> 
+
+<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
+        <link href="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
 
 <script type="text/javascript">
 

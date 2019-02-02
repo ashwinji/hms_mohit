@@ -9,7 +9,7 @@
                                         <div class="card-body">
                                                 <div class="btn-list" style="float: right;">
 
-                                                        <a href="{{route('physiotherpy-filter')}}" class="btn btn-xs btn-success ">Show
+                                                        <a href="{{route('physiotherpy-filter')}}" class="btn btn-xs btn-square btn-success ">Show
                                                                 Physiotherpy Examination Patient List</a>
 
                                                 </div>
@@ -240,10 +240,10 @@
                                                         </div>
                                                 </div>
 
-                                                <center> <button class="btn btn-success" type="submit">Submit</button>
+                                                <center> <button class="btn btn-square btn-success" type="submit">Submit</button>
 
 
-                                                        <button class="btn btn-danger" type="reset">Cancel</button>
+                                                        <button class="btn btn-square btn-danger" type="reset">Cancel</button>
 
                                                 </center>
 

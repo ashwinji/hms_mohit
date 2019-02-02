@@ -40,19 +40,19 @@
 						</div>
                     </div>
 
-                      <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
-        <div class="modal-dialog modal-lg " role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div id="b-view">
+ <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+            <div class="modal-dialog modal-lg " role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="b-view">
 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-square btn-info" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class=" btn btn-square btn-info" data-dismiss="modal">Close</button>
-                </div>
             </div>
-        </div>
     </div>
 					</body>
 @endsection
@@ -105,11 +105,12 @@
     if(a==true)
     {
         var id = $(this).data("id");
+        var url = $(this).data("url");
     var token = $("meta[name='csrf-token']").attr("content");
    
     $.ajax(
     {
-        url: "/ecg-delete/"+id,
+        url:url,
         type: 'delete',
         dataType: 'json',
         data: {
@@ -128,7 +129,7 @@
 });
    
     </script>
-   {{--  <script type="text/javascript">
+    <script type="text/javascript">
 
     $(document).on('click', ".editRecord", function (e) {
         ;
@@ -144,7 +145,7 @@
         }
 
     });
-</script> --}}
+</script> 
 <script type="text/javascript">
     $(document).on('click', ".viewRecord", function (e) {
         
@@ -173,6 +174,6 @@
             });
 
     });
-</script> --}} 
+</script>
 
 @endsection

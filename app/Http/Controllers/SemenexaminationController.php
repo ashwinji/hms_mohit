@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\semenexamination;
+use App\Model\semenexamination;
 use Illuminate\Http\Request;
+use App\Model\bloodexamination;
+use App\Model\ot;
+use App\Model\opd;
+use DB;
+use DataTables;
 
 class SemenexaminationController extends Controller
 {
@@ -24,7 +29,7 @@ class SemenexaminationController extends Controller
      */
     public function create()
     {
-        return view('testreport.semenexamination.create');
+        return view('testreport.semen.create');
     }
 
     /**
@@ -35,7 +40,9 @@ class SemenexaminationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $semen=semenexamination::create($request->all());
+        $semen->save();
+         return redirect (route('semen-create'))->with('message','data save sussefully');
     }
 
     /**
@@ -44,9 +51,16 @@ class SemenexaminationController extends Controller
      * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function show(semenexamination $semenexamination)
+   public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $data=semenexamination::where('id','=',$id)->first();
+        $content=\View::make('testreport.semen.view',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
 
     /**
@@ -55,9 +69,10 @@ class SemenexaminationController extends Controller
      * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function edit(semenexamination $semenexamination)
+    public function edit($id)
     {
-        //
+           $semen=semenexamination::where('id',$id)->first();
+        return view('testreport.semen.edit',compact('semen'));
     }
 
     /**
@@ -67,9 +82,11 @@ class SemenexaminationController extends Controller
      * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, semenexamination $semenexamination)
+    public function update(Request $request,$id)
     {
-        //
+          $semen=semenexamination::where('id',$id)->first();
+          $semen->update($request->all());
+          return redirect (route('semen-create'))->with('message','update  sussefully');
     }
 
     /**
@@ -78,8 +95,40 @@ class SemenexaminationController extends Controller
      * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function destroy(semenexamination $semenexamination)
+    public function destroy($id)
     {
-        //
+         semenexamination::where('id',$id)->delete();
+          return response()->json([
+           'success' => 'Record deleted successfully!'
+          ]);    
+      }
+          public function datatable()
+    {
+        return view('testreport.semen.semenfilter');
     }
+public function sendsemendata()
+    {
+           $data=semenexamination::all();
+           $ecg= semenexamination::select('semenexaminations.id','opds.regDate','semenexaminations.referredBy','opds.regNum','opds.patientName','semenexaminations.date','semenexaminations.investigationAdvised','opds.age')
+            ->join('opds', 'semenexaminations.patientId', '=','opds.regNum')
+            ->get();
+            return DataTables::of($ecg)->addColumn('action', function($data){
+
+              return sprintf(
+                '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+                 <a href="%s">%s</a></div>s',
+                route('ecg.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+              $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                route('ecg.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                );
+              
+            })   
+
+        ->make('true');
+    }
+
+
+
+
 }

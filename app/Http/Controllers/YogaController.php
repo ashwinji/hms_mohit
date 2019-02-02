@@ -140,11 +140,11 @@ class YogaController extends Controller
             ->get();
         return DataTables::of($yogas)->addColumn('action', function($data){
       
-         return sprintf('<button class="deleteyogaRecord" data-id="%s">%s</button>
-                <button class="viewRecord" data-id="%s">%s</button>
-               <a href="%s">%s</a>',
-                $data['id'],'<i class="btn btn-danger fa fa-trash"></i>',
-                $data['id'],'<i class="btn btn-danger fa fa-eye"></i>',
+         return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
+             <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+               <a href="%s">%s</a></div>',
+               route('yoga.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
                  route('yoga.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editYoga"></i>');
               
             })

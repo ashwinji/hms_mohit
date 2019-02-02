@@ -12,7 +12,7 @@
 											<div class="card-body">
 											<div class="btn-list" style="float: right;">
 												
-												<a href="{{route('blood-filter')}}" class="btn btn-xs btn-success">Show Blood Examination Pateints List</a>
+												<a href="{{route('blood-filter')}}" class="btn btn-square btn-xs btn-success">Show Blood Examination Pateints List</a>
 												
 											</div>
 
@@ -236,7 +236,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
 								      </div>
 									</div>
 								</div>
@@ -248,7 +248,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div >
-									    <a href="#"><button class="btn btn-primary">Cancel</button></a>
+									    <a href="#"><button class="btn  btn-square btn-danger">Cancel</button></a>
 								      </div>
 									</div>
 								</div>

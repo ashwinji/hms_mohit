@@ -1,0 +1,6 @@
+#radio{
+	float: left;
+}
+.custom-controls-stacked{
+	display: flex;
+}

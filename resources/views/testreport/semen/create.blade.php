@@ -9,7 +9,7 @@
                                         <div class="card-body">
                                                 <div class="btn-list" style="float: right;">
 
-                                                        <a href="{{route('physiotherpy-filter')}}" class="btn btn-xs btn-success ">Show
+                                                        <a href="{{route('semen-filter')}}" class="btn btn-xs btn-success ">Show
                                                                 Semen Examination Patient List
                                                          </a>
 
@@ -26,12 +26,12 @@
 							<div class="row">
 	  							<div class="col-md-6">
 								<div class="form-group">
-								
+					@include('verror.error')			
 			{!! Form::label('name', 'OPD Registration Number') !!}
 		
-	        {!! Form::text('opd_id', '', ['class' => 'form-control dynamic_opd',
-	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
-	         <div id="opd_list">
+	        {!! Form::text('patientId', '', ['class' => 'form-control dynamic_opd',
+	        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
+	         <div id="opd-reg-list">
 	         </div>
 	       
 								</div>
@@ -232,3 +232,56 @@
 			</div>
 		</div>
 	@endsection
+		@section('footerSection')
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+
+        </script>
+<script type="text/javascript">
+
+        jQuery(document).ready(function () {debugger
+                jQuery('#patientId').on('keyup', function () {
+                        var opd = $(this).val();
+                        $('#patientId').html("");
+                        if (opd != '') {
+                                var _token = $('input[name="_token"]').val();
+                                $.ajax({
+
+                                        url: "{{ route('ipd.fetch') }}",
+                                        method: "POST",
+                                        data: { query: opd, _token: _token },
+                                        success: function (data) {
+                                                $('#opd-reg-list').fadeIn();
+                                                $('#opd-reg-list').html(data);
+                                        }
+
+                                });
+                        }
+                });
+
+        });
+        $(document).on('click', 'li', function () {
+                $('#patientId').val($(this).text());
+                var opd = $('#patientId').val();
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                        url: "{{ route('ipd.fetchSearch') }}",
+                        method: "POST",
+                        data: { query: opd, _token: _token },
+                        success: function (data) {
+                                console.log(data);
+                                $('#regDate').val(data.regDate);
+                                $('#opd_name').val(data.patientName);
+                                $('#age').val(data.age);
+                                $('#referredBy').val(data.referredBy);
+                        }
+
+                });
+                $('#opd-reg-list').fadeOut();
+        });
+
+</script>
+
+	@endSection
