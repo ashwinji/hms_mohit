@@ -60,13 +60,18 @@
                                                      !!}
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-1">
                                             <div class="form-group">
                                                 {!! Form::button('Submit', ['class'
                                             => 'btn btn-square btn-info','id'=>'id-opdfilter']) !!}
+                                          </div>
+                                        </div>
+                                          <div class="col-sm-1">
+                                            <div class="form-group">
                                                 {!! Form::reset('Cancel', ['class'
                                             => 'btn btn-square btn-danger','id'=>'id-opdfilter']) !!}
                                             </div>
+
                                         </div>
                                         {!! Form::close() !!}
                                     </div>

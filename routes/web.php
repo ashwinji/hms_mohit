@@ -180,6 +180,7 @@ Route::group(['prefix'=>'doctor'], function(){
 
 
 });
+
 //medicinelist
 Route::group(['prefix'=>'medicine'], function(){
 
@@ -193,6 +194,24 @@ Route::group(['prefix'=>'medicine'], function(){
 
 		Route::get('/edit/{id}','MedicineController@edit')->name('medicine.edit');
         Route::post('/update/{id}','MedicineController@update')->name('medicine.update');
+
+
+
+});
+
+//departmentlist
+Route::group(['prefix'=>'department'], function(){
+
+		Route::get('/','DepartmentController@index')->name('department');
+
+		Route::get('/adddepartment','DepartmentController@create')->name('department.create');
+
+		Route::post('/storedepartment','DepartmentController@store')->name('department.store');
+
+		Route::get('delete/{id}','DepartmentController@destroy')->name('department.destroy');
+
+		Route::get('/edit/{id}','DepartmentController@edit')->name('department.edit');
+        Route::post('/update/{id}','DepartmentController@update')->name('department.update');
 
 
 

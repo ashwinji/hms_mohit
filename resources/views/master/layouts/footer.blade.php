@@ -72,7 +72,7 @@
 <script src="{{asset('assets/js/vendors/jquery.sparkline.min.js')}}"></script>
 <script src="{{asset('assets/js/vendors/selectize.min.js')}}"></script>
 <script src="{{asset('assets/js/vendors/jquery.tablesorter.min.js')}}"></script>
-<script src="{{asset('assets/js/vendors/circle-progress.min.js')}}"></script>
+<!-- <script src="{{asset('assets/js/vendors/circle-progress.min.js')}}"></script> -->
 <script src="{{asset('assets/plugins/rating/jquery.rating-stars.js')}}"></script>
 <script src="{{asset('assets/plugins/flot/jquery.flot.js')}}"></script>
 <script src="{{asset('assets/plugins/flot/jquery.flot.fillbetween.js')}}"></script>

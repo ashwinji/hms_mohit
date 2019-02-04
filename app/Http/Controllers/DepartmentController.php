@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Department;
+use App\Model\department;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departmentlist=department::all();
+        return view('otherlist.department.dapartment',compact('departmentlist'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('otherlist.department.adddepartment');
     }
 
     /**
@@ -35,16 +36,19 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $department= new department;
+            $department->name=$request->name;
+            $department->save();
+            return redirect(route('department'))->with('message','data added successfuly');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Department  $department
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function show(Department $department)
+    public function show(doctorlist $doctorlist)
     {
         //
     }
@@ -52,34 +56,42 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Department  $department
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit($id)
     {
-        //
+        $department=department::where('id',$id)->first();
+        return view('otherlist.department.edit',compact('department'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Department  $department
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, $id)
     {
-        //
+        //dd($id);
+        $department=department::where('id',$id)->first();
+
+        $department->update($request->all());
+
+        return redirect()->route('department')->with('message','update successfuly');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Department  $department
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy($id)
     {
-        //
+             department::find($id)->delete($id);
+              return back()->with('message','delete successfuly');
+     
     }
 }

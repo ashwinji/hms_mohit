@@ -15,7 +15,7 @@ class DoctorlistController extends Controller
     public function index()
     {
         $doctorlist=doctorlist::all();
-        dd( $doctorlist);
+        // dd( $doctorlist);
         return view('otherlist.doctorlist.doctorlist',compact('doctorlist'));
     }
 

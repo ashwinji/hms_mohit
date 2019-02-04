@@ -2,8 +2,10 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Department::class, function (Faker $faker) {
+$factory->define(App\Model\department::class, function (Faker $faker) {
     return [
-        //
+        
+        'id'=>$faker->randomNumber,
+        'name'=>$faker->name,
     ];
 });

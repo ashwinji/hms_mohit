@@ -172,7 +172,7 @@
                 <a href="" class="slide-item">Potency</a>
               </li>
               <li>
-                <a href="" class="slide-item">Department</a>
+                <a href="{{route('department.create') }}" class="slide-item">Department</a>
               </li>
                <li>
                 <a href="" class="slide-item">dietPlan</a>

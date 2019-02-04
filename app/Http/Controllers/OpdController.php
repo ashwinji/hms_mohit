@@ -5,6 +5,7 @@ use App\Model\opd;
 use App\Model\ipd;
 use App\Model\ot;
 use App\Model\doctorlist;
+use App\Model\department;
 use App\Model\medicine;
 use Illuminate\Http\Request;
 use DataTables;
@@ -29,7 +30,10 @@ class OpdController extends Controller
      */
     public function create()
     {
-        return view('opd.create');
+        $docterlist=doctorlist::all()->pluck('name','id');
+         $medicine=medicine::all()->pluck('name','id');
+         $department=department::all()->pluck('name','id');
+        return view('opd.create',compact('docterlist','medicine','department'));
     }
 
     /**
@@ -108,8 +112,11 @@ class OpdController extends Controller
      */
     public function edit($id)
     {
+        $docterlist=doctorlist::all()->pluck('name','id');
+         $medicine=medicine::all()->pluck('name','id');
+         $department=department::all()->pluck('name','id');
            $opd=opd::where('id',$id)->first();
-        return view('opd.edit',compact('opd'));
+        return view('opd.edit',compact('opd','docterlist','medicine','department'));
     }
 
     /**
@@ -168,7 +175,11 @@ class OpdController extends Controller
     {
         $data=opd::all();
         $opds = opd::select('id','patientName','regNum','regDate','address','gender','consultant');
-        return DataTables::of($opds)->addColumn('action', function($data){
+        return DataTables::of($opds)
+        ->editColumn('consultant',function($data){
+            return $data->doctorName->name;
+        })
+        ->addColumn('action', function($data){
 
        return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                        <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
