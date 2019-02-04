@@ -80,7 +80,7 @@
             "serverSide": true,
             "ajax": "{{ route('getot') }}",
             "columns": [
-                { data: 'id', name: 'id' },
+                { data: 'order', name: 'order' },
                 { data: 'patientName', name: 'patientName' },
                 { data: 'regNum', name: 'regNum' },
                 { data: 'opdDate', name: 'opdDate' },

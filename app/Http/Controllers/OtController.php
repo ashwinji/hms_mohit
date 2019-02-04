@@ -149,7 +149,11 @@ class OtController extends Controller
         $ots = ot::select('ots.id','ots.consultant','ots.otDate','opds.regNum','opds.patientName','ots.opdDate')
             ->join('opds', 'ots.patientId', '=','opds.regNum')
             ->get();
-        return DataTables::of($ots)->addColumn('action', function($data){
+        return DataTables::of($ots)->addColumn('order',function($data){
+            static $i=1;
+            return $i++;
+         })
+        ->addColumn('action', function($data){
             return sprintf('<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm  btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm  btn-square btn-info">%s</button>
                 <a href="%s">%s</a></div>',

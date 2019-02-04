@@ -3,6 +3,79 @@
  <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @section('main-content')
+
+ <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="card-title btn btn-pill btn-info">
+                                OPD - FILTER DATA
+                            </h6>
+                            </div>
+                            <div class="card-body">
+                                    {!! Form::open(array('id'=>'opd-filter-form'))!!}
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <div class="form-group">
+                                                {!! Form::label('from', 'From:') !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                {!! Form::date('fromDate','',
+                                                ['class' =>
+                                                'form-control','id'=>'fromDate','required'=>'required'])
+                                                !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <div class="form-group">
+                                                {!! Form::label('to', 'To:') !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                {!! Form::date('toDate','', ['class'
+                                                =>
+                                                'form-control','id'=>'toDate','required'=>'required'])
+                                                !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <div class="form-group">
+                                                {!! Form::label('gender', 'Gender:')
+                                                !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                {!! Form::select('gender', 
+                                                    array( 
+                                                        ''=> '-Select Gender-', 
+                                                        'Male Adult' =>'Male Adult',
+                                                        'Female Adult' =>'Female Adult',
+                                                        'Male Child' =>'Male Child',
+                                                        'Female Child' =>'Female Child', ), '',
+                                                        ['class' =>'form-control','id'=>'gender'])
+                                                     !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                {!! Form::button('Submit', ['class'
+                                            => 'btn btn-square btn-info','id'=>'id-opdfilter']) !!}
+                                                {!! Form::reset('Cancel', ['class'
+                                            => 'btn btn-square btn-danger','id'=>'id-opdfilter']) !!}
+                                            </div>
+                                        </div>
+                                        {!! Form::close() !!}
+                                    </div>
+                                
+                            </div>
+                       
+                    </div>
+                </div>
+            </div>
 <body>
   @include('verror.error')
         <div class="page">
@@ -100,8 +173,45 @@ $(document).ready(function() {
             {data: 'action', name: 'action'},
             
             
-        ]
+                 ]
                });
+
+      jQuery('#id-opdfilter').click(function(e){alert()
+                       e.preventDefault();
+                       var _token = $("input[name='_token']").val();
+                        $('#opduser').DataTable({
+                            "lengthMenu": [[100, 250, 500, 1000], [100, 250, 500, 1000]],
+
+                            processing: true,
+                            serverSide: true,
+                            bDestroy: true,
+
+                            ajax: {   url: "{{ route('filter.search') }}",
+                                     type: "POST",
+                                     data:{
+                                      fromDate: jQuery('#fromDate').val(),
+                                     toDate: jQuery('#toDate').val(),
+                                     gender: jQuery('#gender').val(),
+                                     _token:_token},  },
+
+                            dom: 'Blfrtip',
+                          buttons: [
+                               'print'
+                          ],
+
+                    columns: [
+                        { data: 'order', data: 'order' },
+                        { data: 'patientName', name: 'patientName' },
+                        { data: 'regNum', name: 'regNum' },
+                        { data: 'regDate', name: 'regDate' },
+                        { data: 'address', name: 'address' },
+                        { data: 'gender', name: 'gender' },
+                        { data: 'consultant', name: 'consultant' },
+                        { data:'action',name:'action'},
+
+                    ],
+                });
+            });
         });
     </script>
 

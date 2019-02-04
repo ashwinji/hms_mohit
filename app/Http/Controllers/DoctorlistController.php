@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\doctorlist;
+use App\Model\doctorlist;
 use Illuminate\Http\Request;
 
 class DoctorlistController extends Controller
@@ -14,7 +14,9 @@ class DoctorlistController extends Controller
      */
     public function index()
     {
-        //
+        $doctorlist=doctorlist::all();
+        dd( $doctorlist);
+        return view('otherlist.doctorlist.doctorlist',compact('doctorlist'));
     }
 
     /**
@@ -24,7 +26,7 @@ class DoctorlistController extends Controller
      */
     public function create()
     {
-        //
+        return view('otherlist.doctorlist.addDocterlist');
     }
 
     /**
@@ -35,7 +37,10 @@ class DoctorlistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $doctorstore= new doctorlist;
+            $doctorstore->name=$request->name;
+            $doctorstore->save();
+            return redirect(route('doctor'))->with('message','data added successfuly');
     }
 
     /**
@@ -55,9 +60,10 @@ class DoctorlistController extends Controller
      * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(doctorlist $doctorlist)
+    public function edit($id)
     {
-        //
+        $doctor=doctorlist::where('id',$id)->first();
+        return view('otherlist.doctorlist.edit',compact('doctor'));
     }
 
     /**
@@ -67,9 +73,13 @@ class DoctorlistController extends Controller
      * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, doctorlist $doctorlist)
+    public function update(Request $request, $id)
     {
-        //
+        $doctor=doctorlist::find($id)->first();
+
+        $doctor->update($request->all());
+
+        return redirect()->route('doctor')->with('message','update successfuly');
     }
 
     /**
@@ -78,8 +88,10 @@ class DoctorlistController extends Controller
      * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(doctorlist $doctorlist)
+    public function destroy($id)
     {
-        //
+             doctorlist::find($id)->delete($id);
+              return back()->with('message','delete successfuly');
+     
     }
 }

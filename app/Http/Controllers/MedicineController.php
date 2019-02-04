@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\medicine;
+use App\Model\medicine;
 use Illuminate\Http\Request;
 
 class MedicineController extends Controller
@@ -12,9 +12,10 @@ class MedicineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
-        //
+        $medicinelist=medicine::all();
+        return view('otherlist.medicine.medicine',compact('medicinelist'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MedicineController extends Controller
      */
     public function create()
     {
-        //
+        return view('otherlist.medicine.addmedicine');
     }
 
     /**
@@ -35,16 +36,19 @@ class MedicineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $doctorstore= new medicine;
+            $doctorstore->name=$request->name;
+            $doctorstore->save();
+            return redirect(route('medicine'))->with('message','data added successfuly');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\medicine  $medicine
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function show(medicine $medicine)
+    public function show(doctorlist $doctorlist)
     {
         //
     }
@@ -52,34 +56,41 @@ class MedicineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\medicine  $medicine
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(medicine $medicine)
+    public function edit($id)
     {
-        //
+        $medicine=medicine::where('id',$id)->first();
+        return view('otherlist.medicine.edit',compact('medicine'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\medicine  $medicine
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, medicine $medicine)
+    public function update(Request $request, $id)
     {
-        //
+        $doctor=medicine::find($id)->first();
+
+        $doctor->update($request->all());
+
+        return redirect()->route('doctor')->with('message','update successfuly');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\medicine  $medicine
+     * @param  \App\doctorlist  $doctorlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(medicine $medicine)
+    public function destroy($id)
     {
-        //
+             medicine::find($id)->delete($id);
+              return back()->with('message','delete successfuly');
+     
     }
 }

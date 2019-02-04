@@ -9,6 +9,7 @@ use App\Model\medicine;
 use Illuminate\Http\Request;
 use DataTables;
 
+
 class OpdController extends Controller
 {
     /**
@@ -183,9 +184,69 @@ class OpdController extends Controller
         
             ->make(true);
     }
+ public function filterSearch(Request $request)
+     {
+        //Log::info('fitersearch='.print_r($request->all(),true));
+       $input = $request->all();
+       if(empty($input['gender'])){
+
+        $data = opd::whereBetween('regDate', [$input['fromDate'],[$input['toDate'] ]])
+        ->select('id','patientName','regNum','regDate','address','gender','consultant')->get();
+
+        // where order is serial number//
+         return DataTables::of($data)
+         ->addColumn('order',function($data){
+            static $i=1;
+            return $i++;
+         })
+         ->addColumn('action', function($data){
+
+       return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                       <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+             <a href="%s">%s</a>',
+            route('opd.delete',$data['id']),$data['id'],"deleteopdRecord",'<i class=" fa fa-trash"></i>',
+             $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+             $data['id'],"addRecord",'<i class=" fa fa-plus"></i>',
+             route('opd.edit',['id'=>$data['id']]),'<i class="btn  btn-sm btn-teal fa fa-pencil editotRecord"></i>');
+              
+            })  
+                 
+        
+            ->make(true);
+        }
+
+            $data = opd::whereBetween('regDate', [$input['fromDate'],[$input['toDate'] ]])->where('gender',$input['gender'])
+        ->select('id','patientName','regNum','regDate','address','gender','consultant')->get();
+
+        // where order is serial number//
+         return DataTables::of($data)
+         ->addColumn('order',function($data){
+            static $i=1;
+            return $i++;
+         })
+         ->addColumn('action', function($data){
+
+       return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                       <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+             <a href="%s">%s</a>',
+            route('opd.delete',$data['id']),$data['id'],"deleteopdRecord",'<i class=" fa fa-trash"></i>',
+             $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+             $data['id'],"addRecord",'<i class=" fa fa-plus"></i>',
+             route('opd.edit',['id'=>$data['id']]),'<i class="btn  btn-sm btn-teal fa fa-pencil editotRecord"></i>');
+              
+            })  
+                 
+        
+            ->make(true);
+
+    }
+
 
     public function dashboard()
     {
         return view('dashboard.dashboard');
     }
+
 }

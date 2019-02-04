@@ -82,15 +82,8 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                {!! Form::select('Consultant',
-                                array(
-                                '' => '----Select Consultant----',
-                                'Medicine' => 'Medicine',
-                                'Surgery' => 'Surgery',
-                                'Obs / Gyne' => 'Obs / Gyne',
-                                'Pediatric' => 'Pediatric',
-                                'Others' => 'Others'
-                                ),
+                                {!! Form::select('Consultant',$docterlist,
+                                
                                 '',
                                 ['class' => 'form-control','id'=>'consultant','name'=>'consultant'])
                                 !!}

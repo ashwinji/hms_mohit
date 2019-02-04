@@ -155,6 +155,39 @@
       <span class="side-menu__label">Patient History</span>
       </a>
     </li>
+      <li class="slide">
+          <a class="side-menu__item" data-toggle="slide" href="#">
+            <i class="side-menu__icon fa fa-circle-o"></i>
+            <span class="side-menu__label">OtherList</span>
+            <i class="angle fa fa-angle-right"></i>
+          </a>
+          <ul class="slide-menu">
+              <li>
+                <a href="{{route('medicine.create') }}"class="slide-item">Medicine</a>
+              </li>
+              <li>
+                <a href="{{route('doctor.create') }}"class="slide-item">Docterlist</a>
+              </li>
+              <li>
+                <a href="" class="slide-item">Potency</a>
+              </li>
+              <li>
+                <a href="" class="slide-item">Department</a>
+              </li>
+               <li>
+                <a href="" class="slide-item">dietPlan</a>
+              </li>
+               <li>
+                <a href="" class="slide-item">ward</a>
+              </li>
+               <li>
+                <a href="" class="slide-item">yogalist</a>
+              </li>
+               <li>
+                <a href="" class="slide-item">physiotherapylist</a>
+              </li>
+          </ul>
+      </li>
 
     </ul>
 </aside>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Model\ipd;
 use App\Model\ot;
 use App\Model\opd;
+use App\Model\doctorlist;
+use App\Model\medicine;
 use Illuminate\Http\Request;
 use DB;
 use DataTables;
@@ -26,7 +28,10 @@ class IpdController extends Controller
      */
     public function create()
     {
-        return view('ipd.create');
+         $docterlist=doctorlist::all()->pluck('name','id');
+         $medicine=medicine::all()->pluck('name','id');
+         // dd($docterlist,$medicine);
+        return view('ipd.create',compact('medicine','docterlist'));
     }
 
     /**
@@ -132,7 +137,11 @@ class IpdController extends Controller
         $ipds = ipd::select('ipds.id','ipds.ipdRegNum','ipds.ipdRegDate','ipds.wardName','ipds.bedNum','ipds.consultant','opds.RegNum','opds.patientName')
             ->join('opds', 'ipds.patientId', '=', 'opds.regNum')
             ->get();
-              return DataTables::of($ipds)->addColumn('action', function($data){
+         return DataTables::of($ipds)->addColumn('order',function($data){
+            static $i=1;
+            return $i++;
+         })
+        ->addColumn('action', function($data){
 
               return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>

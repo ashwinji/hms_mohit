@@ -71,7 +71,7 @@
             "serverSide": true,
             "ajax": "{{route('getipd') }}",
             "columns": [
-                { data: 'id', name: 'id' },
+                { data: 'order', name: 'order' },
                 { data: 'patientName', name: 'patientName' },
                 { data: 'RegNum', name: 'RegNum' },
                 { data: 'ipdRegNum', name: 'ipdRegNum' },
