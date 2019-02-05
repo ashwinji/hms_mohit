@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\investigation;
+use App\Model\potency;
 use Illuminate\Http\Request;
 
-class InvestigationController extends Controller
+class PotencyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
-        $investigationlist=investigation::all();
-        return view('otherlist.investigation.investigation',compact('investigationlist'));
+        $potencylist=potency::all();
+        return view('otherlist.potency.potency',compact('potencylist'));
     }
 
     /**
@@ -25,7 +25,7 @@ class InvestigationController extends Controller
      */
     public function create()
     {
-        return view('otherlist.investigation.addinvestigation');
+        return view('otherlist.potency.addpotency');
     }
 
     /**
@@ -36,10 +36,10 @@ class InvestigationController extends Controller
      */
     public function store(Request $request)
     {
-            $investigation= new investigation;
-            $investigation->name=$request->name;
-            $investigation->save();
-            return redirect(route('investigation'))->with('message','data added successfuly');
+            $potency= new potency;
+            $potency->name=$request->name;
+            $potency->save();
+            return redirect(route('potency'))->with('message','data added successfuly');
     }
 
     /**
@@ -61,8 +61,8 @@ class InvestigationController extends Controller
      */
     public function edit($id)
     {
-        $investigation=investigation::where('id',$id)->first();
-        return view('otherlist.investigation.edit',compact('investigation'));
+        $potency=potency::where('id',$id)->first();
+        return view('otherlist.potency.edit',compact('potency'));
     }
 
     /**
@@ -74,11 +74,12 @@ class InvestigationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $investigation=investigation::where('id',$id)->first();
+        //dd($id);
+        $potency=potency::where('id',$id)->first();
 
-        $investigation->update($request->all());
+        $potency->update($request->all());
 
-        return redirect()->route('investigation')->with('message','update successfuly');
+        return redirect()->route('potency')->with('message','update successfuly');
     }
 
     /**
@@ -89,7 +90,7 @@ class InvestigationController extends Controller
      */
     public function destroy($id)
     {
-             investigation::find($id)->delete($id);
+             potency::find($id)->delete($id);
               return back()->with('message','delete successfuly');
      
     }

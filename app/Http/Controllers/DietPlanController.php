@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\investigation;
+use App\Model\dietplan;
 use Illuminate\Http\Request;
 
-class InvestigationController extends Controller
+class DietPlanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class InvestigationController extends Controller
      */
     public function index()
     {
-        $investigationlist=investigation::all();
-        return view('otherlist.investigation.investigation',compact('investigationlist'));
+        $dietPlanlist=dietplan::all();
+        return view('otherlist.dietPlan.dietplan',compact('dietPlanlist'));
     }
 
     /**
@@ -25,7 +25,7 @@ class InvestigationController extends Controller
      */
     public function create()
     {
-        return view('otherlist.investigation.addinvestigation');
+        return view('otherlist.dietPlan.adddietPlan');
     }
 
     /**
@@ -36,10 +36,10 @@ class InvestigationController extends Controller
      */
     public function store(Request $request)
     {
-            $investigation= new investigation;
-            $investigation->name=$request->name;
-            $investigation->save();
-            return redirect(route('investigation'))->with('message','data added successfuly');
+            $dietPlan= new dietplan;
+            $dietPlan->name=$request->name;
+            $dietPlan->save();
+            return redirect(route('dietPlan'))->with('message','data added successfuly');
     }
 
     /**
@@ -61,8 +61,8 @@ class InvestigationController extends Controller
      */
     public function edit($id)
     {
-        $investigation=investigation::where('id',$id)->first();
-        return view('otherlist.investigation.edit',compact('investigation'));
+        $dietPlan=dietplan::where('id',$id)->first();
+        return view('otherlist.dietPlan.edit',compact('dietPlan'));
     }
 
     /**
@@ -74,11 +74,12 @@ class InvestigationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $investigation=investigation::where('id',$id)->first();
+        //dd($id);
+        $dietPlan=dietplan::where('id',$id)->first();
 
-        $investigation->update($request->all());
+        $dietPlan->update($request->all());
 
-        return redirect()->route('investigation')->with('message','update successfuly');
+        return redirect()->route('dietPlan')->with('message','update successfuly');
     }
 
     /**
@@ -89,7 +90,7 @@ class InvestigationController extends Controller
      */
     public function destroy($id)
     {
-             investigation::find($id)->delete($id);
+             dietplan::find($id)->delete($id);
               return back()->with('message','delete successfuly');
      
     }

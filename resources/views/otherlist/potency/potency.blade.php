@@ -10,7 +10,7 @@
                                         <div class="card-body">
                                                  <div class="btn-list" style="float: right;">
 
-                                                        <a href="{{route('department.create')}}" class="btn btn-xs btn-square btn-success ">Register New Department Name</a>
+                                                        <a href="{{route('potency.create')}}" class="btn btn-xs btn-square btn-success ">Register New Potency Name</a>
 
                                                 </div>
 
@@ -21,7 +21,7 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header ">
-										<h3 class="card-title ">Latest Records Of Department</h3>
+										<h3 class="card-title ">Latest Records Of Potency</h3>
 
 									</div>
 
@@ -31,24 +31,24 @@
 											<thead>
 											  <tr>
 												<th scope="col">ID</th>
-												<th scope="col">Department Name</th>
+												<th scope="col">Potency Name</th>
 												<th scope="col">Update</th>
 												<th scope="col">Delete</th>
 											  </tr>
 											</thead>
 											<tbody>
 
-											 @if(isset($departmentlist))
-											 @foreach($departmentlist as $department)
+											 @if(isset($potencylist))
+											 @foreach($potencylist as $potency)
 											 <?php  static $i=1;?>
 											  <tr>
 												<td>{{$i++}}</td>
-												<td>{{$department->name}}</td>
+												<td>{{$potency->name}}</td>
 
-												<td><a href="{{route('department.edit',['id'=>$department->id])}}" class="btn btn-success fa fa-pencil" onclick="return confirm('Are you sure?update');"></a>
+												<td><a href="{{route('potency.edit',['id'=>$potency->id])}}" class="btn btn-success fa fa-pencil" onclick="return confirm('Are you sure?update');"></a>
 												</td>
 
-                                               <td><a href="{{route('department.destroy',['id'=>$department->id])}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are you sure?');"></a></td>
+                                               <td><a href="{{route('potency.destroy',['id'=>$potency->id])}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are you sure?');"></a></td>
 												
 											  </tr>
 											  @endforeach

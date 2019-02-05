@@ -6,6 +6,9 @@ use App\Model\ot;
 use App\Model\opd;
 use App\Model\doctorlist;
 use App\Model\medicine;
+use App\Model\department;
+use App\Model\investigation;
+
 use Illuminate\Http\Request;
 use DB;
 use DataTables;
@@ -30,8 +33,10 @@ class IpdController extends Controller
     {
          $docterlist=doctorlist::all()->pluck('name','id');
          $medicine=medicine::all()->pluck('name','id');
+         $department=department::all()->pluck('name','id');
+         $investigation=investigation::all()->pluck('name','id');
          // dd($docterlist,$medicine);
-        return view('ipd.create',compact('medicine','docterlist'));
+        return view('ipd.create',compact('medicine','docterlist','department','investigation'));
     }
 
     /**
@@ -137,7 +142,9 @@ class IpdController extends Controller
         $ipds = ipd::select('ipds.id','ipds.ipdRegNum','ipds.ipdRegDate','ipds.wardName','ipds.bedNum','ipds.consultant','opds.RegNum','opds.patientName')
             ->join('opds', 'ipds.patientId', '=', 'opds.regNum')
             ->get();
-         return DataTables::of($ipds)->addColumn('order',function($data){
+         return DataTables::of($ipds)->editColumn('consultant',function($data){
+            return $data->doctorName->name;})
+         ->addColumn('order',function($data){
             static $i=1;
             return $i++;
          })

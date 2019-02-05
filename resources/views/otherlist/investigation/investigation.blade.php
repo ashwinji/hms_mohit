@@ -10,7 +10,7 @@
                                         <div class="card-body">
                                                  <div class="btn-list" style="float: right;">
 
-                                                        <a href="{{route('department.create')}}" class="btn btn-xs btn-square btn-success ">Register New Department Name</a>
+                                                        <a href="{{route('investigation.create')}}" class="btn btn-xs btn-square btn-success ">Register New Investigation Name</a>
 
                                                 </div>
 
@@ -21,7 +21,7 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header ">
-										<h3 class="card-title ">Latest Records Of Department</h3>
+										<h3 class="card-title ">Latest Records Of Investigation</h3>
 
 									</div>
 
@@ -38,17 +38,17 @@
 											</thead>
 											<tbody>
 
-											 @if(isset($departmentlist))
-											 @foreach($departmentlist as $department)
+											 @if(isset($investigationlist))
+											 @foreach($investigationlist as $investigation)
 											 <?php  static $i=1;?>
 											  <tr>
 												<td>{{$i++}}</td>
-												<td>{{$department->name}}</td>
+												<td>{{$investigation->name}}</td>
 
-												<td><a href="{{route('department.edit',['id'=>$department->id])}}" class="btn btn-success fa fa-pencil" onclick="return confirm('Are you sure?update');"></a>
+												<td><a href="{{route('investigation.edit',['id'=>$investigation->id])}}" class="btn btn-success fa fa-pencil" onclick="return confirm('Are you sure?update');"></a>
 												</td>
 
-                                               <td><a href="{{route('department.destroy',['id'=>$department->id])}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are you sure?');"></a></td>
+                                               <td><a href="{{route('investigation.destroy',['id'=>$investigation->id])}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are you sure?');"></a></td>
 												
 											  </tr>
 											  @endforeach

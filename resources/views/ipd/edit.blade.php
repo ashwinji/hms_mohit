@@ -20,7 +20,7 @@
                     'method'=>'PUT','autocomplete'=>'off')) !!}
                     {{ Form::hidden('status', '1') }}
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-4">
 
                             <div class="form-group">
                                 {!! Form::label('name', 'OPD Registration Number') !!}
@@ -38,7 +38,7 @@
 
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <div class="form-group">
                                 {!! Form::label('opd', 'OPD Date') !!}
@@ -54,7 +54,7 @@
 
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-4">
 
                             <div class="form-group">
                                 {!! Form::label('ipdnum', 'IPD Registration Number') !!}
@@ -68,7 +68,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <div class="form-group">
                                 {!! Form::label('name', 'IPD Registration Date') !!}
@@ -80,9 +80,10 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-4">
 
                             <div class="form-group">
+                                {!! Form::label('name', 'IPD Consultant') !!}
                                 {!! Form::select('Consultant',
                                 array(
                                 '' => '----Select Consultant----',
@@ -99,7 +100,7 @@
 
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <div class="form-group">
                                 {!! Form::label('name', 'Other Consultant') !!}
@@ -114,7 +115,7 @@
 
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-4">
 
                             <div class="form-group">
                                 {!! Form::label('name', 'Patient Name') !!}
@@ -129,7 +130,7 @@
 
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('name', 'Age') !!}
                                 {!! Form::text('age',$ipd->opd->age,
@@ -142,7 +143,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="  offset-md-2 col-md-4">
                             <div class="form-group">
                                 {!! Form::label('name', 'S/o') !!}
                                 {!! Form::radio('prefixName', '',
@@ -170,7 +171,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('name', 'Gender') !!}
                                 {!! Form::select('gender', ['Male Adult' => 'Male Adult', 'Female Adult' => 'Female
@@ -181,7 +182,7 @@
 
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Address') !!}
                                 {!! Form::textarea('address',$ipd->opd->address, ['class' => 'form-control','placeholder' => 'Enter
@@ -189,7 +190,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Ward Name') !!}
                                 {!! Form::select('wardName', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',],
@@ -197,7 +198,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 <div>Bed Number</div>
                                 <div style="margin-left: 20px;">
@@ -226,8 +227,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Date of Discharge') !!}
                                 {!! Form::date('dod', $ipd->dod, ['class' =>
@@ -235,7 +235,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                          <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Provisional Diagnosis') !!}
                                 {!! Form::textarea('provisionalDiagnosis',$ipd->provisionalDiagnosis, ['class' =>
@@ -244,7 +244,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                          <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Chief Complaints') !!}
                                 {!! Form::textarea('chiefComplaints', $ipd->chiefComplaints, ['class' =>
@@ -253,7 +253,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Past History') !!}
                                 {!! Form::textarea('pastHistory', $ipd->pastHistory, ['class' =>
@@ -262,7 +262,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <h3 align="center"> Family History</h3>
                             <div class="form-group">
                                 {!! Form::label('name', 'Maternal') !!}
@@ -272,7 +272,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 " class="form-control">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Paternal') !!}
                                 {!! Form::textarea('fh_paternal', $ipd->fh_paternal, ['class' =>
@@ -281,7 +281,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Other') !!}
                                 {!! Form::textarea('fh_other', $ipd->fh_other, ['class' =>
@@ -290,7 +290,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                          <div class="offset-md-2 col-md-8 offset-md-2">
                             <h3 align="left" class="offset-1"> General Examination</h3>
                             <div class="row">
                                 <div class="col-md-4">
@@ -443,7 +443,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="row">
                                 <div class="offset-2 col-md-1">
                                     <h3 align="lefts" class="">ECG</h3>
@@ -456,7 +456,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                          <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Respiratory System') !!}
                                 {!! Form::textarea('respiratorySystem', '', ['class' => 'form-control','placeholder'
@@ -464,7 +464,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                       <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Gastro - Intestinal System') !!}
                                 {!! Form::textarea('gastroIntestinalSystem', '', ['class' =>
@@ -472,7 +472,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Cardio - Vascular System') !!}
                                 {!! Form::textarea('cardioVascularSystem', '', ['class' =>
@@ -480,7 +480,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Central Nervous System') !!}
                                 {!! Form::textarea('centralNervousSystem', '', ['class' =>
@@ -488,7 +488,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Local Examination') !!}
                                 {!! Form::text('localExamination', '', ['class' => 'form-control','placeholder' =>
@@ -496,7 +496,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Investigation<span class="badge badge-success control-label">1</span>',[],false)
                                 !!}
@@ -505,7 +505,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Investigation<span class="badge badge-success control-label">2</span>',[],false)
                                 !!}
@@ -514,7 +514,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                      <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Investigation<span class="badge badge-success control-label">3</span>',[],false)
                                 !!}
@@ -523,7 +523,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">1</span>',[],false)
                                 !!}
@@ -532,7 +532,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
                                 {!! Form::select('potency1', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
@@ -540,7 +540,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">2</span>',[],false)
                                 !!}
@@ -549,7 +549,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
                                 {!! Form::select('potency2', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
@@ -557,7 +557,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">3</span>',[],false)
                                 !!}
@@ -566,7 +566,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
                                 {!! Form::select('potency3', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
@@ -574,10 +574,10 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <h3 align="left">Auxiliary Treatment</h3>
                             <div class="row">
-                                <div class="col-md-6">
+                               
 
                                     <div class="form-group">
                                         {!! Form::label('dietPlan1', 'dietPlan<span class="badge badge-success control-label">1</span>',[],false)

@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Model\opd;
 use App\Model\ot;
 use App\Model\ipd;
+use App\Model\ecgexamination;
+use App\Model\doctorlist;
+use App\Model\department;
 
 class ipd extends Model
 {
@@ -48,13 +51,13 @@ class ipd extends Model
 'ge_diet',
 'ecgTest',
 'respiratorySystem',
-'stroIntestinalSystem',
+'gastroIntestinalSystem',
 'cardioVascularSystem',
 'centralNervousSystem',
 'localExamination',
-'linvestigation1',
-'linvestigation2',
-'linvestigation3',
+'investigation1',
+'investigation2',
+'investigation3',
 'medicine1',
 'potency1',
 'medicine2',
@@ -75,4 +78,36 @@ class ipd extends Model
 	  return $this->belongsTo(opd::class,'patientId','id');
 	}
   
+
+    public function doctorName()
+    {
+    	return $this->hasOne(doctorlist::class,'id','consultant');
+    }
+
+    public function medicineName1()
+    {
+        return $this->hasOne(medicine::class,'id','medicine1');
+    }
+    public function medicineName2()
+    {
+        return $this->hasOne(medicine::class,'id','medicine2');
+    }
+    public function medicineName3()
+    {
+        return $this->hasOne(medicine::class,'id','medicine3');
+    }
+     public function investigation1()
+    {
+        return $this->hasOne(investigation::class,'id','investigation1');
+    }
+    public function investigation2()
+    {
+        return $this->hasOne(investigation::class,'id','investigation2');
+    }
+    public function investigation3()
+    {
+        return $this->hasOne(investigation::class,'id','investigation3');
+    }
+
+
 }

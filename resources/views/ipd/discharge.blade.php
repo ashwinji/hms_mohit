@@ -49,7 +49,7 @@
                   </tr>
                   <tr>
                     <th>Consultant Name </th>
-                    <td>{{ $data->consultant }}</td>
+                    <td>{{ $data->doctorName->name }}</td>
                     <th>Other Consultant </th>
                     <td>{{ $data->otherConsultant }}</td>
                   </tr>

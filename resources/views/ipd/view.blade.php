@@ -49,7 +49,7 @@
                   </tr>
                   <tr>
                     <th>Consultant Name </th>
-                    <td>{{ $data->consultant }}</td>
+                    <td>{{ $data->doctorName->name }}</td>
                     <th>Other Consultant </th>
                     <td>{{ $data->otherConsultant }}</td>
                   </tr>
@@ -205,7 +205,7 @@
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">1</span></th>
-                      <td>Arsenic Album </td>
+                      <td> </td>
                       <th>Potency <span class="badge badge-danger pull-right">1</span></th>
                       <td>30</td>
                     </tr>

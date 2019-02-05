@@ -36,9 +36,9 @@ class MedicineController extends Controller
      */
     public function store(Request $request)
     {
-            $doctorstore= new medicine;
-            $doctorstore->name=$request->name;
-            $doctorstore->save();
+            $medicine= new medicine;
+            $medicine->name=$request->name;
+            $medicine->save();
             return redirect(route('medicine'))->with('message','data added successfuly');
     }
 
@@ -74,11 +74,11 @@ class MedicineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $doctor=medicine::find($id)->first();
+        $medicine=medicine::where('id',$id)->first();
 
-        $doctor->update($request->all());
+        $medicine->update($request->all());
 
-        return redirect()->route('doctor')->with('message','update successfuly');
+        return redirect()->route('medicine')->with('message','update successfuly');
     }
 
     /**

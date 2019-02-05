@@ -21,13 +21,14 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header ">
-										<h3 class="card-title ">Latest Records Of Patient</h3>
+										<h3 class="card-title ">Latest Records Of Doctor</h3>
 
 									</div>
 
 									@include('verror.error')
 									<div class="table-responsive">
-										<table class="table table-hover card-table table-striped table-vcenter table-outline text-nowrap">
+										
+										<table id="search" class="table table-hover card-table table-striped table-vcenter table-outline text-nowrap">
 											<thead>
 											  <tr>
 												<th scope="col">ID</th>
@@ -57,6 +58,9 @@
 											</tbody>
 										  </table>
 										  
+                                           {{ $doctorlist->links() }}
+                                         
+										
 									</div>
 								</div>
 							</div>
@@ -68,38 +72,15 @@
 </div>
   
 @endsection
+
 @section('FooterSection')
-<!-- <script type="text/javascript">
-
-    $(document).on('click', ".deleteotRecord", function (e) {
-        var url = $(this).attr('data-url');
-        if (!confirm('Are you sure?delete')) {
-            e.preventDefault();
-            return false;
-        }
-        var a = true;
-        if (a == true) {
-            var id = $(this).data("id");
-            var token = $("meta[name='csrf-token']").attr("content");
-
-            $.ajax({
-                url: url,
-                type: 'DELETE',
-                dataType: 'json',
-                data: {
-                    "id": id,
-                    "_token": token,
-                },
-                success: function (res) {
-                    $('#otuser').DataTable().ajax.reload();
-                },
-                error: function (data) {
-
-                }
-            });
-        }
-
-    });
-
+<!-- <link rel="stylesheet" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"</script>
+<script>
+$(document).ready(function(){
+$('#search').DataTable();
+});
 </script> -->
+
 @endsection

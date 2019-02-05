@@ -3,6 +3,10 @@ namespace App\Http\Controllers;
 use App\Model\ot;
 use App\Model\opd;
 use App\Model\ipd;
+use App\Model\medicine;
+use App\Model\doctorlist;
+use App\Model\department;
+
 use Illuminate\Http\Request;
 use DB;
 use DataTables;
@@ -25,7 +29,10 @@ class OtController extends Controller
      */
     public function create()
     {
-        return view('ot.create');
+        $doctorlist=doctorlist::all()->pluck('name','id');
+        $medicine=medicine::all()->pluck('name','id');
+        $department=department::all()->pluck('name','id');
+        return view('ot.create',compact('doctorlist','medicine','department'));
     }
 
     /**
@@ -88,10 +95,12 @@ class OtController extends Controller
      */
     public function edit($id)
     {
+        $doctorlist=doctorlist::all();
+        $medicine=medicine::all();
+        $department=department::all();
         
         $ot=ot::where('id',$id)->first();
-       // dd($ot);
-        return view('ot.edit',compact('ot'));
+        return view('ot.edit',compact('ot','department','medicine','doctorlist'));
     }
 
     /**
@@ -152,6 +161,9 @@ class OtController extends Controller
         return DataTables::of($ots)->addColumn('order',function($data){
             static $i=1;
             return $i++;
+         })->editColumn('consultant',function($data){
+
+             return $data->doctorName->name;
          })
         ->addColumn('action', function($data){
             return sprintf('<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm  btn-square btn-danger">%s</button>

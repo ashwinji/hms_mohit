@@ -163,28 +163,31 @@
           </a>
           <ul class="slide-menu">
               <li>
-                <a href="{{route('medicine.create') }}"class="slide-item">Medicine</a>
+                <a href="{{route('medicine.create') }}"class="slide-item">medicine</a>
               </li>
               <li>
-                <a href="{{route('doctor.create') }}"class="slide-item">Docterlist</a>
+                <a href="{{route('doctor.create') }}"class="slide-item">docterlist</a>
               </li>
               <li>
-                <a href="" class="slide-item">Potency</a>
+                <a href="{{route('potency.create')}}" class="slide-item">Potency</a>
               </li>
               <li>
-                <a href="{{route('department.create') }}" class="slide-item">Department</a>
+                <a href="{{route('department.create') }}" class="slide-item">department</a>
               </li>
                <li>
-                <a href="" class="slide-item">dietPlan</a>
+                <a href="{{route('dietPlan.create') }} " class="slide-item">dietPlan</a>
               </li>
                <li>
-                <a href="" class="slide-item">ward</a>
+                <a href="{{-- {{route('wardno.create') }} --}}" class="slide-item">wardNO</a>
               </li>
                <li>
                 <a href="" class="slide-item">yogalist</a>
               </li>
                <li>
                 <a href="" class="slide-item">physiotherapylist</a>
+              </li>
+               <li>
+                <a href="{{route('investigation.create') }}" class="slide-item">investigation</a>
               </li>
           </ul>
       </li>

@@ -216,3 +216,57 @@ Route::group(['prefix'=>'department'], function(){
 
 
 });
+//investigationlist
+Route::group(['prefix'=>'investigation'], function(){
+
+		Route::get('/','InvestigationController@index')->name('investigation');
+
+		Route::get('/addinvestigation','InvestigationController@create')->name('investigation.create');
+
+		Route::post('/storeinvestigation','InvestigationController@store')->name('investigation.store');
+
+		Route::get('delete/{id}','InvestigationController@destroy')->name('investigation.destroy');
+
+		Route::get('/edit/{id}','InvestigationController@edit')->name('investigation.edit');
+        Route::post('/update/{id}','InvestigationController@update')->name('investigation.update');
+
+
+
+});
+//dietPlan
+Route::group(['prefix'=>'dietPlan'], function(){
+
+		Route::get('/','DietPlanController@index')->name('dietPlan');
+
+		Route::get('/adddietPlan','DietPlanController@create')->name('dietPlan.create');
+
+		Route::post('/storedietPlan','DietPlanController@store')->name('dietPlan.store');
+
+		Route::get('delete/{id}','DietPlanController@destroy')->name('dietPlan.destroy');
+
+		Route::get('/edit/{id}','DietPlanController@edit')->name('dietPlan.edit');
+        Route::post('/update/{id}','DietPlanController@update')->name('dietPlan.update');
+
+
+
+});
+
+//potency
+
+Route::group(['prefix'=>'potency'], function(){
+
+		Route::get('/','PotencyController@index')->name('potency');
+
+		Route::get('/addpotency','PotencyController@create')->name('potency.create');
+
+		Route::post('/storepotency','PotencyController@store')->name('potency.store');
+
+		Route::get('delete/{id}','PotencyController@destroy')->name('potency.destroy');
+
+		Route::get('/edit/{id}','PotencyController@edit')->name('potency.edit');
+        Route::post('/update/{id}','PotencyController@update')->name('potency.update');
+
+
+
+});
+
