@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\dietplan;
+use App\Model\wardname;
 use Illuminate\Http\Request;
 
-class DietPlanController extends Controller
+class WardnameController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   public function index()
     {
-        $dietPlanlist=dietplan::all();
-        return view('otherlist.dietPlan.dietPlan',compact('dietPlanlist'));
+    
+        $wardnamelist=wardname::paginate(2);
+
+        return view('otherlist.wardname.wardname',compact('wardnamelist'));
     }
 
     /**
@@ -25,7 +27,7 @@ class DietPlanController extends Controller
      */
     public function create()
     {
-        return view('otherlist.dietPlan.adddietPlan');
+        return view('otherlist.wardname.addwardname');
     }
 
     /**
@@ -36,10 +38,10 @@ class DietPlanController extends Controller
      */
     public function store(Request $request)
     {
-            $dietPlan= new dietplan;
-            $dietPlan->name=$request->name;
-            $dietPlan->save();
-            return redirect(route('dietPlan'))->with('message','data added successfuly');
+            $wardname= new wardname;
+            $wardname->name=$request->name;
+            $wardname->save();
+            return redirect(route('wardname'))->with('message','data added successfuly');
     }
 
     /**
@@ -61,8 +63,8 @@ class DietPlanController extends Controller
      */
     public function edit($id)
     {
-        $dietPlan=dietplan::where('id',$id)->first();
-        return view('otherlist.dietPlan.edit',compact('dietPlan'));
+        $wardname=wardname::where('id',$id)->first();
+        return view('otherlist.wardname.edit',compact('wardname'));
     }
 
     /**
@@ -74,12 +76,11 @@ class DietPlanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($id);
-        $dietPlan=dietplan::where('id',$id)->first();
+        $wardname=wardname::find($id)->first();
 
-        $dietPlan->update($request->all());
+        $doctor->update($request->all());
 
-        return redirect()->route('dietPlan')->with('message','update successfuly');
+        return redirect()->route('wardname')->with('message','update successfuly');
     }
 
     /**
@@ -90,7 +91,7 @@ class DietPlanController extends Controller
      */
     public function destroy($id)
     {
-             dietplan::find($id)->delete($id);
+             wardname::find($id)->delete($id);
               return back()->with('message','delete successfuly');
      
     }

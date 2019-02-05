@@ -108,6 +108,10 @@ class ipd extends Model
     {
         return $this->hasOne(investigation::class,'id','investigation3');
     }
+    public function wardname()
+    {
+        return $this->hasOne(wardname::class,'id','wardName');
+    }
 
 
 }

@@ -270,3 +270,21 @@ Route::group(['prefix'=>'potency'], function(){
 
 });
 
+//Wardname
+
+Route::group(['prefix'=>'wardname'], function(){
+
+		Route::get('/','WardnameController@index')->name('wardname');
+
+		Route::get('/addwardname','WardnameController@create')->name('wardname.create');
+
+		Route::post('/storewardname','WardnameController@store')->name('wardname.store');
+
+		Route::get('delete/{id}','WardnameController@destroy')->name('wardname.destroy');
+
+		Route::get('/edit/{id}','WardnameController@edit')->name('wardname.edit');
+        Route::post('/update/{id}','WardnameController@update')->name('wardname.update');
+
+
+
+});

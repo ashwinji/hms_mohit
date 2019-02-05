@@ -186,8 +186,8 @@
                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Ward Name') !!}
-                                {!! Form::select('wardName', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
-                                ['class' => 'form-control','id'=>'wardName','name'=>'wardName']) !!}
+                                {!! Form::select('wardName',$wardname, '',
+                                ['class' => 'form-control','id'=>'wardName','name'=>'wardName','placeholder'=>'select ward']) !!}
                             </div>
                         </div>
 
@@ -527,8 +527,8 @@
                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
-                                {!! Form::select('potency1', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
-                                ['class' => 'form-control']) !!}
+                                {!! Form::select('potency1',$potency, '',
+                                ['class' => 'form-control','id'=>'potency1','placeholder'=>'select potency1']) !!}
                             </div>
                         </div>
 
@@ -544,8 +544,8 @@
                        <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
-                                {!! Form::select('potency2', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
-                                ['class' => 'form-control']) !!}
+                                {!! Form::select('potency2',$potency, '',
+                                ['class' => 'form-control','id'=>'potency2','placeholder'=>'select potency2']) !!}
                             </div>
                         </div>
 
@@ -561,8 +561,8 @@
                         <div class="offset-md-2 col-md-3 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Potency') !!}
-                                {!! Form::select('potency3', ['L' => 'Large', 'S' => 'Small', 'Sz' => 'Smallz',], '',
-                                ['class' => 'form-control']) !!}
+                                {!! Form::select('potency3',$potency, '',
+                                ['class' => 'form-control','id'=>'potency3','placeholder'=>'select potency3']) !!}
                             </div>
                         </div>
 
@@ -574,8 +574,7 @@
                                     <div class="form-group">
                                         {!! Form::label('dietPlan1', 'dietPlan<span class="badge badge-success control-label">1</span>',[],false)
                                         !!}
-                                        {!! Form::select('dietPlan1', ['L' => 'Large', 'S' => 'Small', 'Sz' =>
-                                        'Smallz',], '', ['class' => 'form-control']) !!}
+                                        {!! Form::select('dietPlan1',$dietPlan, '', ['class' => 'form-control','id'=>'dietPlan1','placeholder'=>'select Diet plan 1']) !!}
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('dietPlan1', 'dietPlan<span class="badge badge-success control-label">1</span>',[],false)
@@ -589,11 +588,11 @@
                                     <div class="form-group">
                                         {!! Form::label('dietPlan1', 'dietPlan<span class="badge badge-success control-label">2</span>',[],false)
                                         !!}
-                                        {!! Form::select('dietPlan2', ['L' => 'Large', 'S' => 'Small', 'Sz' =>
-                                        'Smallz',], '', ['class' => 'form-control']) !!}
+                                        {!! Form::select('dietPlan2',$dietPlan, '', ['class' => 'form-control',
+                                        'id'=>'dietPlan2','placeholder'=>'select Diet plan 2']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('dietPlan1', 'dietPlan<span class="badge badge-success control-label">2</span>',[],false)
+                                        {!! Form::label('dietPlan1','dietPlan<span class="badge badge-success control-label">2</span>',[],false)
                                         !!}
                                         {!! Form::textarea('diet2Text', '', ['class' => 'form-control','placeholder'
                                         => 'Diet 2 Plan Text','rows' => 3, 'cols' => 10, ]) !!}

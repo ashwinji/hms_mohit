@@ -178,7 +178,7 @@
                 <a href="{{route('dietPlan.create') }} " class="slide-item">dietPlan</a>
               </li>
                <li>
-                <a href="{{-- {{route('wardno.create') }} --}}" class="slide-item">wardNO</a>
+                <a href="{{route('wardname.create') }}" class="slide-item">wardNO</a>
               </li>
                <li>
                 <a href="" class="slide-item">yogalist</a>

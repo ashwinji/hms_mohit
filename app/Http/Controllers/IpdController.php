@@ -8,7 +8,9 @@ use App\Model\doctorlist;
 use App\Model\medicine;
 use App\Model\department;
 use App\Model\investigation;
-
+use App\Model\dietplan;
+use App\Model\potency;
+use App\Model\wardname;
 use Illuminate\Http\Request;
 use DB;
 use DataTables;
@@ -35,8 +37,12 @@ class IpdController extends Controller
          $medicine=medicine::all()->pluck('name','id');
          $department=department::all()->pluck('name','id');
          $investigation=investigation::all()->pluck('name','id');
+         $dietPlan=dietplan::all()->pluck('name','id');
+         $potency=potency::all()->pluck('name','id');
+         $wardname=wardname::all()->pluck('name','id');
+
          // dd($docterlist,$medicine);
-        return view('ipd.create',compact('medicine','docterlist','department','investigation'));
+        return view('ipd.create',compact('medicine','docterlist','department','investigation','potency','dietPlan','wardname'));
     }
 
     /**
@@ -144,6 +150,9 @@ class IpdController extends Controller
             ->get();
          return DataTables::of($ipds)->editColumn('consultant',function($data){
             return $data->doctorName->name;})
+         ->editColumn('wardNsame',function($data){
+            return $data->wardname->name;
+         })
          ->addColumn('order',function($data){
             static $i=1;
             return $i++;
