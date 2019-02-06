@@ -15,7 +15,7 @@ class WardnameController extends Controller
    public function index()
     {
     
-        $wardnamelist=wardname::paginate(2);
+        $wardnamelist=wardname::paginate(5);
 
         return view('otherlist.wardname.wardname',compact('wardnamelist'));
     }

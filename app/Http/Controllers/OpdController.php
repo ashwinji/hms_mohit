@@ -7,6 +7,8 @@ use App\Model\ot;
 use App\Model\doctorlist;
 use App\Model\department;
 use App\Model\medicine;
+use App\Model\potency;
+use App\Model\investigation;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -94,9 +96,12 @@ class OpdController extends Controller
     {
         $id=$request->id;
         $docterlist=doctorlist::all()->pluck('name','id');
-        $medicinelist=medicine::all()->pluck('name','id');
+        $medicine=medicine::all()->pluck('name','id');
+        $potency=potency::all()->pluck('name','id');
+        $potency=potency::all()->pluck('name','id');
+        $investigation=investigation::all()->pluck('name','id');
          $data=opd::where('id','=',$id)->first();
-         $content=\View::make('opd.opdaddtreatment',compact('data','docterlist','medicinelist'));
+         $content=\View::make('opd.opdaddtreatment',compact('data','docterlist','medicine','investigation','potency'));
          $b=$content->render();
          return response()->json([
            'status'=>true,

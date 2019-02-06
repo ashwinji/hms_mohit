@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ipdtreatments;
+use App\Model\ipdtreatments;
 use Illuminate\Http\Request;
 
 class IpdtreatmentsController extends Controller
@@ -35,7 +35,25 @@ class IpdtreatmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+         $ipdtreatments=new ipdtreatments;
+        $ipdtreatments->patientId=$request->patientId;
+        $ipdtreatments->complaint=$request->complaint;
+        $ipdtreatments->ipdId=$request->ipdRegNum;
+        $ipdtreatments->treatment=$request->treatment;
+        $ipdtreatments->medicine=$request->medicine;
+        $ipdtreatments->potency=$request->potency;
+        $ipdtreatments->nod=$request->nod;
+        $ipdtreatments->advice=$request->advice;
+        $ipdtreatments->remark=$request->remark
+        //when we pass the whole array valu in one variable 
+        $ipdtreatments->refTo=implode(',',$request->myCheckboxes);
+        $ipdtreatments->consultant=$request->consultant;
+        $ipdtreatments->save();
+            return response()->json([
+           'status'=>'true',
+         ]);
+
     }
 
     /**

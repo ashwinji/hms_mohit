@@ -137,32 +137,28 @@
                         </div>
 
                         <div class="offset-md-2 col-md-4">
+
                             <div class="form-group">
-                                {!! Form::label('name', 'S/o') !!}
-                                {!! Form::radio('prefixName', '',
-                                ['class' => 'form-control',
-                                'placeholder' => 'Enter Registration Amount',
-                                'id'=>'prefixName',
-                                'name'=>'prefixName',
-                                ]) !!}
-                                {!! Form::label('name', 'W/o') !!}
-                                {!! Form::radio('prefixName', '',
-                                ['class' => 'form-control',
-                                'placeholder' => 'Enter Registration Amount',
-                                'id'=>'prefixName',]) !!}
-                                {!! Form::label('name', 'D/o') !!}
-                                {!! Form::radio('prefixName', '',
-                                ['class' => 'form-control',
-                                'placeholder' => 'Enter Registration Amount',
-                                'id'=>'prefixName',])
-                                !!}
-                                {!! Form::text('refName', '',
-                                ['class' => 'form-control',
-                                'placeholder' => 'Enter Reference Name',
-                                'id'=>'prefixName',])
-                                !!}
+                                <div class="custom-controls-stacked">
+                                 <label class="custom-control custom-checkbox col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                                               {!! Form::radio('prefixName','S/o',false,array("class"=>"custom-control-input",'id'=>'prefixName','checked'=>''))  !!}
+                                      <span class="custom-control-label"><strong>S/o</strong></span>        
+                                 </label>
+                                <label class="custom-control custom-checkbox col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                                               {!! Form::radio('prefixName','W/o',false,array("class"=>"custom-control-input",'id'=>'prefixName',))  !!}
+                                                <span class="custom-control-label"><strong>W/o</strong></span>
+                                           </label>
+                               <label class="custom-control custom-checkbox col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                                               {!! Form::radio('prefixName','D/o',false,array("class"=>"custom-control-input",'id'=>'prefixName'))  !!}
+                                                <span class="custom-control-label"><strong>D/o</strong></span>
+                                           </label>
+                             
                             </div>
                         </div>
+                        <div>      
+                               {!! Form::text('refName', '', ['class' => 'form-control','placeholder' => 'Name','id'=>'refName','name'=>'refName']) !!}
+                            </div>
+                      </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
@@ -178,8 +174,7 @@
                        <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Address') !!}
-                                {!! Form::textarea('address', '', ['class' => 'form-control','placeholder' => 'Enter
-                                Address','rows' => 3, 'cols' => 10,'id'=>'address','name'=>'address']) !!}
+                                {!! Form::textarea('address', '', ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,'id'=>'address','name'=>'address']) !!}
                             </div>
                         </div>
 
@@ -191,40 +186,56 @@
                             </div>
                         </div>
 
-                        <div class="offset-md-2 col-md-8 offset-md-2">
-                            <div class="form-group">
-                                <div>Bed Number</div>
-                                <div style="margin-left: 20px;">
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum1']) !!}
-                                    {!! Form::label('name', '1') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum2']) !!}
-                                    {!! Form::label('name', '2') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum3']) !!}
-                                    {!! Form::label('name', '3') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum4']) !!}
-                                    {!! Form::label('name', '4') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum5']) !!}
-                                    {!! Form::label('name', '5') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum6']) !!}
-                                    {!! Form::label('name', '6') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum7']) !!}
-                                    {!! Form::label('name', '7') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum8']) !!}
-                                    {!! Form::label('name', '8') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum9']) !!}
-                                    {!! Form::label('name', '9') !!}
-                                    {!! Form::radio('bedNum', '', ['class' => 'form-control','id'=>'bedNum10']) !!}
-                                    {!! Form::label('name', '10') !!}
-
-                                </div>
+                       
+                          <div class="offset-md-2 col-md-8 offset-md-2">
+                                    <div class="form-group">
+                                        <div>Bed Number</div>
+                                        <div class="custom-controls-stacked">
+                                            <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','1',true,array("class"=>"custom-control-input",'id'=>'bedNum','checked'=>''))  !!}
+                                                <span class="custom-control-label"><strong>1</strong></span>
+                                           </label>
+                                           <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','2',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>2</strong></span>
+                                           </label>
+                                           <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','3',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>3</strong></span>
+                                           </label>
+                                           <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','4',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>4</strong></span>
+                                           </label>
+                                            <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','5',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>5</strong></span>
+                                           </label>
+                                            <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','6',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>6</strong></span>
+                                           </label>
+                                            <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','7',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>7</strong></span>
+                                           </label>
+                                            <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','8',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>8</strong></span>
+                                           </label>
+                                             <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                               {!! Form::radio('bedNum','9',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+                                                <span class="custom-control-label"><strong>9</strong></span>
+                                           </label>
                             </div>
                         </div>
+                    </div>
 
                         <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Date of Discharge') !!}
-                                {!! Form::date('dod', '', ['class' =>
-                                'form-control','id'=>'dod','name'=>'dod','placeholder' => 'Enter Mobile Number']) !!}
+                                {!! Form::date('dod','', ['class' =>
+                                'form-control','id'=>'dod','name'=>'dod','placeholder' => 'Date of Discharge']) !!}
                             </div>
                         </div>
 
@@ -233,8 +244,7 @@
                                
                                 {!! Form::label('name', 'Provisional Diagnosis') !!}
                                 {!! Form::textarea('provisionalDiagnosis', '', ['class' =>
-                                'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder'
-                                => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder'=> 'provisionalDiagnosis','rows' => 3, 'cols' => 10,]) !!}
                                 </div>
                             
                         </div>
@@ -243,8 +253,7 @@
                             <div class="form-group">
                                 {!! Form::label('name', 'Chief Complaints') !!}
                                 {!! Form::textarea('chiefComplaints', '', ['class' =>
-                                'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' =>
-                                'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+                                'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' =>'Enter chiefComplaints','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
@@ -252,8 +261,7 @@
                             <div class="form-group">
                                 {!! Form::label('name', 'Past History') !!}
                                 {!! Form::textarea('pastHistory', '', ['class' =>
-                                'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter
-                                Address','rows' => 3, 'cols' => 10,]) !!}
+                                'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter past History','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
@@ -262,8 +270,7 @@
                             <div class="form-group">
                                 {!! Form::label('name', 'Maternal') !!}
                                 {!! Form::textarea('fh_maternal', '', ['class' =>
-                                'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter
-                                history','rows' => 3, 'cols' => 10,]) !!}
+                                'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
@@ -271,8 +278,7 @@
                             <div class="form-group">
                                 {!! Form::label('name', 'Paternal') !!}
                                 {!! Form::textarea('fh_paternal', '', ['class' =>
-                                'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter
-                                history','rows' => 3, 'cols' => 10,]) !!}
+                                'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter  history','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
@@ -280,8 +286,7 @@
                             <div class="form-group">
                                 {!! Form::label('name', 'Other') !!}
                                 {!! Form::textarea('fh_other', '', ['class' =>
-                                'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Enter
-                                Address','rows' => 3, 'cols' => 10,]) !!}
+                                'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Family History others','rows' => 3, 'cols' => 10,]) !!}
                             </div>
                         </div>
 
@@ -438,17 +443,22 @@
                             </div>
                         </div>
 
-                       <div class="offset-md-2 col-md-8 offset-md-2">
-                            <div class="row">
-                                    
-                                <div class="col-md-2">
-                                    <h5 >ECG</h5>
+
+
+                                <div class="offset-md-2 col-md-8 offset-md-2">
                                     <div class="form-group">
-                                        {!! Form::checkbox('ecgTest', '', ['class' => 'form-control ']) !!}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                         
+                                        <div class="custom-controls-stacked">
+                                            <h3 class="control-label col-lg-2">ECG</h3>
+                                            <label class="custom-control custom-checkbox col-lg-3 col-md-3 col-sm-4 col-xs-4">
+
+                                               {!! Form::checkbox('ecgTest','ecgTest',false,array("class"=>"custom-control-input",'id'=>'ecgTest'))  !!}
+                                                <span class="custom-control-label"><strong>ECG</strong></span>
+                                           </label>
+                                           </div>
+                                       </div>
+                                   </div>
+                    
                     <div class="offset-md-2 col-md-8 offset-md-2">
                             <div class="form-group">
                                 {!! Form::label('name', 'Respiratory System') !!}
@@ -599,33 +609,32 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h3 align="center">Yoga</h3>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                {!! Form::checkbox('yoga', '', ['class' =>
-                                                'form-control']) !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               <div class=" col-md-6 ">
+                                    <div class="form-group">
+                                         
+                                        <div class="custom-controls-stacked">
+                                            <h6 class="control-label col-lg-4">YOGA</h6>
+                                            <label class="custom-control custom-checkbox col-lg-3 col-md-3 col-sm-4 col-xs-4">
 
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h3 align="center">Physiotherapy</h3>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                {!! Form::checkbox('physiotherapy', '', ['class' => 'form-control'])
-                                                !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                               {!! Form::checkbox('yoga','yoga',false,array("class"=>"custom-control-input",'id'=>'yoga'))  !!}
+                                                <span class="custom-control-label"><strong>YOGA</strong></span>
+                                           </label>
+                                           </div>
+                                       </div>
+                                   </div>
+                                  <div class=" col-md-6 ">
+                                    <div class="form-group">
+                                         
+                                        <div class="custom-controls-stacked">
+                                            <h6 class="control-label col-lg-6">Physiotherapy</h6>
+                                            <label class="custom-control custom-checkbox col-lg-6 col-md-6 col-sm-4 col-xs-4">
+
+                                               {!! Form::checkbox('Physiotherapy','Physiotherapy',false,array("class"=>"custom-control-input",'id'=>'Physiotherapy'))  !!}
+                                                <span class="custom-control-label"><strong>Physiotherapy</strong></span>
+                                           </label>
+                                           </div>
+                                       </div>
+                                   </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -640,7 +649,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div style="float: right;">
-                                    {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+                                    
                                 </div>
                             </div>
                         </div>
@@ -648,8 +657,9 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div>
-                                    <a href="#"> <button class="btn btn-square btn-danger">Cancel</button>
-                                    </a>
+                                   
+                                    {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+                                       <a class=" btn btn-default btn-square btn-danger" href="{{ route('dashboard') }}">Cancel</a>
                                 </div>
                             </div>
                         </div>

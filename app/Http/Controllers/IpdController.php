@@ -58,6 +58,7 @@ class IpdController extends Controller
           'patientId'=>'required'
         
         ]);
+        // dd($request->all());
         $ipd=ipd::create($request->all());
         $ipd->save();
         return redirect (route('ipd-create'))->with('message','data save sussefully');
@@ -73,7 +74,9 @@ class IpdController extends Controller
     public function show(Request $request)
     {
         $id=$request->id;
+
         $opd=opd::all();
+         // $wardname=wardname::all()->pluck('name','id');
         $data=ipd::where('id','=',$id)->first();
         $content=\View::make('ipd.view',compact('data','opd'));
         $a=$content->render();
@@ -93,6 +96,23 @@ class IpdController extends Controller
         'status'=>true,
         'html'=>$a,
       ]);
+    }
+     public function addtreatment(Request $request)
+    {
+        $id=$request->id;
+        $doctorlist=doctorlist::all()->pluck('name','id');
+        $department=department::all()->pluck('name','id');
+        $medicine=medicine::all()->pluck('name','id');
+        $potency=potency::all()->pluck('name','id');
+        $investigation=investigation::all()->pluck('name','id');
+         $opd=opd::all();
+         $data=ipd::where('id','=',$id)->first();
+         $content=\View::make('ipd.ipdtreatment',compact('data','opd','doctorlist','medicine','investigation','potency','department'));
+         $b=$content->render();
+         return response()->json([
+           'status'=>true,
+           'html'=>$b,
+         ]);
     }
     
 
@@ -150,7 +170,7 @@ class IpdController extends Controller
             ->get();
          return DataTables::of($ipds)->editColumn('consultant',function($data){
             return $data->doctorName->name;})
-         ->editColumn('wardNsame',function($data){
+         ->editColumn('wardName',function($data){
             return $data->wardname->name;
          })
          ->addColumn('order',function($data){

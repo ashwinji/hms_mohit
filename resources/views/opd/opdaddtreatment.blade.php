@@ -44,13 +44,13 @@
               </tr>
               <tr>
                 <th>Consultant Name </th>
-                <td>{{ $data->consultant }}</td>
+                <td>{{ $data->doctorName->name }}</td>
                 <th>Other Consultant </th>
                 <td>{{ $data->otherConsultant }}</td>
               </tr>
               <tr>
                 <th>Department </th>
-                <td colspan="3">{{ $data->department }}</td>
+                <td colspan="3">{{ $data->departmentName->name }}</td>
               </tr>
             </thead>
 
@@ -96,7 +96,7 @@
             <div class="col-lg-6">
               <div class="form-group ">
                 {!! Form::label('name', 'Medicine ') !!}
-                {!! Form::select('medicine',$medicinelist,'' ,
+                {!! Form::select('medicine',$medicine,'' ,
                 ['class' => 'form-control',
                 'id'=>'medicine',
                 'placeholder' => '--Select Medicine--']) !!}
@@ -105,16 +105,14 @@
             <div class="col-lg-6">
               <div class="form-group">
                 {!! Form::label('name', 'Potency') !!}
-                {!! Form::select('potency1', array(''=>'--Select Potency--','6' => '6', '30' => '30', '200' =>
-                '200','1M' => '1M', '10M' => '10M', '50M' => '50M','1X' => '1X','3X' => '3X', '6X' => '6X', '12X' =>
-                '12X','Q' => 'Q'),'Input', ['class' => 'form-control','id'=>'potency']) !!}
+                {!! Form::select('potency1', $potency,'', ['class' => 'form-control','id'=>'potency','placeholder'=>'select potency']) !!}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12">
               <div class="form-group ">
-                {!! Form::label('name', 'Number of Days',['class'=>'control-label col-lg-3']) !!}
+                {!! Form::label('name', 'Number of Days')!!}
 
                 {!! Form::text('nod', '',['class'=>'form-control','id'=>'nod','placeholder'=>'Treatment Number of
                 Days']) !!}
@@ -124,25 +122,28 @@
           <div class="col-lg-12">
             {!! Form::label('name', 'Investigation 1') !!}
             <div class="form-group">
-              {!! Form::select('advice[]', array(''=>'--SELECT INVESTIGATION--','BLOOD GROUP & RH TYPE' => 'BLOOD GROUP
-              & RH TYPE', 'BLOOD SUGAR' => 'BLOOD SUGAR', 'BLOOD UREA' => 'BLOOD UREA','BLOOD WIDAL TEST' => 'BLOOD
-              WIDAL TEST','BT/CT' => 'BT/CT','CBC' => 'CBC','CBP' => 'CBP', 'CBP/ESR' => 'CBP/ESR', 'ECG' =>
-              'ECG','ESR' => 'ESR','HUMOGLOBIN (HB%)' => 'HUMOGLOBIN (HB%)','LFT' => 'LFT','PS FOR MP' => 'PS FOR MP',
-              'RA FACTORE' => 'RA FACTORE', 'REFFERED TO OTHER PATHOLOGY' => 'REFFERED TO OTHER PATHOLOGY','RFT' =>
-              'RFT','SEMEN ANALYSIS' => 'SEMEN ANALYSIS','SERUM BILIRUBIN' => 'SERUM BILIRUBIN','SERUM CALCIUM' =>
-              'SERUM CALCIUM', 'SERUM CREATININE' => 'SERUM CREATININE', 'SERUM URIC ACID' => 'SERUM URIC ACID','STOOL
-              R/M' => 'STOOL R/M','T3 T4 TSH' => 'T3 T4 TSH','TOTAL LIPIDS PROFILE' => 'TOTAL LIPIDS PROFILE', 'URINE
-              FOR BILE SALT / BILE PIGMENT' => 'URINE FOR BILE SALT / BILE PIGMENT','URINE FOR SUGAR/ALBUMIN/KETONE' =>
-              'URINE FOR SUGAR/ALBUMIN/KETONE','URINE R/M' => 'URINE R/M','X-RAY ' => 'X-RAY ',),'Input', ['class' =>
-              'form-control','id'=>'advice',]) !!}
+              {!! Form::select('investigation1',$investigation ,'', ['class' =>
+              'form-control','id'=>'investigation1','placeholder'=>'select investigation1']) !!}
             </div>
           </div>
-
-
+          <div class="col-lg-12">
+            {!! Form::label('name', 'Investigation 2') !!}
+            <div class="form-group">
+              {!! Form::select('investigation2',$investigation ,'', ['class' =>
+              'form-control','id'=>'investigation2','placeholder'=>'select investigation2']) !!}
+            </div>
+          </div>
+             <div class="col-lg-12">
+            {!! Form::label('name', 'Investigation 3') !!}
+            <div class="form-group">
+              {!! Form::select('investigation3',$investigation ,'', ['class' =>
+              'form-control','id'=>'investigation3','placeholder'=>'select investigation3']) !!}
+            </div>
+          </div>
           <div class="form-group">
             <div class="col-lg-12">
               {!! Form::label('remark', 'Remark') !!}
-              {!! Form::textarea('remark', null, ['class' => 'form-control ','placeholder' => 'Enter remark','rows' =>
+              {!! Form::textarea('remark', '', ['class' => 'form-control ','placeholder' => 'Enter remark','rows' =>
               3, 'cols' => 10,'id'=>'remark']) !!}
             </div>
           </div>
@@ -150,18 +151,19 @@
             <div class="row">
              
                       <div class="form-group ">
-                        <label for="refTo" class="control-label col-lg-3">Referred To</label>
-                        <div class="col-lg-3">
+                       
+                        {!! Form::label('refTo', 'Referred To') !!}
+                        <div class="col-lg-4">
                           <input id="ot" type="checkbox" name="refTo[]" value="OT">
                           <label for="ot"><strong>OT</strong></label>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                           <input id="ipd" type="checkbox" name="refTo[]" value="IPD">
                           <label for="ipd"><strong>IPD</strong></label>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                           <input id="PATHOLOGY" type="checkbox" name="refTo[]" value="PATHOLOGY">
                           <label for="PATHOLOGY"><strong>PATHOLOGY</strong></label>
                         </div>
@@ -169,18 +171,18 @@
                       </div>
 
                       <div class="form-group ">
-                        <label for="refTo" class="control-label col-lg-3">&nbsp;</label>
-                        <div class="col-lg-3">
+                        <label for="refTo" class="control-label ">&nbsp;</label>
+                        <div class="col-lg-4">
                           <input id="XRay" type="checkbox" name="refTo[]" value="X-RAY">
                           <label for="XRay"><strong>X-RAY</strong></label>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                           <input id="PHYSIOTHERPHY" type="checkbox" name="refTo[]" value="PHYSIOTHERPHY">
                           <label for="PHYSIOTHERPHY"><strong>PHYSIOTHERPHY</strong></label>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                           <input id="YOGA" type="checkbox" name="refTo[]" value="YOGA">
                           <label for="YOGA"><strong>YOGA</strong></label>
                         </div>
@@ -206,7 +208,7 @@
                     </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {!! Form::label('consultant', 'IPD Consultant Name',['class' => 'control-label col-lg-3',]) !!}
+              {!! Form::label('consultant','Consultant Name') !!}
               {!!
               Form::select('consultant', $docterlist,'',
               [

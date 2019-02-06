@@ -55,7 +55,7 @@
                   </tr>
                   <tr>
                     <th>Ward Name </th>
-                    <td>{{ $data->wardName}}</td>
+                    <td>{{ $data->wardname->name}}</td>
                     <th>Bed Number </th>
                     <td>{{ $data->bedNum }}</td>
                   </tr>
@@ -160,47 +160,47 @@
                     </tr>
                      <tr>
                       <th>ECG</th>
-                      <td colspan="3"></td>
+                      <td colspan="3">{{$data->ecgTest}}</td>
                     </tr>
 
                     <tr>
                       <th>Respiratory System</th>
-                      <td colspan="3">B / L  lungs clear </td>
+                      <td colspan="3">{{$data->respiratorySystem}} </td>
                     </tr>
 
                     <tr>
                       <th>Gastro - Intestinal System</th>
-                      <td colspan="3">P / A  Soft</td>
+                      <td colspan="3">{{$data->gastroIntestinalSystem}}</td>
                     </tr>
 
                     <tr>
                       <th>Cardio - Vascular System</th>
-                      <td colspan="3"></td>
+                      <td colspan="3">{{$data->cardioVascularSystem}}</td>
                     </tr>
 
                     <tr>
                       <th>Central Nervous System</th>
-                      <td colspan="3">conscious </td>
+                      <td colspan="3">{{$data->centralNervousSystem}} </td>
                     </tr>
 
                     <tr>
                       <th>Local Examination</th>
-                      <td colspan="3"></td>
+                      <td colspan="3">{{$data->localExamination}}</td>
                     </tr>
 
                     <tr>
                       <th>Investigation <span class="badge pull-right">1</span></th>
-                      <td colspan="3">CBP&amp;ESR</td>
+                      <td colspan="3">{{$data->investigation1}}</td>
                     </tr>
 
                     <tr>
                       <th>Investigation <span class="badge pull-right">2</span></th>
-                      <td colspan="3">PS FOR MP</td>
+                      <td colspan="3">{{$data->investigation2}}</td>
                     </tr>
 
                     <tr>
                       <th>Investigation <span class="badge pull-right">3</span></th>
-                      <td colspan="3">BLOOD WIDAL TEST</td>
+                      <td colspan="3">{{$data->investigation3}}</td>
                     </tr>
 
                     <tr>

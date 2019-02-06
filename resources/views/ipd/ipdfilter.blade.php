@@ -48,9 +48,11 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer align-center">
+                    
+                    <button type="button" id="at"class="btn btn-square btn-info pull-left" data-dismiss="modal">Submit</button>
                     <button type="button" class="btn btn-square btn-danger" data-dismiss="modal">Close</button>
-                
+              
                 </div>
             </div>
         </div>
@@ -194,5 +196,89 @@
   });
         </script>
 
+                <script type="text/javascript">
+    $(document).on('click',".addRecord",function(e){alert();
+       var id=$(this).data('id');
+       var token = $("meta[name='csrf-token']").attr("content");
+       
+       $.ajax(
+    {
+        url: '{{route("ipd-add")}}',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: id,
+            _token: token,
+        },
+        success:function (res){
+        
+           if(res.status==true){
+             $('#add').html(res.html);
+            $("#largemodal").modal('show');
+           }
+        },
+        error: function (data) {
+                     
+               }
+    });
+    
+  });
+     </script>
+  <script type="text/javascript">
+    $(document).on('click',"#at",function(e){debugger
+     var token = $("meta[name='csrf-token']").attr("content");
+     alert();
+     var patientId=$('#patientId').val();
+     var ipdId=$('#ipdId').val();
+     var complaint=$('#id-complaint').val();
+     var regDate=$('#regDate').val();
+     var treatment=$('#treatment').val();
+     var medicine=$('#medicine').val();
+     var potency=$('#potency').val();
+     var nod=$('#nod').val();
+     var advice=$('#advice').val();
+     var remark=$('#remark').val();
+     var myCheckboxes = new Array();
+     $("input:checked").each(function() {
+           myCheckboxes.push($(this).val());
+        });
+     var consultant=$('#consultant').val();
+alert(myCheckboxes);
+
+$.ajax(
+  {
+     url: '{{route("ipdt.store")}}',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            patientId:patientId,
+            ipdId:ipdId
+            complaint:complaint,
+            regDate:regDate,
+            treatment:treatment ,
+            medicine:medicine,
+            potency:potency,
+            nod:nod,
+            advice:advice,
+            remark:remark,
+            myCheckboxes:myCheckboxes ,
+            consultant:consultant,
+            _token: token,
+        },
+        success:function (res){
+        
+           if(res.status==true){
+            $('#addt').html(res.html);
+            $("#largemodal").modal('show');
+           }
+        },
+        error: function (data) {
+                     
+               }
+    });
+
+    });
+   
+    </script>
 
 @endsection
