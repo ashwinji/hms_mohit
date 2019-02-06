@@ -236,7 +236,6 @@
      var medicine=$('#medicine').val();
      var potency=$('#potency').val();
      var nod=$('#nod').val();
-     var advice=$('#advice').val();
      var remark=$('#remark').val();
      var myCheckboxes = new Array();
      $("input:checked").each(function() {
@@ -252,14 +251,13 @@ $.ajax(
         dataType: 'json',
         data: {
             patientId:patientId,
-            ipdId:ipdId
+            ipdId:ipdId,
             complaint:complaint,
             regDate:regDate,
             treatment:treatment ,
             medicine:medicine,
             potency:potency,
             nod:nod,
-            advice:advice,
             remark:remark,
             myCheckboxes:myCheckboxes ,
             consultant:consultant,

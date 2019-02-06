@@ -26,7 +26,7 @@ class CreateIpdtreatmentsTable extends Migration
             $table->text('advice')->nullable();
             $table->text('remark')->nullable();
             $table->string('consultant')->nullable();
-            $table->string('created_at');
+            $table->timestamps();
         });
     }
 

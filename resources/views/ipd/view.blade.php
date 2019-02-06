@@ -15,17 +15,16 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            
 
- 
-<table class="table table-bordered table-striped table-hovered">
+
+<table class="table table-bordered table-striped table-responsive table-hovered col-md-12">
                 <thead>
                   <tr>
-                    <th><b>Registration Number</b> </th>
-                    <td>{{ $data->patientId }}</td>
-                    <th>Registration Date </th>
-                    <td>{{$data->opd->regDate }}</td>
+                    <th class="col-md-3"><b>Registration Number</b> </th>
+                    <td class="col-md-3">{{ $data->patientId }}</td>
+                    <th class="col-md-3">Registration Date </th>
+                    <td class="col-md-3">{{$data->opd->regDate }}</td>
                   </tr>
                     <tr>
                     <th><b>ipd Number</b> </th>
@@ -35,7 +34,7 @@
                   </tr>
                   <tr>
                     <th>Name </th>
-                    <td colspan="3">{{ $data->opd->patientName }}</td>
+                    <td> {{ $data->opd->patientName }}</td>
                   </tr>
                   <tr>
                     <th>Gender </th>
@@ -45,7 +44,7 @@
                   </tr>
                   <tr>
                     <th>Address </th>
-                    <td colspan="3">{{ $data->opd->address }}</td>
+                    <td> {{ $data->opd->address }}</td>
                   </tr>
                   <tr>
                     <th>Consultant Name </th>
@@ -61,7 +60,7 @@
                   </tr>
                   <tr>
                     <th>Date of Discharge </th>
-                    <td colspan="3">{{ $data->dod}}</td>
+                    <td>colspan{{ $data->dod}}</td>
                   </tr>
                   <tr>
                     <th>Department </th>

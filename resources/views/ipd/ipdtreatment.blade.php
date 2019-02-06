@@ -77,6 +77,7 @@
                 => 3, 'cols' => 10,'id'=>'id-complaint']) !!}
               </div>
             </div>
+            <input type="hidden" name="ipdId" id ="ipdId" value="{{$data->id}}">
 
           </div>
           <div class="row">

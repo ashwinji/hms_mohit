@@ -1,21 +1,11 @@
 <?php
 
-namespace App\model;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
 class ipdtreatments extends Model
 {
-    'patientId',
-     'ipdId', 
-     'refTo', 
-     'complaint',
-     'treatment',
-      'medicine',
-      'potency',
-       'nod',
-      'advice',
-       'remark',
-      'consultant',
+    
 
 }

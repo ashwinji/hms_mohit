@@ -19,7 +19,7 @@
           </div>
 
  
-<table class="table table-bordered table-striped table-hovered">
+<table class="table table-bordered table-striped table-hovered table-responsive col-md-12">
                 <thead>
                   <tr>
                     <th><b>Registration Number</b> </th>
