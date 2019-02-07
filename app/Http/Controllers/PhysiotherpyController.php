@@ -5,6 +5,8 @@ use App\Model\opd;
 use App\Model\ipd;
 use App\Model\ot;
 use App\Model\physiotherpy;
+use App\Model\doctorlist;
+use App\Model\disease;
 use DataTables;
 use DB;
 use Illuminate\Http\Request;
@@ -28,7 +30,8 @@ class PhysiotherpyController extends Controller
      */
     public function create()
     {
-        return view('physiotherpy.create');
+         $disease=disease::all()->pluck('name','id');
+        return view('physiotherpy.create',compact('disease'));
     }
 
     /**
@@ -76,8 +79,9 @@ class PhysiotherpyController extends Controller
      */
     public function edit($id)
     {
+        $disease=disease::all()->pluck('name','id');
         $physiotherpy=physiotherpy::where('id',$id)->first();
-        return view('physiotherpy.edit',compact('physiotherpy'));
+        return view('physiotherpy.edit',compact('physiotherpy','disease'));
     }
 
     /**
@@ -137,8 +141,7 @@ class PhysiotherpyController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum', 'LIKE', '%'.$query.'%')
+          $data = opd::where('regNum', 'LIKE', '%'.$query.'%')
             ->get();
           $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
           foreach($data as $row)
@@ -157,11 +160,14 @@ class PhysiotherpyController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum',$query)
+          $data = opd::where('regNum',$query)
             ->first();
+            return response()->json([
 
-            return response()->json($data);
+                'data1'=>$data,
+                'doctor'=>$data->doctorName->name,
+                'status'=>true,
+            ]);
          
      }
     }

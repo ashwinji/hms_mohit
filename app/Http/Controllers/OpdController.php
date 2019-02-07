@@ -184,10 +184,16 @@ class OpdController extends Controller
         ->editColumn('consultant',function($data){
             return $data->doctorName->name;
         })
+       // when you want search relatioship data then apply it where you edit column you can filterColumn
+       ->filterColumn('consultant', function($q, $keyword) {
+                    $q->whereHas('doctorName',function($q) use ($keyword) {
+                        $q->where('name','LIKE',["%{$keyword}%"]);
+                    });
+                })
         ->addColumn('action', function($data){
 
        return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
-                       <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                      <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
              <a href="%s">%s</a>',
             route('opd.delete',$data['id']),$data['id'],"deleteopdRecord",'<i class=" fa fa-trash"></i>',
@@ -231,7 +237,7 @@ class OpdController extends Controller
         
             ->make(true);
         }
-
+                 //datewise filtering 
             $data = opd::whereBetween('regDate', [$input['fromDate'],[$input['toDate'] ]])->where('gender',$input['gender'])
         ->select('id','patientName','regNum','regDate','address','gender','consultant')->get();
 

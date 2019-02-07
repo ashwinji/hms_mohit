@@ -9,6 +9,10 @@ use App\Model\ipd;
 use App\Model\ecgexamination;
 use App\Model\doctorlist;
 use App\Model\department;
+use App\Model\potency;
+use App\Model\wardname;
+use App\Model\medicine;
+use App\Model\dietplan;
 
 class ipd extends Model
 {
@@ -96,15 +100,15 @@ class ipd extends Model
     {
         return $this->hasOne(medicine::class,'id','medicine3');
     }
-     public function investigation1()
+     public function investigationName1()
     {
         return $this->hasOne(investigation::class,'id','investigation1');
     }
-    public function investigation2()
+    public function investigationName2()
     {
         return $this->hasOne(investigation::class,'id','investigation2');
     }
-    public function investigation3()
+    public function investigationName3()
     {
         return $this->hasOne(investigation::class,'id','investigation3');
     }
@@ -112,6 +116,25 @@ class ipd extends Model
     {
         return $this->hasOne(wardname::class,'id','wardName');
     }
-
+    public function potencyName1()
+    {
+       return $this->hasOne(potency::class,'id','potency1');
+    }
+    public function potencyName2()
+    {
+         return $this->hasOne(potency::class,'id','potency2');
+    }
+     public function potencyName3()
+    {
+         return $this->hasOne(potency::class,'id','potency3');
+    }
+    public function dietPlanName1()
+    {
+        return $this->hasOne(dietplan::class,'id','dietPlan1');
+    }
+    public function dietPlanName2()
+    {
+        return $this->hasOne(dietplan::class,'id','dietPlan2');
+    }
 
 }

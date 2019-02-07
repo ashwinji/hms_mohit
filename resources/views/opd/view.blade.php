@@ -19,7 +19,7 @@
           </div>
 
  
-<table class="table table-bordered table-striped table-hovered table-responsive col-md-12">
+<table class="table table-bordered table-striped table-hovered  col-md-12">
                 <thead>
                   <tr>
                     <th><b>Registration Number</b> </th>
@@ -43,13 +43,13 @@
                   </tr>
                   <tr>
                     <th>Consultant Name </th>
-                    <td>{{ $data->consultant }}</td>
+                    <td>{{ $data->doctorName->name }}</td>
                     <th>Other Consultant </th>
                     <td>{{ $data->otherConsultant }}</td>
                   </tr>
                   <tr>
                     <th>Department </th>
-                    <td colspan="3">Medicine</td>
+                    <td colspan="3">{{ $data->departmentName->name }}</td>
                   </tr>
                 </thead>
               </table>

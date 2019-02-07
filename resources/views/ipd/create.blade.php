@@ -18,6 +18,8 @@
                     @include('verror.error')
                     {!! Form::open(array('route'=>'ipd.store','files'=>'true','id'=>'opd-form','autocomplete'=>'off'))
                     !!}
+                      <div class="col-md-12 border">
+                       <div class="row">
                     {{ Form::hidden('status', '1') }}
                     <div class="row">
                         <div class="offset-md-2 col-md-4">

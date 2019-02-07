@@ -9,7 +9,7 @@
                                         <div class="card-body">
                                                 <div class="btn-list" style="float: right;">
 
-                                                        <a href="{{route('physiotherpy-filter')}}" class="btn btn-xs btn-success ">Show
+                                                        <a href="{{route('physiotherpy-filter')}}" class="btn btn-square btn-xs btn-success ">Show
                                                                 Physiotherpy Examination Patient List</a>
 
                                                 </div>
@@ -51,7 +51,7 @@
                                                                         {!! Form::date('opdDate',
                                                                         $physiotherpy->opd->regDate, ['class' =>
                                                                         'form-control','id'=>'opdDate','placeholder'=>'OPD
-                                                                        date']) !!}
+                                                                        date','readonly'=>'true']) !!}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -67,7 +67,7 @@
                                                                         {!!
                                                                         Form::text('patientName',$physiotherpy->opd->patientName,
                                                                         ['class' =>
-                                                                        'form-control','name'=>'patientName','id'=>'patientName'])
+                                                                        'form-control','name'=>'patientName','id'=>'patientName','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -83,7 +83,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::text('ipdRegNum', '', ['class' =>
                                                                         'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD
-                                                                        Registration number']) !!}
+                                                                        Registration number','readonly'=>'true']) !!}
                                                                 </div>
                                                         </div>
                                                         <div class="col-md-offset-3 col-sm-2">
@@ -95,7 +95,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::date('ipdDate', '', ['class' =>
                                                                         'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD
-                                                                        date']) !!}
+                                                                        date','readonly'=>'true']) !!}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::text('age',$physiotherpy->opd->age,
                                                                         ['class' =>
-                                                                        'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE'])
+                                                                        'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -122,7 +122,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::text('gender',
                                                                         $physiotherpy->opd->gender, ['class' =>
-                                                                        'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER'])
+                                                                        'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -137,7 +137,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::text('address',
                                                                         $physiotherpy->opd->address, ['class' =>
-                                                                        'form-control','id'=>'address','placeholder'=>'address'])
+                                                                        'form-control','id'=>'address','placeholder'=>'address','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -145,7 +145,7 @@
                                                 <div class="row">
                                                         <div class="col-md-offset-3 col-sm-2">
                                                                 <div class="form-group">
-                                                                        {!! Form::label('address', 'Reffered By:*') !!}
+                                                                        {!! Form::label('reffered', 'Reffered By:*') !!}
                                                                 </div>
                                                         </div>
                                                         <div class="col-sm-8">
@@ -153,7 +153,7 @@
                                                                         {!!
                                                                         Form::text('refferedby',$physiotherpy->referredBy,
                                                                         ['class' =>
-                                                                        'form-control','id'=>'refferedby','placeholder'=>'RefferedBY'])
+                                                                        'form-control','id'=>'refferedby','placeholder'=>'RefferedBY','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -184,20 +184,10 @@
                                                         <div class="col-sm-8">
                                                                 <div class="form-group">
 
-                                                                        {!! Form::select('diagnosis',
-                                                                        array(
-                                                                        '' => '----Select diagnosis----',
-                                                                        'Arthrits' => 'Arthrits',
-                                                                        'Backache&amp Stiffness' => 'Backache&amp
-                                                                        Stiffness',
-                                                                        'Bodyache' => 'Bodyache',
-                                                                        'Knee Joint Pain' => 'Knee Joint Pain',
-                                                                        'Cervical Pain' => 'Cervical Pain',
-                                                                        'Others' => 'Others'
-                                                                        ),
+                                                                        {!! Form::select('disease',$disease,
                                                                         $physiotherpy->disease,
                                                                         ['class' =>
-                                                                        'form-control','id'=>'consultant','name'=>'diagnosis'])
+                                                                        'form-control','id'=>'disease','name'=>'disease','placeholder'=>'select disease Diagnosis'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -257,10 +247,11 @@
 
 
 
-                                                <center> <button class="btn btn-success" type="submit">Submit</button>
+                                                <center> 
+                                                        <button class="btn btn-square btn-success" type="submit">Submit</button>
 
 
-                                                        <button class="btn btn-danger" type="reset">Cancel</button>
+                                                      <a href="{{route('dashboard')}}" class="btn btn-square btn-danger" type="reset">Cancel</a>
 
                                                 </center>
 

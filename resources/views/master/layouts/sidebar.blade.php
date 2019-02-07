@@ -185,6 +185,9 @@
               </li>
                <li>
                 <a href="" class="slide-item">physiotherapylist</a>
+              </li> 
+               <li>
+                <a href="{{route('disease.create') }}" class="slide-item">diseaselist</a>
               </li>
                <li>
                 <a href="{{route('investigation.create') }}" class="slide-item">investigation</a>

@@ -76,7 +76,6 @@ class IpdController extends Controller
         $id=$request->id;
 
         $opd=opd::all();
-         // $wardname=wardname::all()->pluck('name','id');
         $data=ipd::where('id','=',$id)->first();
         $content=\View::make('ipd.view',compact('data','opd'));
         $a=$content->render();

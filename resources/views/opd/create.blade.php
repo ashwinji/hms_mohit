@@ -18,7 +18,7 @@
 														@include('verror.error')
 														{!! Form::open(array('route' =>
 														'opd.store','files'=>'true','id'=>'profile-form')) !!}
-												    <div class="col-md-12">
+												    <div class="col-md-12 ">
 																				<div class="row">
 																												<div class="col-md-offset-3 col-sm-2">
 																																				<div class="form-group">

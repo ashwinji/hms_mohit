@@ -97,7 +97,7 @@
                     </tr>
                     <tr>
                       <th colspan="4">
-                        <table >
+                        <table  >
                             <tbody><tr>
                               <th>GC:</th>
                               <td>{{ $data->ge_gc}} </td>
@@ -189,64 +189,64 @@
 
                     <tr>
                       <th>Investigation <span class="badge pull-right">1</span></th>
-                      <td colspan="3">{{$data->investigation1}}</td>
+                      <td colspan="3">{{$data->investigationName1->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Investigation <span class="badge pull-right">2</span></th>
-                      <td colspan="3">{{$data->investigation2}}</td>
+                      <td colspan="3">{{$data->investigationName2->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Investigation <span class="badge pull-right">3</span></th>
-                      <td colspan="3">{{$data->investigation3}}</td>
+                      <td colspan="3">{{$data->investigationName3->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">1</span></th>
-                      <td> </td>
+                      <td> {{$data->medicineName1->name}}</td>
                       <th>Potency <span class="badge badge-danger pull-right">1</span></th>
-                      <td>30</td>
+                      <td>{{$data->potencyName1->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">2</span></th>
-                      <td></td>
+                      <td>{{$data->medicineName2->name}}</td>
                       <th>Potency <span class="badge badge-danger pull-right">2</span></th>
-                      <td></td>
+                      <td>{{$data->potencyName2->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">3</span></th>
-                      <td></td>
+                      <td>{{$data->medicineName3->name}}</td>
                       <th>Potency <span class="badge badge-danger pull-right">3</span></th>
-                      <td></td>
+                      <td>{{$data->potencyName3->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Diet Plan <span class="badge badge-success pull-right">1</span></th>
-                      <td>Low Protein Diet</td>
+                      <td>{{$data->dietPlanName1->name}}</td>
                       <th>Diet Plan <span class="badge badge-success pull-right">2</span></th>
-                      <td></td>
+                      <td>{{$data->dietPlanName2->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Diet Plan Text <span class="badge badge-info pull-right">1</span></th>
-                      <td></td>
+                      <td>{{$data->diet1Text}}</td>
                       <th>Diet Plan Text <span class="badge badge-info pull-right">2</span></th>
-                      <td></td>
+                      <td>{{$data->diet2Text}}</td>
                     </tr>
 
                     <tr>
                       <th>Yoga</th>
-                      <td></td>
+                      <td>{{$data->yoga}}</td>
                       <th>Physiotherapy</th>
-                      <td></td>
+                      <td>{{$data->physiotherapy}}</td>
                     </tr>
                     
                     <tr>
                       <th>Remark</th>
-                      <td colspan="3">Avoid spicy food </td>
+                      <td colspan="3">{{$data->remark}} </td>
                     </tr>
 
                 </thead>

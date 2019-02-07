@@ -294,3 +294,21 @@ Route::group(['prefix'=>'wardname'], function(){
 
 
 });
+//disease
+
+Route::group(['prefix'=>'disease'], function(){
+
+		Route::get('/','DiseaseController@index')->name('disease');
+
+		Route::get('/adddisease','DiseaseController@create')->name('disease.create');
+
+		Route::post('/storedisease','DiseaseController@store')->name('disease.store');
+
+		Route::get('delete/{id}','DiseaseController@destroy')->name('disease.destroy');
+
+		Route::get('/edit/{id}','DiseaseController@edit')->name('disease.edit');
+        Route::post('/update/{id}','DiseaseController@update')->name('disease.update');
+
+
+
+});

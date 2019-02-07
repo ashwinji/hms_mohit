@@ -6,7 +6,6 @@ use App\Model\ipd;
 use App\Model\medicine;
 use App\Model\doctorlist;
 use App\Model\department;
-
 use Illuminate\Http\Request;
 use DB;
 use DataTables;
@@ -46,7 +45,7 @@ class OtController extends Controller
         // dd($request->all());
         $this->validate($request,[
                 'opdNum'=>'required',
-                'ipdRegNum'=>'required'
+             
         ]);
         $ot=new ot;
         $ot->patientId=$request->opdNum;

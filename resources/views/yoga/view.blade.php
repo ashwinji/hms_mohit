@@ -14,7 +14,7 @@
             <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
             <span class="pull-right" style="padding-right: 5px">
               <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
-            </span> <i class=" pull-right fa fa-print btn btn-warning" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
+            </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
           </div>
 
           <table class="table table-bordered table-striped table-hovered">
@@ -43,24 +43,24 @@
                 <td colspan="3">{{ $data->opd->address }}</td>
               </tr>
               <th>Referred By </th>
-              <td>DR. MAHENDRA SHARMA</td>
+              <td>{{$data->doctorName->name}}</td>
               <th>Test Date </th>
-              <td>05-01-2019</td>
+              <td>{{$data->yogadate}}</td>
               </tr>
               <tr>
-                <tr>
-                      <th>Disease diagnosis</th>
-                      <td></td>
-                      <th>Exercise</th>
-                      <td></td>
-                    </tr>
+              <tr>
+                <th>Disease diagnosis</th>
+                <td>{{$data->diseaseName->name}}</td>
+                <th>Exercise</th>
+                <td>{{$data->exersise}}</td>
+              </tr>
                     <tr>
                       <th>Other</th>
-                      <td colspan="3">Migraine -Shavasana</td>
+                      <td colspan="3">{{$data->other}}</td>
                     </tr>
                     <tr>
                       <th>Remark </th>
-                      <td colspan="3"></td>
+                      <td> {{$data->remark}}></td>
                     </tr>
               <thead>
           </table>

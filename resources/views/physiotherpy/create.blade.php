@@ -48,7 +48,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::date('opdDate', '', ['class' =>
                                                                         'form-control','id'=>'opdDate','placeholder'=>'OPD
-                                                                        date']) !!}
+                                                                        date','readonly'=>'true']) !!}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -62,7 +62,7 @@
                                                         <div class="col-sm-8">
                                                                 <div class="form-group">
                                                                         {!! Form::text('patientName', '', ['class' =>
-                                                                        'form-control','name'=>'patientName','id'=>'patientName'])
+                                                                        'form-control','name'=>'patientName','id'=>'patientName','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -77,8 +77,7 @@
                                                         <div class="col-sm-3">
                                                                 <div class="form-group">
                                                                         {!! Form::text('ipdRegNum', '', ['class' =>
-                                                                        'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD
-                                                                        Registration number']) !!}
+                                                                        'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPDRegistration number','readonly'=>'true']) !!}
                                                                 </div>
                                                         </div>
                                                         <div class="col-md-offset-3 col-sm-2">
@@ -90,7 +89,7 @@
                                                                 <div class="form-group">
                                                                         {!! Form::date('ipdDate', '', ['class' =>
                                                                         'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD
-                                                                        date']) !!}
+                                                                        date','readonly'=>'true']) !!}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -103,7 +102,7 @@
                                                         <div class="col-sm-3">
                                                                 <div class="form-group">
                                                                         {!! Form::text('age', '', ['class' =>
-                                                                        'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE'])
+                                                                        'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -115,7 +114,7 @@
                                                         <div class="col-sm-3">
                                                                 <div class="form-group">
                                                                         {!! Form::text('gender', '', ['class' =>
-                                                                        'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER'])
+                                                                        'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -129,7 +128,7 @@
                                                         <div class="col-sm-8">
                                                                 <div class="form-group">
                                                                         {!! Form::text('address', '', ['class' =>
-                                                                        'form-control','id'=>'address','placeholder'=>'address'])
+                                                                        'form-control','id'=>'address','placeholder'=>'address','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -137,13 +136,13 @@
                                                 <div class="row">
                                                         <div class="col-md-offset-3 col-sm-2">
                                                                 <div class="form-group">
-                                                                        {!! Form::label('address', 'Reffered By:*') !!}
+                                                                        {!! Form::label('refferdBy', 'Reffered By:*') !!}
                                                                 </div>
                                                         </div>
                                                         <div class="col-sm-8">
                                                                 <div class="form-group">
                                                                         {!! Form::text('referredBy','', ['class' =>
-                                                                        'form-control','id'=>'referredBy','placeholder'=>'referredBy'])
+                                                                        'form-control','id'=>'referredBy','placeholder'=>'referredBy','readonly'=>'true'])
                                                                         !!}
                                                                 </div>
                                                         </div>
@@ -169,26 +168,17 @@
                                                                         diagnosis:*') !!}
                                                                 </div>
                                                         </div>
-                                                        <div class="col-sm-8">
-                                                                <div class="form-group">
+                                                <div class="col-sm-8">
+                                                        <div class="form-group">
 
-                                                                        {!! Form::select('disease',
-                                                                        array(
-                                                                        '' => '----Select diagnosis----',
-                                                                        'Arthrits' => 'Arthrits',
-                                                                        'Backache&amp Stiffness' => 'Backache&amp
-                                                                        Stiffness',
-                                                                        'Bodyache' => 'Bodyache',
-                                                                        'Knee Joint Pain' => 'Knee Joint Pain',
-                                                                        'Cervical Pain' => 'Cervical Pain',
-                                                                        'Others' => 'Others'
-                                                                        ),
-                                                                        'S',
-                                                                        ['class' =>
-                                                                        'form-control','id'=>'disease','name'=>'disease'])
-                                                                        !!}
-                                                                </div>
+                                                                {!! Form::select('disease',$disease,
+                                                               
+                                                                '',
+                                                                ['class' =>
+                                                                'form-control','id'=>'disease','name'=>'disease'])
+                                                                !!}
                                                         </div>
+                                                </div>
                                                 </div>
 
                                                 <div class="row">
@@ -200,9 +190,8 @@
                                                         </div>
                                                         <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                        {!! Form::text('therapy', '', ['class' =>
-                                                                        'form-control','id'=>'therapy','placeholder'=>'AdvicedTherapy','name'=>'therapy'])
-                                                                        !!}
+                                 {!! Form::text('therapy', '', ['class' =>'form-control','id'=>'therapy','placeholder'=>'AdvicedTherapy','name'=>'therapy'])
+                                 !!}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -293,13 +282,13 @@
                         data: { query: opd, _token: _token },
                         success: function (data) {
                                 console.log(data);
-                                $('#opdDate').val(data.regDate);
-                                $('#patientName').val(data.patientName);
-                                $('#age').val(data.age);
-                                $('#gender').val(data.gender);
-                                $('#address').val(data.address);
-                                $('#referredBy').val(data.referredBy);
-                                $('#phyadate').val(data.phyadate);
+                                $('#opdDate').val(data.data1.regDate);
+                                $('#patientName').val(data.data1.patientName);
+                                $('#age').val(data.data1.age);
+                                $('#gender').val(data.data1.gender);
+                                $('#address').val(data.data1.address);
+                                $('#referredBy').val(data.doctor);
+                                $('#phyadate').val(data.data1.phyadate);
                                 // $('#otDate').val(data.otDate);
 
 

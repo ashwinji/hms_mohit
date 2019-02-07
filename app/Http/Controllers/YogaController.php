@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\ot;
 use App\Model\opd;
 use App\Model\ipd;
+use App\Model\disease;
 use DB;
 use DataTables;
 
@@ -29,7 +30,8 @@ class YogaController extends Controller
      */
     public function create()
     {
-        return view('yoga.create');
+        $disease=disease::all()->pluck('name','id');
+        return view('yoga.create',compact('disease'));
     }
 
     /**
@@ -84,8 +86,9 @@ class YogaController extends Controller
      */
     public function edit($id)
     {
+         $disease=disease::all()->pluck('name','id');
         $yoga=yoga::where('id',$id)->first();
-        return view('yoga.edit',compact('yoga'));
+        return view('yoga.edit',compact('yoga','disease'));
     }
 
     /**
@@ -138,7 +141,10 @@ class YogaController extends Controller
         $yogas = yoga::select('yogas.id','yogas.referredBy','yogas.yogadate','opds.regNum','opds.patientName','opds.regDate')
             ->join('opds', 'yogas.patientId', '=','opds.regNum')
             ->get();
-        return DataTables::of($yogas)->addColumn('action', function($data){
+        return DataTables::of($yogas)
+        ->editColumn('referredBy',function($data){
+            return $data->doctorName->name;})
+        ->addColumn('action', function($data){
       
          return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
              <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
@@ -156,8 +162,7 @@ class YogaController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum', 'LIKE', '%'.$query.'%')
+          $data = opd::where('regNum', 'LIKE', '%'.$query.'%')
             ->get();
           $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
           foreach($data as $row)
@@ -176,11 +181,15 @@ class YogaController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum',$query)
+          $data = opd::where('regNum',$query)
             ->first();
 
-            return response()->json($data);
+            return response()->json([
+
+                'data1'=>$data,
+                'doctor'=>$data->doctorName->name,
+                'status'=>true,
+            ]);
          
      }
     }

@@ -6,11 +6,11 @@
                 	<div class="card">
                               
                          <div class="card-header">
-                                        <h3 class="mb-0 card-title">List of DietPlan Name</h3>
+                                        <h3 class="mb-0 card-title">List of Disease Name</h3>
                                         <div class="card-body">
                                                  <div class="btn-list" style="float: right;">
 
-                                                        <a href="{{route('dietPlan.create')}}" class="btn btn-xs btn-square btn-success ">Register New DietPlan Name</a>
+                                                        <a href="{{route('disease.create')}}" class="btn btn-xs btn-square btn-success ">Register New Disease Name</a>
 
                                                 </div>
 
@@ -21,7 +21,7 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header ">
-										<h3 class="card-title ">Latest Records Of DietPlan</h3>
+										<h3 class="card-title ">Latest Records Of Disease</h3>
 
 									</div>
 
@@ -31,24 +31,24 @@
 											<thead>
 											  <tr>
 												<th scope="col">ID</th>
-												<th scope="col">DietPlan Name</th>
+												<th scope="col">Disease Name</th>
 												<th scope="col">Update</th>
 												<th scope="col">Delete</th>
 											  </tr>
 											</thead>
 											<tbody>
 
-											 @if(isset($dietPlanlist))
-											 @foreach($dietPlanlist as $dietPlan)
+											 @if(isset($diseaselist))
+											 @foreach($diseaselist as $disease)
 											 <?php  static $i=1;?>
 											  <tr>
 												<td>{{$i++}}</td>
-												<td>{{$dietPlan->name}}</td>
+												<td>{{$disease->name}}</td>
 
-												<td><a href="{{route('dietPlan.edit',['id'=>$dietPlan->id])}}" class="btn btn-success fa fa-pencil" onclick="return confirm('Are you sure?update');"></a>
+												<td><a href="{{route('disease.edit',['id'=>$disease->id])}}" class="btn btn-success fa fa-pencil" onclick="return confirm('Are you sure?update');"></a>
 												</td>
 
-                                               <td><a href="{{route('dietPlan.destroy',['id'=>$dietPlan->id])}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are you sure?');"></a></td>
+                                               <td><a href="{{route('disease.destroy',['id'=>$disease->id])}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are you sure?');"></a></td>
 												
 											  </tr>
 											  @endforeach
