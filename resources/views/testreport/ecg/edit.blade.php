@@ -24,7 +24,7 @@
 							<!-- {{ Form::hidden('status', '1') }} -->
 							<div class="row" >
                                          
-				  							<div class="col-md-6 ">
+				  							<div class="offset-md-2 col-md-8 offset-md-2 ">
 											<div class="form-group">
 										
 						{!! Form::label('name', 'OPD Registration Number') !!}
@@ -74,17 +74,13 @@
 				        {!! Form::textarea('remark', $ecg->remark, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
 										    </div>
 											
-												<div class="form-group">
-												  <div style="float: right;">
-												     {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
-											      </div>
-												</div>
-							
-												<div class="form-group">
-												  <div >
-												    <a href="#"><button class="btn btn-primary">Cancel</button></a>
-											      </div>
-												</div>
+												<div class="offset-md-4 col-md-4 offset-md-4" >
+									<div class="form-group">
+									  
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+								      <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
+									</div>
+								</div>
 										</div>
 										{!! Form::close() !!}
 								</div>	

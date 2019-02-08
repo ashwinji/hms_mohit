@@ -38,7 +38,7 @@
 
 							{{ Form::hidden('status', '1') }}
 							<div class="row">
-	  							<div class="col-md-6">
+	  							<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
@@ -46,6 +46,7 @@
 	        {!! Form::text('opd_id', $generalblood->opd->regNum, ['class' => 'form-control dynamic_opd',
 	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
 	         <div id="opd_list">
+
 	         </div>
 	       
 								</div>
@@ -55,7 +56,7 @@
 
 								
 
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Patient Name') !!}
@@ -63,7 +64,7 @@
 							    </div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'OPD Date') !!}
@@ -72,15 +73,15 @@
 								</div>
 
 								
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::select('referredBy', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],$generalblood->referredBy , ['class' => 'form-control',]) !!}
+	        {!! Form::text('referredBy',$generalblood->referredBy , ['class' => 'form-control',]) !!}
 							    </div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Investigation Advised') !!}
@@ -89,7 +90,7 @@
 								</div>
 
 
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Test Date') !!}
@@ -98,102 +99,102 @@
 								</div>
 								
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Blood (Fasting)') !!}
-	        {!! Form::text('bloodFasting',''  , ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+	        {!! Form::text('bloodFasting',$generalblood->bloodFasting  , ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Blood (Random)') !!}
-	        {!! Form::text('bloodRandom',''  , ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
+	        {!! Form::text('bloodRandom',$generalblood->bloodRandom , ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Blood (PP)') !!}
-	        {!! Form::text('bloodPP',''  , ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+	        {!! Form::text('bloodPP',$generalblood->bloodPP  , ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Urea') !!}
-	        {!! Form::text('urea',''  , ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
+	        {!! Form::text('urea',$generalblood->urea  , ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Creatinine') !!}
-	        {!! Form::text('creatinine',''  , ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
+	        {!! Form::text('creatinine',$generalblood->creatinine  , ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Uric Acid') !!}
-	        {!! Form::text('uricAcid',''  , ['class' => 'form-control','placeholder' => 'Enter Uric Acid']) !!}
+	        {!! Form::text('uricAcid',$generalblood->uricAcid , ['class' => 'form-control','placeholder' => 'Enter Uric Acid']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total Bilirubin') !!}
-	        {!! Form::text('totalBilirubin',''  , ['class' => 'form-control','placeholder' => 'Enter Total Bilirubin']) !!}
+	        {!! Form::text('totalBilirubin',$generalblood->totalBilirubin  , ['class' => 'form-control','placeholder' => 'Enter Total Bilirubin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Direct Bilirubin') !!}
-	        {!! Form::text('directBilirubin',''  , ['class' => 'form-control','placeholder' => 'Enter Direct Bilirubin']) !!}
+	        {!! Form::text('directBilirubin',$generalblood->directBilirubin  , ['class' => 'form-control','placeholder' => 'Enter Direct Bilirubin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'SGPT / ALT') !!}
-	        {!! Form::text('sgptAlt',''  , ['class' => 'form-control','placeholder' => 'Enter SGPT / ALT']) !!}
+	        {!! Form::text('sgptAlt',$generalblood->sgptAlt , ['class' => 'form-control','placeholder' => 'Enter SGPT / ALT']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'SGOT / AST') !!}
-	        {!! Form::text('sgotAst',''  , ['class' => 'form-control','placeholder' => 'Enter SGOT / AST']) !!}
+	        {!! Form::text('sgotAst',$generalblood->sgotAst  , ['class' => 'form-control','placeholder' => 'Enter SGOT / AST']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'ALK Phosphatase') !!}
-	        {!! Form::text('alkPhosphatase',''  , ['class' => 'form-control','placeholder' => 'Enter ALK Phosphatase']) !!}
+	        {!! Form::text('alkPhosphatase',$generalblood->alkPhosphatase , ['class' => 'form-control','placeholder' => 'Enter ALK Phosphatase']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total Protein') !!}
-	        {!! Form::text('totalProtein',''  , ['class' => 'form-control','placeholder' => 'Enter Total Protein']) !!}
+	        {!! Form::text('totalProtein',$generalblood->totalProtein, ['class' => 'form-control','placeholder' => 'Enter Total Protein']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Albumin') !!}
-	        {!! Form::text('albumin',''  , ['class' => 'form-control','placeholder' => 'Enter Albumin']) !!}
+	        {!! Form::text('albumin',$generalblood->albumin , ['class' => 'form-control','placeholder' => 'Enter Albumin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'AG Ratio') !!}
-	        {!! Form::text('agRatio',''  , ['class' => 'form-control','placeholder' => 'Enter AG Ratio']) !!}
+	        {!! Form::text('agRatio',$generalblood->agRatio , ['class' => 'form-control','placeholder' => 'Enter AG Ratio']) !!}
 							    </div>
 								</div>
 								
@@ -201,7 +202,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
 								      </div>
 									</div>
 								</div>
@@ -213,7 +214,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div >
-									    <a href="#"><button class="btn btn-primary">Cancel</button></a>
+									    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
 								      </div>
 									</div>
 								</div>
@@ -223,15 +224,13 @@
 							
 						</div>
 						
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-								
+                     </div>
 					</div>
-	<div>
+				</div>
+			</div>
+</div>
+
+</div>
 
 
 	@endsection

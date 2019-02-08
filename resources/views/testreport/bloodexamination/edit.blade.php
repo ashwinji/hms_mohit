@@ -35,7 +35,7 @@
 							{{ Form::hidden('status', '1') }}
 							<div class="row">
 								
-	  							<div class="col-md-6">
+	  							<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
@@ -48,7 +48,7 @@
 	       
 								</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Patient Name') !!}
@@ -56,7 +56,7 @@
 							    </div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'OPD Date') !!}
@@ -65,14 +65,14 @@
 								</div>
 
 								
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::select('referredBy', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],  '', ['class' => 'form-control',]) !!}
+	        {!! Form::text('referredBy',$bloodexamination->referredBy,['class' => 'form-control',]) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('Age', 'Age') !!}
@@ -80,7 +80,7 @@
 							    </div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Investigation Advised') !!}
@@ -89,7 +89,7 @@
 								</div>
 
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Test Date') !!}
@@ -98,126 +98,126 @@
 								</div>
 								
 
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Haemoglobin') !!}
 	        {!! Form::text('haemoglobin',  '', ['class' => 'form-control','placeholder' => 'Enter Haemoglobin']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total RBC Count') !!}
 	        {!! Form::text('totalRBCCount',$bloodexamination->totalRBCCount, ['class' => 'form-control','placeholder' => 'Enter Total RBC Count']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Total WBC Count') !!}
 	        {!! Form::text('totalWBCCount',$bloodexamination->totalWBCCount, ['class' => 'form-control','placeholder' => 'Enter Total WBC Count']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Polymorphs') !!}
 	        {!! Form::text('polymorphs',$bloodexamination->polymorphs, ['class' => 'form-control','placeholder' => 'Enter Polymorphs']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Lymphocytes') !!}
 	        {!! Form::text('lymphocytes',$bloodexamination->lymphocytes, ['class' => 'form-control','placeholder' => 'Enter Lymphocytes']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Eosinophils') !!}
 	        {!! Form::text('eosinophils',$bloodexamination->eosinophils, ['class' => 'form-control','placeholder' => 'Enter Eosinophils']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Monocytes') !!}
 	        {!! Form::text('monocytes', $bloodexamination->monocytes, ['class' => 'form-control','placeholder' => 'Enter Monocytes']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Basophils') !!}
 	        {!! Form::text('basophils',  $bloodexamination->basophils, ['class' => 'form-control','placeholder' => 'Enter Basophils']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'ERS') !!}
 	        {!! Form::text('ers',  $bloodexamination->ers, ['class' => 'form-control','placeholder' => 'Enter ERS']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Platelet Count') !!}
 	        {!! Form::text('plateletCount',  $bloodexamination->plateletCount, ['class' => 'form-control','placeholder' => 'Enter Platelet Count']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Reticulocytes') !!}
 	        {!! Form::text('reticulocytes',  $bloodexamination->reticulocytes, ['class' => 'form-control','placeholder' => 'Enter Reticulocytes']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'PCV') !!}
 	        {!! Form::text('pcv',  $bloodexamination->pcv, ['class' => 'form-control','placeholder' => 'Enter PCV']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'MCV') !!}
 	        {!! Form::text('mcv',  $bloodexamination->mcv, ['class' => 'form-control','placeholder' => 'Enter MCV']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2  col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'MCH') !!}
 	        {!! Form::text('mch',  $bloodexamination->mch, ['class' => 'form-control','placeholder' => 'Enter MCH']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'MCHC') !!}
 	        {!! Form::text('mchc',  $bloodexamination->mchc, ['class' => 'form-control','placeholder' => 'Enter MCHC']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Bleeding Time') !!}
 	        {!! Form::text('bleedingTime',  $bloodexamination->bleedingTime, ['class' => 'form-control','placeholder' => 'Enter Bleeding Time']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Clotting Time') !!}
 	        {!! Form::text('clottingTime',  $bloodexamination->clottingTime, ['class' => 'form-control','placeholder' => 'Enter Clotting Time']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Malarial Parasite') !!}
@@ -225,11 +225,11 @@
 							    </div>
 								</div>
 
-								<div class="col-md-12">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('remark',  $bloodexamination->remark, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('remark',  $bloodexamination->remark, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 1, 'cols' => 10,]) !!}
 							    </div>
 								</div>
 
@@ -245,7 +245,7 @@
 
 
 								{!! Form::close() !!}
-								<div class="col-md-6" >
+								<div class=" col-md-6" >
 									<div class="form-group">
 									  <div >
 									    <a href="#"><button class="btn btn-primary">Cancel</button></a>

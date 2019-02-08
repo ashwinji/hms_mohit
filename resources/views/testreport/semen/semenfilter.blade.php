@@ -50,12 +50,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-square btn-info" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-square btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
     </div>
-					</body>
+</body>
 @endsection
 @section('footerSection')
 

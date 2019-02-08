@@ -120,50 +120,18 @@ class BloodexaminationController extends Controller
             return DataTables::of($bloodexaminations)->addColumn('action', function($data){
 
               return sprintf(
-                '<div class=" btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
-                <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
+                '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                  <a href="%s">%s</a></div>',
                 route('blood.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
                 $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('bloodexamination.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editRecord"></i>'
+                route('bloodexamination.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editRecord"></i>'
                 );
               
             })   
 
         ->make('true');
     }
-    public function fetch(Request $request)
-    {
-       if($request->get('query')){
-
-          $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum', 'LIKE', '%'.$query.'%')
-            ->get();
-          $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
-          foreach($data as $row)
-          {
-           $output .= '
-           <li><a href="#">'.$row->regNum.'</a></li>
-           ';
-          }
-          $output .= '</ul>';
-          echo $output;
-     }
-    }
-
-    public function fetchSearch(Request $request)
-    {
-       if($request->get('query')){
-
-          $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum',$query)
-            ->first();
-
-            return response()->json($data);
-         
-     }
-    }
+   
     
 }

@@ -118,9 +118,9 @@ public function sendsemendata()
                 '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                  <a href="%s">%s</a></div>',
-                route('ecg.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                route('semen.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
               $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('ecg.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                route('semen.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
                 );
               
             })   

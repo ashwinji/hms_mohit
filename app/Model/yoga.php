@@ -12,10 +12,7 @@ class yoga extends Model
     {
     	return $this->belongsTo(opd::class,'patientId','id');
     }
-    public function doctorName()
-    {
-    	return $this->hasOne(doctorlist::class,'id','referredBy');
-    } 
+     
     public function diseaseName()
     {
     	return $this->hasOne(disease::class,'id','disease');

@@ -24,7 +24,7 @@
 
 							{{ Form::hidden('status', '1') }}
 							<div class="row">
-	  							<div class="col-md-6">
+	  							<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 					@include('verror.error')			
 			{!! Form::label('name', 'OPD Registration Number') !!}
@@ -37,32 +37,32 @@
 								</div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name']) !!}
+	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','readonly'=>'true']) !!}
 							    </div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate', '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate']) !!}
+	        {!! Form::date('opdDate', '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
 							    </div>
 								</div>
 
 								
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::select('consultant', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',], '', ['class' => 'form-control']) !!}
+	        {!! Form::text('referredBy','', ['class' => 'form-control','id'=>'referredBy','placeholder'=>'referredBy','readonly'=>'true']) !!}
 							    </div>
 								</div>
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Investigation Advised') !!}
@@ -71,7 +71,7 @@
 								</div>
 
 
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Test Date') !!}
@@ -80,105 +80,105 @@
 								</div>
 								
 
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Place Of Collection') !!}
 	        {!! Form::text('placeOfCollection', '', ['class' => 'form-control','placeholder' => 'Enter Place Of Collection']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Time Of Collection In Lab') !!}
 	        {!! Form::text('timeOfCollectionInLab', '', ['class' => 'form-control','placeholder' => 'Enter Collection In Lab']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Quantity') !!}
 	        {!! Form::text('quantity', '', ['class' => 'form-control','placeholder' => 'Enter Quantity']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Consistency') !!}
 	        {!! Form::text('consistency', '', ['class' => 'form-control','placeholder' => 'Enter Consistency']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Colour') !!}
 	        {!! Form::text('colour', '', ['class' => 'form-control','placeholder' => 'Enter Colour']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'PH') !!}
 	        {!! Form::text('ph', '', ['class' => 'form-control','placeholder' => 'Enter Total PH']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Liqufication Time') !!}
 	        {!! Form::text('liquficationTime', '', ['class' => 'form-control','placeholder' => 'Enter Liqufication Time']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Viscocity') !!}
 	        {!! Form::text('viscocity', '', ['class' => 'form-control','placeholder' => 'Enter Viscocity']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Count') !!}
 	        {!! Form::text('count', '', ['class' => 'form-control','placeholder' => 'Enter Count']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Motility') !!}
 	        {!! Form::text('motility', '', ['class' => 'form-control','placeholder' => 'Enter Motility']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Abnormal Forms') !!}
 	        {!! Form::text('abnormalForms', '', ['class' => 'form-control','placeholder' => 'Enter Abnormal Forms']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Pus Cells') !!}
 	        {!! Form::text('pusCells', '', ['class' => 'form-control','placeholder' => 'Enter Pus Cells']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Epithelial Cells') !!}
 	        {!! Form::text('epithelialCells', '', ['class' => 'form-control','placeholder' => 'Enter Epithelial Cells']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'RBCS') !!}
 	        {!! Form::text('rbcs', '', ['class' => 'form-control','placeholder' => 'Enter Total RBCS']) !!}
 							    </div>
 								</div>
-								<div class="col-md-12">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Fructose Test') !!}
@@ -187,50 +187,39 @@
 								</div>
 								
 
-								<div class="col-md-12">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('other', '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('other', '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 1, 'cols' => 10,]) !!}
 							    </div>
 								</div>
 
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
 								      </div>
 									</div>
 								</div>
-
-								
-
-
 								{!! Form::close() !!}
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div >
-									    <a href="#"><button class="btn btn-primary">Cancel</button></a>
+									    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
 								      </div>
 									</div>
 								</div>
 							</div>
-							
-							
-							
 						</div>
-						
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-								
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>					
+</div>
+</div>
+</div>
+</div>
 	@endsection
 		@section('footerSection')
 
@@ -249,7 +238,7 @@
                                 var _token = $('input[name="_token"]').val();
                                 $.ajax({
 
-                                        url: "{{ route('ipd.fetch') }}",
+                                        url: "{{ route('yoga.fetch') }}",
                                         method: "POST",
                                         data: { query: opd, _token: _token },
                                         success: function (data) {
@@ -267,15 +256,15 @@
                 var opd = $('#patientId').val();
                 var _token = $('input[name="_token"]').val();
                 $.ajax({
-                        url: "{{ route('ipd.fetchSearch') }}",
+                        url: "{{ route('yoga.fetchSearch') }}",
                         method: "POST",
                         data: { query: opd, _token: _token },
                         success: function (data) {
                                 console.log(data);
-                                $('#regDate').val(data.regDate);
-                                $('#opd_name').val(data.patientName);
-                                $('#age').val(data.age);
-                                $('#referredBy').val(data.referredBy);
+                                $('#regDate').val(data.data1.regDate);
+                                $('#opd_name').val(data.data1.patientName);
+                                $('#age').val(data.data1.age);
+                                $('#referredBy').val(data.doctor);
                         }
 
                 });

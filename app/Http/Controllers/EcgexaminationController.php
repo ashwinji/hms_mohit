@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\Model;
 use App\Model\ecgexamination;
 use Illuminate\Http\Request;
 use App\Model\bloodexamination;
 use App\Model\ot;
 use App\Model\opd;
+use App\Mode\doctorlist;
 use DB;
 use DataTables;
 

@@ -39,7 +39,7 @@
 
 							{{ Form::hidden('status', '1') }}
 							<div class="row">
-	  							<div class="col-md-6">
+	  							<div class="offset-md-2 col-md-8 offset-md-2">
 								<div class="form-group">
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
@@ -76,25 +76,18 @@
 								{!! Form::label('name', 'Test Date') !!}
 	        {!! Form::date('otDate',  null, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
 							    </div>
-								
 								</div>
+							</div>
 
-						       <div class="col-md-6">
+						       <div class="row">
+					            <div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'S. TYPHI "O"') !!}
-	        {!! Form::text('sTyphiO',  null, ['class' => 'form-control','placeholder' => 'Enter TYPHI O']) !!}
+	        {!! Form::text('sTyphiO',null, ['class' => 'form-control','placeholder' => 'Enter TYPHI MHO']) !!}
 							    </div>
 								</div>
-							 <div class="col-md-6">
-								<div class="form-group">
-								
-								{!! Form::label('name', 'S. TYPHI "O"') !!}
-	        {!! Form::text('sTyphiO',  null, ['class' => 'form-control','placeholder' => 'Enter TYPHI H
-	        O']) !!}
-							    </div>
-								</div>
-								<div class="col-md-6">
+								<div class=" col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'S.  TYPHI "H"') !!}
@@ -102,61 +95,52 @@
 	        H']) !!}
 							    </div>
 								</div>
-								<div class="col-md-6">
+								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'S. PARA TYPHI "BH"') !!}
 	        {!! Form::text('sTyphiBH',  null, ['class' => 'form-control','placeholder' => 'Enter PARA TYPHI']) !!}
 							    </div>
 								</div>
-										<div class="col-md-6">
+										<div class="col-md-4">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'S. PARA TYPHI "BH"') !!}
 	        {!! Form::text('sTyphiBH',  null, ['class' => 'form-control','placeholder' => 'Enter PARA TYPHI']) !!}
 							    </div>
 								</div>
-						<div class="col-md-12">
+							</div>
+						<div class="offset-md-2 col-md-8 offset-md-2">
 								<div class="form-group">
 								
 								{!! Form::label('name', 'IMPRESSION') !!}
-	        {!! Form::textarea('impression',  null, ['class' => 'form-control','placeholder' => 'Enter IMPRESSION','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('impression',  null, ['class' => 'form-control','placeholder' => 'Enter IMPRESSION','rows' =>2, 'cols' => 14,]) !!}
 							    </div>
 								</div>
 
-								<div class="col-md-6" >
+								<div class="offset-md-3 col-md-4" >
 									<div class="form-group">
 									  <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
 								      </div>
-									</div>
-								</div>
-
-								
-
-
+								       <div style="float: right;">
+									    <a href="" class="btn btn-square btn-danger">Cancel </a>
+								      </div>
+									</div>		
+                                 </div>
 								{!! Form::close() !!}
-								<div class="col-md-6" >
-									<div class="form-group">
-									  <div >
-									    <a href="#"><button class="btn btn-primary">Cancel</button></a>
-								      </div>
-									</div>
-								</div>
-							</div>
+								
+							
 							
 							
 							
 						</div>
 						
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-								
-					</div>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
 </div>
 	
 </div>

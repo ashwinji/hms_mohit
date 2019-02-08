@@ -29,12 +29,12 @@
 
 							{{ Form::hidden('status', '1') }}
 							<div class="row">
-	  							<div class="col-md-6">
+	  							<div class="offset-md-2 col-md-8 offset-md-2">
 								<div class="form-group">
 								
 			{!! Form::label('name', 'OPD Registration Number') !!}
 		
-	        {!! Form::text('opd_id',  null, ['class' => 'form-control dynamic_opd',
+	        {!! Form::text('opd_id', '', ['class' => 'form-control dynamic_opd',
 	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
 	         <div id="opd_list">
 	         </div>
@@ -44,7 +44,7 @@
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName',  null, ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','Disabled']) !!}
+	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','Disabled']) !!}
 							    </div>
 								
 
@@ -70,40 +70,34 @@
 								{!! Form::label('name', 'Test Date') !!}
 	        {!! Form::date('date',  null, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
 							    </div>
-								</div>
+								
 							
-								<div class="col-md-12">
-								<div class="form-group">
+				                <div class="form-group">
 								
 								{!! Form::label('name', 'Description') !!}
-	        {!! Form::textarea('description',  null, ['class' => 'form-control','placeholder' => 'Enter Description','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('description',  null, ['class' => 'form-control','placeholder' => 'Enter Description','rows' => 2, 'cols' => 10,]) !!}
 							    </div>
-								</div>
-
-								<div class="col-md-12">
+							
 								<div class="form-group">
 								
 								{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('remark',  null, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 3, 'cols' => 10,]) !!}
+	        {!! Form::textarea('remark', '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 2, 'cols' => 10,]) !!}
 							    </div>
 								</div>
 
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
 								      </div>
 									</div>
 								</div>
-
-								
-
 
 								{!! Form::close() !!}
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div >
-									    <a href="#"><button class="btn btn-primary">Cancel</button></a>
+									    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
 								      </div>
 									</div>
 								</div>

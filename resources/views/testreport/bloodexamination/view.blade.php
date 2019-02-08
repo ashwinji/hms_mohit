@@ -33,7 +33,7 @@
               </tr>
               <tr>
               <th>Referred By </th>
-              <td>DR. MAHENDRA SHARMA</td>
+              <td>{{$data->referredBy}}</td>
               <th>Test Date </th>
               <td>05-01-2019</td>
               </tr>
@@ -47,112 +47,123 @@
           </table>
           <div class="text-center text-white font-weight-bold">
           <div class="label label-danger " style="text-color:#FF0000">BLOOD EXAMINATION</div>
+        </div>
 
-
-
-<!-- <table class="table table-bordered table-striped table-hovered">
-                    <tbody><tr>
+             <div class="row">
+           <div class="col-md-12 col-lg-12">
+            <div class="card">
+         <div class="table-responsive">
+      <table class="table card-table table-bordered table-vcenter text-nowrap">
+                    <tbody>
+                      <tr>
                       <th width="35%"> </th>
-                      <th width="25%"><span class="text-danger" >OBSERVED VALUES</span> </th>
+                      <th width="25%"><span class="text-danger">OBSERVED VALUES</span> </th>
                       <th width="40%"><span class="text-danger">NORMAL RANGE</span> </th>
                     </tr>
                     <tr>
                       <th>Haemoglobin </th>
-                      <td>9.8 gm%</td>
+                      <td>{{$data->haemoglobin}}</td>
                       <td><small>Male : 14 - 16gm% <br> Female : 12 - 15gm%</small></td>
                     </tr>
                     <tr>
                       <th>Total RBC Count </th>
-                      <td>3.46 mil/cumm</td>
+                      <td>{{$data->totalRBCCount}}</td>
                       <td><small>Male : 4.5 - 6.0 Millions/Cumm. <br> Female : 4.5 - 5.5 Millions/Cumm.</small></td>
                     </tr>
                     <tr>
                       <th>Total WBC Count </th>
-                      <td>11,600/cumm</td>
+                      <td>{{$data->totalWBCCount}}</td>
                       <td>4000 - 11000 Cumm.</td>
                     </tr>
                     <tr>
                       <th>Polymorphs </th>
-                      <td>76%</td>
+                      <td>{{$data->polymorphs}}</td>
                       <td>40% - 75%</td>
                     </tr>
                     <tr>
                       <th>Lymphocytes </th>
-                      <td>20%</td>
+                      <td>{{$data->lymphocytes}}</td>
                       <td>20% - 45%</td>
                     </tr>
                     <tr>
                       <th>Eosinophils </th>
-                      <td>02%</td>
+                      <td>{{$data->eosinophils}}</td>
                       <td>1% - 6%</td>
                     </tr>
                     <tr>
                       <th>Monocytes </th>
-                      <td>02%</td>
+                      <td>{{$data->monocytes}}</td>
                       <td>2% - 10%</td>
                     </tr>
                     <tr>
                       <th>Basophils </th>
-                      <td>00%</td>
+                      <td>{{$data->basophils}}</td>
                       <td>0% - 1%</td>
                     </tr>
                     <tr>
                       <th>ERS </th>
-                      <td>34  mm/FHR</td>
+                      <td>{{$data->ers}}</td>
                       <td><small>Male : 0-9mm <br> Female : 0-20mm</small> FHR</td>
                     </tr>
                     <tr>
                       <th>Platelet Count </th>
-                      <td></td>
+                      <td>{{$data->plateletCount}}</td>
                       <td>1.5 - 4.5 Lac/Cumm</td>
                     </tr>
                     <tr>
                       <th>Reticulocytes </th>
-                      <td></td>
+                      <td>{{$data->reticulocytes}}</td>
                       <td>0.5 - 2.0%</td>
                     </tr>
                     <tr>
                       <th>PCV </th>
-                      <td></td>
+                      <td>{{$data->pcv}}</td>
                       <td><small>Male : 40 - 54% <br> Female : 37 - 47%</small></td>
                     </tr>
                     <tr>
                       <th>MCV </th>
-                      <td></td>
+                      <td>{{$data->mcv}}</td>
                       <td>78 - 92 Cu Micron</td>
                     </tr>
                     <tr>
                       <th>MCH </th>
-                      <td></td>
+                      <td>{{$data->mch}}</td>
                       <td>27 - 32 Micro Micro GM</td>
                     </tr>
                     <tr>
                       <th>MCHC </th>
-                      <td></td>
+                      <td>{{$data->mchc}}</td>
                       <td>32% - 36%</td>
                     </tr>
                     <tr>
                       <th>Bleeding Time </th>
-                      <td></td>
+                      <td>{{$data->bleedingTime}}</td>
                       <td>1 - 5 Minutes</td>
                     </tr>
                     <tr>
                       <th>Clotting Time </th>
-                      <td></td>
+                      <td>{{$data->clottingTime}}</td>
                       <td>5 - 12 Minutes</td>
                     </tr>
                     <tr>
                       <th>Malarial Parasite </th>
-                      <td></td>
+                      <td>{{$data->malarialParasite}}</td>
                       <td></td>
                     </tr>
                     <tr>
-                      <th colspan="3"> Remark : </th>
+                      <th > Remark :</th>
+                      <td>{{$data->remark}}</td>
                     </tr>
-                  </tbody>
-                </table> -->
+                  </tbody></table>
+        </div>
+        </div>
+        </div>
         </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+</div>
+      
 

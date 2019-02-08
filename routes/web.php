@@ -119,13 +119,13 @@ Route::group(['prefix'=>'stool'], function(){
 
 //urine routes
 Route::group(['prefix'=>'urine'], function(){
-		Route::get('urine/create','UrineexaminationController@create')->name('urine-create');
-		Route::post('urine/store','UrineexaminationController@store')->name('urine.store');
+		Route::get('/create','UrineexaminationController@create')->name('urine-create');
+		Route::post('/store','UrineexaminationController@store')->name('urine.store');
 });
 //xray routes
 Route::group(['prefix'=>'xray'], function(){
-		Route::get('xray/create','XrayController@create')->name('xray-create');
-		Route::post('xray/store','XrayController@store')->name('xray.store');
+		Route::get('/create','XrayController@create')->name('xray-create');
+		Route::post('/store','XrayController@store')->name('xray.store');
 });
 
 //ecg routes

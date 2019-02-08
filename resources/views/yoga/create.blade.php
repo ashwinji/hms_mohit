@@ -121,7 +121,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-                                                  {!! Form::text('refferedby', '', ['class' => 'form-control','id'=>'referredBy','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
+                                                  {!! Form::text('refferedby', '', ['class' => 'form-control','id'=>'refferedby','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
                                           </div>
                                   </div>
                              </div>
