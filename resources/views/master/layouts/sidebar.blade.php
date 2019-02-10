@@ -27,9 +27,9 @@
       </li>
 
         <li>
-            <a href="{{route('opd-create')}}" class="slide-item">
-              <i class="side-menu__icon fa fa-users"></i>
-            <span class="side-menu__label">OPD</span>
+            <a href="{{route('opd-create')}}" class="slide-item" >
+              <i class="side-menu__icon fa fa-users" ></i>
+            <span class="side-menu__label" >OPD</span>
             </a>
         </li>
 

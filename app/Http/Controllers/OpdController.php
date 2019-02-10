@@ -192,10 +192,10 @@ class OpdController extends Controller
                 })
         ->addColumn('action', function($data){
 
-       return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
-                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
-                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
-             <a href="%s">%s</a>',
+       return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">%s</button>
+                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info" data-toggle="tooltip" data-placement="top" title="view">%s</button>
+                     <button  data-id="%s" class="%s btn btn-sm btn-square btn-info" data-toggle="tooltip" data-placement="top" title="add treatment">%s</button>
+             <a href="%s" data-toggle="tooltip" data-placement="top" title="edit">%s</a>',
             route('opd.delete',$data['id']),$data['id'],"deleteopdRecord",'<i class=" fa fa-trash"></i>',
              $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
              $data['id'],"addRecord",'<i class=" fa fa-plus"></i>',

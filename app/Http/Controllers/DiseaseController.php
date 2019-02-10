@@ -15,7 +15,7 @@ class DiseaseController extends Controller
     public function index()
     {
     
-        $diseaselist=disease::paginate(5);
+        $diseaselist=disease::all();
 
         return view('otherlist.disease.disease',compact('diseaselist'));
     }

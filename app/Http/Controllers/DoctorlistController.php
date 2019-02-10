@@ -15,7 +15,7 @@ class DoctorlistController extends Controller
     public function index()
     {
     
-        $doctorlist=doctorlist::paginate(5);
+        $doctorlist=doctorlist::all();
 
         return view('otherlist.doctorlist.doctorlist',compact('doctorlist'));
     }
