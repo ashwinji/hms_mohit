@@ -1,111 +1,83 @@
-@extends('master.layouts.app')
-    @section('main-content')
+	@extends('master.layouts.app')
+	@section('main-content')
     <div class="page">
-				<div class="page-main">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mb-0 card-title">ECG EXAMINATION</h3>
-											<div class="card-body">
-												<div class="btn-list" style="float: right;">
-													<a href="{{route('ecg-filter')}}" class="btn btn-square btn-xs btn-success">Show ecg Examination Pateints List</a>
-												</div>
-									        </div>
-									    </div>
+		<div class="page-main">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="mb-0 card-title">ECG EXAMINATION</h3>
+							<div class="card-body">
+								<div class="btn-list" style="float: right;">
+									<a href="{{route('ecg-filter')}}" class="btn btn-square btn-xs btn-success">Show ecg Examination Pateints List
+									</a>
+								</div>
+							</div>
+					    </div>
 			<div class="card-body">
 				<div class="row">						
-						<div class="col-md-12 ">
+					<div class="col-md-12 ">
 							@include('verror.error')
-							{!! Form::open(['route' => ['ecg.store'],'autocomplete'=>'off']) !!}
-
+						{!! Form::open(['route' => ['ecg.store'],'autocomplete'=>'off']) !!}
 							{!! csrf_field() !!}
-
-							<!-- {{ Form::hidden('status', '1') }} -->
+						    {{ Form::hidden('status', '1') }} 
 							<div class="row" >
-                                         
 				  							<div class="offset-md-2 col-md-8 offset-md-2 ">
 											<div class="form-group">
-										
 						{!! Form::label('name', 'OPD Registration Number') !!}
-					
 				        {!! Form::text('patientId','', ['class' => 'form-control dynamic_opd',
 				        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
-				         <div id="opd-reg-list">
-
-				         </div>
-				       
+									         <div id="opd-reg-list">
+									         </div>
 											</div>
-											
 											<div class="form-group">
-											
-											{!! Form::label('name', 'Patient Name') !!}
+						{!! Form::label('name', 'Patient Name') !!}
 				        {!! Form::text('patientName',  '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','readonly'=>'true']) !!}
 										    </div>
-													<div class="form-group">
-											
-											{!! Form::label('age', 'Patient Age') !!}
+											<div class="form-group">					
+						{!! Form::label('age', 'Patient Age') !!}
 				        {!! Form::text('age',  '', ['class' => 'form-control','placeholder' => 'Enter Patient age','id'=>'age','readonly'=>'true']) !!}
 										    </div>
-
 											<div class="form-group">
-											
-											{!! Form::label('name', 'OPD Date') !!}
+						{!! Form::label('name', 'OPD Date') !!}
 				        {!! Form::date('opdDate',  '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
 										    </div>
-											
 											<div class="form-group">
-											
-											{!! Form::label('name', 'Referred By') !!}
+						{!! Form::label('name', 'Referred By') !!}
 				        {!! Form::text('referredBy', '', ['class' => 'form-control','id'=>'referredBy','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
 										    </div>
-
-					
 											<div class="form-group">
-											
-											{!! Form::label('name', 'Test Date') !!}
+						{!! Form::label('name', 'Test Date') !!}
 				        {!! Form::date('date',  '', ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
 										    </div>
-										
-										
 											<div class="form-group">
-											
-											{!! Form::label('name', 'Remarks') !!}
+						{!! Form::label('name', 'Remarks') !!}
 				        {!! Form::textarea('remark',  '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 2, 'cols' => 10,]) !!}
-										    </div>
-											
-								<div class="offset-md-4 col-md-4 offset-md-4" >
-									<div class="form-group">
-									  
-									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
-								      <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
-									</div>
-								</div>
-									
-									{!! Form::close() !!}
-
-								
+										    </div>			
+						<div class="offset-md-4 col-md-4 offset-md-4" >
+							<div class="form-group">
+							     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+						      <a href="{{route('dashboard')}}"><button class="btn btn-square btn-primary">Cancel
+						      </button></a>
+							</div>
+						</div>	
+						{!! Form::close() !!}	
 						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
    </div>
-</div>
-				
+</div>			
 </div>
 </div>
 </div>
 	@endsection
 	@section('footerSection')
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-
-        </script>
-<script type="text/javascript">
-
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	        crossorigin="anonymous">
+	</script>
+	<script type="text/javascript">
         jQuery(document).ready(function () {debugger
                 jQuery('#patientId').on('keyup', function () {
                         var opd = $(this).val();
@@ -146,7 +118,5 @@
                 });
                 $('#opd-reg-list').fadeOut();
         });
-
 </script>
-
 	@endSection

@@ -33,6 +33,7 @@ class semenexamination extends Model
         'epithelialCells', 
         'rbcs',
         'fructoseTest',
+        'other',
              
     ];
 

@@ -121,7 +121,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-                                                  {!! Form::text('refferedby', $yoga->doctorName->name, ['class' => 'form-control','id'=>'refferedby','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
+                                                  {!! Form::text('refferedby', $yoga->referredBy, ['class' => 'form-control','id'=>'refferedby','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
                                           </div>
                                   </div>
                              </div>

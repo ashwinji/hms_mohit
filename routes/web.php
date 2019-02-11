@@ -109,23 +109,47 @@ Route::group(['prefix'=>'semen'], function(){
 Route::group(['prefix'=>'serun'], function(){
 		Route::get('/create','SerumofwidalController@create')->name('serun-create');
 		Route::post('/store','SerumofwidalController@store')->name('serun.store');
+		Route::get('/datatable', 'SerumofwidalController@datatable')->name('serun-filter');
+		Route::get('/sendserundata','SerumofwidalController@sendserundata')->name('sendserundata');
+		Route::delete('/delete/{id}','SerumofwidalController@destroy')->name('serun.delete');
+		Route::post('/view','SerumofwidalController@show')->name('serun-show');
+		Route::PUT('/update/{id}','SerumofwidalController@update')->name('serun.update');
+		Route::get('/edit/{id}','SerumofwidalController@edit')->name('serun.edit');
 });
 
 //stool route
 Route::group(['prefix'=>'stool'], function(){
 		Route::get('/create','StoolexaminationController@create')->name('stool-create');
 		Route::post('/store','StoolexaminationController@store')->name('stool.store');
+		Route::get('/datatable', 'StoolexaminationController@datatable')->name('stool-filter');
+		Route::get('/sendstooldata','StoolexaminationController@sendstooldata')->name('sendstooldata');
+		Route::delete('/delete/{id}','StoolexaminationController@destroy')->name('stool.delete');
+		Route::post('/view','StoolexaminationController@show')->name('stool-show');
+		Route::PUT('/update/{id}','StoolexaminationController@update')->name('stool.update');
+		Route::get('/edit/{id}','StoolexaminationController@edit')->name('stool.edit');
 });
 
 //urine routes
 Route::group(['prefix'=>'urine'], function(){
 		Route::get('/create','UrineexaminationController@create')->name('urine-create');
 		Route::post('/store','UrineexaminationController@store')->name('urine.store');
+		Route::get('/datatable', 'UrineexaminationController@datatable')->name('urine-filter');
+		Route::get('/sendurinedata','UrineexaminationController@sendurinedata')->name('sendurinedata');
+		Route::delete('/delete/{id}','UrineexaminationController@destroy')->name('urine.delete');
+		Route::post('/view','UrineexaminationController@show')->name('urine-show');
+		Route::PUT('/update/{id}','UrineexaminationController@update')->name('urine.update');
+		Route::get('/edit/{id}','UrineexaminationController@edit')->name('urine.edit');
 });
 //xray routes
 Route::group(['prefix'=>'xray'], function(){
 		Route::get('/create','XrayController@create')->name('xray-create');
 		Route::post('/store','XrayController@store')->name('xray.store');
+		Route::get('/datatable', 'XrayController@datatable')->name('xray-filter');
+		Route::get('/sendxraydata','XrayController@sendxraydata')->name('sendxraydata');
+		Route::delete('/delete/{id}','XrayController@destroy')->name('xray.delete');
+		Route::post('/view','XrayController@show')->name('xray-show');
+		Route::PUT('/update/{id}','XrayController@update')->name('xray.update');
+		Route::get('/edit/{id}','XrayController@edit')->name('xray.edit');
 });
 
 //ecg routes
@@ -182,9 +206,6 @@ Route::group(['prefix'=>'doctor'], function(){
 
 		Route::get('/edit/{id}','DoctorlistController@edit')->name('doctor.edit');
         Route::post('/update/{id}','DoctorlistController@update')->name('doctor.update');
-
-
-
 });
 
 //medicinelist
@@ -219,8 +240,6 @@ Route::group(['prefix'=>'department'], function(){
 		Route::get('/edit/{id}','DepartmentController@edit')->name('department.edit');
         Route::post('/update/{id}','DepartmentController@update')->name('department.update');
 
-
-
 });
 //investigationlist
 Route::group(['prefix'=>'investigation'], function(){
@@ -235,9 +254,6 @@ Route::group(['prefix'=>'investigation'], function(){
 
 		Route::get('/edit/{id}','InvestigationController@edit')->name('investigation.edit');
         Route::post('/update/{id}','InvestigationController@update')->name('investigation.update');
-
-
-
 });
 //dietPlan
 Route::group(['prefix'=>'dietPlan'], function(){
@@ -252,9 +268,6 @@ Route::group(['prefix'=>'dietPlan'], function(){
 
 		Route::get('/edit/{id}','DietPlanController@edit')->name('dietPlan.edit');
         Route::post('/update/{id}','DietPlanController@update')->name('dietPlan.update');
-
-
-
 });
 
 //potency

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\stoolexamination;
+use App\Model\stoolexamination;
+use App\Model\opd;
 use Illuminate\Http\Request;
 
 class StoolexaminationController extends Controller
@@ -12,7 +13,7 @@ class StoolexaminationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
         //
     }
@@ -35,51 +36,93 @@ class StoolexaminationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $serun=stoolexamination::create($request->all());
+        $serun->save();
+         return redirect (route('stool-create'))->with('message','data save sussefully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\stoolexamination  $stoolexamination
+     * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function show(stoolexamination $stoolexamination)
+   public function show(Request $request)
     {
-        //
+        $id=$request->id;
+        $data=stoolexaminations::where('id','=',$id)->first();
+        $content=\View::make('testreport.stoolexamination.view',compact('data'));
+        $a=$content->render();
+      return response()->json([
+        'status'=>true,
+        'html'=>$a,
+      ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\stoolexamination  $stoolexamination
+     * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function edit(stoolexamination $stoolexamination)
+    public function edit($id)
     {
-        //
+           $serun=stoolexamination::where('id',$id)->first();
+        return view('testreport.serunofwidal.edit',compact('serun'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\stoolexamination  $stoolexamination
+     * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, stoolexamination $stoolexamination)
+    public function update(Request $request,$id)
     {
-        //
+          $serun=stoolexamination::where('id',$id)->first();
+          $serun->update($request->all());
+          return redirect (route('serun-create'))->with('message','update  sussefully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\stoolexamination  $stoolexamination
+     * @param  \App\semenexamination  $semenexamination
      * @return \Illuminate\Http\Response
      */
-    public function destroy(stoolexamination $stoolexamination)
+    public function destroy($id)
     {
-        //
+        stoolexamination::where('id',$id)->delete();
+          return response()->json([
+           'success' => 'Record deleted successfully!'
+          ]);    
+      }
+          public function datatable()
+    {
+        return view('testreport.serunofwidal.serunfilter');
     }
+public function sendserundata()
+    {
+           $data=stoolexamination::all();
+           $serun= stoolexamination::select('stoolexaminations.id','opds.regDate','stoolexaminations.referredBy','opds.regNum','opds.patientName','stoolexaminations.date','stoolexaminations.investigationAdvised','opds.age')
+            ->join('opds', 'stoolexaminations.patientId', '=','opds.regNum')
+            ->get();
+            return DataTables::of($serun)->addColumn('action', function($data){
+
+              return sprintf(
+                '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
+                 <a href="%s">%s</a></div>',
+                route('serun.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+              $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
+                route('serun.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                );
+              
+            })   
+
+        ->make('true');
+    }
+
 }

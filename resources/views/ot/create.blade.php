@@ -1,37 +1,32 @@
 @extends('master.layouts.app')
 @section('main-content')
 <div class="page">
-        <div class="row ">
-                <div class="col-lg-11">
-                        <div class="card">
-                                <div class="card-header">
-                                        <h3 class="mb-0 card-title">OT - NEW PATIENT REGISTRATION</h3>
-                                        <div class="card-body">
-                                                <div class="btn-list" style="float: right;">
-                                                        <a href="{{route('ot-filter')}}" class="btn btn-square btn-xs btn-success">
-                                                                Show Search Old OT Patients
-                                                        </a>
-                                                </div>
-                                        </div>
+     <div class="row ">
+         <div class="col-lg-11">
+             <div class="card">
+                <div class="card-header">
+                        <h3 class="mb-0 card-title">OT - NEW PATIENT REGISTRATION</h3>
+                        <div class="card-body">
+                                <div class="btn-list" style="float: right;">
+                                        <a href="{{route('ot-filter')}}" class="btn btn-square btn-xs btn-success">
+                                                Show Search Old OT Patients
+                                        </a>
                                 </div>
+                        </div>
+                 </div>
         <div class="card-body">
                 @include('verror.error')
                 {!! Form::open(array('route' =>
                 'ot.store','files'=>'true','class'=>'fixed','id'=>'profile-form','autocomplete'=>'off'))
                 !!}
                 <div class="col-md-12">
-                 <div class="row">
-
-                </div>
-                <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-                                <div class="form-group">
-                                        {!! Form::label('opdNUM', 'OPD Number:*') !!}
-                                </div>
-                        </div>
-
-                        <div class="col-sm-3">
-
+                  <div class="row">
+                     <div class="col-md-offset-3 col-sm-2">
+                            <div class="form-group">
+                                    {!! Form::label('opdNUM', 'OPD Number:*') !!}
+                            </div>
+                     </div>
+                    <div class="col-sm-3">
                                 <div class="form-group">
                                         {!! Form::text('opdNum', '',['class' =>
                                         'form-control','id'=>'opdNum','name'=>'opdNum','placeholder'=>'OPD
@@ -39,16 +34,12 @@
                                         <div id="opd-reg-list"></div>
                                 </div>
                         </div>
-
                         <div class="col-md-offset-3 col-sm-2">
-
                                 <div class="form-group">
                                         {!! Form::label('opdDate', 'OPD Date:*') !!}
                                 </div>
                         </div>
-
                         <div class="col-sm-3">
-
                                 <div class="form-group">
                              {!! Form::date('opdDate', '', ['class' =>
                             'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD
@@ -56,7 +47,6 @@
                                 </div>
                         </div>
                 </div>
-
                 <div class="row">
                         <div class="col-md-offset-3 col-sm-2">
                                 <div class="form-group">
@@ -72,7 +62,6 @@
                                 </div>
                         </div>
                 </div>
-
                 <div class="row">
                         <div class="col-md-offset-3 col-sm-2">
 
@@ -82,7 +71,6 @@
                                 </div>
                         </div>
                         <div class="col-sm-3">
-
                                 <div class="form-group">
                                         {!! Form::text('ipdRegNum', '', ['class' =>
                                         'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD
@@ -104,10 +92,8 @@
                                 </div>
                         </div>
                 </div>
-
                 <div class="row">
                         <div class="col-md-offset-3 col-sm-2">
-
                                 <div class="form-group">
                                         {!! Form::label('age', 'AGE:*') !!}
                                 </div>
@@ -135,7 +121,6 @@
                                 </div>
                         </div>
                 </div>
-
                 <div class="row">
                         <div class="col-md-offset-3 col-sm-2">
 
@@ -151,16 +136,13 @@
                                 </div>
                         </div>
                 </div>
-
                 <div class="row">
                         <div class="col-md-offset-3 col-sm-2">
-
                                 <div class="form-group">
                                         {!! Form::label('otDate', 'Ot Date:*') !!}
                                 </div>
                         </div>
                         <div class="col-sm-3">
-
                                 <div class="form-group">
                                         {!! Form::date('otDate', '', ['class' =>
                                         'form-control','id'=>'otDate','name'=>'otDate'])
@@ -168,44 +150,42 @@
                                 </div>
                         </div>
                 </div>
+            <div class="row">
+                    <div class="col-md-offset-3 col-sm-2">
 
-                        <div class="row">
-                                <div class="col-md-offset-3 col-sm-2">
+                            <div class="form-group">
+                                    {!! Form::label('diagnosis', 'Diagnosis:*') !!}
+                            </div>
+                    </div>
+                    <div class="col-sm-8">
 
-                                        <div class="form-group">
-                                                {!! Form::label('diagnosis', 'Diagnosis:*') !!}
-                                        </div>
-                                </div>
-                                <div class="col-sm-8">
+                            <div class="form-group">
+                                    {!!
+                                    Form::textarea('diagnosis',null,['class'=>'form-control',
+                                    'id'=>'diagnosis','name'=>'diagnosis','rows' =>
+                                    3, 'cols' => 40,'placeholder'=>'diagnosis'])
+                                    !!}
+                            </div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-offset-3 col-sm-2">
 
-                                        <div class="form-group">
-                                                {!!
-                                                Form::textarea('diagnosis',null,['class'=>'form-control',
-                                                'id'=>'diagnosis','name'=>'diagnosis','rows' =>
-                                                3, 'cols' => 40,'placeholder'=>'diagnosis'])
-                                                !!}
-                                        </div>
-                                </div>
-                        </div>
-
-                        <div class="row">
-                                <div class="col-md-offset-3 col-sm-2">
-
-                                        <div class="form-group">
-                                                {!! Form::label('otProcessure', 'OT
-                                                Processure:*') !!}
-                                        </div>
-                                </div>
-                                <div class="col-sm-8">
-                                        <div class="form-group">
-                                                {!!
-                                                Form::textarea('otProcessure',null,['class'=>'form-control',
-                                                'id'=>'otProcessure','name'=>'otProcessure','rows'
-                                                => 3, 'cols' =>
-                                                40,'placeholder'=>'otprocessre']) !!}
-                                        </div>
-                                </div>
-                        </div>
+                            <div class="form-group">
+                                    {!! Form::label('otProcessure', 'OT
+                                    Processure:*') !!}
+                            </div>
+                    </div>
+                    <div class="col-sm-8">
+                            <div class="form-group">
+                                    {!!
+                                    Form::textarea('otProcessure',null,['class'=>'form-control',
+                                    'id'=>'otProcessure','name'=>'otProcessure','rows'
+                                    => 3, 'cols' =>
+                                    40,'placeholder'=>'otprocessre']) !!}
+                            </div>
+                    </div>
+            </div>
                         <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
@@ -225,7 +205,6 @@
                                         </div>
                                 </div>
                         </div>
-
                         <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
 
@@ -288,29 +267,26 @@
                         </div>
                   </div>
 
-                        <div class="row">
-                                <div class="col-md-offset-3 col-sm-2">
+                    <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                    <div class="form-group">
+                                            {!! Form::label('medicine2', 'Medicine<span
+                                                    class="badge badge-danger control-label">2</span>',[],false)
+                                            !!}
+                                    </div>
+                            </div>
+                            <div class="col-sm-8">
+                                    <div class="form-group">
 
-                                        <div class="form-group">
-                                                {!! Form::label('medicine2', 'Medicine<span
-                                                        class="badge badge-danger control-label">2</span>',[],false)
-                                                !!}
-                                        </div>
-                                </div>
-                                <div class="col-sm-8">
-
-                                        <div class="form-group">
-
-                                                {!! Form::select('medicine2',
-                                                $medicine,
-                                                '',
-                                                ['class' =>
-                                                'form-control','id'=>'medicine2','name'=>'medicine2','placeholder'=>'select medicine 2'])
-                                                !!}
-                                        </div>
-                                </div>
-                        </div>
-
+                                            {!! Form::select('medicine2',
+                                            $medicine,
+                                            '',
+                                            ['class' =>
+                                            'form-control','id'=>'medicine2','name'=>'medicine2','placeholder'=>'select medicine 2'])
+                                            !!}
+                                    </div>
+                            </div>
+                    </div>
                         <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
 
@@ -321,7 +297,6 @@
                                         </div>
                                 </div>
                                 <div class="col-sm-8">
-
                                         <div class="form-group">
 
                                                 {!! Form::select('medicine3',
@@ -333,7 +308,6 @@
                                         </div>
                                 </div>
                         </div>
-
                         <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
 
@@ -352,7 +326,6 @@
                                         </div>
                                 </div>
                         </div>
-
                         <center>
                                 <button class="btn btn-square btn-success" type="submit">Submit
                                 </button>
@@ -360,8 +333,7 @@
                                         Cancel
                                 </button>
                         </center>
-
-                                                {!! Form::close() !!}
+                        {!! Form::close() !!}
                                         </div>
                                 </div>
                         </div>
@@ -415,9 +387,6 @@
                                 $('#age').val(data.age);
                                 $('#gender').val(data.gender);
                                 $('#address').val(data.address);
-                                // $('#otDate').val(data.otDate);
-
-
 
                         }
 

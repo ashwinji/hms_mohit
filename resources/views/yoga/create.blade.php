@@ -1,209 +1,197 @@
-@extends('master.layouts.app')
-@section('main-content')
-<div class="page">
-    <div class="row ">
-        <div class="col-lg-11">
-            <div class="card">
-                 <div class="card-header">
-                      <h3 class="mb-0 card-title">YOGA EXAMINATION</h3>
-                      <div class="card-body">
-                      <div class="btn-list" style="float: right;">
-                        
-                        <a href="{{route('yoga-filter')}}" class="btn btn-square btn-xs btn-success">Show Yoga Examination Patient List</a>
-                        
-                      </div>
-
-                  </div>
+    @extends('master.layouts.app')
+    @section('main-content')
+    <div class="page">
+        <div class="row ">
+            <div class="col-lg-11">
+                <div class="card">
+                     <div class="card-header">
+                          <h3 class="mb-0 card-title">YOGA EXAMINATION</h3>
+                        <div class="card-body">
+                          <div class="btn-list" style="float: right;">
+                            <a href="{{route('yoga-filter')}}" class="btn btn-square btn-xs btn-success">Show Yoga Examination Patient List
+                            </a>
+                          </div>
+                       </div>
                     </div>
-                <div class="card-body">
-                @include('verror.error')
+    <div class="card-body">
+         @include('verror.error')
                   {!! Form::open(array('route' => 'yoga.store','files'=>'true','class'=>'fixed','id'=>'profile-form','autocomplete'=>'off')) !!}
                         <div class="col-md-12">
                            <div class="row">
-
                            </div>
                            <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
-                                                {!! Form::label('opdNUM', 'OPD Number:*') !!}
+                                {!! Form::label('opdNUM', 'OPD Number:*') !!}
                                         </div>
                                 </div>
                                 <div class="col-sm-3">
                                         <div class="form-group">
-                                       {!! Form::text('opdNum', '',['class' => 'form-control','id'=>'opdNum','name'=>'opdNum','placeholder'=>'OPD Registration number']) !!}
+                                {!! Form::text('opdNum', '',['class' => 'form-control','id'=>'opdNum','name'=>'opdNum','placeholder'=>'OPD Registration number']) !!}
                                         <div id="opd-reg-list"></div>
                                         </div>
                                 </div>
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
-                                                {!! Form::label('opdDate', 'OPD Date:*') !!}
+                                {!! Form::label('opdDate', 'OPD Date:*') !!}
                                         </div>
                                </div>
                                <div class="col-sm-3">
                                        <div class="form-group">
-                                               {!! Form::date('opdDate', '', ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD date','readonly'=>'true']) !!}
+                                {!! Form::date('opdDate', '', ['class' => 'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD date','readonly'=>'true']) !!}
                                        </div>
                                </div>
                          </div>
                          <div class="row">
                               <div class="col-md-offset-3 col-sm-2">
                                       <div class="form-group">
-                                              {!! Form::label('patientName', 'PatientName:*') !!}
+                                {!! Form::label('patientName', 'PatientName:*') !!}
                                       </div>
                               </div>
                               <div class="col-sm-8">
                                       <div class="form-group">
-                                              {!! Form::text('patientName', '', ['class' => 'form-control','name'=>'patientName','id'=>'patientName','readonly'=>'true']) !!}
+                                {!! Form::text('patientName', '', ['class' => 'form-control','name'=>'patientName','id'=>'patientName','readonly'=>'true']) !!}
                                       </div>
                               </div>
                          </div>
                          <div class="row">
                               <div class="col-md-offset-3 col-sm-2">
                                       <div class="form-group">
-                                              {!! Form::label('ipdRegNum', 'IPD Number:*') !!}
+                              {!! Form::label('ipdRegNum', 'IPD Number:*') !!}
                                       </div>
                               </div>
                               <div class="col-sm-3">
                                       <div class="form-group">
-                                              {!! Form::text('ipdRegNum', '', ['class' => 'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD Registration number','readonly'=>'true']) !!}
+                              {!! Form::text('ipdRegNum', '', ['class' => 'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD Registration number','readonly'=>'true']) !!}
                                       </div>
                               </div>
                               <div class="col-md-offset-3 col-sm-2">
                                       <div class="form-group">
-                                              {!! Form::label('ipdRegNUM', 'IPD Date:*') !!}
+                             {!! Form::label('ipdRegNUM', 'IPD Date:*') !!}
                                       </div>
                              </div>
                              <div class="col-sm-3">
                                      <div class="form-group">
-                                             {!! Form::date('ipdDate', '', ['class' => 'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD date','readonly'=>'true']) !!}
+                             {!! Form::date('ipdDate', '', ['class' => 'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD date','readonly'=>'true']) !!}
                                      </div>
                              </div>
                            </div>
                            <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
-                                                {!! Form::label('age', 'AGE:*') !!}
+                             {!! Form::label('age', 'AGE:*') !!}
                                         </div>
                                 </div>
                                 <div class="col-sm-3">
                                         <div class="form-group">
-                                                {!! Form::text('age', '', ['class' => 'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE','readonly'=>'true']) !!}
+                             {!! Form::text('age', '', ['class' => 'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE','readonly'=>'true']) !!}
                                         </div>
                                 </div>
                                 <div class="col-md-offset-3 col-sm-2">
                                         <div class="form-group">
-                                                {!! Form::label('gender', 'GENDER:*') !!}
+                             {!! Form::label('gender', 'GENDER:*') !!}
                                         </div>
                                </div>
                                <div class="col-sm-3">
                                        <div class="form-group">
-                                               {!! Form::text('gender', '', ['class' => 'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER','readonly'=>'true']) !!}
+                             {!! Form::text('gender', '', ['class' => 'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER','readonly'=>'true']) !!}
                                        </div>
                                </div>
                              </div>
-                             <div class="row">
+                            <div class="row">
                                   <div class="col-md-offset-3 col-sm-2">
                                           <div class="form-group">
-                                                  {!! Form::label('address', 'Address:*') !!}
+                             {!! Form::label('address', 'Address:*') !!}
                                           </div>
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-                                                  {!! Form::text('address', '', ['class' => 'form-control','id'=>'address','placeholder'=>'address','readonly'=>'true']) !!}
+                             {!! Form::text('address', '', ['class' => 'form-control','id'=>'address','placeholder'=>'address','readonly'=>'true']) !!}
                                           </div>
                                   </div>
-                             </div>
-                               <div class="row">
+                            </div>
+                           <div class="row">
                                   <div class="col-md-offset-3 col-sm-2">
                                           <div class="form-group">
-                                                  {!! Form::label('address', 'Reffered By:*') !!}
+                            {!! Form::label('address', 'Reffered By:*') !!}
                                           </div>
                                   </div>
-                                  <div class="col-sm-8">
-                                          <div class="form-group">
-                                                  {!! Form::text('refferedby', '', ['class' => 'form-control','id'=>'refferedby','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
+                          <div class="col-sm-8">
+                          <div class="form-group">
+                           {!! Form::text('refferedby', '', ['class' => 'form-control','id'=>'refferedby','placeholder'=>'RefferedBY','readonly'=>'true']) !!}
                                           </div>
                                   </div>
-                             </div>
-                             <div class="row">
-                                  <div class="col-md-offset-3 col-sm-2">
-                                          <div class="form-group">
-                                                  {!! Form::label('otDate', 'TESTDate:*') !!}
+                          </div>
+                         <div class="row">
+                          <div class="col-md-offset-3 col-sm-2">
+                                  <div class="form-group">
+                           {!! Form::label('otDate', 'TESTDate:*') !!}
                                           </div>
                                   </div>
                                   <div class="col-sm-3">
                                           <div class="form-group">
-                                                  {!! Form::date('yogadate', '', ['class' => 'form-control','id'=>'yogadate','name'=>'yogadate']) !!}
+                           {!! Form::date('yogadate', '', ['class' => 'form-control','id'=>'yogadate','name'=>'yogadate']) !!}
                                           </div>
                                   </div>
-                             </div>
-                             <div class="row">
-                                  <div class="col-md-offset-3 col-sm-2">
-                                          <div class="form-group">
-                                                  {!! Form::label('diagnosis', 'Disease diagnosis:*') !!}
+                        </div>
+                        <div class="row">
+                             <div class="col-md-offset-3 col-sm-2">
+                                 <div class="form-group">
+                         {!! Form::label('diagnosis', 'Disease diagnosis:*') !!}
                                           </div>
                                   </div>
                                   <div class="col-sm-8">
                                           <div class="form-group">
-
                           {!! Form::select('disease',$disease,'',['class' => 'form-control','id'=>'disease','name'=>'disease','placeholder'=>'select disease'])
-                                                  !!}
+                         !!}
                                           </div>
                                   </div>
                               </div>
                             
-                              <div class="row">
-                                      <div class="col-md-offset-3 col-sm-2">
+                        <div class="row">
+                               <div class="col-md-offset-3 col-sm-2">
                                               <div class="form-group">
-                                                      {!! Form::label('exersize', 'Exersize') !!}
+                         {!! Form::label('exersize', 'Exersize') !!}
                                               </div>
                                       </div>
                                       <div class="col-sm-8">
                                               <div class="form-group">
-                                                      {!! Form::text('exersize', '', ['class' => 'form-control','id'=>'exersize','name'=>'exersize','placeholder'=>'exersize']) !!}
+                         {!! Form::text('exersize', '', ['class' => 'form-control','id'=>'exersize','name'=>'exersize','placeholder'=>'exersize']) !!}
                                               </div>
+                                      </div>
+                        </div>
+                      <div class="row">
+                              <div class="col-md-offset-3 col-sm-2">
+                                      <div class="form-group">
+                        {!! Form::label('other', 'Other') !!}
                                       </div>
                               </div>
-                            
-                              <div class="row">
-                                      <div class="col-md-offset-3 col-sm-2">
-                                              <div class="form-group">
-                                                      {!! Form::label('other', 'Other') !!}
-                                              </div>
-                                      </div>
-                                      <div class="col-sm-8">
-                                              <div class="form-group">
-                                                      {!! Form::text('other', '', ['class' => 'form-control','id'=>'other','name'=>'other','placeholder'=>'other']) !!}
-                                              </div>
-                                      </div>
-                              </div>
-                            
-                             
-                                 
-                                          <div class="row">
-                                               <div class="col-md-offset-3 col-sm-2">
-                                                       <div class="form-group">
-                                                               {!! Form::label('Remark', 'Remark:*') !!}
-                                                       </div>
-                                               </div>
-                                               <div class="col-sm-8">
-                                                       <div class="form-group">
-                                                             {!! Form::textarea('Remark',null,['class'=>'form-control', 'id'=>'Remark','rows' => 3, 'cols' => 40,'placeholder'=>'Remark','name'=>'Remark']) !!}
-                                                       </div>
-                                               </div>
-                                          </div>
+                            <div class="col-sm-8">
+                                 <div class="form-group">
+                        {!! Form::text('other', '', ['class' => 'form-control','id'=>'other','name'=>'other','placeholder'=>'other']) !!}
+                                 </div>
+                            </div>
+                      </div>
+                     <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                    <div class="form-group">
+                        {!! Form::label('Remark', 'Remark:*') !!}
+                                    </div>
+                            </div>
+                               <div class="col-sm-8">
+                                       <div class="form-group">
+                         {!! Form::textarea('Remark',null,['class'=>'form-control', 'id'=>'Remark','rows' => 3, 'cols' => 40,'placeholder'=>'Remark','name'=>'Remark']) !!}
+                                       </div>
+                               </div>
+                    </div>
+                       <center >  
+                               <button class="btn btn-square btn-success" type="submit" >Submit
+                               </button>
+                               <a href="{{route('dashboard')}}"  class="btn  btn-square btn-danger" type="reset">Cancel
+                               </a>
+                      </center>
 
-
-
-
-                                               <center >    <button class="btn btn-square btn-success" type="submit" >Submit</button>
-
-
-                                                       <a href="{{route('dashboard')}}"  class="btn  btn-square btn-danger" type="reset">Cancel</a>
-
-                                                </center>
-
-                                        {!! Form::close() !!}
+                        {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -214,8 +202,7 @@
 @section('footerSection')
 <script  src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous">
-    
+  crossorigin="anonymous"> 
 </script>
   <script type="text/javascript">
 
@@ -269,6 +256,4 @@
     }); 
         
    </script>
-        
-
 @endsection

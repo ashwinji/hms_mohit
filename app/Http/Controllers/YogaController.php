@@ -142,13 +142,11 @@ class YogaController extends Controller
             ->join('opds', 'yogas.patientId', '=','opds.regNum')
             ->get();
         return DataTables::of($yogas)
-        ->editColumn('referredBy',function($data){
-            return $data->doctorName->name;})
         ->addColumn('action', function($data){
       
-         return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger">%s</button>
-             <button  data-id="%s" class="%s btn btn-square btn-info">%s</button>
-               <a href="%s">%s</a></div>',
+         return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger" data-toggle="tooltip" data-placement="top" title="delete">%s</button>
+             <button  data-id="%s" class="%s btn btn-square btn-info" data-toggle="tooltip" data-placement="top" title="view">%s</button>
+               <a href="%s" data-toggle="tooltip" data-placement="top" title="edit">%s</a></div>',
                route('yoga.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
                 $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
                  route('yoga.edit',['id'=>$data['id']]),'<i class="btn btn-danger fa fa-edit editYoga"></i>');
