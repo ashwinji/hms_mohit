@@ -14,56 +14,57 @@
             <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
             <span class="pull-right" style="padding-right: 5px">
               <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
-            </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
+            </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);" ></a>
           </div>
 
           <table class="table table-bordered table-striped table-hovered">
             <thead>
-              <tr>
-                <b>
-                  <th>Registration Number </th>
-                </b>
-                <td>{{ $data->opd->regNum }}</td>
-                <th>Registration Date </th>
-                <td>{{ $data->opd->regDate }}</td>
-              </tr>
+             
               <tr>
 
                 <th>Name </th>
                 <td colspan="3">{{ $data->opd->patientName }} </td>
               </tr>
               <tr>
-                <th>Gender </th>
-                <td>{{ $data->opd->gender }}</td>
                 <th>Age </th>
                 <td>{{ $data->opd->age }}</td>
+                <th>Gender </th>
+                <td>{{ $data->opd->gender }}</td>
               </tr>
               <tr>
-                <th>Address </th>
-                <td colspan="3">{{ $data->opd->address }}</td>
-              </tr>
               <th>Referred By </th>
               <td>{{$data->referredBy}}</td>
               <th>Test Date </th>
-              <td>{{$data->yogadate}}</td>
+              <td>05-01-2019</td>
               </tr>
               <tr>
-              <tr>
-                <th>Disease diagnosis</th>
-                <td>{{$data->diseaseName->name}}</td>
-                <th>Exercise</th>
-                <td>{{$data->exersise}}</td>
+              	<th>Investigation Advised</th>
+              	<td>{{$data->investigationAdvised}}</td>
+                <th>opd</th>
+               <td colspan="3"> {{ $data->opd->regNum }}</td>
               </tr>
-                    <tr>
-                      <th>Other</th>
-                      <td colspan="3">{{$data->other}}</td>
-                    </tr>
-                    <tr>
-                      <th>Remark </th>
-                      <td> {{$data->remark}}></td>
-                    </tr>
-              <thead>
+              
+              </thead>
           </table>
-        </div>
-      </div>
-    </div>
+          <div class="text-center text-white font-weight-bold">
+          <div class="label label-danger " style="text-color:#FF0000">REPORT</div>
+          </div>
+          
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+<table class="table table-bordered table-striped table-hovered">
+                    <tbody><tr>
+                      <td>test</td>
+                    </tr>
+                    <tr>
+                      <th> Other : test</th>
+                    </tr>
+                  </tbody>
+</table>
+</div>
+</div>

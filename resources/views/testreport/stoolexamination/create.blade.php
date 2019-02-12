@@ -9,7 +9,7 @@
 							<h3 class="mb-0 card-title">STOOL EXAMINATION</h3>
 								<div class="card-body">
 									<div class="btn-list" style="float: right;">
-										<a href="#" class="btn btn-xs btn-success">Show Stool Examination Pateints List
+										<a href="{{route('stool-filter')}}" class="btn btn-xs btn-success">Show Stool Examination Pateints List
 										</a>	
 									</div>
 								</div>
@@ -182,7 +182,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div >
-									    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
+									    <a href="{{route('dashboard')}}"><button class="btn btn-square btn-primary">Cancel</button></a>
 								      </div>
 									</div>
 								</div>

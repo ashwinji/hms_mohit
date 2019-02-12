@@ -37,10 +37,11 @@ class stoolexamination extends Model
   'other',
     ];
 
-public function opd()
-{
+  public function opd()
+    {
 
-	$this->belongsToOne(opd::class,'patientId','id');
-}
+      return $this->belongsTo(opd::class,'patientId','id');
+
+    }
 
 }

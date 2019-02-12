@@ -6,10 +6,10 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="mb-0 card-title">X-RAY REGISTRATION</h3>
+							<h3 class="mb-0 card-title">X-RAY UPDATE</h3>
 							<div class="card-body">
 								 <div class="btn-list" style="float: right;">				
-									<a href="#" class="btn btn-xs btn-success">Show X-ray Examination Pateints List
+									<a href="{{route('xray-filter')}}" class="btn btn-xs btn-success">Show X-ray Examination Pateints List
 									</a>	
 								</div>
 							</div>
@@ -17,29 +17,30 @@
 	<div class="card-body">
 		<div class="row">		
 			<div class="col-md-12">
-			{!! Form::open(['route' => ['xray.store'],'autocomplete'=>'off']) !!}
+			{!! Form::open(['route' => ['xray.update',$xray->id],'autocomplete'=>'off']) !!}
 			{!! csrf_field() !!}
+			{!!method_field('PUT')!!}
 			{{ Form::hidden('status', '1') }}
 				<div class="row">
 	  				<div class="offset-md-2 col-md-8 offset-md-2">
 					<div class="form-group">		
 			{!! Form::label('name', 'OPD Registration Number') !!}
-	        {!! Form::text('opd_id', '', ['class' => 'form-control dynamic_opd',
+	        {!! Form::text('patientId',$xray->opd->regNum, ['class' => 'form-control dynamic_opd',
 	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
 						        <div id="opd_list">
 						        </div>
 								</div>
 								<div class="form-group">
 			{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','Disabled']) !!}
+	        {!! Form::text('patientName', $xray->opd->patientName, ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'patientName','readonly'=>'true']) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate',  null, ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','Disabled']) !!}
+	        {!! Form::date('opdDate',$xray->opd->regDate, ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::select('referredBy', ['' => 'Referred By', 'S' => 'Small', 'Sz' => 'Smallz',],  null, ['class' => 'form-control','disabled']) !!}
+	        {!! Form::text('referredBy',, ['class' => 'form-control','readonly'=>'true']) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'Investigation Advised') !!}

@@ -6,35 +6,35 @@
 <body>
  @include('verror.error')
 <div class="page">
-        <div class="row">
-				<div class="col-md-12 col-lg-12">
-						<div class="card">
-							<div class="card-header">
-								<div class="card-title">STOOL EXAMINATION PATIENTS LIST</div>
+     <div class="row">
+		<div class="col-md-12 col-lg-12">
+			<div class="card">
+				        <div class="card-header">
+						<div class="card-title">xray EXAMINATION PATIENTS LIST</div>
+				       </div>
+							<div class="card-body">
+                                <div class="table-responsive">
+								<table id="xray" class="table table-striped table-bordered w-100">
+										<thead>
+										<tr>
+				                            <th class="wd-15p">Id</th>
+				                            <th class="wd-15p">Name</th>
+				                            <th class="wd-15p">OPDRegNUM</th>
+				                            <th class="wd-15p">OPDdate</th>
+                                            <th class="wd-15p">RefferedBy</th>
+				                            <th class="wd-15p">Age</th>
+				                            <th class="wd-15p">Investigation</th>
+				                            <th class="wd-15p">TestDate</th>
+				                            <th class="wd-15p">Action</th>
+                                        </tr> 
+										</thead>
+								</table>
 							</div>
-								<div class="card-body">
-                                	<div class="table-responsive">
-    									<table id="stool" class="table table-striped table-bordered w-100">
-    										<thead>
-    										 <tr>
-    				                            <th class="wd-15p">Id</th>
-    				                            <th class="wd-15p">Name</th>
-    				                            <th class="wd-15p">OPDRegNUM</th>
-    				                            <th class="wd-15p">OPDdate</th>
-                                                <th class="wd-15p">RefferedBy</th>
-    				                            <th class="wd-15p">Age</th>
-    				                            <th class="wd-15p">Investigation</th>
-    				                            <th class="wd-15p">TestDate</th>
-    				                            <th class="wd-15p">Action</th>
-                                            </tr> 
-    										</thead>
-    									</table>
-								  </div>
-                             </div>
-						</div>
-			 	 </div> 
-		  </div>
-  </div>
+                        </div>
+				</div>
+		</div>
+	</div>
+</div>
 
  <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
             <div class="modal-dialog modal-lg " role="document">
@@ -56,10 +56,10 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        oTable = $('#stool').DataTable({
+        oTable = $('#xray').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('sendstooldata')}}",
+            "ajax": "{{route('sendxraydata')}}",
             "columns": [
                 { data: 'id', name: 'id' },
                 { data: 'patientName', name: 'patientName' },
@@ -102,7 +102,7 @@
             "_token": token,
         },
         success: function (res){
-           $('#stool').DataTable().ajax.reload();
+           $('#xray').DataTable().ajax.reload();
         },
         error: function (data) {
                      
@@ -138,7 +138,7 @@
        
         $.ajax(
             {
-                url: '{{route("stool-show")}}',
+                url: '{{route("xray-show")}}',
                 type: 'POST',
                 dataType: 'json',
                 data: {

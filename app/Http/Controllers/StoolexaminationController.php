@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Model\stoolexamination;
-use App\Model\opd;
 use Illuminate\Http\Request;
+use App\Model\semenexamination;
+use App\Model\bloodexamination;
+use App\Model\ot;
+use App\Model\opd;
+use DB;
+use DataTables;
 
 class StoolexaminationController extends Controller
 {
@@ -51,7 +56,7 @@ class StoolexaminationController extends Controller
    public function show(Request $request)
     {
         $id=$request->id;
-        $data=stoolexaminations::where('id','=',$id)->first();
+        $data=stoolexamination::where('id','=',$id)->first();
         $content=\View::make('testreport.stoolexamination.view',compact('data'));
         $a=$content->render();
       return response()->json([
@@ -68,8 +73,8 @@ class StoolexaminationController extends Controller
      */
     public function edit($id)
     {
-           $serun=stoolexamination::where('id',$id)->first();
-        return view('testreport.serunofwidal.edit',compact('serun'));
+           $stool=stoolexamination::where('id',$id)->first();
+        return view('testreport.stoolexamination.edit',compact('stool'));
     }
 
     /**
@@ -83,7 +88,7 @@ class StoolexaminationController extends Controller
     {
           $serun=stoolexamination::where('id',$id)->first();
           $serun->update($request->all());
-          return redirect (route('serun-create'))->with('message','update  sussefully');
+          return redirect (route('stool-create'))->with('message','update  sussefully');
     }
 
     /**
@@ -101,23 +106,23 @@ class StoolexaminationController extends Controller
       }
           public function datatable()
     {
-        return view('testreport.serunofwidal.serunfilter');
+        return view('testreport.stoolexamination.stoolexaminationfilter');
     }
-public function sendserundata()
+public function sendstooldata()
     {
            $data=stoolexamination::all();
-           $serun= stoolexamination::select('stoolexaminations.id','opds.regDate','stoolexaminations.referredBy','opds.regNum','opds.patientName','stoolexaminations.date','stoolexaminations.investigationAdvised','opds.age')
+           $stool= stoolexamination::select('stoolexaminations.id','opds.regDate','stoolexaminations.referredBy','opds.regNum','opds.patientName','stoolexaminations.date','stoolexaminations.investigationAdvised','opds.age')
             ->join('opds', 'stoolexaminations.patientId', '=','opds.regNum')
             ->get();
-            return DataTables::of($serun)->addColumn('action', function($data){
+            return DataTables::of($stool)->addColumn('action', function($data){
 
               return sprintf(
                 '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                  <a href="%s">%s</a></div>',
-                route('serun.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
+                route('stool.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
               $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('serun.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                route('stool.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
                 );
               
             })   

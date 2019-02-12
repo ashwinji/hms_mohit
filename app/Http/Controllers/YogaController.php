@@ -45,13 +45,14 @@ class YogaController extends Controller
         $this->validate($request,[
                 
         ]);
+          // d($request->all());
              $yoga=new yoga;
              $yoga->patientId=$request->opdNum;
              $yoga->referredBy=$request->refferedby;
              $yoga->age=$request->age;
-             $yoga->investigationAdvised=$request->advicedTherapy;
+             // $yoga->investigationAdvised=$request->advicedTherapy;
              $yoga->yogadate=$request->yogadate;
-             $yoga->disease=$request->diagnosis;
+             $yoga->disease=$request->disease;
              $yoga->exersise=$request->exersize;
              $yoga->other=$request->other;
              $yoga->remark=$request->Remark;

@@ -126,7 +126,7 @@
 		<div class="row">
 			<div class="col-md-offset-3 col-sm-2">
 				<div class="form-group">
-				{!! Form::label('Consultant', 'Consultant:*')!}
+				{!! Form::label('Consultant', 'Consultant:*')!!}
 				</div>
 			</div>
 			<div class="col-sm-8">
