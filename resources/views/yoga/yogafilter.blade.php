@@ -37,8 +37,8 @@
 </div>
 
   <div class="modal fade" id="id-largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
-                <div class="modal-dialog modal-lg " role="document">
-                    <div class="modal-content">
+         <div class="modal-dialog modal-lg " role="document">
+                 <div class="modal-content">
                         
                         <div class="modal-body">
                             <div id="yoga-view">
@@ -49,9 +49,9 @@
                             <button type="button" class="btn btn-square btn-danger" data-dismiss="modal">Close</button>
 
                         </div>
-                    </div>
                 </div>
-</div>
+        </div>
+ </div>
 </body>
 @endsection
 
@@ -135,7 +135,7 @@
     $(document).on('click', ".viewRecord", function (e) {
         var id = $(this).data('id');
         var token = $("meta[name='csrf-token']").attr("content");
-        alert(id);
+        
         $.ajax(
             {
                 url: '{{route("yoga-show")}}',

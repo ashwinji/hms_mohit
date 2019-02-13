@@ -1,4 +1,7 @@
     @extends('master.layouts.app')
+    @section('headSection')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @endsection
     @section('main-content')
     <div class="page">
         <div class="row ">
@@ -256,4 +259,41 @@
     }); 
         
    </script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    
+    $("#disease").on("change", function() {
+       var id= $("#disease").val();
+        var token = $("meta[name='csrf-token']").attr("content");
+       
+  $.ajax({
+                url: '{{route("getexercise")}}',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id,
+                    _token: token,
+                },
+                success: function (res) {
+ 
+                    if(res.status==true){
+                      $('#exersize').val(res.excersise);
+                    }
+                },
+                error: function (data) {
+
+                }
+            });
+        
+    });
+});
+
+
+
+</script>
+
+
+
 @endsection

@@ -325,3 +325,39 @@ Route::group(['prefix'=>'disease'], function(){
 
 
 });
+//yogalist routes
+ Route::group(['prefix'=>'yogalist'], function(){
+
+ 		Route::get('/','YogalistController@index')->name('yogalist');
+
+ 		Route::get('/addyogalist','YogalistController@create')->name('yogalist.create');
+
+ 		Route::post('/storeyogalist','YogalistController@store')->name('yogalist.store');
+
+ 		Route::get('delete/{id}','YogalistController@destroy')->name('yogalist.delete');
+
+ 		Route::get('/edit/{id}','YogalistController@edit')->name('yogalist.edit');
+
+        Route::post('/update/{id}','YogalistController@update')->name('yogalist.update');
+
+        Route::Post('/getexersize','YogalistController@getexercise')->name('getexercise');
+
+
+ });
+//phocodisease routes
+Route::group(['prefix'=>'phycodisease'], function(){
+
+		Route::get('/','PshycodiseaseController@index')->name('phycodisease');
+
+		Route::get('/addphycodisease','PshycodiseaseController@create')->name('phycodisease.create');
+
+		Route::post('/storephycodisease','PshycodiseaseController@store')->name('phycodisease.store');
+
+		Route::get('delete/{id}','PshycodiseaseController@destroy')->name('phycodisease.delete');
+
+		Route::get('/edit/{id}','PshycodiseaseController@edit')->name('phycodisease.edit');
+        Route::post('/update/{id}','PshycodiseaseController@update')->name('phycodisease.update');
+         Route::Post('/gettherapy','PshycodiseaseController@gettherapy')->name('gettherapy');
+
+});
+

@@ -132,7 +132,7 @@
     $(document).on('click', ".viewRecord", function (e) {
         var id = $(this).data('id');
         var token = $("meta[name='csrf-token']").attr("content");
-        alert(id);
+    
         $.ajax(
             {
                 url: '{{route("ot-show")}}',

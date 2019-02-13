@@ -181,13 +181,16 @@
                 <a href="{{route('wardname.create') }}" class="slide-item">wardNO</a>
               </li>
                <li>
-                <a href="" class="slide-item">yogalist</a>
+                <a href="{{route('yogalist.create')  }}" class="slide-item">yogalist</a>
               </li>
                <li>
                 <a href="" class="slide-item">physiotherapylist</a>
               </li> 
                <li>
                 <a href="{{route('disease.create') }}" class="slide-item">diseaselist</a>
+              </li>
+                <li>
+                <a href="{{route('phycodisease.create') }}" class="slide-item">phycodiseaselist</a>
               </li>
                <li>
                 <a href="{{route('investigation.create') }}" class="slide-item">investigation</a>

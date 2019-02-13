@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\yogalist;
+use App\Model\yogalist;
+use App\Model\doctorlist;
+use App\Model\disease;
 use Illuminate\Http\Request;
 
 class YogalistController extends Controller
@@ -14,72 +16,55 @@ class YogalistController extends Controller
      */
     public function index()
     {
-        //
+        $yogalistdata=yogalist::all();
+        return view('otherlist.yogalist.yogalist',compact('yogalistdata'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $disease=disease::all()->pluck('name','id');
+        return view('otherlist.yogalist.addyogalist',compact('disease'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+            $yogaliststore= new yogalist;
+            $yogaliststore->disease=$request->disease;
+            $yogaliststore->exersise=$request->exersise;
+            $yogaliststore->save();
+
+            return redirect()->route('yogalist');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\yogalist  $yogalist
-     * @return \Illuminate\Http\Response
-     */
-    public function show(yogalist $yogalist)
+    public function destroy(request $request,$id)
     {
-        //
+        $yogalistdelete=yogalist::where('id',$id)->delete();
+        return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\yogalist  $yogalist
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(yogalist $yogalist)
+    public function edit(request $request,$id)
     {
-        //
+        $yogalist=yogalist::where('id',$id)->first();
+        return view('otherlist.yogalist.edityogalist',compact('yogalist'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\yogalist  $yogalist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, yogalist $yogalist)
+    public function update(Request $request,$id)
     {
-        //
-    }
+        $yogalist=yogalist::findorfail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\yogalist  $yogalist
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(yogalist $yogalist)
+        $yogalist->update($request->all());
+
+        return redirect()->route('yogalist');
+        
+    }
+    public function getexercise(Request $request)
     {
-        //
+
+      $val=$request->all();
+      $id=$request->id;
+      $data=yogalist::where('disease',$id)->pluck('exersise')->toArray();
+      $excersise=implode(",",$data);
+      return response()->json(['excersise'=>$excersise,'status'=>true]);
+
     }
 }

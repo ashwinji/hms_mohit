@@ -1,16 +1,15 @@
 <?php
 
-namespace App\model;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class yogalist extends Model
+class Pshycodisease extends Model
 {
     protected $fillable=[
-    
 
-     'disease',
-     'exersise',
+
+      'name',
 
 
     ];
