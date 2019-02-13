@@ -344,7 +344,7 @@ Route::group(['prefix'=>'disease'], function(){
 
 
  });
-//phocodisease routes
+//physio disease routes
 Route::group(['prefix'=>'phycodisease'], function(){
 
 		Route::get('/','PshycodiseaseController@index')->name('phycodisease');
@@ -361,3 +361,21 @@ Route::group(['prefix'=>'phycodisease'], function(){
 
 });
 
+Route::group(['prefix'=>'physiotherapylist'], function(){
+
+ 		Route::get('/','PhysiotherpyController@index')->name('physiotherapylist');
+
+ 		Route::get('/addphysiotherapylist','PhysiotherpyController@create')->name('Physiotherapylist.create');
+
+ 		Route::post('/storephysiotherapylist','PhysiotherpyController@store')->name('physiotherapylist.store');
+
+ 		Route::get('delete/{id}','PhysiotherpyController@destroy')->name('physiotherapylist.delete');
+
+ 		Route::get('/edit/{id}','PhysiotherpyController@edit')->name('physiotherapylist.edit');
+
+        Route::post('/update/{id}','PhysiotherpyController@update')->name('physiotherapylist.update');
+
+        Route::Post('/getexersize','PhysiotherpyController@getexercise')->name('getexercise');
+
+
+ });

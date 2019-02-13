@@ -17,15 +17,15 @@
 								<table id="xray" class="table table-striped table-bordered w-100">
 										<thead>
 										<tr>
-				                            <th class="wd-15p">Id</th>
-				                            <th class="wd-15p">Name</th>
-				                            <th class="wd-15p">OPDRegNUM</th>
-				                            <th class="wd-15p">OPDdate</th>
-                                            <th class="wd-15p">RefferedBy</th>
-				                            <th class="wd-15p">Age</th>
-				                            <th class="wd-15p">Investigation</th>
-				                            <th class="wd-15p">TestDate</th>
-				                            <th class="wd-15p">Action</th>
+				                            <th>Id</th>
+				                            <th>Name</th>
+				                            <th>OPDRegNUM</th>
+				                            <th>OPDdate</th>
+                                            <th>RefferedBy</th>
+				                            <th>Age</th>
+				                            <th>Investigation</th>
+				                            <th>TestDate</th>
+				                            <th>Action</th>
                                         </tr> 
 										</thead>
 								</table>

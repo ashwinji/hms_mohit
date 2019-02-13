@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\physiotherapylist;
+use App\Model\physiotherapylist;
 use Illuminate\Http\Request;
 
 class PhysiotherapylistController extends Controller
@@ -14,72 +14,55 @@ class PhysiotherapylistController extends Controller
      */
     public function index()
     {
-        //
+        $physiotherapylist=physiotherapylist::all();
+        return view('otherlist.physiotherapylist.physiotherapylist',compact('physiotherapylist'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $disease=pshycodisease::all()->pluck('name','id');
+        return view('otherlist.yogalist.addyogalist',compact('disease'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+            $yogaliststore= new physiotherapylist;
+            $yogaliststore->disease=$request->disease;
+            $yogaliststore->exersise=$request->therapy;
+            $yogaliststore->save();
+
+            return redirect()->route('physiotherapylist');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\physiotherapylist  $physiotherapylist
-     * @return \Illuminate\Http\Response
-     */
-    public function show(physiotherapylist $physiotherapylist)
+    public function destroy(request $request,$id)
     {
-        //
+        $yogalistdelete=physiotherapylist::where('id',$id)->delete();
+        return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\physiotherapylist  $physiotherapylist
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(physiotherapylist $physiotherapylist)
+    public function edit(request $request,$id)
     {
-        //
+        $yogalist=yogalist::where('id',$id)->first();
+        return view('otherlist.physiotherapylist.editphysiotherapylist',compact('yogalist'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\physiotherapylist  $physiotherapylist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, physiotherapylist $physiotherapylist)
+    public function update(Request $request,$id)
     {
-        //
-    }
+        $yogalist=physiotherapylist::findorfail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\physiotherapylist  $physiotherapylist
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(physiotherapylist $physiotherapylist)
+        $yogalist->update($request->all());
+
+        return redirect()->route('physiotherapylist');
+        
+    }
+    public function gettherapyss(Request $request)
     {
-        //
+
+      $val=$request->all();
+      $id=$request->id;
+      $data=physiotherapylist::where('disease',$id)->pluck('therapy')->toArray();
+      $therapy=implode(",",$data);
+      return response()->json(['therapy'=>$therapy,'status'=>true]);
+
     }
 }

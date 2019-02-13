@@ -26,7 +26,7 @@
 					<div class="form-group">		
 			{!! Form::label('name', 'OPD Registration Number') !!}
 	        {!! Form::text('patientId',$xray->opd->regNum, ['class' => 'form-control dynamic_opd',
-	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id']) !!}
+	        'placeholder' => 'Enter Registration Number','id'=>'Opd_id','readonly'=>'true']) !!}
 						        <div id="opd_list">
 						        </div>
 								</div>
@@ -36,27 +36,27 @@
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate',$xray->opd->regDate, ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
+	        {!! Form::date('opdDate',$xray->opd->regDate, ['class' => 	'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::text('referredBy',, ['class' => 'form-control','readonly'=>'true']) !!}
+	        {!! Form::text('referredBy',$xray->referredBy, ['class' => 'form-control','readonly'=>'true']) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'Investigation Advised') !!}
-	        {!! Form::text('investigationAdvised',  null, ['class' => 'form-control','placeholder' => 'Enter Investigation Advised','id'=>'opd_name',]) !!}
+	        {!! Form::text('investigationAdvised',$xray->investigationAdvised, ['class' => 'form-control','placeholder' => 'Enter Investigation Advised','id'=>'investigationAdvised',]) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'Test Date') !!}
-	        {!! Form::date('date',  null, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
+	        {!! Form::date('date',$xray->date, ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
 							    </div>
 				                <div class="form-group">	
 			{!! Form::label('name', 'Description') !!}
-	        {!! Form::textarea('description',  null, ['class' => 'form-control','placeholder' => 'Enter Description','rows' => 2, 'cols' => 10,]) !!}
+	        {!! Form::textarea('description', $xray->description, ['class' => 'form-control','placeholder' => 'Enter Description','rows' => 2, 'cols' => 10,]) !!}
 							    </div>
 								<div class="form-group">
 			{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('remark', '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 2, 'cols' => 10,]) !!}
+	        {!! Form::textarea('remark',$xray->remark, ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 2, 'cols' => 10,]) !!}
 							    </div>
 								</div>
 			<div class="col-md-6" >

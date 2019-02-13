@@ -1,9 +1,9 @@
 <?php
 
-namespace App\model;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Model\opd;
 class xray extends Model
 {
     protected $fillable=[
