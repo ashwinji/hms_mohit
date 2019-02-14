@@ -150,7 +150,7 @@
           </ul>
       </li>
       <li>
-      <a href="" class="slide-item">
+      <a href="{{route('phistory')}}" class="slide-item">
         <i class="side-menu__icon fa fa-list"></i>
       <span class="side-menu__label">Patient History</span>
       </a>

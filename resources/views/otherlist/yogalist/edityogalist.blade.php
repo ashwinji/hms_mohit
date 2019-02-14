@@ -44,7 +44,7 @@
   							<div class="col-md-6">
 								<div class="form-group">
 									{!! Form::label('name', 'Disease Name') !!}
-								    {!! Form::text('disease', $yogalist->disease, ['class' => 'form-control']) !!}
+								    {!! Form::text('disease', $yogalist->diseaseName->name, ['class' => 'form-control','disabled' => 'disabled',]) !!}
 								</div>
 							</div>
 							<div class="col-md-6">

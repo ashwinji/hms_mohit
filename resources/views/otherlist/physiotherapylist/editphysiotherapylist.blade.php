@@ -35,7 +35,7 @@
 				<div class="row">
 											
 					<div class="col-md-12">
-						{!! Form::open(['route' => ['physiotherapylist.update',$physiotherapylist->id],'autocomplete'=>'off']) !!}
+						{!! Form::open(['route' => ['physiotherapylist.update',$physiotherapy->id],'autocomplete'=>'off']) !!}
 
 						{!! csrf_field() !!}
 
@@ -44,13 +44,13 @@
   							<div class="col-md-6">
 								<div class="form-group">
 									{!! Form::label('name', 'Disease Name') !!}
-								    {!! Form::text('disease', $physiotherapylist->disease, ['class' => 'form-control']) !!}
+								    {!! Form::text('disease',$physiotherapy->diseaseName->name, ['class' => 'form-control','disabled' => 'disabled']) !!}
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									{!! Form::label('name', 'Adviced Therapy') !!}
-								    {!! Form::text('therapy', $physiotherapylist->therapy, ['class' => 'form-control']) !!}
+								    {!! Form::text('therapy', $physiotherapy->therapy, ['class' => 'form-control']) !!}
 								</div>
 							</div>
 

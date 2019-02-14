@@ -344,7 +344,7 @@ Route::group(['prefix'=>'disease'], function(){
 
 
  });
-//physio disease routes
+//phsyio therapy disease routes
 Route::group(['prefix'=>'phycodisease'], function(){
 
 		Route::get('/','PshycodiseaseController@index')->name('phycodisease');
@@ -357,25 +357,35 @@ Route::group(['prefix'=>'phycodisease'], function(){
 
 		Route::get('/edit/{id}','PshycodiseaseController@edit')->name('phycodisease.edit');
         Route::post('/update/{id}','PshycodiseaseController@update')->name('phycodisease.update');
-         Route::Post('/gettherapy','PshycodiseaseController@gettherapy')->name('gettherapy');
+    
 
 });
-
+// 
 Route::group(['prefix'=>'physiotherapylist'], function(){
 
- 		Route::get('/','PhysiotherpyController@index')->name('physiotherapylist');
+ 		Route::get('/','PhysiotherapylistController@index')->name('physiotherapylist');
 
- 		Route::get('/addphysiotherapylist','PhysiotherpyController@create')->name('Physiotherapylist.create');
+ 		Route::get('/addphysiotherapylist','PhysiotherapylistController@create')->name('Physiotherapylist.create');
 
- 		Route::post('/storephysiotherapylist','PhysiotherpyController@store')->name('physiotherapylist.store');
+ 		Route::post('/storephysiotherapylist','PhysiotherapylistController@store')->name('physiotherapylist.store');
 
- 		Route::get('delete/{id}','PhysiotherpyController@destroy')->name('physiotherapylist.delete');
+ 		Route::get('delete/{id}','PhysiotherapylistController@destroy')->name('physiotherapylist.delete');
 
- 		Route::get('/edit/{id}','PhysiotherpyController@edit')->name('physiotherapylist.edit');
+ 		Route::get('/edit/{id}','PhysiotherapylistController@edit')->name('physiotherapylist.edit');
 
-        Route::post('/update/{id}','PhysiotherpyController@update')->name('physiotherapylist.update');
+        Route::post('/update/{id}','PhysiotherapylistController@update')->name('physiotherapylist.update');
 
-        Route::Post('/getexersize','PhysiotherpyController@getexercise')->name('getexercise');
+        Route::Post('/gettherapy','PhysiotherapylistController@gettherapy')->name('gettherapy');
+
+
+ });
+
+//
+Route::group(['prefix'=>'patienthistory'], function(){
+
+Route::get('history','PhistoryController@index')->name('phistory');
+Route::get('showhistory','PhistoryController@showhistory')->name('phistory.show');
+Route::post('ajaxdata/history', 'PhistoryController@historyView')->name('history.view');
 
 
  });

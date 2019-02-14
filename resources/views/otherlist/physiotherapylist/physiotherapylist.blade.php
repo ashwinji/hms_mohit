@@ -32,16 +32,16 @@
 									  </tr>
 								</thead>
 								<tbody>
-									 @if(isset($Physiotherapylist))
-									 @foreach($Physiotherapylist as $Physiotherapy)
+									 @if(isset($physiotherapylist))
+									 @foreach($physiotherapylist as $physiotherapy)
 									  <tr>
-											<td>{{$Physiotherapy->id}}</td>
-											<td>{{$Physiotherapy->disease}}</td>
-											<td>{{$Physiotherapy->exersise}}</td>
+											<td>{{$physiotherapy->id}}</td>
+											<td>{{$physiotherapy->disease}}</td>
+											<td>{{$physiotherapy->therapy}}</td>
 
-											<td><a href="{{route('Physiotherapylist.edit',['id'=>$Physiotherapy->id])}}" class="btn btn-info fa fa-pencil" data-toggle="tooltip" data-placement="top" title="edit" onclick="return confirm('Are you sure?update');"></a>
+											<td><a href="{{route('physiotherapylist.edit',['id'=>$physiotherapy->id])}}" class="btn btn-info fa fa-pencil" data-toggle="tooltip" data-placement="top" title="edit" onclick="return confirm('Are you sure?update');"></a>
 											</td>
-	                                       <td><a href="{{route('Physiotherapylist.delete',['id'=>$Physiotherapy->id])}}" class="btn btn-danger fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete" onclick="return confirm('Are you sure?delete');"></a>
+	                                       <td><a href="{{route('physiotherapylist.delete',['id'=>$physiotherapy->id])}}" class="btn btn-danger fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete" onclick="return confirm('Are you sure?delete');"></a>
 	                                       </td>
 									  </tr>
 									  @endforeach

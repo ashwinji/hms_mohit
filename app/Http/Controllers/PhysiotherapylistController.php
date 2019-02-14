@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\physiotherapylist;
+use App\Model\pshycodisease;
 use Illuminate\Http\Request;
 
 class PhysiotherapylistController extends Controller
@@ -21,41 +22,41 @@ class PhysiotherapylistController extends Controller
     public function create()
     {
         $disease=pshycodisease::all()->pluck('name','id');
-        return view('otherlist.yogalist.addyogalist',compact('disease'));
+        return view('otherlist.physiotherapylist.addphysiotherapylist',compact('disease'));
     }
 
     public function store(Request $request)
     {
-            $yogaliststore= new physiotherapylist;
-            $yogaliststore->disease=$request->disease;
-            $yogaliststore->exersise=$request->therapy;
-            $yogaliststore->save();
+            $physiotherapy= new physiotherapylist;
+            $physiotherapy->disease=$request->disease;
+            $physiotherapy->therapy=$request->therapy;
+            $physiotherapy->save();
 
             return redirect()->route('physiotherapylist');
     }
 
     public function destroy(request $request,$id)
     {
-        $yogalistdelete=physiotherapylist::where('id',$id)->delete();
+        $physiotherapy=physiotherapylist::where('id',$id)->delete();
         return back();
     }
 
     public function edit(request $request,$id)
     {
-        $yogalist=yogalist::where('id',$id)->first();
-        return view('otherlist.physiotherapylist.editphysiotherapylist',compact('yogalist'));
+        $physiotherapy=physiotherapylist::where('id',$id)->first();
+        return view('otherlist.physiotherapylist.editphysiotherapylist',compact('physiotherapy'));
     }
 
     public function update(Request $request,$id)
     {
-        $yogalist=physiotherapylist::findorfail($id);
+        $physiotherapy=physiotherapylist::findorfail($id);
 
-        $yogalist->update($request->all());
+        $physiotherapy->update($request->all());
 
         return redirect()->route('physiotherapylist');
         
     }
-    public function gettherapyss(Request $request)
+    public function gettherapy(Request $request)
     {
 
       $val=$request->all();

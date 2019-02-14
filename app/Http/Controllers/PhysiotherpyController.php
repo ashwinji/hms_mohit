@@ -7,6 +7,7 @@ use App\Model\ot;
 use App\Model\physiotherpy;
 use App\Model\doctorlist;
 use App\Model\disease;
+use App\Model\pshycodisease;
 use DataTables;
 use DB;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class PhysiotherpyController extends Controller
      */
     public function create()
     {
-         $disease=disease::all()->pluck('name','id');
+         $disease=pshycodisease::all()->pluck('name','id');
         return view('physiotherpy.create',compact('disease'));
     }
 

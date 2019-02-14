@@ -12,6 +12,9 @@ class yogalist extends Model
      'disease',
      'exersise',
 
-
     ];
+      public function diseaseName()
+    {
+        return $this->hasOne(disease::class,'id','disease');
+    }
 }

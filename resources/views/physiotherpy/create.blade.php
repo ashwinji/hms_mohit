@@ -1,4 +1,7 @@
 @extends('master.layouts.app')
+ @section('headSection')
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+ @endsection
 @section('main-content')
 <div class="page">
     <div class="row ">
@@ -168,7 +171,7 @@
                                     {!! Form::select('disease',$disease,
                                     '',
                                     ['class' =>
-                                    'form-control','id'=>'disease','name'=>'disease'])
+                                    'form-control','id'=>'disease','name'=>'disease','placeholder'=>'select pshysiotherpy'])
                                     !!}
                             </div>
                     </div>
@@ -234,7 +237,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
 
-        </script>
+ </script>
 <script type="text/javascript">
 
         jQuery(document).ready(function () {
@@ -283,5 +286,37 @@
 
 </script>
 
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $("#disease").on("change", function() {
+       var id= $("#disease").val();
+        var token = $("meta[name='csrf-token']").attr("content");
+       
+  $.ajax({
+                url: '{{route("gettherapy")}}',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id,
+                    _token: token,
+                },
+                success: function (res) {
+ 
+                    if(res.status==true){
+                      $('#therapy').val(res.therapy);
+                    }
+                },
+                error: function (data) {
+
+                }
+            });
+        
+    });
+});
+</script>
 
 @endsection

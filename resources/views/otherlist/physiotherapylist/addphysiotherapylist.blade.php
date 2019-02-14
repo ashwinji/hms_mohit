@@ -2,9 +2,7 @@
 @section('main-content')
 <div class="row ">
                 <div class="col-lg-12">
-
 						<dic class="card">
-
                          <div class="card-header">
 							<h4 class="page-title">physiotherapylist - NEW PATIENT REGISTRATION</h4>
 						 <div class="card-body">
@@ -15,8 +13,6 @@
 							</ol>
 						   </div>
 					     </div>
-							
-
 						</div>
 						<div class="row">
 							<div class="col-md-12">

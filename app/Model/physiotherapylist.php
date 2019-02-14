@@ -14,4 +14,9 @@ class physiotherapylist extends Model
 
 
     ];
+
+    public function diseaseName()
+    {
+        return $this->hasOne(pshycodisease::class,'id','disease');
+    }
 }
