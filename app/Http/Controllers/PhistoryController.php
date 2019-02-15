@@ -40,13 +40,13 @@ class PhistoryController extends Controller
     {
         $id=$request->id;
         $data=opd::where('id',$id)->first();
-        $ipddata=ipd::where('patientId',$id)->first();
-        $blooddata=bloodexamination::where('patientId',$id)->first();
-        $semendata=semenexamination::where('patientId',$id)->first();
-        $serundata=serumofwidal::where('patientId',$id)->first();
-        $stooldata=stoolexamination::where('patientId',$id)->first();
-        $urinedata=urineexamination::where('patientId',$id)->first();
-        $content=\View::make('patienthistory.viewhistory',compact('data','ipddata','blooddata','semendata','serundata','stooldata','urinedata'));
+        $ipdData=ipd::where('patientId',$id)->first();
+        $bloodData=bloodexamination::where('patientId',$id)->first();
+        $semenData=semenexamination::where('patientId',$id)->first();
+        $serunData=serumofwidal::where('patientId',$id)->first();
+        $stoolData=stoolexamination::where('patientId',$id)->first();
+        $urineData=urineexamination::where('patientId',$id)->first();
+        $content=\View::make('patienthistory.viewhistory',compact('data','ipdData','bloodData','semenData','serunData','stoolData','urineData'));
         $a=$content->render();
         return response()->json([
 

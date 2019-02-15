@@ -26,7 +26,7 @@
 					@include('verror.error')			
 			{!! Form::label('name', 'OPD Registration Number') !!}
 		
-	        {!! Form::text('patientId', '$semen->opd->regNum', ['class' => 'form-control dynamic_opd',
+	        {!! Form::text('patientId', $semen->opd->regNum, ['class' => 'form-control dynamic_opd',
 	        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
 	         <div id="opd-reg-list">
 	         </div>

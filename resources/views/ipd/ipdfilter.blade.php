@@ -39,6 +39,9 @@
 </div>
 </div>
 
+
+
+
     <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
         <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content">
@@ -266,7 +269,7 @@ $.ajax(
         success:function (res){
         
            if(res.status==true){
-            $('#addt').html(res.html);
+            $('#add').html(res.html);
             $("#largemodal").modal('show');
            }
         },

@@ -46,12 +46,12 @@ Route::group(['prefix'=>'ipd'], function(){
 		Route::post('/add','IpdController@addtreatment')->name('ipd-add');
 
 });
-//
 
-Route::group(['prefix'=>'ipdtreatment'], function(){
 
-       Route::post('/store','IpdtreatmentsController@store')->name('ipdt.store');
-});
+//ipd treatement
+
+       Route::post('ipdt/store','IpdtreatmentsController@store')->name('ipdt.store');
+
 //ot routes
 Route::group(['prefix'=>'ot'], function(){
 		Route::get('/create','OtController@create')->name('ot-create');

@@ -308,12 +308,12 @@ $(document).ready(function() {
      </script>
 
      <script type="text/javascript">
-    $(document).on('click',"#at",function(e){debugger
+    $(document).on('click',"#at",function(e){
      var token = $("meta[name='csrf-token']").attr("content");
      alert();
      var patientId=$('#patientId').val();
      var complaint=$('#id-complaint').val();
-     var regDate=$('#regDate').val();
+     var treatmentDate=$('#treatmentDate').val();
      var treatment=$('#treatment').val();
      var medicine=$('#medicine').val();
      var potency=$('#potency').val();
@@ -335,7 +335,7 @@ $.ajax(
         data: {
             patientId:patientId,
             complaint:complaint,
-            regDate:regDate,
+            treatmentDate:treatmentDate,
             treatment:treatment ,
             medicine:medicine,
             potency:potency,

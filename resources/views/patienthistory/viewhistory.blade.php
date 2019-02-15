@@ -1,101 +1,114 @@
-
-<div class="col-md-12">
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped table-hovered">
-      <thead>
-        <tr>
-          <th>Name </th>
-          <td>{{$data->patientName}}</td>
-          <th>Registration Number </th>
-          <td>{{$data->regNum}}</td>
-        </tr>
-        <tr>
-          <th>Registration Date </th>
-          <td>{{$data->regDate}}</td>
-          <th>Registration Amount </th>
-          <td>{{$data->regAmount}}</td>
-        </tr>
-        <tr>
-          <th>Address </th>
-          <td>{{$data->address}}</td>
-          <th>Age </th>
-          <td>{{$data->age}}</td>
-        </tr>
-        <tr>
-          <th>Gender </th>
-          <td>{{$data->gender}}</td>
-          <th>Contact Number </th>
-          <td>{{$data->contactNum}}</td>
-        </tr>
-        <tr>
-          <th>Consultant / Dr. Name </th>
-          <td colspan="3">{{$data->doctorName->name}}</td>
-        </tr>
-        <tr>
-          <th>Department </th>
-          <td colspan="3">{{$data->departmentName->name}}</td>
-        </tr>
-      </thead>
-    </table>
-  </div>
-
-  <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">OPD</a>
-        </h4>
+ <div class="panel panel-default">
+      <div class="panel-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">x</span>
+          </button>
+          <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
+          <span class="pull-right" style="padding-right: 5px">
+              <b style="margin-right: 36px">{{ $data->regNum }}</b></span>
+          <i class="pull-right fa fa-print btn btn-sm btn-info"style="margin-right: 10px;">Print</i>
       </div>
-      <div id="collapse1" class="panel-collapse collapse">
-        <div class="panel-body">
-          
-          <div class="col-md-12">
-            <div class="text-center">
-              <strong class="bgRed">OPD</strong>
-            </div>
-            <hr>
-          </div>
-          <div class="table-responsive">
-          @if(!empty($data->opdtreatment))
-            @foreach($data->opdtreatment as $value)
-            <table class="table table-bordered table-striped table-hovered">
-              <tbody>
-                <tr>
-                <th width="30%">Treatment Date </th>
-                <td class="text-danger">
-                  {{$value->treatmentdate}}                              
-                  <span class="badge pull-right">{{$value->id}}</span>
-                </td>
-              </tr>
-              <tr>
-                <th>Treatment / Medicine</th>
-                <td>{{$value->medicineName->name}}</td>
-              </tr>
-              <tr>
-                <th>Number of Days </th>
-                <td>{{$value->nod}}</td>
-              </tr>
-              <tr>
-                <th>Advice / Investigation </th>
-                <td>{{$value->InvestName->name}}</td>
-              </tr>
-              <tr>
-                <th>Remark </th>
-                <td>{{$value->remark}}</td>
-              </tr>
-            </tbody>
-          </table>
-          @endforeach
-          @else
-           <div style="color: red;">
-             <a href="aaaaaaaaaaa"></a>
-           </div>
-         @endif
-          </div>
-    
-        </div>
-      </div>
-    </div>
+        <hr>
+            <section class="panel">
+              <div class="panel-body" id="tables">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hovered">
+                      <thead>
+                        <tr>
+                          <th>Name </th>
+                          <td>{{ ucfirst($data->patientName) }}</td>
+                          <th>Registration Number </th>
+                          <td>{{ $data->regNum }}</td>
+                        </tr>
+                        <tr>
+                          <th>Registration Date </th>
+                          <td>{{ $data->regDate }}</td>
+                          <th>Registration Amount </th>
+                          <td>{{ $data->regAmount }}</td>
+                        </tr>
+                        <tr>
+                          <th>Address </th>
+                          <td>{{ $data->address }}</td>
+                          <th>Age </th>
+                          <td>{{ $data->age }}</td>
+                        </tr>
+                        <tr>
+                          <th>Gender </th>
+                          <td>{{ $data->gender }}</td>
+                          <th>Contact Number </th>
+                          <td>{{ $data->contactNum }}</td>
+                        </tr>
+                        <tr>
+                          <th>Consultant / Dr. Name </th>
+                          <td colspan="3">{{ $data->doctorName->name }}</td>
+                        </tr>
+                        <tr>
+                          <th>Department </th>
+                          <td colspan="3">{{ $data->departmentName->name }}</td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+<div class=" col-md-12">
+  <div class="row">
+<div class="container ">
+                      <div class="panel panel-default mb-4">
+                              <div class="panel-heading1 ">
+                                  <h4 class="panel-title1">
+                                    <a class="accordion-toggle collapsed text-center " data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false">OPD TREATMENT</a>
+                                  </h4>
+                              </div>
+                              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                <div class="panel-body">
+                                  <div class="col-md-12">
+                                    <div class="text-center">
+                                        <strong class="bgRed">OPD</strong>
+                                    </div>
+                                  </div>
+                                    @if(!empty($data->opdTreatmentDetails))
+                                    @foreach($data->opdTreatmentDetails as $patient)
+                                  <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hovered">
+                                      <tbody>
+                                        <tr>
+                                          <th width="30%">Treatment Date </th>
+                                          <td class="text-danger">
+                                            <?php static $i=1; ?>
+                                            {{ Carbon\Carbon::parse($patient->treatmentDate )->format('d-m-Y')}} <span class="badge pull-right">{{ $i++ }}</span>
+                                          </td>
+                                        </tr>
+                                          <tr>
+                                            <th>Treatment / Medicin </th>
+                                            <td>{{ $patient->medicine }}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Number of Days </th>
+                                            <td>{{ $patient->nod }}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Advice / Investigation </th>
+                                            <td>{{ $patient->advice }}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Remark </th>
+                                            <td>{{ $patient->remark }}</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    @endforeach
+                                    @else
+                                   <div class="bgRed badge-warning"><strong>No Data Availble</strong></div>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                  
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -338,8 +351,11 @@
 
               </thead>
             </table>
+            @else
+            <div class="bgRed badge-danger text-center"><strong>No Data Availble</strong></div>
             
             @endif
+
           </div>
           <hr>
           </div>
@@ -495,6 +511,8 @@
                               <th colspan="3"> Remark : Test</th>
                             </tr>
                           </tbody></table>
+                          @else
+            <div class="bgRed badge-danger text-center"><strong>No Data Availble</strong></div>
                           @endif
                         </div>
                     </div>
@@ -1018,7 +1036,7 @@
       </div>
     </div>
 
-
+</div>
 
   </div>
 </div>

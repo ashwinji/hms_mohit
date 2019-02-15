@@ -35,7 +35,7 @@ class IpdtreatmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->patientId;
+        dd($request->all());
       
          $ipdtreatments=new ipdtreatments();
         $ipdtreatments->patientId=$request->patientId;

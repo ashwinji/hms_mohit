@@ -37,11 +37,11 @@ class OpdtreatmentsController extends Controller
      */
     public function store(Request $request)
     {
-          // dd($request->all());
+           
         $opdtreatments=new opdtreatments;
         $opdtreatments->patientId=$request->patientId;
         $opdtreatments->complaint=$request->complaint;
-          //$opdtreatments->patientTitle=$request->rDate;
+        $opdtreatments->treatmentDate=$request->treatmentDate;
         $opdtreatments->treatment=$request->treatment;
         $opdtreatments->medicine=$request->medicine;
         $opdtreatments->potency=$request->potency;
@@ -50,7 +50,10 @@ class OpdtreatmentsController extends Controller
         $opdtreatments->remark=$request->remark;
         $opdtreatments->remark=$request->remark;
         //when we pass the whole array valu in one variable 
+        if(!empty($request->myCheckboxes))
+        {
         $opdtreatments->refTo=implode(',',$request->myCheckboxes);
+         }
         $opdtreatments->consultant=$request->consultant;
         $opdtreatments->save();
             return response()->json([
