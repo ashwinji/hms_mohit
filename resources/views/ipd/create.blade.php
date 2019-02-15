@@ -169,7 +169,7 @@
 					<div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Address') !!}
-								{!! Form::textarea('address', '', ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,'id'=>'address','name'=>'address']) !!}
+								{!! Form::textarea('address', '', ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 1, 'cols' => 10,'id'=>'address','name'=>'address']) !!}
 							</div>
 					</div>
 					<div class="offset-md-2 col-md-8 offset-md-2">
@@ -233,21 +233,21 @@
 							<div class="form-group">
 								{!! Form::label('name', 'Provisional Diagnosis') !!}
 								{!! Form::textarea('provisionalDiagnosis', '', ['class' =>
-								'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder'=> 'provisionalDiagnosis','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','id'=>'provisionalDiagnosis','name'=>'provisionalDiagnosis','placeholder'=> 'provisionalDiagnosis','rows' => 1, 'cols' => 10,]) !!}
 								</div>
 						</div>
 						<div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Chief Complaints') !!}
 								{!! Form::textarea('chiefComplaints', '', ['class' =>
-								'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' =>'Enter chiefComplaints','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','id'=>'chiefComplaints','name'=>'chiefComplaints','placeholder' =>'Enter chiefComplaints','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 						</div>
 						<div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Past History') !!}
 								{!! Form::textarea('pastHistory', '', ['class' =>
-								'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter past History','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','id'=>'pastHistory','name'=>'pastHistory','placeholder' => 'Enter past History','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 						</div>
 					   <div class="offset-md-2 col-md-8 offset-md-2">
@@ -255,21 +255,21 @@
 							<div class="form-group">
 								{!! Form::label('name', 'Maternal') !!}
 								{!! Form::textarea('fh_maternal', '', ['class' =>
-								'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','id'=>'fh_maternal','name'=>'fh_maternal','placeholder' => 'Enter history','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 						</div>
 					   <div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Paternal') !!}
 								{!! Form::textarea('fh_paternal', '', ['class' =>
-								'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter  history','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','id'=>'fh_paternal','name'=>'fh_paternal','placeholder' => 'Enter  history','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 						</div>
 					   <div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Other') !!}
 								{!! Form::textarea('fh_other', '', ['class' =>
-								'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Family History others','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','id'=>'fh_other','name'=>'fh_other','placeholder' => 'Family History others','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 						</div>
 						<div class="offset-md-2 col-md-8 offset-md-2">
@@ -407,35 +407,35 @@
 							<div class="form-group">
 								{!! Form::label('name', 'Respiratory System') !!}
 								{!! Form::textarea('respiratorySystem', '', ['class' => 'form-control','placeholder'
-								=> 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+								=> 'Enter Address','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 					</div>
 					<div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Gastro - Intestinal System') !!}
 								{!! Form::textarea('gastroIntestinalSystem', '', ['class' =>
-								'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','placeholder' => 'Enter Address','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 					</div>
 					<div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Cardio - Vascular System') !!}
 								{!! Form::textarea('cardioVascularSystem', '', ['class' =>
-								'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+								'form-control','placeholder' => 'Enter Address','rows' => 1, 'cols' => 10,]) !!}
 							</div>
 				   </div>
 					 <div class="offset-md-2 col-md-8 offset-md-2">
 						<div class="form-group">
 							{!! Form::label('name', 'Central Nervous System') !!}
 							{!! Form::textarea('centralNervousSystem', '', ['class' =>
-							'form-control','placeholder' => 'Enter Address','rows' => 3, 'cols' => 10,]) !!}
+							'form-control','placeholder' => 'Enter Address','rows' => 1, 'cols' => 10,]) !!}
 						</div>
 					</div>
 					 <div class="offset-md-2 col-md-8 offset-md-2">
 						<div class="form-group">
 							{!! Form::label('name', 'Local Examination') !!}
 							{!! Form::text('localExamination', '', ['class' => 'form-control','placeholder' =>
-							'localExamination','rows' => 3, 'cols' => 10,]) !!}
+							'localExamination','rows' => 1, 'cols' => 10,]) !!}
 						</div>
 					</div>
 					 <div class="offset-md-2 col-md-8 offset-md-2">
@@ -462,7 +462,7 @@
 								'', ['class' => 'form-control','id'=>'investigation3','placeholder'=>'select investigation 3']) !!}
 							</div>
 						</div>
-						 <div class="offset-md-2 col-md-3 offset-md-2">
+						 <div class="offset-md-2 col-md-4 ">
 							<div class="form-group">
 								{!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">1</span>',[],false)
 								!!}
@@ -470,14 +470,14 @@
 								'', ['class' => 'form-control','id'=>'medicine1','placeholder'=>'select medicine1']) !!}
 							</div>
 						</div>
-					   <div class="offset-md-2 col-md-3 offset-md-2">
+					   <div class=" col-md-4 ">
 							<div class="form-group">
 								{!! Form::label('name', 'Potency') !!}
 								{!! Form::select('potency1',$potency, '',
 								['class' => 'form-control','id'=>'potency1','placeholder'=>'select potency1']) !!}
 							</div>
 						</div>
-						<div class="offset-md-2 col-md-3 offset-md-2">
+						<div class="offset-md-2 col-md-4">
 							<div class="form-group">
 								{!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">2</span>',[],false)
 								!!}
@@ -485,14 +485,14 @@
 								'', ['class' => 'form-control','id'=>'medicine2','placeholder'=>'select medicine2']) !!}
 							</div>
 						</div>
-					   <div class="offset-md-2 col-md-3 offset-md-2">
+					   <div class=" col-md-4">
 							<div class="form-group">
 								{!! Form::label('name', 'Potency') !!}
 								{!! Form::select('potency2',$potency, '',
 								['class' => 'form-control','id'=>'potency2','placeholder'=>'select potency2']) !!}
 							</div>
 						</div>
-					   <div class="offset-md-2 col-md-3 offset-md-2">
+					   <div class="offset-md-2 col-md-4">
 							<div class="form-group">
 								{!! Form::label('medicine1', 'Medicine<span class="badge badge-danger control-label">3</span>',[],false)
 								!!}
@@ -500,7 +500,7 @@
 								'', ['class' => 'form-control','id'=>'medicine3','placeholder'=>'select medicine3']) !!}
 							</div>
 						</div>
-						<div class="offset-md-2 col-md-3 offset-md-2">
+						<div class=" col-md-4">
 							<div class="form-group">
 								{!! Form::label('name', 'Potency') !!}
 								{!! Form::select('potency3',$potency, '',
@@ -520,7 +520,7 @@
 										{!! Form::label('dietPlan1', 'dietPlan<span class="badge badge-success control-label">1</span>',[],false)
 										!!}
 										{!! Form::textarea('diet1Text', '', ['class' => 'form-control','placeholder'
-										=> 'Diet 1 Plan Text','rows' => 3, 'cols' => 10, ]) !!}
+										=> 'Diet 1 Plan Text','rows' => 1, 'cols' => 10, ]) !!}
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -534,7 +534,7 @@
 										{!! Form::label('dietPlan1','dietPlan<span class="badge badge-success control-label">2</span>',[],false)
 										!!}
 										{!! Form::textarea('diet2Text', '', ['class' => 'form-control','placeholder'
-										=> 'Diet 2 Plan Text','rows' => 3, 'cols' => 10, ]) !!}
+										=> 'Diet 2 Plan Text','rows' => 1, 'cols' => 10, ]) !!}
 									</div>
 								</div>
 							   <div class=" col-md-6 ">
@@ -563,7 +563,7 @@
 									<div class="form-group">
 										{!! Form::label('name', 'Remarks') !!}
 										{!! Form::textarea('remark', '', ['class' => 'form-control','placeholder' =>'
-										Remarks','rows' => 3, 'cols' => 10,]) !!}
+										Remarks','rows' => 1, 'cols' => 10,]) !!}
 									</div>
 								</div>
 							</div>

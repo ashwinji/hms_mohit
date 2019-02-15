@@ -50,7 +50,7 @@ Route::group(['prefix'=>'ipd'], function(){
 
 //ipd treatement
 
-       Route::post('ipdt/store','IpdtreatmentsController@store')->name('ipdt.store');
+     Route::post('ipdt/store','IpdtreatmentsController@store')->name('ipdt.store');
 
 //ot routes
 Route::group(['prefix'=>'ot'], function(){
