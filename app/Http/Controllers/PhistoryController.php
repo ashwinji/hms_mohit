@@ -9,6 +9,7 @@ use App\Model\semenexamination;
 use App\Model\serumofwidal;
 use App\Model\stoolexamination;
 use App\Model\urineexamination;
+use App\Model\ipdtreatments;
 use DataTables;
 
 
@@ -41,12 +42,13 @@ class PhistoryController extends Controller
         $id=$request->id;
         $data=opd::where('id',$id)->first();
         $ipdData=ipd::where('patientId',$id)->first();
-        $bloodData=bloodexamination::where('patientId',$id)->first();
+        $ipdTreatmentData=ipdtreatments::where('patientId',$id)->get();
+        $blooddata=bloodexamination::where('patientId',$id)->first();
         $semenData=semenexamination::where('patientId',$id)->first();
         $serunData=serumofwidal::where('patientId',$id)->first();
         $stoolData=stoolexamination::where('patientId',$id)->first();
         $urineData=urineexamination::where('patientId',$id)->first();
-        $content=\View::make('patienthistory.viewhistory',compact('data','ipdData','bloodData','semenData','serunData','stoolData','urineData'));
+        $content=\View::make('patienthistory.viewhistory',compact('data','ipdData','bloodData','semenData','serunData','stoolData','urineData','ipdTreatmentData'));
         $a=$content->render();
         return response()->json([
 

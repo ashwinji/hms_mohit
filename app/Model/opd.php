@@ -36,7 +36,7 @@ class opd extends Model
 	}
 	public function IpdTreatmentDetails()
 	{
-		return $this->hasone(ipdtreatments::class,'patientId','id');
+		return $this->hasmany(ipdtreatments::class,'patientId','id');
 	}
 	
 	public function bloodExamData()
@@ -63,6 +63,9 @@ class opd extends Model
      {
      	return $this->hasMany(urineexamination::class,'patientId','id');
      }
-
+     	public function IpdData()
+     {
+     	return $this->hasOne(ipd::class,'patientId','id');
+     }
  }
 

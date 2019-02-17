@@ -71,9 +71,9 @@ class CreateIpdsTable extends Migration
             $table->text('diet1Text')->nullable();
             $table->string('dietPlan2')->nullable();
             $table->text('diet2Text')->nullable();
-            $table->string('yoga');
-            $table->string('physiotherapy');
-            $table->text('remark');
+            $table->string('yoga')->nullable();
+            $table->string('physiotherapy')->nullable();
+            $table->text('remark')->nullable();
             $table->enum('dltStatus',array('N','Y'));
               $table->timestamps();
         });

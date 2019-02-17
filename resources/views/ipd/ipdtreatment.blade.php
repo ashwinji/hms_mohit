@@ -83,9 +83,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group ">
-                {!! Form::label('regDate', 'Treatment Date') !!}
-                {!! Form::date('regDate','', ['class' => 'form-control','id'=>'regDate','placeholder' => 'Enter
-                regDate']) !!}
+                {!! Form::label('treatmentDate', 'Treatment Date') !!}
+                {!! Form::date('treatmentDate','', ['class' => 'form-control','id'=>'treatmentDate','placeholder' => 'Enter
+                treatmentDate']) !!}
               </div>
             </div>
           </div>

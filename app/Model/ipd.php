@@ -87,52 +87,54 @@ class ipd extends Model
     {
     	return $this->hasOne(doctorlist::class,'id','consultant');
     }
-
-    public function medicineName1()
+    public function departmentName() {
+        return $this->hasOne(department::class,'id','department');
+    }
+    public function getMedicine1()
     {
         return $this->hasOne(medicine::class,'id','medicine1');
     }
-    public function medicineName2()
+    public function getMedicine2()
     {
         return $this->hasOne(medicine::class,'id','medicine2');
     }
-    public function medicineName3()
+    public function getMedicine3()
     {
         return $this->hasOne(medicine::class,'id','medicine3');
     }
-     public function investigationName1()
+     public function getInvestigation1()
     {
         return $this->hasOne(investigation::class,'id','investigation1');
     }
-    public function investigationName2()
+    public function getInvestigation2()
     {
         return $this->hasOne(investigation::class,'id','investigation2');
     }
-    public function investigationName3()
+    public function getInvestigation3()
     {
         return $this->hasOne(investigation::class,'id','investigation3');
     }
-    public function wardname()
+    public function getWardName()
     {
         return $this->hasOne(wardname::class,'id','wardName');
     }
-    public function potencyName1()
+    public function getPotency1()
     {
        return $this->hasOne(potency::class,'id','potency1');
     }
-    public function potencyName2()
+    public function getPotency2()
     {
          return $this->hasOne(potency::class,'id','potency2');
     }
-     public function potencyName3()
+     public function getPotency3()
     {
          return $this->hasOne(potency::class,'id','potency3');
     }
-    public function dietPlanName1()
+    public function getDietPlan1()
     {
         return $this->hasOne(dietplan::class,'id','dietPlan1');
     }
-    public function dietPlanName2()
+    public function getDietPlan2()
     {
         return $this->hasOne(dietplan::class,'id','dietPlan2');
     }

@@ -169,9 +169,7 @@ class IpdController extends Controller
             ->get();
          return DataTables::of($ipds)->editColumn('consultant',function($data){
             return $data->doctorName->name;})
-         ->editColumn('wardName',function($data){
-            return $data->wardname->name;
-         })
+        
          ->addColumn('order',function($data){
             static $i=1;
             return $i++;

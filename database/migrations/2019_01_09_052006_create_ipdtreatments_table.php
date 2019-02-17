@@ -19,6 +19,7 @@ class CreateIpdtreatmentsTable extends Migration
             $table->string('ipdId');
             $table->string('refTo')->nullable();
             $table->text('complaint')->nullable();
+            $table->string('treatmentDate')->nullable();
             $table->text('treatment')->nullable();
             $table->string('medicine')->nullable();
             $table->string('potency')->nullable();

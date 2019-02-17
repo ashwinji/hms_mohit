@@ -40,8 +40,6 @@
 </div>
 
 
-
-
     <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
         <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content">
@@ -64,10 +62,6 @@
 @endsection
 
 @section('footerSection')
-<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
-        <script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
-        <link href="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -85,9 +79,6 @@
                 { data: 'bedNum', name: 'bedNum' },
                 { data: 'consultant', name: 'consultant' },
                 { data: 'action', name: 'action' },
-
-
-
             ]
         });
     });
@@ -197,7 +188,7 @@
     });
     
   });
-        </script>
+        </script>w
 
                 <script type="text/javascript">
     $(document).on('click',".addRecord",function(e){alert();
@@ -234,7 +225,7 @@
      var patientId=$('#patientId').val();
      var ipdId=$('#ipdId').val();
      var complaint=$('#id-complaint').val();
-     var regDate=$('#regDate').val();
+     var treatmentDate=$('#treatmentDate').val();
      var treatment=$('#treatment').val();
      var medicine=$('#medicine').val();
      var potency=$('#potency').val();
@@ -256,7 +247,7 @@ $.ajax(
             patientId:patientId,
             ipdId:ipdId,
             complaint:complaint,
-            regDate:regDate,
+            treatmentDate:treatmentDate,
             treatment:treatment ,
             medicine:medicine,
             potency:potency,

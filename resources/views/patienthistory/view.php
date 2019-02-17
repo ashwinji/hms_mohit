@@ -303,12 +303,12 @@
 
                           <tr>
                             <th>Investigation <span class="badge pull-right">2</span></th>
-                            <td colspan="3">{{ $ipdData->getInvestigation2->name}}</td>
+                            <td colspan="3">{{ $ipdData->getInvestigation2->namewa}}</td>
                           </tr>
 
                           <tr>
-                            <th>Investigation <span class="badge pull-right">3</span></th>
-                            <td colspan="3">{{ $ipdData->getInvestigation3->name}}</td>
+                            <th>Investigation <span class="badge pull-right">3</span></th>wa
+                            <td colspan="3">{{ $ipdData->getInvestigation3->namewa}}</td>
                           </tr>
 
                           <tr>
@@ -359,75 +359,11 @@
                         </thead>
                       </table>
                     </div>
+                    @endif
                   </div>
-               
-           
-<!-- ======================ipd treatement================== -->
- @if(!empty($ipdTreatmentData))
-    @foreach($ipdTreatmentData as  $ipdtreatment)
-         <table class="table table-bordered table-striped table-hovered">
-              <tbody><tr>
-                <th>Complaints </th>
-                <td>{{$ipdtreatment->complaint }}<span class="pull-right">
-                    <div class="btn-group btn-group-sm  noPrint"> 
-                      <button data-toggle="modal" data-id="{{$ipdtreatment->id }}" href="#updateDetail" class="btn-sm btn-success tooltips updatePatientTreatment" data-original-title="Update Treatment" style="margin-right: 5px !important;"><i class="fa fa-pencil"></i> Edit</button>
-                      <button  class="btn-sm btn-danger delete" data-id="{{$ipdtreatment->id }}" data-original-title="Delete Treatment" onclick="return confirm('Are You Sure You Want To Delete This Treatment?');"><i class="fa fa-times"></i> Delete</button>
-                    </div>
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <th width="20%">Treatment Date </th>
-                @php static $i=1; @endphp
-                <td class="text-danger"> {{ Carbon\Carbon::parse($patient->treatment_date)->format('d-m-Y') }}<span class="badge pull-right">{{ $i++}}</span>
-                </td>
-              </tr>
-              <tr>
-                <th>Treatment</th>
-                <td>{{$ipdtreatment->treatment }} </td>
-              </tr>
-              <tr>
-                <th>Medicine </th>
-                <td>{{$ipdtreatment->getMedicineName->name  }} </td>
-              </tr>
-              <tr>
-                <th>Potency </th>
-                <td>{{$ipdtreatment->getPotencyName->name}}</td>
-              </tr>
-              <tr>
-                <th>Number of Days </th>
-                <td>{{$ipdtreatment->nod }} </td>
-              </tr>
-              <tr>
-                <th>Investigation </th>
-                <td>
-                  <span class="badge badge-info"><span class="text-danger">#1</span>
-                    {{$ipdtreatment->getInvestigationName->name}} </span><br><br>
-                </td>
-              </tr>
-              <tr>
-                <th>Remark </th>
-                <td>{{$ipdtreatment->remark }}</td>
-              </tr>
-              <tr>
-                <?php $a=explode(",",$patient->refTo)?>
-
-                <th>Referred To </th>
-                  <td>  
-                    @foreach($a as $b)
-                     <span class="badge badge-primary">{{ $b }}</span>
-                     @endforeach
-                </td>
-              </tr>
-              <tr>
-                <th>Consultant </th>
-                <td>{{$ipdtreatment->consultant}}</td>
-              </tr>
-             </tbody>
-         </table>
-             @endforeach
-         @endif
-       </div>
-       @endif
-    </div>
-</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

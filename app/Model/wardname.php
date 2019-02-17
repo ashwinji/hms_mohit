@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Wardname extends Model
+class wardname extends Model
 {
      protected $fillable = [
 

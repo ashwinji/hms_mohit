@@ -35,20 +35,23 @@ class IpdtreatmentsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // return $request->all();
       
          $ipdtreatments=new ipdtreatments();
         $ipdtreatments->patientId=$request->patientId;
         $ipdtreatments->complaint=$request->complaint;
         $ipdtreatments->ipdId=$request->ipdId;
+        $ipdtreatments->treatmentDate=$request->treatmentDate;
         $ipdtreatments->treatment=$request->treatment;
         $ipdtreatments->medicine=$request->medicine;
         $ipdtreatments->potency=$request->potency;
         $ipdtreatments->nod=$request->nod;
-        // $ipdtreatments->advice=$request->advice;
         $ipdtreatments->remark=$request->remark;
-        //when we pass the whole array valu in one variable 
+        //when we pass the whole array valu in one variable
+        if(!empty($request->myCheckboxes))
+        { 
         $ipdtreatments->refTo=implode(',',$request->myCheckboxes);
+         }
         $ipdtreatments->consultant=$request->consultant;
         $ipdtreatments->save();
             return response()->json([
