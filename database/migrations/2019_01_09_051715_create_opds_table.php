@@ -16,18 +16,18 @@ class CreateOpdsTable extends Migration
         Schema::create('opds', function (Blueprint $table) {
             $table->increments('orderId');
             $table->string('id');
-            $table->string('patientTitle');
-            $table->string('patientName');
-            $table->string('regNum');
-            $table->string('regDate');
+            $table->string('patientTitle')->nullable();
+            $table->string('patientName')->nullable();
+            $table->string('regNum')->nullable();
+            $table->string('regDate')->nullable();
             $table->string('regAmount')->nullable();
-            $table->string('address');
-            $table->string('age');
-            $table->string('gender');
+            $table->string('address')->nullable();
+            $table->string('age')->nullable();
+            $table->string('gender')->nullable();
             $table->string('contactNum')->nullable();
-            $table->text('consultant');
-            $table->string('otherConsultant');
-            $table->text('department');
+            $table->text('consultant')->nullable();
+            $table->string('otherConsultant')->nullable();
+            $table->text('department')->nullable();
             $table->enum('patientType',array('O','N'))->nullable();
             $table->enum('patientTypeIpd',array('O','N'))->nullable();
             $table->enum('dltStatus',array('O','N'))->nullable();

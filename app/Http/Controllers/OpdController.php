@@ -46,12 +46,20 @@ class OpdController extends Controller
      */
     public function store(Request $request)
     {
-       //dd($request->all());
-        $valid=$this->validate($request,[
+    
+        $this->validate($request,[
           'regNum'=>'required',
           'patientName'=>'required',
+          'regDate'=>'required',
+          'patientTitle'=>'required',
+          'address'=>'required',
+          'Age'=>'required',
+          'gender'=>'required',
+          'Consultant'=>'required',
+          'otherConsultant'=>'required',
+          'department'=>'required',
         ]);
-        // dd($valid);
+       
         $opd=new opd;
         $opd->patientTitle=$request->patientTitle;
         $opd->patientName=$request->patientName;

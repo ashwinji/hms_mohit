@@ -33,6 +33,7 @@
 									),
 									'',['class' =>'form-control','id'=>'patientTitle','name'=>'patientTitle'])
 									!!}
+									<div class="error text-danger">{{ $errors->first('patientTitle')}}</div>
 								            </div>
 			</div>
 		</div>
@@ -44,7 +45,8 @@
 			</div>
 								<div class="col-sm-8">
 										<div class="form-group">
-			{!! Form::text('patientName', '', ['class' =>'form-control','id'=>'patientName']) !!}
+			{!! Form::text('patientName', '', ['class' =>'form-control','id'=>'patientName',]) !!}
+			<div class="error text-danger">{{ $errors->first('patientName')}}</div>
 										</div>
 								</div>
 		</div>
@@ -58,6 +60,7 @@
 					<div class="form-group">
 			{!! Form::text('regNum', '', ['class' =>'form-control','id'=>'regNum','name'=>'regNum'])
 													!!}
+			<div class="error text-danger">{{ $errors->first('regNum')}}</div>
 					</div>
 			</div>
 		</div>
@@ -71,6 +74,7 @@
 					<div class="form-group">
 			{!! Form::date('regDate', '', ['class' =>'form-control','id'=>'regDate','name'=>'regDate'])
 													!!}
+				<div class="error text-danger">{{ $errors->first('regDate')}}</div>									
 					</div>
 			</div>
 		</div>
@@ -84,6 +88,7 @@
 					<div class="form-group">
 		   {!! Form::text('address', '', ['class' =>'form-control','id'=>'address','name'=>'address'])
 													!!}
+				<div class="error text-danger">{{ $errors->first('address')}}</div>										
 					</div>
 			</div>
 		</div>
@@ -97,6 +102,8 @@
 			<div class="col-sm-8">
 					<div class="form-group">
 		   {!! Form::text('Age', '', ['class' =>'form-control','id'=>'Age','name'=>'Age']) !!}
+		   <div class="error text-danger">{{ $errors->first('Age')}}</div>	
+
 					</div>
 			</div>
 		</div>
@@ -120,6 +127,7 @@
 				'Female Child' =>'Female Child', ), '',
 				['class' =>'form-control','id'=>'gender'])
 				!!}
+				<div class="error text-danger">{{ $errors->first('gender')}}</div>	
 				</div>
 			</div>
 		</div>
@@ -136,6 +144,7 @@
 				['class' =>
 				'form-control','id'=>'Consultant','name'=>'Consultant','placeholder'=>'select consulant',])
 				!!}
+				<div class="error text-danger">{{ $errors->first('Consultant')}}</div>	
 				</div>
 			</div>
 		</div>
@@ -150,6 +159,7 @@
 				{!! Form::text('otherConsultant', '', ['class' =>
 				'form-control','id'=>'otherConsultant','name'=>'otherConsultant'])
 				!!}
+				<div class="error text-danger">{{ $errors->first('otherConsultant')}}</div>
 				</div>
 			</div>
 		</div>
@@ -164,6 +174,7 @@
 				{!! Form::select('department',$department,'',['class' =>
 				'form-control','id'=>'department','name'=>'department','placeholder'=>'select department'])
 				!!}
+				<div class="error text-danger">{{ $errors->first('department')}}</div>
 				</div>
 			</div>
 		</div>

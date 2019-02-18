@@ -55,7 +55,10 @@ class IpdController extends Controller
     {
         $this->validate($request,[
            
-          'patientId'=>'required'
+          'patientId'=>'required',
+          'opdDate'=>'required',
+          'ipdRegNum'=>'required',
+          'ipdRegDate'=>'required',
         
         ]);
         // dd($request->all());

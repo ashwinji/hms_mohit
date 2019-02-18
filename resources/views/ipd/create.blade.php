@@ -33,6 +33,7 @@
 								'id'=>'patientId',
 
 								]) !!}
+								<div class="error text-danger">{{ $errors->first('patientId')}}</div>
 								<div id="opd-reg-list">
 
 								</div>
@@ -51,6 +52,7 @@
 								'name'=>'opdDate',
 								'readonly' => 'true',
 								]) !!}
+								<div class="error text-danger">{{ $errors->first('opdDate')}}</div>
 							</div>
 
 						</div>
@@ -66,6 +68,7 @@
 								'id'=>'regnum',
 
 								]) !!}
+								<div class="error text-danger">{{ $errors->first('ipdRegNum')}}</div>	
 							</div>
 
 						</div>
@@ -78,6 +81,7 @@
 								'class' => 'form-control',
 								'placeholder' => 'Enter Registration Date'
 								]) !!}
+								<div class="error text-danger">{{ $errors->first('ipdRegDate')}}</div>
 							</div>
 
 						</div>
