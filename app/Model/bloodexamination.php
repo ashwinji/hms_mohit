@@ -41,4 +41,5 @@ public function opd()
         return $this->belongsTo(opd::class,'patientId','id');
      }
 
+
 }

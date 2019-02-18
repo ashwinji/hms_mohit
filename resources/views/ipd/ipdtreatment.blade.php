@@ -129,21 +129,7 @@
             {!! Form::label('name', 'Investigation 1') !!}
             <div class="form-group">
               {!! Form::select('investigation1',$investigation ,'', ['class' =>
-              'form-control','id'=>'investigation1','placeholder'=>'select investigation1']) !!}
-            </div>
-          </div>
-          <div class="col-lg-12">
-            {!! Form::label('name', 'Investigation 2') !!}
-            <div class="form-group">
-              {!! Form::select('investigation2',$investigation ,'', ['class' =>
-              'form-control','id'=>'investigation2','placeholder'=>'select investigation2']) !!}
-            </div>
-          </div>
-             <div class="col-lg-12">
-            {!! Form::label('name', 'Investigation 3') !!}
-            <div class="form-group">
-              {!! Form::select('investigation3',$investigation ,'', ['class' =>
-              'form-control','id'=>'investigation3','placeholder'=>'select investigation3']) !!}
+              'form-control','id'=>'investigation','placeholder'=>'select investigation1']) !!}
             </div>
           </div>
           <div class="form-group">

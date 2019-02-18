@@ -3,19 +3,18 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @section('main-content')
-
 <body>
     @include('verror.error')
-        <div class="page">
-                         <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title"> PATIENTS LIST</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-            <div class="container col-lg-12">
+   <div class="page">
+     <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="card">
+             <div class="card-header">
+                <div class="card-title"> PATIENTS LIST</div>
+               </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <div class="container col-lg-12">
                 <table id="ipduser" class=" table table-striped table-bordered w-100">
                     <thead>
                         <tr>
@@ -38,22 +37,17 @@
 </div>
 </div>
 </div>
-
-
-    <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+ <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
         <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content">
-                
                 <div class="modal-body">
                     <div id="add">
 
                     </div>
                 </div>
                 <div class="modal-footer align-center">
-                    
                     <button type="button" id="at"class="btn btn-square btn-info pull-left" data-dismiss="modal">Submit</button>
                     <button type="button" class="btn btn-square btn-danger" data-dismiss="modal">Close</button>
-              
                 </div>
             </div>
         </div>
@@ -229,6 +223,7 @@
      var treatment=$('#treatment').val();
      var medicine=$('#medicine').val();
      var potency=$('#potency').val();
+     var investigation=$('#investigation').val();
      var nod=$('#nod').val();
      var remark=$('#remark').val();
      var myCheckboxes = new Array();
@@ -251,6 +246,7 @@ $.ajax(
             treatment:treatment ,
             medicine:medicine,
             potency:potency,
+            investigation:investigation,
             nod:nod,
             remark:remark,
             myCheckboxes:myCheckboxes ,

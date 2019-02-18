@@ -45,6 +45,7 @@ class IpdtreatmentsController extends Controller
         $ipdtreatments->treatment=$request->treatment;
         $ipdtreatments->medicine=$request->medicine;
         $ipdtreatments->potency=$request->potency;
+        $ipdtreatments->advice=$request->investigation;
         $ipdtreatments->nod=$request->nod;
         $ipdtreatments->remark=$request->remark;
         //when we pass the whole array valu in one variable

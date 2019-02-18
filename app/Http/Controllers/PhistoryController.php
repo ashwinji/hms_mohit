@@ -43,7 +43,7 @@ class PhistoryController extends Controller
         $data=opd::where('id',$id)->first();
         $ipdData=ipd::where('patientId',$id)->first();
         $ipdTreatmentData=ipdtreatments::where('patientId',$id)->get();
-        $blooddata=bloodexamination::where('patientId',$id)->first();
+        $bloodData=bloodexamination::where('patientId',$id)->first();
         $semenData=semenexamination::where('patientId',$id)->first();
         $serunData=serumofwidal::where('patientId',$id)->first();
         $stoolData=stoolexamination::where('patientId',$id)->first();

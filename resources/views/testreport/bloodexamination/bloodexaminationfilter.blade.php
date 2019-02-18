@@ -6,41 +6,35 @@
 <body>
  @include('verror.error')
 <div class="page">
-                         <div class="row">
-							<div class="col-md-12 col-lg-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="card-title"> PATIENTS LIST</div>
-								</div>
-								<div class="card-body">
-                                	<div class="table-responsive">
-									<table id="bloodexamination" class="table table-striped table-bordered w-100">
-										<thead>
-									
-											 <tr>
-				                             <th class="wd-15p">Id</th>
-				                            <th class="wd-15p">Name</th>
-				                            <th class="wd-15p">RegNUM</th>
-				                            <th class="wd-15p">RefferedBy</th>
-				                            <th class="wd-15p">Age</th>
-				                            <th class="wd-15p">investigationAdvised</th>
-				                            <th class="wd-15p">TestDate</th>
-				                            <th class="wd-15p">Action</th>
-                                               </tr> 
-											
-										</thead>
-									</table>
-								</div>
-                                </div>
-								<!-- table-wrapper -->
-							</div>
-							<!-- section-wrapper -->
-
-							</div>
+     <div class="row">
+			<div class="col-md-12 col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title"> PATIENTS LIST</div>
+						</div>
+					<div class="card-body">
+                        <div class="table-responsive">
+							<table id="bloodexamination" class="table table-striped table-bordered w-100">
+								<thead>
+                                     <tr>
+			                           <th class="wd-15p">Id</th>
+			                            <th class="wd-15p">Name</th>
+			                            <th class="wd-15p">RegNUM</th>
+			                            <th class="wd-15p">RefferedBy</th>
+			                            <th class="wd-15p">Age</th>
+			                            <th class="wd-15p">investigationAdvised</th>
+			                            <th class="wd-15p">TestDate</th>
+			                            <th class="wd-15p">Action</th>
+                                    </tr> 
+								</thead>
+							</table>
 						</div>
                     </div>
-
-                      <div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="largemodal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
         <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -54,24 +48,10 @@
             </div>
         </div>
     </div>
-					</body>
+</body>
 @endsection
 @section('footerSection')
-
-<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
-		<script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
-		<script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
-		<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-
-		<!-- Custom scroll bar Js-->
-		<script src="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
-
-		<!-- Custom Js-->
-		<script src="{{asset('assets/js/custom.js')}}"></script>
-        <link href="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
-        <link href="{{asset('assets/plugins/select2/select2.min.css" rel="stylesheet')}}" />
-
-		<script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
         oTable = $('#bloodexamination').DataTable({
             "processing": true,
@@ -86,9 +66,6 @@
                 { data: 'investigationAdvised', name: 'investigationAdvised' },
                 { data: 'date', name: 'date' },
                 {data: 'action', name: 'action'},
-
-
-
             ]
         });
     });

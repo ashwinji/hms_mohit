@@ -4,39 +4,36 @@
 @endsection
 @section('main-content')
 <div class="page">
-			<div class="row">
-                            <div class="col-md-12 col-lg-12">
-                            <div class="card">
-									<div class="card-header ">
-										<h3 class="card-title ">Patient History List</h3>
-									</div>
-									<div class="card-body">
-									<div class="table-responsive">
-										<table id="Opddata-table" class="table table-striped table-bordered w-100">
-											<thead>
-											  <tr>
-												<th >S.No</th>
-												<th >Patient Name</th>
-												<th >Reg. ID</th>
-												<th >Rg. Date </th>
-												<th >Address</th>
-												<th >Gender</th>
-												<th >Action</th>
-											  </tr>
-											</thead>
-											
-										  </table>
-									</div>
-								</div>
-								</div>
-							</div>
-						</div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+    <div class="card">
+			<div class="card-header ">
+				<h3 class="card-title ">Patient History List</h3>
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+				<table id="Opddata-table" class="table table-striped table-bordered w-100">
+					<thead>
+					  <tr>
+						<th >S.No</th>
+						<th >Patient Name</th>
+						<th >Reg. ID</th>
+						<th >Rg. Date </th>
+						<th >Address</th>
+						<th >Gender</th>
+						<th >Action</th>
+					  </tr>
+					</thead>
+				  </table>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
 
 <!-- model for view -->
 <div  class="modal fade" id="myModal" role="dialog" >
     <div class="modal-dialog modal-lg">
-    
-       
       <div class="modal-content">
         <div class="modal-header" >
           <h4 >Details Of Patients History</h4>
@@ -50,18 +47,13 @@
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
     </div>
   </div>
 </div>
 <!-- model for view -->
-
-
-
 </div>
 </div>
 </div>
-
 </div>
 @endsection
 @section('footerSection')

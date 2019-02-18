@@ -14,7 +14,7 @@
                                    </div>
                                </div>
                             </div>
-                                <div class="card-body">
+                        <div class="card-body">
 			{!! Form::open(['route' => ['semen.store'],'autocomplete'=>'off']) !!}
 
 							{!! csrf_field() !!}
@@ -35,13 +35,13 @@
 								<div class="col-md-4">
 								<div class="form-group">
 								{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name','readonly'=>'true']) !!}
+	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'patientName','readonly'=>'true']) !!}
 							    </div>
 								</div>
 								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate', '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
+	        {!! Form::date('regdate', '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
 							    </div>
 								</div>
 								<div class="col-md-4">
@@ -53,13 +53,13 @@
 								<div class="offset-md-2 col-md-4">
 								<div class="form-group">
 								{!! Form::label('name', 'Investigation Advised') !!}
-	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'opd_name',]) !!}
+	        {!! Form::text('investigationAdvised', '', ['class' => 'form-control','placeholder' => 'Enter investigationAdvised ','id'=>'investigationAdvised',]) !!}
 							    </div>
 								</div>
 								<div class="col-md-4">
 								<div class="form-group">
 								{!! Form::label('name', 'Test Date') !!}
-	        {!! Form::date('otDate', '', ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
+	        {!! Form::date('date', '', ['class' => 'form-control','placeholder' => 'Enter test Date','id'=>'date']) !!}
 							    </div>
 								</div>
 								<div class="offset-md-2 col-md-4">
@@ -232,7 +232,7 @@
                         success: function (data) {
                                 console.log(data);
                                 $('#regDate').val(data.data1.regDate);
-                                $('#opd_name').val(data.data1.patientName);
+                                $('#patientName').val(data.data1.patientName);
                                 $('#age').val(data.data1.age);
                                 $('#referredBy').val(data.doctor);
                         }
