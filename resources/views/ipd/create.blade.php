@@ -94,6 +94,7 @@
 								'',
 								['class' => 'form-control','id'=>'consultant','name'=>'consultant','placeholder'=>'select consultant'])
 								!!}
+								<div class="error text-danger">{{ $errors->first('consultant')}}</div>
 							</div>
 
 						</div>
@@ -109,6 +110,7 @@
 								'readonly' => 'true',
 								'placeholder' => 'Enter Other Consultant'])
 								!!}
+								<div class="error text-danger">{{ $errors->first('otherConsultant')}}</div>
 							</div>
 
 						</div>
@@ -119,11 +121,12 @@
 								{!! Form::label('name', 'Patient Name') !!}
 								{!! Form::text('patientName','',
 								['class' => 'form-control',
-								'placeholder' => 'Enter Registration Amount',
+								'placeholder' => 'Enter Patient Name',
 								'id'=>'patientName',
 								'name'=>'patientName',
 								'readonly' => 'true',
 								]) !!}
+								<div class="error text-danger">{{ $errors->first('patientName')}}</div>
 							</div>
 
 						</div>
@@ -138,6 +141,7 @@
 								'name'=>'age',
 								'readonly' => 'true',
 								]) !!}
+								<div class="error text-danger">{{ $errors->first('age')}}</div>
 							</div>
 						</div>
 						<div class="offset-md-2 col-md-4">
@@ -155,10 +159,12 @@
 											   {!! Form::radio('prefixName','D/o',false,array("class"=>"custom-control-input",'id'=>'prefixName'))  !!}
 												<span class="custom-control-label"><strong>D/o</strong></span>
 								 </label>
+
 							</div>
 						</div>
 						<div>      
 							   {!! Form::text('refName', '', ['class' => 'form-control','placeholder' => 'Name','id'=>'refName','name'=>'refName']) !!}
+							   <div class="error text-danger">{{ $errors->first('refName')}}</div>
 							</div>
 					  </div>
 					<div class="col-md-4">
@@ -168,12 +174,14 @@
 								Adult', 'Male Child' => 'Male Child','Male Child' => 'Male Child','Female Child' =>
 								'Female Child',], '', ['class' =>
 								'form-control','id'=>'gender','name'=>'gender','readonly' => 'true']) !!}
+								 <div class="error text-danger">{{ $errors->first('gender')}}</div>
 							</div>
 					</div>
 					<div class="offset-md-2 col-md-8 offset-md-2">
 							<div class="form-group">
 								{!! Form::label('name', 'Address') !!}
 								{!! Form::textarea('address', '', ['class' => 'form-control','placeholder' => 'Enter Address','rows' => 1, 'cols' => 10,'id'=>'address','name'=>'address']) !!}
+								<div class="error text-danger">{{ $errors->first('address')}}</div>
 							</div>
 					</div>
 					<div class="offset-md-2 col-md-8 offset-md-2">
@@ -581,8 +589,8 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<div>
-									{!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
-									   <a class=" btn btn-default btn-square btn-danger" href="{{ route('dashboard') }}">Cancel</a>
+									{!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
+									{!! Form::reset('Cancel', ['class' => 'btn btn-square btn-danger','id'=>'cancel']) !!}
 								</div>
 							</div>
 						</div>
@@ -594,10 +602,27 @@
 	</div>
 </div>
 @endsection
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous">
-</script>
+
 @push('script')
+
+
+<script type="text/javascript">
+   jQuery(document).ready(function(){
+            $('#submit').hide();
+            $('#cancel').hide();
+    $('#patientId').on('keyup',function(){
+        if($('#patientId').val() != ""){
+            $('#submit').show();
+            $('#cancel').show();
+        }
+        else {
+             $('#submit').hide();
+             $('#cancel').hide();
+        }
+    });
+});
+
+</script>
 
 <script type="text/javascript">
 	jQuery(document).ready(function () {

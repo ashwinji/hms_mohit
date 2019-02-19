@@ -1,7 +1,7 @@
  <div class="container">
   <div class="row">
     <div class="col-md-12">
- <div class="panel panel-default">
+   <div class="panel panel-default">
       <div class="panel-body">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">x</span>
@@ -109,13 +109,11 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
                 <!-- ============================Ipd data=============================== -->
 
- <div class="row">
-    <div class="col-md-12">
+                 <div class="col-md-12">
                 <div class="panel panel-default mb-4">
                   <div class="panel-heading1 ">
                     <h4 class="panel-title1">
@@ -434,12 +432,11 @@
        </div>
        @endif
     </div>
-</div>
-</div>
+  </div>
+
    <!-- ======================blood examination================== -->
 
-   <div class="row">
-    <div class="col-md-12">
+   <div class="col-md-12">
     <div class="panel panel-default mb-4">
               <div class="panel-heading1 ">
                 <h4 class="panel-title1">
@@ -600,12 +597,11 @@
     </div>
 </div>
 </div>
-</div>
+
 
   <!-- ======================semen examinatio examination================== -->
 
-  <div class="row">
-    <div class="col-md-12">
+ <div class="col-md-12">
     <div class="panel panel-default mb-4">
        <div class="panel-heading1 ">
          <h4 class="panel-title1">
@@ -763,16 +759,15 @@
       </div>
     </div>
   </div>
-</div>
+
 
     <!--serun of widal =========================================================== -->
 
-    <div class="row">
-    <div class="col-md-12">
+   <div class="col-md-12">
       <div class="panel panel-default mb-4">
         <div class="panel-heading1 ">
           <h4 class="panel-title1">
-            <a class="accordion-toggle collapsed text-center col-md-12" data-toggle="collapse" data-parent="#accordion" href="#collapseFour5" aria-expanded="false">SERUN FOR WIDAL TEST</a>
+            <a class="accordion-toggle collapsed text-center" data-toggle="collapse" data-parent="#accordion" href="#collapseFour5" aria-expanded="false">SERUN FOR WIDAL TEST</a>
           </h4>
         </div>
         <div id="collapseFour5" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
@@ -842,8 +837,7 @@
                                       </td>
                                       <td>{{ $serun->sTyphiO }}</td>
                                       <td></td>
-                                      <td></td>
-                                      <td></td>
+                                     
                                   </tr>
                                   <tr>
                                       <td>
@@ -890,11 +884,10 @@
               </div>
             </div>
           </div>
-</div>
-</div>
+        </div>
+
          <!-- ======== stool examination=================================================-->     
-<div class="row">
-    <div class="col-md-12">
+      <div class="col-md-12">
       <div class="panel panel-default mb-4">
         <div class="panel-heading1 ">
             <h4 class="panel-title1">
@@ -1031,11 +1024,10 @@
           </div>
         </div>
       </div>
-    </div>
+    
 
            <!-- ======== urin examination=================================================-->    
-  <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-12">
       <div class="panel panel-default mb-4">
         <div class="panel-heading1">
           <h4 class="panel-title1">
@@ -1173,8 +1165,9 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      
+        
+ 
         
       
                 

@@ -43,15 +43,16 @@ class PhysiotherpyController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+         
         $this->validate($request,[
-
+       
 
         ]);
-
-        $physiotherpy=physiotherpy::create($request->all());
-        $physiotherpy->save();
-        return redirect (route('physiotherpy-create'))->with('message','data save sussefully');
+       
+            $physiotherpy=physiotherpy::create($request->all());
+            $physiotherpy->save();
+            return redirect (route('physiotherpy-create'))->with('message','data save sussefully');
+        
     }
 
     /**

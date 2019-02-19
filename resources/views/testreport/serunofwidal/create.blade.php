@@ -96,14 +96,12 @@
 	        {!! Form::textarea('impression','', ['class' => 'form-control','placeholder' => 'Enter IMPRESSION','rows' =>2, 'cols' => 14,]) !!}
 							    </div>
 								</div>
-						<div class="offset-md-3 col-md-4" >
+						<div class=" offset-md-5 col-md-6" >
 								<div class="form-group">
-									 <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
-								      </div>
-								      <div style="float: right;">
-									    <a href="" class="btn btn-square btn-danger">Cancel </a>
-								      </div>
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
+								     
+								      
+									    <a href="{{route('serun-create')}}" class="btn btn-square btn-danger" id="cancel" type="reset">Cancel </a>
 								</div>		
                          </div>
 								{!! Form::close() !!}
@@ -118,26 +116,37 @@
 @endsection
 
 @section('footerSection')
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
 
-        </script>
-<script type="text/javascript">
-
-        jQuery(document).ready(function () {debugger
+	<script type="text/javascript">
+			jQuery(document).ready(function(){
+			            $('#submit').hide();
+			            $('#cancel').hide();
+			    $('#patientId').on('keyup',function(){
+			        if($('#patientId').val() != ""){
+			            $('#submit').show();
+			            $('#cancel').show();
+			        }
+			        else {
+			             $('#submit').hide();
+			             $('#cancel').hide();
+			        }
+			    });
+			});
+	</script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
                 jQuery('#patientId').on('keyup', function () {
                         var opd = $(this).val();
                         $('#patientId').html("");
                         if (opd != '') {
                                 var _token = $('input[name="_token"]').val();
                                 $.ajax({
-
                                         url: "{{ route('yoga.fetch') }}",
                                         method: "POST",
                                         data: { query: opd, _token: _token },
                                         success: function (data) {
-                                                $('#opd-reg-list').fadeIn();
-                                                $('#opd-reg-list').html(data);
+                                        $('#opd-reg-list').fadeIn();
+                                        $('#opd-reg-list').html(data);
                                         }
 
                                 });

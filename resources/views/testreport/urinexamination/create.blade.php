@@ -187,7 +187,7 @@
 			<div class="col-md-6" >
 				<div class="form-group">
 				  <div style="float: right;">
-				     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+				     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
 			      </div>
 				</div>
 			</div>
@@ -196,7 +196,7 @@
 			<div class="col-md-6" >
 				<div class="form-group">
 				  <div >
-				    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
+				    <a href="{{route('urine-create')}}" class="btn btn-square btn-primary" id="cancel">Cancel</a>
 			      </div>
 				</div>
 			</div>
@@ -212,10 +212,24 @@
 	@endsection
 
 	@section('footerSection')
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
+	
 
-        </script>
+<script type="text/javascript">
+			jQuery(document).ready(function(){
+			            $('#submit').hide();
+			            $('#cancel').hide();
+			    $('#patientId').on('keyup',function(){
+			        if($('#patientId').val() != ""){
+			            $('#submit').show();
+			            $('#cancel').show();
+			        }
+			        else {
+			             $('#submit').hide();
+			             $('#cancel').hide();
+			        }
+			    });
+			});
+</script>
 <script type="text/javascript">
 
         jQuery(document).ready(function () {debugger

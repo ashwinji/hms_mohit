@@ -1,9 +1,13 @@
 <?php
 
+Auth::routes();
+Route::group(['middleware'=>'auth'], function(){
+	
+Route::get('/home', 'HomeController@index')->name('home');
 
-  Route::get('/', function () {
-      return view('master.layouts.app');
- });
+   Route::get('/', function () {
+       return view('master.layouts.app');
+  });
 
   //dash route
   Route::group(['prefix'=>'dashboard'], function(){
@@ -383,9 +387,11 @@ Route::group(['prefix'=>'physiotherapylist'], function(){
 //
 Route::group(['prefix'=>'patienthistory'], function(){
 
-Route::get('history','PhistoryController@index')->name('phistory');
-Route::get('showhistory','PhistoryController@showhistory')->name('phistory.show');
-Route::post('ajaxdata/history', 'PhistoryController@historyView')->name('history.view');
+Route::get('/','PhistoryController@index')->name('phistory');
+Route::get('/showhistory','PhistoryController@showhistory')->name('phistory.show');
+Route::post('/ajaxdata/history', 'PhistoryController@historyView')->name('history.view');
 
 
  });
+
+});

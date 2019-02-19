@@ -48,7 +48,7 @@ class OpdController extends Controller
     {
     
         $this->validate($request,[
-          'regNum'=>'required',
+          'regNum'=>'required|unique:opds,regNum|min:5|',
           'patientName'=>'required',
           'regDate'=>'required',
           'patientTitle'=>'required',

@@ -59,6 +59,14 @@ class IpdController extends Controller
           'opdDate'=>'required',
           'ipdRegNum'=>'required',
           'ipdRegDate'=>'required',
+          'otherConsultant'=>'required',
+          'patientName'=>'required',
+          'consultant'=>'required',
+          'age'=>'required',
+          'refName'=>'required',
+          'prefixName'=>'required',
+          'gender'=>'required',
+          'address'=>'required',
         
         ]);
         // dd($request->all());

@@ -45,6 +45,11 @@ class OtController extends Controller
         // dd($request->all());
         $this->validate($request,[
                 'opdNum'=>'required',
+                'patientName'=>'required',
+                'opdDate'=>'required',
+                'age'=>'required',
+                'gender'=>'required',
+                'address'=>'required',
              
         ]);
         $ot=new ot;

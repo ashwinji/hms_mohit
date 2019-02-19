@@ -222,8 +222,10 @@
                             </div>
                     </div>
                         <center> 
-                            <button class="btn btn-square btn-success" type="submit">Submit</button>
-                            <button class="btn btn-square btn-danger" type="reset">Cancel</button>
+                            <button class="btn btn-square btn-success" id ="submit" type="submit">Submit</button>
+                            <a href="{{route('physiotherpy-create')}}"
+                             class="btn btn-square btn-danger" id="cancel" type="reset" >Cancel
+                            </a>
                         </center>
                     {!! Form::close() !!}
                                  </div>
@@ -238,6 +240,27 @@
         crossorigin="anonymous">
 
  </script>
+
+<script type="text/javascript">
+    
+jQuery(document).ready(function(){
+            $('#submit').hide();
+            $('#cancel').hide();
+    $('#patientId').on('keyup',function(){
+        if($('#patientId').val() != ""){
+            $('#submit').show();
+            $('#cancel').show();
+        }
+        else {
+             $('#submit').hide();
+             $('#cancel').hide();
+        }
+    });
+});
+
+</script>
+
+
 <script type="text/javascript">
 
         jQuery(document).ready(function () {

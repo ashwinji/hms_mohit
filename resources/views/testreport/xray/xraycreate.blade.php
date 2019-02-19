@@ -14,84 +14,97 @@
 								</div>
 							</div>
 						</div>
-	<div class="card-body">
-		<div class="row">		
-			<div class="col-md-12">
-				@include('verror.error')
-			{!! Form::open(['route' => ['xray.store'],'autocomplete'=>'off']) !!}
-			{!! csrf_field() !!}
-			{{ Form::hidden('status', '1') }}
-				<div class="row">
-	  				<div class="offset-md-2 col-md-8 offset-md-2">
-					<div class="form-group">		
-			{!! Form::label('name', 'OPD Registration Number') !!}
-	        {!! Form::text('patientId', '', ['class' => 'form-control dynamic_opd',
-	        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
-						        <div id="opd-reg-list">
-						        </div>
-								</div>
-								<div class="form-group">
-			{!! Form::label('name', 'Patient Name') !!}
-	        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'patientName','readonly'=>'true']) !!}
-							    </div>
-								<div class="form-group">
-			{!! Form::label('name', 'OPD Date') !!}
-	        {!! Form::date('opdDate',  '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
-							    </div>
-								<div class="form-group">
-			{!! Form::label('name', 'Referred By') !!}
-	        {!! Form::text('referredBy','', ['class' => 'form-control','readonly'=>'true','id'=>'referredBy']) !!}
-							    </div>
-								<div class="form-group">
-			{!! Form::label('name', 'Investigation Advised') !!}
-	        {!! Form::text('investigationAdvised',  '', ['class' => 'form-control','placeholder' => 'Enter Investigation Advised','id'=>'investigationAdvised',]) !!}
-							    </div>
-								<div class="form-group">
-			{!! Form::label('name', 'Test Date') !!}
-	        {!! Form::date('date',  '', ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
-							    </div>
-				                <div class="form-group">	
-			{!! Form::label('name', 'Description') !!}
-	        {!! Form::textarea('description',  '', ['class' => 'form-control','placeholder' => 'Enter Description','rows' => 2, 'cols' => 10,]) !!}
-							    </div>
-								<div class="form-group">
-			{!! Form::label('name', 'Remarks') !!}
-	        {!! Form::textarea('remark', '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 2, 'cols' => 10,]) !!}
-							    </div>
-								</div>
-			<div class="col-md-6" >
-				<div class="form-group">
-				  <div style="float: right;">
-				     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
-			      </div>
+				<div class="card-body">
+					<div class="row">		
+						<div class="col-md-12">
+							@include('verror.error')
+							{!! Form::open(['route' => ['xray.store'],'autocomplete'=>'off']) !!}
+							{!! csrf_field() !!}
+							{{ Form::hidden('status', '1') }}
+				   <div class="row">
+					   <div class="offset-md-2 col-md-8 offset-md-2">
+					      <div class="form-group">		
+							{!! Form::label('name', 'OPD Registration Number') !!}
+					        {!! Form::text('patientId', '', ['class' => 'form-control dynamic_opd',
+					        'placeholder' => 'Enter Registration Number','id'=>'patientId']) !!}
+										        <div id="opd-reg-list">
+										        </div>
+					 </div>
+					<div class="form-group">
+							{!! Form::label('name', 'Patient Name') !!}
+					        {!! Form::text('patientName', '', ['class' => 'form-control','placeholder' => 'Enter Patient Name','id'=>'patientName','readonly'=>'true']) !!}
+					</div>
+					<div class="form-group">
+							{!! Form::label('name', 'OPD Date') !!}
+					        {!! Form::date('opdDate',  '', ['class' => 'form-control','placeholder' => 'Enter Registration Date','id'=>'regDate','readonly'=>'true']) !!}
+					</div>
+					<div class="form-group">
+							{!! Form::label('name', 'Referred By') !!}
+					        {!! Form::text('referredBy','', ['class' => 'form-control','readonly'=>'true','id'=>'referredBy']) !!}
+					 </div>
+					<div class="form-group">
+							{!! Form::label('name', 'Investigation Advised') !!}
+					        {!! Form::text('investigationAdvised',  '', ['class' => 'form-control','placeholder' => 'Enter Investigation Advised','id'=>'investigationAdvised',]) !!}
+					</div>
+					<div class="form-group">
+							{!! Form::label('name', 'Test Date') !!}
+					        {!! Form::date('date',  '', ['class' => 'form-control','placeholder' => 'Enter OT Date']) !!}
+					</div>
+				   <div class="form-group">	
+							{!! Form::label('name', 'Description') !!}
+					        {!! Form::textarea('description',  '', ['class' => 'form-control','placeholder' => 'Enter Description','rows' => 2, 'cols' => 10,]) !!}
+				   </div>
+				  <div class="form-group">
+							{!! Form::label('name', 'Remarks') !!}
+					        {!! Form::textarea('remark', '', ['class' => 'form-control','placeholder' => 'Enter Remarks','rows' => 2, 'cols' => 10,]) !!}
+				 </div>
+				 </div>
+				<div class="col-md-6" >
+					<div class="form-group">
+					  <div style="float: right;">
+					     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
+				      </div>
+					</div>
 				</div>
-			</div>
 
-			{!! Form::close() !!}
-			<div class="col-md-6" >
-				<div class="form-group">
-				  <div >
-				    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
-			      </div>
+				{!! Form::close() !!}
+				<div class="col-md-6" >
+					<div class="form-group">
+					  <div >
+					    <a href="{{route('xray-create')}}" class="btn btn-square btn-primary" id="cancel">Cancel</a>
+				      </div>
+					</div>
 				</div>
-			</div>
-		  </div>							
-	</div>		
+				</div>							
+			</div>		
+		</div>
 	</div>
 	</div>
-	</div>
-	</div>							
-	</div>
+	</div>	
 	</div>
 	</div>
+</div>
 	@endsection
-		@section('footerSection')
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
+	@section('footerSection')
 
-        </script>
-<script type="text/javascript">
-
+	<script type="text/javascript">
+				jQuery(document).ready(function(){
+				            $('#submit').hide();
+				            $('#cancel').hide();
+				    $('#patientId').on('keyup',function(){
+				        if($('#patientId').val() != ""){
+				            $('#submit').show();
+				            $('#cancel').show();
+				        }
+				        else {
+				             $('#submit').hide();
+				             $('#cancel').hide();
+				        }
+				    });
+				});
+	</script>
+	
+     <script type="text/javascript">
         jQuery(document).ready(function () {debugger
                 jQuery('#patientId').on('keyup', function () {
                         var opd = $(this).val();
@@ -134,3 +147,4 @@
         });
 
 </script>
+@endsection

@@ -169,7 +169,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div style="float: right;">
-									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+									     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
 								      </div>
 									</div>
 								</div>
@@ -177,7 +177,7 @@
 								<div class="col-md-6" >
 									<div class="form-group">
 									  <div >
-									    <a href="#"><button class="btn btn-square btn-primary">Cancel</button></a>
+									    <a href="{{route('semen-create')}}"class="btn btn-square btn-primary" type="reset" id="cancel">Cancel</a>
 								      </div>
 									</div>
 								</div>
@@ -194,26 +194,38 @@
 @endsection
 
 @section('footerSection')
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
 
-        </script>
 <script type="text/javascript">
+		jQuery(document).ready(function(){
+		            $('#submit').hide();
+		            $('#cancel').hide();
+		    $('#patientId').on('keyup',function(){
+		        if($('#patientId').val() != ""){
+		            $('#submit').show();
+		            $('#cancel').show();
+		        }
+		        else {
+		             $('#submit').hide();
+		             $('#cancel').hide();
+		        }
+		    });
+		});
+</script>
 
-        jQuery(document).ready(function () {debugger
+<script type="text/javascript">
+        jQuery(document).ready(function () {
                 jQuery('#patientId').on('keyup', function () {
                         var opd = $(this).val();
                         $('#patientId').html("");
                         if (opd != '') {
                                 var _token = $('input[name="_token"]').val();
                                 $.ajax({
-
                                         url: "{{ route('yoga.fetch') }}",
                                         method: "POST",
                                         data: { query: opd, _token: _token },
                                         success: function (data) {
-                                                $('#opd-reg-list').fadeIn();
-                                                $('#opd-reg-list').html(data);
+                                        $('#opd-reg-list').fadeIn();
+                                        $('#opd-reg-list').html(data);
                                         }
 
                                 });
@@ -230,11 +242,11 @@
                         method: "POST",
                         data: { query: opd, _token: _token },
                         success: function (data) {
-                                console.log(data);
-                                $('#regDate').val(data.data1.regDate);
-                                $('#patientName').val(data.data1.patientName);
-                                $('#age').val(data.data1.age);
-                                $('#referredBy').val(data.doctor);
+                        console.log(data);
+                        $('#regDate').val(data.data1.regDate);
+                        $('#patientName').val(data.data1.patientName);
+                        $('#age').val(data.data1.age);
+                        $('#referredBy').val(data.doctor);
                         }
 
                 });

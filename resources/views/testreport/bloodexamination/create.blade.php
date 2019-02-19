@@ -15,8 +15,10 @@
 							</div>
 						</div>						
 		<div class="card-body">
+			
 			<div class="row">					
 				<div class="col-md-12">
+
 					@include('verror.error')
 							 <div class="row">
                              </div>
@@ -187,7 +189,8 @@
 			<div class="col-md-6" >
 				<div class="form-group">
 				  <div style="float: right;">
-				     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
+				     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
+				     <!--  {!! Form::reset('Cancel', ['class' => 'btn btn-square btn-danger','id'=>'cancel']) !!} -->
 			      </div>
 				</div>
 			</div>
@@ -195,7 +198,7 @@
 			<div class="col-md-6" >
 				<div class="form-group">
 				  <div >
-				    <a href="#"><button class="btn  btn-square btn-danger">Cancel</button></a>
+				     <a href="" class="btn  btn-square btn-danger" id="cancel" type="reset">Cancel</a> 
 			      </div>
 				</div>
 			</div>
@@ -207,13 +210,27 @@
 	</div>								
 	</div>
 	</div>
-	</div>
+</div>
 	@endsection
-	@section('footerSection')
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	        crossorigin="anonymous">
-	    </script>
-	<script type="text/javascript">
+@section('footerSection')
+	<script type="text/javascript">  
+				jQuery(document).ready(function(){
+				            $('#submit').hide();
+				            $('#cancel').hide();
+				    $('#patientId').on('keyup',function(){
+				        if($('#patientId').val() != ""){
+				            $('#submit').show();
+				            $('#cancel').show();
+				        }
+				        else {
+				             $('#submit').hide();
+				             $('#cancel').hide();
+				        }
+				    });
+				});
+
+	</script>
+		<script type="text/javascript">
 	        jQuery(document).ready(function () {
 	                jQuery('#patientId').on('keyup', function () {
 	                        var opd = $(this).val();
@@ -221,13 +238,12 @@
 	                        if (opd != '') {
 	                                var _token = $('input[name="_token"]').val();
 	                                $.ajax({
-
 	                                        url: "{{ route('yoga.fetch') }}",
 	                                        method: "POST",
 	                                        data: { query: opd, _token: _token },
 	                                        success: function (data) {
-	                                                $('#opd-reg-list').fadeIn();
-	                                                $('#opd-reg-list').html(data);
+	                                        $('#opd-reg-list').fadeIn();
+	                                        $('#opd-reg-list').html(data);
 	                                        }
 
 	                                });
@@ -235,25 +251,24 @@
 	                });
 
 	        });
-	        $(document).on('click', 'li', function () {
-	                $('#patientId').val($(this).text());
-	                var opd = $('#patientId').val();
-	                var _token = $('input[name="_token"]').val();
-	                $.ajax({
-	                        url: "{{ route('yoga.fetchSearch') }}",
-	                        method: "POST",
-	                        data: { query: opd, _token: _token },
-	                        success: function (data) {
-	                                console.log(data);
-	                                $('#regDate').val(data.data1.regDate);
-	                                $('#opd_name').val(data.data1.patientName);
-	                                $('#age').val(data.data1.age);
-	                                $('#referredBy').val(data.doctor);
-	                        }
+		        $(document).on('click', 'li', function () {
+		                $('#patientId').val($(this).text());
+		                var opd = $('#patientId').val();
+		                var _token = $('input[name="_token"]').val();
+		                $.ajax({
+		                        url: "{{ route('yoga.fetchSearch') }}",
+		                        method: "POST",
+		                        data: { query: opd, _token: _token },
+		                        success: function (data) {
+	                            console.log(data);
+	                            $('#regDate').val(data.data1.regDate);
+	                            $('#opd_name').val(data.data1.patientName);
+	                            $('#age').val(data.data1.age);
+	                            $('#referredBy').val(data.doctor);
+		                        }
+		                });
+		                $('#opd-reg-list').fadeOut();
+		        });
 
-	                });
-	                $('#opd-reg-list').fadeOut();
-	        });
-
-	</script>
+		</script>
 @endSection

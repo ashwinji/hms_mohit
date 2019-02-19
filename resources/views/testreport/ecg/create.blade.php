@@ -56,8 +56,8 @@
 										    </div>			
 						<div class="offset-md-4 col-md-4 offset-md-4" >
 							<div class="form-group">
-							     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success']) !!}
-						      <a href="{{route('dashboard')}}"><button class="btn btn-square btn-primary">Cancel
+							     {!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
+						      <a href="{{route('ecg-create')}}"class="btn btn-square btn-primary" id="cancel">Cancel
 						      </button></a>
 							</div>
 						</div>	
@@ -74,9 +74,24 @@
 </div>
 	@endsection
 	@section('footerSection')
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	        crossorigin="anonymous">
+	
+	<script type="text/javascript">
+				jQuery(document).ready(function(){
+				            $('#submit').hide();
+				            $('#cancel').hide();
+				    $('#patientId').on('keyup',function(){
+				        if($('#patientId').val() != ""){
+				            $('#submit').show();
+				            $('#cancel').show();
+				        }
+				        else {
+				             $('#submit').hide();
+				             $('#cancel').hide();
+				        }
+				    });
+				});
 	</script>
+
 	<script type="text/javascript">
         jQuery(document).ready(function () {debugger
                 jQuery('#patientId').on('keyup', function () {

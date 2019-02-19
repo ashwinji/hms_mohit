@@ -8,21 +8,17 @@
           }
         </style>
         <div class="panel panel-default">
-
           <div class="panel-body">
-            <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span>
-            <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
-            <span class="pull-right" style="padding-right: 5px">
-              <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
-            </span> <i  onclick="printDiv('PHYSIOTHERPY EXAMINATION')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);" ></a>
+              <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span>
+              <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
+              <span class="pull-right" style="padding-right: 5px">
+                <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
+              </span>
+               <i  onclick="printDiv('PHYSIOTHERPY EXAMINATION')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);" ></a>
           </div>
- 
-
           <table class="table table-bordered table-striped table-hovered" id="dynamic-tables">
             <thead>
-             
               <tr>
-
                 <th>Name </th>
                 <td colspan="3">{{ $data->opd->patientName }} </td>
               </tr>
@@ -49,23 +45,23 @@
           </table>
           <div class="text-center text-white font-weight-bold">
           <div class="label label-danger " style="text-color:#FF0000">REPORT</div>
-          </div>
-          
-</div>
-</div>
+          </div>    
+      </div>
+  </div>
 </div>
 </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
-<table class="table table-bordered table-striped table-hovered">
-                    <tbody><tr>
-                      <td>test</td>
-                    </tr>
-                    <tr>
-                      <th> Other : test</th>
-                    </tr>
-                  </tbody>
-</table>
-</div>
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped table-hovered">
+            <tbody>
+                <tr>
+                  <td>test</td>
+                </tr>
+                <tr>
+                  <th> Other : test</th>
+                </tr>
+            </tbody>
+        </table>
+  </div>
 </div>

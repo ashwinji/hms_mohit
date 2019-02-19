@@ -31,6 +31,7 @@
                                         {!! Form::text('opdNum', '',['class' =>
                                         'form-control','id'=>'opdNum','name'=>'opdNum','placeholder'=>'OPD
                                         Registration number']) !!}
+                                        <div class="error text-danger">{{ $errors->first('opdNum')}}</div>
                                         <div id="opd-reg-list"></div>
                                 </div>
                         </div>
@@ -44,6 +45,7 @@
                              {!! Form::date('opdDate', '', ['class' =>
                             'form-control','id'=>'opdDate','name'=>'opdDate','placeholder'=>'OPD
                                         date','readonly'=>'true']) !!}
+                                         <div class="error text-danger">{{ $errors->first('opdDate')}}</div>
                                 </div>
                         </div>
                 </div>
@@ -59,6 +61,7 @@
                                         {!! Form::text('patientName', '', ['class' =>
                                         'form-control','name'=>'patientName','id'=>'patientName','readonly'=>'true'])
                                         !!}
+                                         <div class="error text-danger">{{ $errors->first('patientName')}}</div>
                                 </div>
                         </div>
                 </div>
@@ -104,6 +107,7 @@
                                         {!! Form::text('age', '', ['class' =>
                                         'form-control','id'=>'age','name'=>'age','placeholder'=>'AGE','readonly'=>'true'])
                                         !!}
+                                         <div class="error text-danger">{{ $errors->first('age')}}</div>
                                 </div>
                         </div>
                         <div class="col-md-offset-3 col-sm-2">
@@ -118,6 +122,7 @@
                                         {!! Form::text('gender', '', ['class' =>
                                         'form-control','id'=>'gender','name'=>'gender','placeholder'=>'GENDER','readonly'=>'true'])
                                         !!}
+                                         <div class="error text-danger">{{ $errors->first('gender')}}</div>
                                 </div>
                         </div>
                 </div>
@@ -133,6 +138,7 @@
                                 <div class="form-group">
                                         {!! Form::text('address', '', ['class' =>
                                         'form-control','id'=>'address','readonly'=>'true']) !!}
+                                     <div class="error text-danger">{{ $errors->first('address')}}</div>
                                 </div>
                         </div>
                 </div>
@@ -207,14 +213,12 @@
                         </div>
                         <div class="row">
                                 <div class="col-md-offset-3 col-sm-2">
-
                                         <div class="form-group">
                                                 {!! Form::label('otherConsultant', 'Other
                                                 Consultant') !!}
                                         </div>
                                 </div>
                                 <div class="col-sm-8">
-
                                         <div class="form-group">
                                                 {!! Form::text('otherConsultant', '', ['class'
                                                 =>
@@ -327,11 +331,11 @@
                                 </div>
                         </div>
                         <center>
-                                <button class="btn btn-square btn-success" type="submit">Submit
+                                <button class="btn btn-square btn-success" type="submit" id="submit">Submit
                                 </button>
-                                <button class="btn  btn-square btn-danger" type="reset">
+                                <a  href="{{route('ot-create')}}" class="btn  btn-square btn-danger" id="cancel" type="reset">
                                         Cancel
-                                </button>
+                                </a>
                         </center>
                         {!! Form::close() !!}
                                         </div>
@@ -346,6 +350,24 @@
 
         </script>
 @push('script')
+<script type="text/javascript">
+    
+jQuery(document).ready(function(){
+            $('#submit').hide();
+            $('#cancel').hide();
+    $('#opdNum').on('keyup',function(){
+        if($('#opdNum').val() != ""){
+            $('#submit').show();
+            $('#cancel').show();
+        }
+        else {
+             $('#submit').hide();
+             $('#cancel').hide();
+        }
+    });
+});
+
+</script>
 
 <script type="text/javascript">
 
@@ -367,9 +389,11 @@
 
                                 });
                         }
+                       
                 });
 
         });
+  
         $(document).on('click', 'li', function () {
                 $('#opdNum').val($(this).text());
                 var opd = $('#opdNum').val();

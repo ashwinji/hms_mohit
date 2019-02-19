@@ -188,9 +188,9 @@
                                </div>
                     </div>
                        <center >  
-                               <button class="btn btn-square btn-success" type="submit" >Submit
+                               <button class="btn btn-square btn-success" type="submit" id="submit">Submit
                                </button>
-                               <a href="{{route('dashboard')}}"  class="btn  btn-square btn-danger" type="reset">Cancel
+                               <a href="{{route('dashboard')}}"  class="btn  btn-square btn-danger" id="cancel" type="reset">Cancel
                                </a>
                       </center>
 
@@ -207,6 +207,30 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"> 
 </script>
+
+
+<script type="text/javascript">
+    
+jQuery(document).ready(function(){
+            $('#submit').hide();
+            $('#cancel').hide();
+    $('#opdNum').on('keyup',function(){
+        if($('#opdNum').val() != ""){
+            $('#submit').show();
+            $('#cancel').show();
+        }
+        else {
+             $('#submit').hide();
+             $('#cancel').hide();
+        }
+    });
+});
+
+</script>
+
+
+
+
   <script type="text/javascript">
 
         jQuery(document).ready(function(){ 
