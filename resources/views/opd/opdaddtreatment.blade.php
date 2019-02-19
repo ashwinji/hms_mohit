@@ -8,7 +8,7 @@
     }
 </style>
         <div class="panel panel-default">
-
+             @include('verror.error')
           <div class="panel-body">
             <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span>
             <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>

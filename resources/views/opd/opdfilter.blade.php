@@ -138,8 +138,9 @@
                                 
                             </div>
                         </div>
+
                         <div class="modal-footer">
-                             <button type="button" id="at"class="btn btn-square btn-info pull-left" data-dismiss="modal">Submit</button>
+                             <button type="button" id="at"class="btn btn-square btn-success  "  data-dismiss="modal">Submit</button>
                             <button type="button" class="btn btn-square btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -349,8 +350,11 @@ $.ajax(
         success:function (res){
         
            if(res.status==true){
-            $('#addtreatment').html(res.html);
-            $("#largemodalt").modal('show');
+       swal({
+         title: "Sweet!",
+         text: "Here's a custom image.",
+         type: 'success'
+});
            }
         },
         error: function (data) {
@@ -378,6 +382,8 @@ $.ajax(
 
     });
 </script>
-    
+<script type="text/javascript">
 
+    
+</script>
 @endsection

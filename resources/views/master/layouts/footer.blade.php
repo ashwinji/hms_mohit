@@ -103,7 +103,9 @@
 
 <!-- Fullside-menu Js-->
 <script src="{{asset('assets/plugins/toggle-sidebar/sidemenu.js')}}"></script>
-
+<!-- Sweet alert Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <!-- Custom scroll bar Js-->
 <script src="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 
@@ -115,6 +117,7 @@
         <script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
         <script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
         <link href="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+      <script src= "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script type="text/Javascript">
  $(document).ready( function () {
   
