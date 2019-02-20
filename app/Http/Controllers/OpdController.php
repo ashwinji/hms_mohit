@@ -9,6 +9,18 @@ use App\Model\department;
 use App\Model\medicine;
 use App\Model\potency;
 use App\Model\investigation;
+use App\Model\yoga;
+use App\Model\bloodexamination;
+use App\Model\physiotherpy;
+use App\Model\xray;
+use App\Model\stoolexamination;
+use App\Model\serumofwidal;
+use App\Model\semenexamination;
+use App\Model\generalblood;
+use App\Model\ecgexamination;
+use App\Model\urineexamination;
+use App\Model\opdtreatments;
+use App\Model\ipdtreatments;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -276,7 +288,24 @@ class OpdController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard.dashboard');
+
+        $opddata=opd::all()->count();
+        $ipddata=ipd::all()->count();
+        $otdata=ot::all()->count();
+        $yogadata=yoga::all()->count();
+        $blooddata=bloodexamination::all()->count();
+        $physiodata=physiotherpy::all()->count();
+        $ecgdata=ecgexamination::all()->count();
+        $generalblooddata=generalblood::all()->count();
+        $serumdata =serumofwidal::all()->count();
+        $semendata=semenexamination::all()->count();
+        $stooldata=stoolexamination::all()->count();
+        $urinedata=urineexamination::all()->count();
+        $xraydata=xray::all()->count();
+        $opdtreatment=opdtreatments::all()->count();
+        $ipdtreatment=ipdtreatments::all()->count();
+
+        return view('dashboard.dashboard',compact('opddata','ipddata','otdata','physiodata','blooddata','yogadata','xraydata','urinedata','stooldata','semendata','serumdata','generalblooddata','ecgdata','ipdtreatment','opdtreatment'));
     }
 
 }

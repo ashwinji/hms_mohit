@@ -70,6 +70,8 @@
               <div class="form-group">
                 {!! Form::textarea('complaint','', ['class' => 'form-control','placeholder' => 'Enter complaint','rows'
                 => 3, 'cols' => 10,'id'=>'id-complaint']) !!}
+               
+                            </div>
               </div>
             </div>
 

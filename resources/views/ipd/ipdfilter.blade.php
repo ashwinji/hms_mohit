@@ -254,10 +254,13 @@ $.ajax(
             _token: token,
         },
         success:function (res){
-        
+            alert(res.status);
            if(res.status==true){
-            $('#add').html(res.html);
-            $("#largemodal").modal('show');
+             swal({
+                   title: "hello mohit",
+                   text: "data save successfully.",
+                   type: 'success'
+              });
            }
         },
         error: function (data) {

@@ -55,10 +55,14 @@ class OpdtreatmentsController extends Controller
         $opdtreatments->refTo=implode(',',$request->myCheckboxes);
          }
         $opdtreatments->consultant=$request->consultant;
-        $opdtreatments->save();
-            return response()->json([
-           'status'=>'true',
-         ]);
+        if($opdtreatments->save())
+        {
+            return response()->json(['status'=>true]);
+        }
+        else
+        {
+            return response()->json(['status'=>false]);   
+        }
 
     }
 

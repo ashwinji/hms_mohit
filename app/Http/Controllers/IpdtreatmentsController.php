@@ -56,7 +56,7 @@ class IpdtreatmentsController extends Controller
         $ipdtreatments->consultant=$request->consultant;
         $ipdtreatments->save();
             return response()->json([
-           'status'=>'true',
+           'status'=>true,
          ]);
 
     }

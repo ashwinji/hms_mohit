@@ -1,24 +1,23 @@
 
-            <div class="row">
-              <div class="col-md-12 col-lg-12">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="expanel expanel-default mt-4">
-                      <div class="expanel-body">
-                          <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span>
-    <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
-    <span class="pull-right" style="padding-right: 5px">
-      <b style="margin-right: 36px">{{ $data->patientId }}</b>
-    </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
-                      </div
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div class="row">
+   <div class="col-md-12 col-lg-12">
+       <div class="card">
+           <div class="card-body">
+               <div class="expanel expanel-default mt-4">
+                   <div class="expanel-body">
+                     <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b>
+                     </span>
+                      <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
+                       <span class="pull-right" style="padding-right: 5px">
+                       <b style="margin-right: 36px">{{ $data->patientId }}</b>
+                      </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);">
+                      </a>
+                   </div>
+               </div>
           </div>
-
- 
+    </div>
+  </div>
+</div>
 <table class="table table-bordered table-striped table-hovered col-lg-12">
                 <thead>
                   <tr>
@@ -55,7 +54,7 @@
                   </tr>
                   <tr>
                     <th>Ward Name </th>
-                    <td>{{ $data->wardname->name}}</td>
+                    <td>{{ $data->getWardName->name}}</td>
                     <th>Bed Number </th>
                     <td>{{ $data->bedNum }}</td>
                   </tr>
@@ -75,30 +74,30 @@
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">1</span></th>
-                      <td> {{$data->medicineName1->name}} </td>
+                      <td> {{$data->getMedicine1->name}} </td>
                       <th>Potency <span class="badge badge-danger pull-right">1</span></th>
-                      <td>{{$data->potencyName1->name}}</td>
+                      <td>{{$data->getPotency1->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">2</span></th>
-                      <td> {{$data->medicineName2->name}}</td>
+                      <td> {{$data->getMedicine2->name}}</td>
                       <th>Potency <span class="badge badge-danger pull-right">2</span></th>
-                      <td>{{$data->potencyName2->name}}</td>
+                      <td>{{$data->getPotency2->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Medicine <span class="badge badge-danger pull-right">3</span></th>
-                      <td> {{$data->medicineName3->name}}</td>
+                      <td> {{$data->getMedicine3->name}}</td>
                       <th>Potency <span class="badge badge-danger pull-right">3</span></th>
-                      <td>{{$data->potencyName3->name}}</td>
+                      <td>{{$data->getPotency3->name}}</td>
                     </tr>
 
                     <tr>
                       <th>Diet Plan <span class="badge badge-success pull-right">1</span></th>
-                      <td>{{$data->dietPlanName1->name}}</td>
+                      <td>{{$data->getDietPlan1->name}}</td>
                       <th>Diet Plan <span class="badge badge-success pull-right">2</span></th>
-                      <td>{{$data->dietPlanName2->name}}</td>
+                      <td>{{$data->getDietPlan2->name}}</td>
                     </tr>
 
 

@@ -1,56 +1,56 @@
  <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-   <div class="panel panel-default">
-      <div class="panel-body">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">x</span>
-          </button>
-          <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
-          <span class="pull-right" style="padding-right: 5px">
-              <b style="margin-right: 36px">{{ $data->regNum }}</b></span>
-          <i class="pull-right fa fa-print btn btn-sm btn-info"style="margin-right: 10px;">Print</i>
-      </div>
-        <hr>
-            <section class="panel">
-              <div class="panel-body" id="tables">
-                <div class="col-md-12">
-                  <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hovered">
-                      <thead>
-                        <tr>
-                          <th>Name </th>
-                          <td>{{ ucfirst($data->patientName) }}</td>
-                          <th>Registration Number </th>
-                          <td>{{ $data->regNum }}</td>
-                        </tr>
-                        <tr>
-                          <th>Registration Date </th>
-                          <td>{{ $data->regDate }}</td>
-                          <th>Registration Amount </th>
-                          <td>{{ $data->regAmount }}</td>
-                        </tr>
-                        <tr>
-                          <th>Address </th>
-                          <td>{{ $data->address }}</td>
-                          <th>Age </th>
-                          <td>{{ $data->age }}</td>
-                        </tr>
-                        <tr>
-                          <th>Gender </th>
-                          <td>{{ $data->gender }}</td>
-                          <th>Contact Number </th>
-                          <td>{{ $data->contactNum }}</td>
-                        </tr>
-                        <tr>
-                          <th>Consultant / Dr. Name </th>
-                          <td colspan="3">{{ $data->doctorName->name }}</td>
-                        </tr>
-                        <tr>
-                          <th>Department </th>
-                          <td colspan="3">{{ $data->departmentName->name }}</td>
-                        </tr>
-                      </thead>
+   <div class="row">
+     <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">x</span>
+              </button>
+              <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
+              <span class="pull-right" style="padding-right: 5px">
+                  <b style="margin-right: 36px">{{ $data->regNum }}</b></span>
+              <i class="pull-right fa fa-print btn btn-sm btn-info"style="margin-right: 10px;">Print</i>
+          </div>
+           <hr>
+         <section class="panel">
+           <div class="panel-body" id="tables">
+             <div class="col-md-12">
+                <div class="table-responsive">
+                   <table class="table table-bordered table-striped table-hovered">
+                       <thead>
+                            <tr>
+                              <th>Name </th>
+                              <td>{{ ucfirst($data->patientName) }}</td>
+                              <th>Registration Number </th>
+                              <td>{{ $data->regNum }}</td>
+                            </tr>
+                            <tr>
+                              <th>Registration Date </th>
+                              <td>{{ $data->regDate }}</td>
+                              <th>Registration Amount </th>
+                              <td>{{ $data->regAmount }}</td>
+                            </tr>
+                            <tr>
+                              <th>Address </th>
+                              <td>{{ $data->address }}</td>
+                              <th>Age </th>
+                              <td>{{ $data->age }}</td>
+                            </tr>
+                            <tr>
+                              <th>Gender </th>
+                              <td>{{ $data->gender }}</td>
+                              <th>Contact Number </th>
+                              <td>{{ $data->contactNum }}</td>
+                            </tr>
+                            <tr>
+                              <th>Consultant / Dr. Name </th>
+                              <td colspan="3">{{ $data->doctorName->name }}</td>
+                            </tr>
+                            <tr>
+                              <th>Department </th>
+                              <td colspan="3">{{ $data->departmentName->name }}</td>
+                            </tr>
+                        </thead>
                     </table>
                   </div>
                 </div>
@@ -64,7 +64,7 @@
                     <a class="accordion-toggle collapsed text-center " data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false">OPD TREATMENT</a>
                   </h4>
                 </div>
-                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                 <div class="panel-body">
                   <div class="col-md-12">
                     <div class="text-center">
@@ -113,9 +113,9 @@
 
                 <!-- ============================Ipd data=============================== -->
 
-                 <div class="col-md-12">
-                <div class="panel panel-default mb-4">
-                  <div class="panel-heading1 ">
+        <div class="col-md-12">
+            <div class="panel panel-default mb-4">
+                 <div class="panel-heading1 ">
                     <h4 class="panel-title1">
                       <a class="accordion-toggle collapsed text-center" data-toggle="collapse" data-parent="#accordion" href="#collapseFour1" aria-expanded="false">IPD TREATMENT</a>
                     </h4>
@@ -208,7 +208,8 @@
                           <tr>
                             <th colspan="4">
                               <table class="table table-bordered table-hover table-striped">
-                                  <tbody><tr>
+                                <tbody>
+                                  <tr>
                                     <th>GC:</th>
                                     <td>{{ $ipdData->ge_gc  }} </td>
                                     <th>Anaemla/Pallor:</th>
@@ -365,10 +366,11 @@
                
            
 <!-- ======================ipd treatement================== -->
- @if(!empty($ipdTreatmentData))
-    @foreach($ipdTreatmentData as  $ipdtreatment)
-         <table class="table table-bordered table-striped table-hovered">
-              <tbody><tr>
+              @if(!empty($ipdTreatmentData))
+              @foreach($ipdTreatmentData as  $ipdtreatment)
+        <table class="table table-bordered table-striped table-hovered">
+            <tbody>
+            <!--   <tr>
                 <th>Complaints </th>
                 <td>{{$ipdtreatment->complaint }}<span class="pull-right">
                     <div class="btn-group btn-group-sm  noPrint"> 
@@ -377,7 +379,7 @@
                     </div>
                   </span>
                 </td>
-              </tr>
+              </tr> -->
               <tr>
                 <th width="20%">Treatment Date </th>
                 @php static $j=1; @endphp
@@ -888,12 +890,12 @@
 
          <!-- ======== stool examination=================================================-->     
       <div class="col-md-12">
-      <div class="panel panel-default mb-4">
-        <div class="panel-heading1 ">
+        <div class="panel panel-default mb-4">
+           <div class="panel-heading1 ">
             <h4 class="panel-title1">
             <a class="accordion-toggle collapsed text-center" data-toggle="collapse" data-parent="#accordion" href="#collapseFour6" aria-expanded="false">STOOL EXAMINATION</a>
             </h4>
-        </div>
+           </div>
         <div id="collapseFour6" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
           @if(empty($stoolData)) 
           <div class="begRed badge-danger">
@@ -1028,15 +1030,15 @@
 
            <!-- ======== urin examination=================================================-->    
       <div class="col-md-12">
-      <div class="panel panel-default mb-4">
-        <div class="panel-heading1">
-          <h4 class="panel-title1">
-            <a class="accordion-toggle collapsed text-center" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">URINE EXAMINATION</a>
-          </h4>
-        </div>
+         <div class="panel panel-default mb-4">
+            <div class="panel-heading1">
+              <h4 class="panel-title1">
+                <a class="accordion-toggle collapsed text-center" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">URINE EXAMINATION</a>
+              </h4>
+           </div>
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
           @if(empty($urineData))
-          <div class="begRed badge-warning"><strong>No Data Available</strong>
+            <div class="begRed badge-warning"><strong>No Data Available</strong>
             @else
               <div class="panel-body">
                 <div class="col-md-12">

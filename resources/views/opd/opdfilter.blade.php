@@ -311,7 +311,6 @@ $(document).ready(function() {
      <script type="text/javascript">
     $(document).on('click',"#at",function(e){
      var token = $("meta[name='csrf-token']").attr("content");
-     alert();
      var patientId=$('#patientId').val();
      var complaint=$('#id-complaint').val();
      var treatmentDate=$('#treatmentDate').val();
@@ -326,7 +325,7 @@ $(document).ready(function() {
            myCheckboxes.push($(this).val());
         });
      var consultant=$('#consultant').val();
-alert(myCheckboxes);
+// alert(myCheckboxes);
 
 $.ajax(
   {
@@ -347,14 +346,21 @@ $.ajax(
             consultant:consultant,
             _token: token,
         },
-        success:function (res){
-        
-           if(res.status==true){
-       swal({
-         title: "Sweet!",
-         text: "Here's a custom image.",
-         type: 'success'
-});
+        success:function (res) {
+            alert(res.status)
+           if(res.status=true){
+              swal({
+                   title: "Sweet!",
+                   text: "data save successfully.",
+                   type: 'success'
+              });
+           }else
+           {
+                swal({
+                   title: "Sweet!",
+                   text: "something goes wrong",
+                   type: 'success'
+              });
            }
         },
         error: function (data) {

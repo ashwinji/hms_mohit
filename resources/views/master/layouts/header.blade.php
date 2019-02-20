@@ -1,5 +1,5 @@
 <body class="app sidebar-mini rtl">
-  <div id="global-loader" ></div>
+  {{-- <div id="global-loader" ></div> --}}
   <div class="page">
     <div class="page-main">
       <div class="app-header header py-1 d-flex">
@@ -182,7 +182,7 @@
                     <a class="dropdown-item " href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        {{ __(' Sign out') }}
+                       <i class="dropdown-icon mdi  mdi-logout-variant"></i>  {{ __(' Sign out') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -11,7 +11,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
   //dash route
   Route::group(['prefix'=>'dashboard'], function(){
-  Route::get('/','OpdController@dashboard')->name('dashboard');
+
+        Route::get('/','OpdController@dashboard')->name('dashboard');
 });
 
 
@@ -19,7 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'opd'], function(){
    
-		Route::get('/create','OpdController@create')->name('opd-create');
+		Route::get('/registration','OpdController@create')->name('opd-create');
 		Route::post('/store','OpdController@store')->name('opd.store');	
 		Route::post('/show','OpdController@show')->name('opd-show');
 		Route::post('/add','OpdController@addtreatment')->name('opd-add');
@@ -43,7 +44,7 @@ Route::group(['prefix'=>'ipd'], function(){
 		Route::get('/edit/{id}','IpdController@edit')->name('ipd.edit');
 		Route::PUT('/update/{id}','IpdController@update')->name('ipd.update');
 		Route::DELETE('/delete1/{id}','IpdController@destroy')->name('ipd.delete');
-		Route::get('/create','IpdController@create')->name('ipd-create');
+		Route::get('/registration','IpdController@create')->name('ipd-create');
 		Route::post('/store','IpdController@store')->name('ipd.store');
 		Route::post('/show','IpdController@show')->name('ipd-show');
 		Route::post('/discharge','IpdController@discharge')->name('ipd-discharge');
@@ -58,7 +59,7 @@ Route::group(['prefix'=>'ipd'], function(){
 
 //ot routes
 Route::group(['prefix'=>'ot'], function(){
-		Route::get('/create','OtController@create')->name('ot-create');
+		Route::get('/registration','OtController@create')->name('ot-create');
 		Route::post('/store','OtController@store')->name('ot.store');
 		Route::post('/fetch', 'OtController@fetch')->name('ot.fetch');
 		Route::post('/fetch-search', 'OtController@fetchSearch')->name('ot.fetchSearch');
@@ -72,7 +73,7 @@ Route::group(['prefix'=>'ot'], function(){
 
 //blood routes
 Route::group(['prefix'=>'bloodexamination'], function(){
-		Route::get('/create','BloodexaminationController@create')->name('blood-create');
+		Route::get('/registration','BloodexaminationController@create')->name('blood-create');
 		Route::post('/store','BloodexaminationController@store')->name('blood.store');
 		Route::get('/datatable','BloodexaminationController@datatable')->name('blood-filter');
 		Route::get('/sendblooddata','BloodexaminationController@sendblooddata')->name('sendblooddata');
@@ -86,7 +87,7 @@ Route::group(['prefix'=>'bloodexamination'], function(){
 
 //general blood routes
 Route::group(['prefix'=>'generalblood'], function(){
-		Route::get('/create','GeneralbloodController@create')->name('generalblood-create');
+		Route::get('/registration','GeneralbloodController@create')->name('generalblood-create');
 		Route::post('/store','GeneralbloodController@store')->name('generalblood.store');
 		Route::get('/datatable','GeneralbloodController@datatable')->name('generalblood-filter');
 		Route::get('/sendgeneralblooddata','GeneralbloodController@sendgeneralblooddata')->name('sendgeneralblooddata');
@@ -98,7 +99,7 @@ Route::group(['prefix'=>'generalblood'], function(){
 
 //semen routes
 Route::group(['prefix'=>'semen'], function(){
-		Route::get('/create','SemenexaminationController@create')->name('semen-create');
+		Route::get('/registration','SemenexaminationController@create')->name('semen-create');
 		Route::post('/store','SemenexaminationController@store')->name('semen.store');
 
 		Route::get('/datatable', 'SemenexaminationController@datatable')->name('semen-filter');
@@ -111,7 +112,7 @@ Route::group(['prefix'=>'semen'], function(){
 
 //serun routes
 Route::group(['prefix'=>'serun'], function(){
-		Route::get('/create','SerumofwidalController@create')->name('serun-create');
+		Route::get('/registration','SerumofwidalController@create')->name('serun-create');
 		Route::post('/store','SerumofwidalController@store')->name('serun.store');
 		Route::get('/datatable', 'SerumofwidalController@datatable')->name('serun-filter');
 		Route::get('/sendserundata','SerumofwidalController@sendserundata')->name('sendserundata');
@@ -123,7 +124,7 @@ Route::group(['prefix'=>'serun'], function(){
 
 //stool route
 Route::group(['prefix'=>'stool'], function(){
-		Route::get('/create','StoolexaminationController@create')->name('stool-create');
+		Route::get('/registration','StoolexaminationController@create')->name('stool-create');
 		Route::post('/store','StoolexaminationController@store')->name('stool.store');
 		Route::get('/datatable', 'StoolexaminationController@datatable')->name('stool-filter');
 		Route::get('/sendstooldata','StoolexaminationController@sendstooldata')->name('sendstooldata');
@@ -135,7 +136,7 @@ Route::group(['prefix'=>'stool'], function(){
 
 //urine routes
 Route::group(['prefix'=>'urine'], function(){
-		Route::get('/create','UrineexaminationController@create')->name('urine-create');
+		Route::get('/registration','UrineexaminationController@create')->name('urine-create');
 		Route::post('/store','UrineexaminationController@store')->name('urine.store');
 		Route::get('/datatable', 'UrineexaminationController@datatable')->name('urine-filter');
 		Route::get('/sendurinedata','UrineexaminationController@sendurinedata')->name('sendurinedata');
@@ -146,7 +147,7 @@ Route::group(['prefix'=>'urine'], function(){
 });
 //xray routes
 Route::group(['prefix'=>'xray'], function(){
-		Route::get('/create','XrayController@create')->name('xray-create');
+		Route::get('/registration','XrayController@create')->name('xray-create');
 		Route::post('/store','XrayController@store')->name('xray.store');
 		Route::get('/datatable', 'XrayController@datatable')->name('xray-filter');
 		Route::get('/sendxraydata','XrayController@sendxraydata')->name('sendxraydata');
@@ -158,7 +159,7 @@ Route::group(['prefix'=>'xray'], function(){
 
 //ecg routes
 Route::group(['prefix'=>'ecg'], function(){
-		Route::get('/create','EcgexaminationController@create')->name('ecg-create');
+		Route::get('/registration','EcgexaminationController@create')->name('ecg-create');
 		Route::post('/store','EcgexaminationController@store')->name('ecg.store');
 		Route::post('/fetch', 'EcgexaminationController@fetch')->name('ecg.fetch');
 		Route::post('/ecg-fetchSearch', 'EcgexaminationController@fetchSearch')->name('ecg.fetchSearch');
@@ -172,7 +173,7 @@ Route::group(['prefix'=>'ecg'], function(){
 //physiotherpy routes
 Route::group(['prefix'=>'physiotherpy'], function(){
 		   
-		Route::get('/create','PhysiotherpyController@create')->name('physiotherpy-create');
+		Route::get('/registration','PhysiotherpyController@create')->name('physiotherpy-create');
 		Route::post('/store','PhysiotherpyController@store')->name('physiotherpy.store');
 		Route::delete('/delete/{id}','PhysiotherpyController@destroy')->name('physco.delete');
 		 Route::PUT('/update/{id}','PhysiotherpyController@update')->name('physiotherpy.update');
@@ -186,7 +187,7 @@ Route::group(['prefix'=>'physiotherpy'], function(){
 
 //yoga routes
 Route::group(['prefix'=>'yoga'], function(){
-		Route::get('/create','YogaController@create')->name('yoga.create');
+		Route::get('/registration','YogaController@create')->name('yoga.create');
 		Route::post('/store','YogaController@store')->name('yoga.store');
 		Route::get('/getyoga', 'YogaController@getyoga')->name('getyoga');
 		Route::get('/datatable', 'YogaController@datatable')->name('yoga-filter');
