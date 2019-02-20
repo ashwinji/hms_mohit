@@ -352,7 +352,8 @@ $.ajax(
               swal({
                    title: "Sweet!",
                    text: "data save successfully.",
-                   type: 'success'
+                   type: 'success',
+                   timer: 2000
               });
            }else
            {

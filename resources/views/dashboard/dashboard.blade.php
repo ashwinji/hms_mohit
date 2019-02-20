@@ -297,19 +297,23 @@
 					       </div>
                       	
                     
-						<div class="row ">
-							<div class="col-md-6">
+					<div class="row ">
+						<div class="col-md-6">
+							<div class="h-45">
 								<div class="card">
 									<div class="card-body">
 										<div class="cal1"></div>
 									</div>
 								</div>
 							</div>
+						</div>
+						
 							<div class="col-md-6">
 							<canvas id="canvas" width="500" height="500"
                           style="background-color:#ec2d38">
                               </canvas>
                           </div>
+
 						</div>				
 				</div>
                 </div>

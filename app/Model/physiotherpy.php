@@ -7,6 +7,7 @@ use App\Model\opd;
 use App\Model\ot;
 use App\Model\ipd;
 use App\Model\doctorlist;
+use App\Model\disease;
 class physiotherpy extends Model
 {
 	 protected $fillable = [

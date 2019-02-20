@@ -259,7 +259,8 @@ $.ajax(
              swal({
                    title: "hello mohit",
                    text: "data save successfully.",
-                   type: 'success'
+                   type: 'success',
+                   timer: 2000
               });
            }
         },
