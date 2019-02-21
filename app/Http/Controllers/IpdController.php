@@ -115,9 +115,9 @@ class IpdController extends Controller
         $medicine=medicine::all()->pluck('name','id');
         $potency=potency::all()->pluck('name','id');
         $investigation=investigation::all()->pluck('name','id');
-         $opd=opd::all();
-         $data=ipd::where('id','=',$id)->first();
-         $content=\View::make('ipd.ipdtreatment',compact('data','opd','doctorlist','medicine','investigation','potency','department'));
+        $opd=opd::all();
+        $data=ipd::where('id','=',$id)->first();
+        $content=\View::make('ipd.ipdtreatment',compact('data','opd','doctorlist','medicine','investigation','potency','department'));
          $b=$content->render();
          return response()->json([
            'status'=>true,
@@ -134,8 +134,16 @@ class IpdController extends Controller
      */
     public function edit($id)
     {
-         $ipd=ipd::where('id',$id)->first();
-         return view('ipd.edit',compact('ipd'));
+
+        $doctorlist=doctorlist::all()->pluck('name','id');
+        $medicine=medicine::all()->pluck('name','id');
+        $department=department::all()->pluck('name','id');
+        $potency=potency::all()->pluck('name','id');
+        $investigation=investigation::all()->pluck('name','id');
+        $wardname=wardname::all()->pluck('name','id');
+        $dietPlan=dietplan::all()->pluck('name','id');
+        $ipd=ipd::where('id',$id)->first();
+         return view('ipd.edit',compact('ipd','doctorlist','medicine','department','investigation','potency','wardname','dietPlan'));
     }
 
     /**

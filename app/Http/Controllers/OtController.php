@@ -99,10 +99,9 @@ class OtController extends Controller
      */
     public function edit($id)
     {
-        $doctorlist=doctorlist::all();
-        $medicine=medicine::all();
-        $department=department::all();
-        
+        $doctorlist=doctorlist::all()->pluck('name','id');
+        $medicine=medicine::all()->pluck('name','id');
+        $department=department::all()->pluck('name','id');
         $ot=ot::where('id',$id)->first();
         return view('ot.edit',compact('ot','department','medicine','doctorlist'));
     }

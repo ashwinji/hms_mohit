@@ -3,7 +3,7 @@
 Auth::routes();
 Route::group(['middleware'=>'auth'], function(){
 	
-Route::get('/home', 'HomeController@index')->name('home');
+   Route::get('/home', 'HomeController@index')->name('home');
 
    Route::get('/', function () {
        return view('master.layouts.app');
@@ -11,7 +11,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
   //dash route
   Route::group(['prefix'=>'dashboard'], function(){
-
         Route::get('/','OpdController@dashboard')->name('dashboard');
 });
 
@@ -19,7 +18,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //opd routes
 
 Route::group(['prefix'=>'opd'], function(){
-   
 		Route::get('/registration','OpdController@create')->name('opd-create');
 		Route::post('/store','OpdController@store')->name('opd.store');	
 		Route::post('/show','OpdController@show')->name('opd-show');
@@ -101,7 +99,6 @@ Route::group(['prefix'=>'generalblood'], function(){
 Route::group(['prefix'=>'semen'], function(){
 		Route::get('/registration','SemenexaminationController@create')->name('semen-create');
 		Route::post('/store','SemenexaminationController@store')->name('semen.store');
-
 		Route::get('/datatable', 'SemenexaminationController@datatable')->name('semen-filter');
 		Route::get('/sendsemendata','SemenexaminationController@sendsemendata')->name('sendsemendata');
 		Route::delete('/delete/{id}','SemenexaminationController@destroy')->name('semen.delete');
@@ -171,12 +168,11 @@ Route::group(['prefix'=>'ecg'], function(){
 		Route::get('/edit/{id}','EcgexaminationController@edit')->name('ecg.edit');
 });
 //physiotherpy routes
-Route::group(['prefix'=>'physiotherpy'], function(){
-		   
+Route::group(['prefix'=>'physiotherpy'], function(){   
 		Route::get('/registration','PhysiotherpyController@create')->name('physiotherpy-create');
 		Route::post('/store','PhysiotherpyController@store')->name('physiotherpy.store');
 		Route::delete('/delete/{id}','PhysiotherpyController@destroy')->name('physco.delete');
-		 Route::PUT('/update/{id}','PhysiotherpyController@update')->name('physiotherpy.update');
+		Route::PUT('/update/{id}','PhysiotherpyController@update')->name('physiotherpy.update');
 		Route::get('/edit/{id}','PhysiotherpyController@edit')->name('physiotherpy.edit');
 		Route::get('/getphysco', 'PhysiotherpyController@getphysco')->name('getphysco');
 		Route::get('/datatable', 'PhysiotherpyController@datatable')->name('physiotherpy-filter');
@@ -194,21 +190,16 @@ Route::group(['prefix'=>'yoga'], function(){
 		Route::post('/fetch', 'YogaController@fetch')->name('yoga.fetch');
 		Route::post('/yoga-search', 'YogaController@fetchSearch')->name('yoga.fetchSearch');
 		Route::DELETE('/delete/{id}','YogaController@destroy')->name('yoga.delete');
-		 Route::PUT('/update/{id}','YogaController@update')->name('yoga.update');
+		Route::PUT('/update/{id}','YogaController@update')->name('yoga.update');
 		Route::get('/edit/{id}','YogaController@edit')->name('yoga.edit');
 		Route::post('/view','YogaController@show')->name('yoga-show');
 });
 //doctorlist
 Route::group(['prefix'=>'doctor'], function(){
-
 		Route::get('/','DoctorlistController@index')->name('doctor');
-
 		Route::get('/adddoctor','DoctorlistController@create')->name('doctor.create');
-
 		Route::post('/storedoctor','DoctorlistController@store')->name('doctor.store');
-
 		Route::get('doctordelete/{id}','DoctorlistController@destroy')->name('doctor.destroy');
-
 		Route::get('/edit/{id}','DoctorlistController@edit')->name('doctor.edit');
         Route::post('/update/{id}','DoctorlistController@update')->name('doctor.update');
 });
@@ -217,60 +208,39 @@ Route::group(['prefix'=>'doctor'], function(){
 Route::group(['prefix'=>'medicine'], function(){
 
 		Route::get('/','MedicineController@index')->name('medicine');
-
 		Route::get('/addmedicine','MedicineController@create')->name('medicine.create');
-
 		Route::post('/storemedicine','MedicineController@store')->name('medicine.store');
-
 		Route::get('delete/{id}','MedicineController@destroy')->name('medicine.destroy');
-
 		Route::get('/edit/{id}','MedicineController@edit')->name('medicine.edit');
         Route::post('/update/{id}','MedicineController@update')->name('medicine.update');
-
-
 
 });
 
 //departmentlist
 Route::group(['prefix'=>'department'], function(){
-
 		Route::get('/','DepartmentController@index')->name('department');
-
 		Route::get('/adddepartment','DepartmentController@create')->name('department.create');
-
 		Route::post('/storedepartment','DepartmentController@store')->name('department.store');
-
 		Route::get('delete/{id}','DepartmentController@destroy')->name('department.destroy');
-
 		Route::get('/edit/{id}','DepartmentController@edit')->name('department.edit');
         Route::post('/update/{id}','DepartmentController@update')->name('department.update');
 
 });
 //investigationlist
 Route::group(['prefix'=>'investigation'], function(){
-
 		Route::get('/','InvestigationController@index')->name('investigation');
-
 		Route::get('/addinvestigation','InvestigationController@create')->name('investigation.create');
-
 		Route::post('/storeinvestigation','InvestigationController@store')->name('investigation.store');
-
 		Route::get('delete/{id}','InvestigationController@destroy')->name('investigation.destroy');
-
 		Route::get('/edit/{id}','InvestigationController@edit')->name('investigation.edit');
         Route::post('/update/{id}','InvestigationController@update')->name('investigation.update');
 });
 //dietPlan
 Route::group(['prefix'=>'dietPlan'], function(){
-
 		Route::get('/','DietPlanController@index')->name('dietPlan');
-
 		Route::get('/adddietPlan','DietPlanController@create')->name('dietPlan.create');
-
 		Route::post('/storedietPlan','DietPlanController@store')->name('dietPlan.store');
-
 		Route::get('delete/{id}','DietPlanController@destroy')->name('dietPlan.destroy');
-
 		Route::get('/edit/{id}','DietPlanController@edit')->name('dietPlan.edit');
         Route::post('/update/{id}','DietPlanController@update')->name('dietPlan.update');
 });
@@ -278,121 +248,83 @@ Route::group(['prefix'=>'dietPlan'], function(){
 //potency
 
 Route::group(['prefix'=>'potency'], function(){
-
 		Route::get('/','PotencyController@index')->name('potency');
-
 		Route::get('/addpotency','PotencyController@create')->name('potency.create');
-
 		Route::post('/storepotency','PotencyController@store')->name('potency.store');
-
 		Route::get('delete/{id}','PotencyController@destroy')->name('potency.destroy');
-
 		Route::get('/edit/{id}','PotencyController@edit')->name('potency.edit');
         Route::post('/update/{id}','PotencyController@update')->name('potency.update');
-
-
 
 });
 
 //Wardname
 
 Route::group(['prefix'=>'wardname'], function(){
-
 		Route::get('/','WardnameController@index')->name('wardname');
-
 		Route::get('/addwardname','WardnameController@create')->name('wardname.create');
-
 		Route::post('/storewardname','WardnameController@store')->name('wardname.store');
-
 		Route::get('delete/{id}','WardnameController@destroy')->name('wardname.destroy');
-
 		Route::get('/edit/{id}','WardnameController@edit')->name('wardname.edit');
         Route::post('/update/{id}','WardnameController@update')->name('wardname.update');
-
-
 
 });
 //disease
 
 Route::group(['prefix'=>'disease'], function(){
-
 		Route::get('/','DiseaseController@index')->name('disease');
-
 		Route::get('/adddisease','DiseaseController@create')->name('disease.create');
-
 		Route::post('/storedisease','DiseaseController@store')->name('disease.store');
-
 		Route::get('delete/{id}','DiseaseController@destroy')->name('disease.destroy');
-
 		Route::get('/edit/{id}','DiseaseController@edit')->name('disease.edit');
         Route::post('/update/{id}','DiseaseController@update')->name('disease.update');
-
-
-
 });
 //yogalist routes
  Route::group(['prefix'=>'yogalist'], function(){
-
  		Route::get('/','YogalistController@index')->name('yogalist');
-
  		Route::get('/addyogalist','YogalistController@create')->name('yogalist.create');
-
  		Route::post('/storeyogalist','YogalistController@store')->name('yogalist.store');
-
  		Route::get('delete/{id}','YogalistController@destroy')->name('yogalist.delete');
-
  		Route::get('/edit/{id}','YogalistController@edit')->name('yogalist.edit');
-
         Route::post('/update/{id}','YogalistController@update')->name('yogalist.update');
-
         Route::Post('/getexersize','YogalistController@getexercise')->name('getexercise');
 
 
  });
 //phsyio therapy disease routes
 Route::group(['prefix'=>'phycodisease'], function(){
-
 		Route::get('/','PshycodiseaseController@index')->name('phycodisease');
-
 		Route::get('/addphycodisease','PshycodiseaseController@create')->name('phycodisease.create');
-
 		Route::post('/storephycodisease','PshycodiseaseController@store')->name('phycodisease.store');
-
 		Route::get('delete/{id}','PshycodiseaseController@destroy')->name('phycodisease.delete');
-
 		Route::get('/edit/{id}','PshycodiseaseController@edit')->name('phycodisease.edit');
         Route::post('/update/{id}','PshycodiseaseController@update')->name('phycodisease.update');
     
-
 });
 // 
 Route::group(['prefix'=>'physiotherapylist'], function(){
-
  		Route::get('/','PhysiotherapylistController@index')->name('physiotherapylist');
-
  		Route::get('/addphysiotherapylist','PhysiotherapylistController@create')->name('Physiotherapylist.create');
-
  		Route::post('/storephysiotherapylist','PhysiotherapylistController@store')->name('physiotherapylist.store');
-
  		Route::get('delete/{id}','PhysiotherapylistController@destroy')->name('physiotherapylist.delete');
-
  		Route::get('/edit/{id}','PhysiotherapylistController@edit')->name('physiotherapylist.edit');
-
         Route::post('/update/{id}','PhysiotherapylistController@update')->name('physiotherapylist.update');
-
         Route::Post('/gettherapy','PhysiotherapylistController@gettherapy')->name('gettherapy');
-
-
  });
 
 //
 Route::group(['prefix'=>'patienthistory'], function(){
-
-Route::get('/','PhistoryController@index')->name('phistory');
-Route::get('/showhistory','PhistoryController@showhistory')->name('phistory.show');
-Route::post('/ajaxdata/history', 'PhistoryController@historyView')->name('history.view');
-
+		Route::get('/','PhistoryController@index')->name('phistory');
+		Route::get('/showhistory','PhistoryController@showhistory')->name('phistory.show');
+		Route::post('/ajaxdata/history', 'PhistoryController@historyView')->name('history.view');
 
  });
+Route::group(['prefix'=>'report'], function(){
+	   Route::get('/Opddatewise','ReportController@opdDate')->name('opddatewise');
+	   Route::get('/Opdmonthwise','ReportController@opdMonth')->name('opdmonthwise');
+	   Route::get('/Opd','ReportController@opd')->name('opd');
+	   Route::get('/opdTreatment','ReportController@opdTreatment')->name('opdTreatment');
+	   Route::get('/Ipddatewise','ReportController@ipdDate')->name('ipddatewise');
+	   Route::get('/Ipdmonthwise','ReportController@ipdMonth')->name('ipdmonthwise');
+	});
 
 });

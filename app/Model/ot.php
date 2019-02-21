@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Model;
-
 use Illuminate\Database\Eloquent\Model;
 use App\Model\opd;
 use App\Model\ot;
@@ -15,7 +14,7 @@ class ot extends Model
 {
 	public function opd()
 	{
-	   return $this->belongsTo('App\Model\opd','patientId','id');
+	   return $this->belongsTo(opd::class,'patientId','id');
 	}
 	public function doctorName()
 	{

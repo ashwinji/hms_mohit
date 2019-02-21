@@ -6,14 +6,14 @@
  <body>
    @include('verror.error')
         <div class="page">
-                         <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title"> PATIENTS LIST</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title"> PATIENTS LIST</div>
+                        </div>
+    <div class="card-body">
+        <div class="table-responsive">
             <div class="container col-lg-12">
                 <table id="otuser" class="table table-striped table-bordered w-100">
                     <thead>

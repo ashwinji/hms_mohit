@@ -4,7 +4,7 @@
 @endsection
 @section('main-content')
 <body>
-    @include('verror.error')
+@include('verror.error')
    <div class="page">
      <div class="row">
         <div class="col-md-12 col-lg-12">

@@ -99,22 +99,22 @@
           </a>
           <ul class="slide-menu">
               <li>
-                <a href=""class="slide-item">OPD Date Wise</a>
+                <a href="{{route('opddatewise')}}"class="slide-item">OPD Date Wise</a>
               </li>
               <li>
-                <a href=" "class="slide-item">OPD Month Wise</a>
+                <a href="{{route('opdmonthwise')}} "class="slide-item">OPD Month Wise</a>
               </li>
               <li>
-                <a href="" class="slide-item">OPD Report</a>
+                <a href="{{route('opd') }}" class="slide-item">OPD Report</a>
               </li>
               <li>
-                <a href=" "class="slide-item">IPD Date Wise</a>
+                <a href="{{route('ipddatewise')}} "class="slide-item">IPD Date Wise</a>
               </li>
               <li>
-                <a href="" class="slide-item">IPD Month  Wise</a>
+                <a href="{{route('ipdmonthwise')}}" class="slide-item">IPD Month  Wise</a>
               </li>
               <li>
-                <a href="" class="slide-item">OPD Treatment List</a>
+                <a href="{{ route('opdTreatment') }}" class="slide-item">OPD Treatment List</a>
               </li>
               <li>
                 <a href=" "class="slide-item">X-Ray Reports</a>

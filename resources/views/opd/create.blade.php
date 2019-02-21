@@ -179,16 +179,14 @@
 			</div>
 		</div>
 		<center>
-		<button class="btn btn-square btn-success" type="submit">Save
-		</button>
-		<button class="btn btn-square btn-danger" type="reset">Cancel
-		</button>
+			<button class="btn btn-lg btn-square btn-success" type="submit">Save</button>
+			<button class="btn btn-lg btn-square btn-danger" type="reset">Cancel</button>
 		</center>
 		{!! Form::close() !!}
 		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
+	</div>
+  </div>
+ </div>
+</div>
+</div>
 		@endsection
