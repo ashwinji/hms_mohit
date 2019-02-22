@@ -90,7 +90,7 @@
 							    </div>
 								</div>
 							</div>
-						<div class="offset-md-2 col-md-8 offset-md-2">
+						<div class="offset-md-2 col-lg-8 offset-md-2">
 								<div class="form-group">
 			{!! Form::label('name', 'IMPRESSION') !!}
 	        {!! Form::textarea('impression','', ['class' => 'form-control','placeholder' => 'Enter IMPRESSION','rows' =>2, 'cols' => 14,]) !!}

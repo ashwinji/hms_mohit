@@ -18,7 +18,7 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                {!! Form::date('fromDate','',
+                                                {!! Form::month('fromDate','',
                                                 ['class' =>
                                                 'form-control','id'=>'fromDate','required'=>'required'])
                                                 !!}
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                {!! Form::date('toDate','', ['class'
+                                                {!! Form::month('toDate','', ['class'
                                                 =>
                                                 'form-control','id'=>'toDate','required'=>'required'])
                                                 !!}
@@ -39,20 +39,13 @@
                                         </div>
                                         <div class="col-lg-1">
                                             <div class="form-group">
-                                                {!! Form::label('gender', 'Gender:')
+                                                {!! Form::label('department', 'Department:')
                                                 !!}
                                             </div>
                                         </div>
-                                        <div class="col-lg-2">
+                                       <div class="col-lg-2">
                                             <div class="form-group">
-                                                {!! Form::select('gender', 
-                                                    array( 
-                                                        ''=> '-Select Gender-', 
-                                                        'Male Adult' =>'Male Adult',
-                                                        'Female Adult' =>'Female Adult',
-                                                        'Male Child' =>'Male Child',
-                                                        'Female Child' =>'Female Child', ), '',
-                                                        ['class' =>'form-control','id'=>'gender'])
+                                                {!! Form::select('department', $data,'', ['class' =>'form-control','id'=>'department','name'=>'department','placeholder'=>'select department',])
                                                      !!}
                                             </div>
                                         </div>
@@ -62,7 +55,9 @@
                                             => 'btn btn-square btn-info','id'=>'id-opdfilter']) !!}
                                           </div>
                                         </div>
-                                         
+                                         <div class="col-md-12 text-danger">
+                                            <code>Note : Use Same Year form and to date, if you use different year then result show only from date year.</code>
+                                        </div>
                                         {!! Form::close() !!}
                                     </div>
                                 
@@ -81,7 +76,7 @@
 
                                     <thead>
                                         <tr>
-                                            <td>#</td>
+                                            <td>S.N</td>
                                             <td>Date</td>
                                             <td>Male Adult</td>
                                             <td>Female Adult</td>

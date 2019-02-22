@@ -39,20 +39,13 @@
                                         </div>
                                         <div class="col-lg-1">
                                             <div class="form-group">
-                                                {!! Form::label('gender', 'Gender:')
+                                                {!! Form::label('gender', 'Department:')
                                                 !!}
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="form-group">
-                                                {!! Form::select('gender', 
-                                                    array( 
-                                                        ''=> '-Select Gender-', 
-                                                        'Male Adult' =>'Male Adult',
-                                                        'Female Adult' =>'Female Adult',
-                                                        'Male Child' =>'Male Child',
-                                                        'Female Child' =>'Female Child', ), '',
-                                                        ['class' =>'form-control','id'=>'gender'])
+                                                {!! Form::select('department', $data,'', ['class' =>'form-control','id'=>'department','name'=>'department','placeholder'=>'select department',])
                                                      !!}
                                             </div>
                                         </div>
@@ -65,20 +58,19 @@
                                          
                                         {!! Form::close() !!}
                                     </div>
-                                
-                            </div>
-                       
+                                </div>
+                          </div>
                     </div>
-                </div>
-            </div>
-
-			<div class="row">
-				<div class="col-md-12 col-lg-12">
-					 <div class="card">
+              </div>
+              
+             
+		<div class="row">
+			<div class="col-md-12 col-lg-12">
+				<div class="card">
+                    <div class="card-header">
 						<div class="card-body">
 							<div class="table-responsive">
 								<table id="Opddata-table" class="table table-striped table-bordered w-500">
-
 									<thead>
 										<tr>
 											<td>#</td>
@@ -98,17 +90,12 @@
 										<th colspan=""></th>
 										<th colspan=""></th>
 									</tfoot>
-									
-
 								</table>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 </div>
@@ -116,3 +103,63 @@
 </div>
 
 @endsection
+@section('footerSection')
+
+<script>  
+    $(document).ready(function(){
+        $('#id-opdfilter').on('click',function(e){  
+            e.preventDefault();
+            var _token = $("input[name='_token']").val();
+
+            $('#Opddata-table').DataTable({
+
+                processing: true,
+                serverSide: true,
+                bDestroy: true,
+
+                ajax: {   url: "{{ route('opddate.filter') }}",
+                type: "POST",
+                data:{fromDate: $('#fromDate').val(),
+                toDate: $('#toDate').val(),
+                department: $('#department').val(),
+                _token:_token},  },
+
+                columns:[
+
+                { data: 'sn', data: 'sn' },
+                { data: 'regDate', name: 'regDate' },
+                { data: 'maleAdult', name: 'maleAdult',className:'total' },
+                { data: 'femaleAdult', name: 'femaleAdult',className:'total' },
+                { data: 'maleChild', name: 'maleChild',className:'total' },
+                { data: 'femaleChild', name: 'femaleChild',className:'total' },
+                { data: 'subTotal', name: 'subTotal',className:'total'},
+
+                ],
+
+                "footerCallback": function(row, data, start, end, display) {
+                    var api = this.api();
+                    api.columns('.total', { page: 'current' }).every(function () {
+                        var sum = this
+                        .data()
+                        .reduce(function (a, b) {
+                            var x = parseFloat(a) || 0;
+                            var y = parseFloat(b) || 0;
+                            return x + y;
+                        }, 0);
+                        console.log(sum);
+
+                        $(this.footer()).html(sum);
+                    });
+                }
+
+
+            });  
+        });  
+    }); 
+</script>
+
+@endsection
+
+
+
+

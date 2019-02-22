@@ -37,29 +37,21 @@
                                                 !!}
                                             </div>
                                         </div>
-                                        <div class="col-lg-1">
+                                       <div class="col-lg-1">
                                             <div class="form-group">
-                                                {!! Form::label('gender', 'Gender:')
+                                                {!! Form::label('wardName', 'Ward Name:')
                                                 !!}
                                             </div>
                                         </div>
-                                        <div class="col-lg-2">
+                                       <div class="col-lg-2">
                                             <div class="form-group">
-                                                {!! Form::select('gender', 
-                                                    array( 
-                                                        ''=> '-Select Gender-', 
-                                                        'Male Adult' =>'Male Adult',
-                                                        'Female Adult' =>'Female Adult',
-                                                        'Male Child' =>'Male Child',
-                                                        'Female Child' =>'Female Child', ), '',
-                                                        ['class' =>'form-control','id'=>'gender'])
-                                                     !!}
+                                                 {!! Form::select('wardName', $data,['' => '-select All-',],['class' => 'form-control','id'=>'wardName','placeholder' => 'All',]) !!}
                                             </div>
                                         </div>
                                         <div class="col-sm-1">
                                             <div class="form-group">
                                                 {!! Form::button('Submit', ['class'
-                                            => 'btn btn-square btn-info','id'=>'id-opdfilter']) !!}
+                                            => 'btn btn-square btn-info','id'=>'id-ipdfilter']) !!}
                                           </div>
                                         </div>
                                          
@@ -76,43 +68,76 @@
                 <div class="col-md-12 col-lg-12">
                      <div class="card">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="Opddata-table" class="table table-striped table-bordered w-500">
-
-                                    <thead>
-                                        <tr>
-                                            <td>#</td>
-                                            <td>Date</td>
-                                            <td>Male Adult</td>
-                                            <td>Female Adult</td>
-                                            <td>Male Child</td>
-                                            <td>Female Child</td>
-                                            <td>Sub Total</td>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <th colspan="2">Total</th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                    </tfoot>
-                                    
-
-                                </table>
+                            <table id="Ipddata-table" class="table table-striped table-bordered w-500">
+                                <thead>
+                                  <tr>
+                                    <td>S.N</td>
+                                    <td>Year/Month</td>
+                                    <td>Patients</td>
+                                  </tr>
+                                </thead>
+                                <tfoot>
+                                  <tr>
+                                    <th colspan="2">Total number of patients</th>
+                                    <th></th>
+                                  </tr>
+                                </tfoot>
+                             </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-
 </div>
+@endsection
+@section('footerSection')
 
+<script>  
+  $(document).ready(function(){
+    $('#id-ipdfilter').on('click',function(e){  
+      e.preventDefault();
+      var _token = $("input[name='_token']").val();
+
+      $('#Ipddata-table').DataTable({
+        processing: true,
+        serverSide: true,
+        bDestroy: true,
+        ajax: {   url: "{{ route('ipddate.filter') }}",
+        type: "POST",
+        data:{fromDate: $('#fromDate').val(),
+        toDate: $('#toDate').val(),
+        wardName: $('#wardName').val(),
+        _token:_token},  },
+
+        columns:[
+        { data: 'sn', data: 'sn' },
+        { data: 'ipdRegDate', name: 'ipdRegDate' },
+        { data: 'count', name: 'count', className:'totalipddate' },
+        ],
+
+        "footerCallback": function(row, data, start, end, display) {
+         var api = this.api();
+         api.columns('.totalipddate', { page: 'current' }).every(function () {
+           var sum = this
+           .data()
+           .reduce(function (a, b) {
+             var x = parseFloat(a) || 0;
+             var y = parseFloat(b) || 0;
+             return x + y;
+           }, 0);
+           console.log(sum);
+
+           $(this.footer()).html(sum);
+         });
+        }
+
+
+
+      });  
+    });  
+  }); 
+</script>
 @endsection

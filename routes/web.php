@@ -206,7 +206,6 @@ Route::group(['prefix'=>'doctor'], function(){
 
 //medicinelist
 Route::group(['prefix'=>'medicine'], function(){
-
 		Route::get('/','MedicineController@index')->name('medicine');
 		Route::get('/addmedicine','MedicineController@create')->name('medicine.create');
 		Route::post('/storemedicine','MedicineController@store')->name('medicine.store');
@@ -322,9 +321,14 @@ Route::group(['prefix'=>'report'], function(){
 	   Route::get('/Opddatewise','ReportController@opdDate')->name('opddatewise');
 	   Route::get('/Opdmonthwise','ReportController@opdMonth')->name('opdmonthwise');
 	   Route::get('/Opd','ReportController@opd')->name('opd');
+	   Route::post('/Opd/opddatefilter','ReportController@opddatefilter')->name('opddate.filter');
+	   Route::post('/Opd/opdmonthfilter','ReportController@opdmonthfilter')->name('opdmonth.filter');
+	   Route::post('/Opd/opdReportfilter','ReportController@Opdfilter')->name('opdreports.filter');
 	   Route::get('/opdTreatment','ReportController@opdTreatment')->name('opdTreatment');
 	   Route::get('/Ipddatewise','ReportController@ipdDate')->name('ipddatewise');
 	   Route::get('/Ipdmonthwise','ReportController@ipdMonth')->name('ipdmonthwise');
+	   Route::post('Ipd/ipddatefilter','ReportController@IpddateFilter')->name('ipddate.filter');
+
 	});
 
 });
