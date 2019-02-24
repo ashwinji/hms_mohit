@@ -5,7 +5,7 @@
            <div class="card-body">
                <div class="expanel expanel-default mt-4">
                    <div class="expanel-body">
-                     <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b>
+                     <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><a href=""><b>X</b></a>
                      </span>
                       <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
                        <span class="pull-right" style="padding-right: 5px">

@@ -1,4 +1,4 @@
-<div class="page">
+ <div class="page">
   <div class="row">
     <div class="col-lg-12">
       <div cmedicineListlass>

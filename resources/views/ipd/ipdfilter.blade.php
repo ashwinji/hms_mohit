@@ -185,7 +185,7 @@
         </script>w
 
                 <script type="text/javascript">
-    $(document).on('click',".addRecord",function(e){alert();
+    $(document).on('click',".addRecord",function(e){
        var id=$(this).data('id');
        var token = $("meta[name='csrf-token']").attr("content");
        
@@ -215,7 +215,7 @@
   <script type="text/javascript">
     $(document).on('click',"#at",function(e){debugger
      var token = $("meta[name='csrf-token']").attr("content");
-     alert();
+     
      var patientId=$('#patientId').val();
      var ipdId=$('#ipdId').val();
      var complaint=$('#id-complaint').val();

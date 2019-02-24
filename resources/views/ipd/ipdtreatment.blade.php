@@ -10,7 +10,7 @@
         <div class="panel panel-default">
 
           <div class="panel-body">
-            <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><b>X</b></span>
+            <span data-dismiss="modal" class="pull-right" style="margin-right: 50px !important;"><a href=""><b>X</b></a></span>
             <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
             <span class="pull-right" style="padding-right: 5px">
               <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>

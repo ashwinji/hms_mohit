@@ -85,58 +85,100 @@ class ipd extends Model
 
     public function doctorName()
     {
-    	return $this->hasOne(doctorlist::class,'id','consultant');
+    	return $this->hasOne(doctorlist::class,'id','consultant')->withDefault([
+        'doctorlist' => 'dr default'
+    ]);
+
     }
     public function departmentName() {
-        return $this->hasOne(department::class,'id','department');
+        return $this->hasOne(department::class,'id','department')->withDefault([
+        'department' => 'surgery'
+    ]);
+
     }
     public function getMedicine1()
     {
-        return $this->hasOne(medicine::class,'id','medicine1');
+        return $this->hasOne(medicine::class,'id','medicine1')->withDefault([
+        'medicine' => 'narcopolo'
+    ]);
+
     }
     public function getMedicine2()
     {
-        return $this->hasOne(medicine::class,'id','medicine2');
+        return $this->hasOne(medicine::class,'id','medicine2')->withDefault([
+        'medicine' => 'narcopolo'
+    ]);
+
     }
     public function getMedicine3()
     {
-        return $this->hasOne(medicine::class,'id','medicine3');
+        return $this->hasOne(medicine::class,'id','medicine3')->withDefault([
+        'medicine' => 'narcopolo'
+    ]);
+
     }
      public function getInvestigation1()
     {
-        return $this->hasOne(investigation::class,'id','investigation1');
+        return $this->hasOne(investigation::class,'id','investigation1')->withDefault([
+        'investigation' => 'narcopolo'
+    ]);
+
     }
     public function getInvestigation2()
     {
-        return $this->hasOne(investigation::class,'id','investigation2');
+        return $this->hasOne(investigation::class,'id','investigation2')->withDefault([
+        'investigation' => 'narcopolo'
+    ]);
+
     }
     public function getInvestigation3()
     {
-        return $this->hasOne(investigation::class,'id','investigation3');
+        return $this->hasOne(investigation::class,'id','investigation3')->withDefault([
+        'investigation' => 'narcopolo'
+    ]);
+
     }
     public function getWardName()
     {
-        return $this->hasOne(wardname::class,'id','wardName');
+        return $this->hasOne(wardname::class,'id','wardName')->withDefault([
+        'wardname' => 'wardfor female'
+    ]);
+
     }
     public function getPotency1()
     {
-       return $this->hasOne(potency::class,'id','potency1');
+       return $this->hasOne(potency::class,'id','potency1')->withDefault([
+        'potency' => '3mm'
+    ]);
+
     }
     public function getPotency2()
     {
-         return $this->hasOne(potency::class,'id','potency2');
+         return $this->hasOne(potency::class,'id','potency2')->withDefault([
+        'potency' => '2mm'
+    ]);
+
     }
      public function getPotency3()
     {
-         return $this->hasOne(potency::class,'id','potency3');
+         return $this->hasOne(potency::class,'id','potency3')->withDefault([
+        'medicine' => 'narcopolo'
+    ]);
+
     }
     public function getDietPlan1()
     {
-        return $this->hasOne(dietplan::class,'id','dietPlan1');
+        return $this->hasOne(dietplan::class,'id','dietPlan1')->withDefault([
+        'dietplan' => 'lowerprotin'
+    ]);
+
     }
     public function getDietPlan2()
     {
-        return $this->hasOne(dietplan::class,'id','dietPlan2');
+        return $this->hasOne(dietplan::class,'id','dietPlan2')->withDefault([
+        'dietplan' => 'high protein'
+    ]);
+
     }
 
 }
