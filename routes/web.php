@@ -328,6 +328,13 @@ Route::group(['prefix'=>'report'], function(){
 	   Route::get('/Ipddatewise','ReportController@ipdDate')->name('ipddatewise');
 	   Route::get('/Ipdmonthwise','ReportController@ipdMonth')->name('ipdmonthwise');
 	   Route::post('Ipd/ipddatefilter','ReportController@IpddateFilter')->name('ipddate.filter');
+       Route::post('Ipd/Ipdmonthfilter','ReportController@ipdMonthfilter')->name('ipdmonth.filter');
+       Route::get('/xray','ReportController@xrayReport')->name('xraydatewise');
+       Route::post('Xrxrayfilter','ReportController@xrayFilter')->name('xray.filter');
+       Route::get('/ecg','ReportController@ecgReport')->name('ecgdatewise');
+       Route::post('Ecg/ecgfilter','ReportController@ecgFilter')->name('ecg.filter');
+       Route::get('/urine','ReportController@urineReport')->name('urinedatewise');
+       Route::post('urine/urinefilter','ReportController@urineFilter')->name('urine.filter');
 
 	});
 

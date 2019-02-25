@@ -7,6 +7,8 @@ use App\Model\ipd;
 use App\Model\xray;
 use App\Model\department;
 use App\Model\wardname;
+use App\Model\ecgexamination;
+use App\Model\urineexamination;
 use App\User;
 use Carbon\Carbon;
 use DataTables;
@@ -159,7 +161,7 @@ class ReportController extends Controller
             static $i=1;
             return $i++;
             })->addColumn('remark',function($opdreportsData){
-            return '--- ---';
+            return '';
             })->addColumn('total',function($opdreportsData){
             static $sum=0;
             $sum+=$opdreportsData->count;
@@ -188,7 +190,7 @@ class ReportController extends Controller
             static $i=1;
             return $i++;
             })->addColumn('remark',function($opdreportsData){
-            return '--- ---';
+            return '';
             })->addColumn('total',function($opdreportsData){
             static $sum=0;
             $sum+=$opdreportsData->count;
@@ -270,6 +272,125 @@ class ReportController extends Controller
         $data=department::all()->pluck('name','id');
       return view('report.IpdMonthWise.reportipdmonthwise',compact('data'));
     }
+     public function ipdMonthfilter(Request $request)
+      {
+
+            $fromMonth = date("m", strtotime($request->fromDate));
+            $toMonth = date("m", strtotime($request->toDate));
+            $ipdmonthData = ipd::whereRaw("MONTH(ipdRegDate) BETWEEN '".$fromMonth."' AND '".$toMonth."' ")
+            ->select('ipdRegDate',DB::raw('MONTHNAME(ipdRegDate) as month'),DB::raw('YEAR(ipdRegDate) as year'), DB::raw('count(*) as count'))
+            ->groupBy(DB::raw("MONTH(ipdRegDate)"))
+            ->get();
+            return DataTables::of($ipdmonthData)->
+            addColumn('sn',function($ipdmonthData)
+            {
+            static $i=1;
+            return $i++;
+            })->addColumn('remark',function($ipdmonthData){
+            return ' ';
+            })->addColumn('total',function($ipdmonthData)
+            {
+            static $sum=0;
+            $sum+=$ipdmonthData->count;
+            return $sum;
+            })
+            ->make(true);
+
+      }
+
+       public function xrayReport()
+      {
+          return view('report.XrayReport.reportxray');
+      }
+     public function xrayFilter(Request $request) 
+      {
+        
+            $fromMonth = date("m", strtotime($request->fromDate));
+            $toMonth = date("m", strtotime($request->toDate));
+            $xray =xray::whereRaw("MONTH(date) BETWEEN '".$fromMonth."' AND '".$toMonth."' ")
+            ->select('date',DB::raw('MONTHNAME(date) as month'),DB::raw('YEAR(date) as year'), DB::raw('count(*) as count'))
+            ->groupBy(DB::raw("MONTH(date)"))
+            ->get();
+            return DataTables::of($xray)->
+            addColumn('sn',function($xray)
+            {
+            static $i=1;
+            return $i++;
+            })->addColumn('remark',function($xray){
+            return '';
+            })->addColumn('total',function($xray)
+            {
+            static $sum=0;
+            $sum+=$xray->count;
+            return $sum;
+            })
+            ->make(true);
+      }
+      public function ecgReport()
+      {
+        return view('report.EcgReport.reportecg');
+      }
+       public function ecgFilter(Request $request) 
+      {
+
+            $fromMonth = date("m", strtotime($request->fromDate));
+            $toMonth = date("m", strtotime($request->toDate));
+            $ecgData = ecgexamination::whereRaw("MONTH(date) BETWEEN '".$fromMonth."' AND '".$toMonth."' ")
+            ->select('date',DB::raw('MONTHNAME(date) as month'),DB::raw('YEAR(date) as year'), DB::raw('count(*) as count'))
+            ->groupBy(DB::raw("MONTH(date)"))
+            ->get();
+            return DataTables::of($ecgData)->
+            addColumn('sn',function($ecgData)
+            {
+            static $i=1;
+            return $i++;
+            })->addColumn('remark',function($ecgData)
+            {
+            return '';
+            })->addColumn('total',function($ecgData)
+            {
+            static $sum=0;
+            $sum+=$ecgData->count;
+            return $sum;
+            })
+            ->make(true);
+
+      }
+
+      public function urineReport()
+      {
+      return view('report.UrineExaminationReport.reporturineexamination');
+      }
+
+      public function urineFilter(Request $request) 
+      {
+
+            $fromMonth = date("m", strtotime($request->fromDate));
+            $toMonth = date("m", strtotime($request->toDate));
+            $urineData =urineexamination::whereRaw("MONTH(date) BETWEEN '".$fromMonth."' AND '".$toMonth."' ")
+            ->select('date',DB::raw('MONTHNAME(date) as month'),DB::raw('YEAR(date) as year'), DB::raw('count(*) as count'))
+
+            ->groupBy(DB::raw("MONTH(date)"))
+            ->get();
+            return DataTables::of($urineData)->
+
+            addColumn('sn',function($urineData)
+            {
+            static $i=1;
+            return $i++;
+            })->addColumn('remark',function($urineData)
+            {
+            return '';
+            })->addColumn('total',function($urineData)
+            {
+            static $sum=0;
+            $sum+=$urineData->count;
+            return $sum;
+            })
+            ->make(true);
+
+      }
+
     /**
      * Show the form for creating a new resource.
      *

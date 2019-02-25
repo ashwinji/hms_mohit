@@ -44,7 +44,7 @@
 				
         </div>
         <div  class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-square btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -83,9 +83,7 @@ $(document).ready(function() {
  <script type="text/javascript">
  	$(document).on('click', '.view', function(){
         var id = $(this).attr("id");
-        alert(id);
-         var _token = $("meta[name='csrf-token']").attr("content");
-        alert(_token);
+        var _token = $("meta[name='csrf-token']").attr("content");
         $('#form_output').html('');
         $.ajax({
             url:"{{route('history.view')}}",

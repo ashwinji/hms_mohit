@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title btn btn-pill btn-info">
-                     ECG - REPORT MONTH WISE
+                     XRAY - REPORT MONTH WISE
                     </h6>
                 </div>
             <div class="card-body">
@@ -38,15 +38,15 @@
             </div>
             <div class="row" id="xrayrow">
               <div class="col-md-12 ">
-                 <div class="card"  >
+                 <div class="card">
                    <div class="card-body">
                       <div class="table-responsive">
-                <table id="ecgdata-table" class="table table-striped table-bordered w-500">
-                    <thead> 
+                <table id="Xraydata-table" class="table table-striped table-bordered w-500">
+                    <thead>
                       <tr>
                         <td>S.N.</td>
                         <td>Year/Month</td>
-                        <td>No. Of ecg</td>
+                        <td>No.Of Xray</td>
                         <td>Remarks</td>
                       </tr>
                     </thead>
@@ -69,9 +69,9 @@
 </div>
 </div>
 @endsection
-@section('footerSection')
 
- <script type="text/javascript">  
+@section('footerSection')
+<script type="text/javascript">  
         jQuery(document).ready(function(){
                     $('#xrayrow').hide();
                   
@@ -82,20 +82,22 @@
             });
         });
 
-</script> 
+  </script>
+
+
 <script>  
   $(document).ready(function(){
     $('#xrayfilter').on('click',function(e){  
       e.preventDefault();
       var _token = $("input[name='_token']").val();
 
-      $('#ecgdata-table').DataTable({
+      $('#Xraydata-table').DataTable({
 
         processing: true,
         serverSide: true,
         bDestroy: true,
 
-        ajax: {   url: "{{ route('ecg.filter') }}",
+        ajax: {   url: "{{ route('xray.filter') }}",
         type: "POST",
         data:{fromDate: $('#fromDate').val(),
         toDate: $('#toDate').val(),
@@ -106,14 +108,15 @@
           
           { data: 'sn', data: 'sn' },
           { data: 'month', name: 'month' },
-          { data: 'count', data: 'count',className:'totalecg' },
+          { data: 'count', data: 'count',className:'totalcountxray' },
           { data: 'remark', name: 'remark' },
+          
 
         ],
 
         "footerCallback": function(row, data, start, end, display) {
          var api = this.api();
-         api.columns('.totalecg', { page: 'current' }).every(function () {
+         api.columns('.totalcountxray', { page: 'current' }).every(function () {
            var sum = this
            .data()
            .reduce(function (a, b) {
@@ -126,12 +129,8 @@
            $(this.footer()).html(sum);
          });
        }
-
-
   });  
-  });  
+    });  
   }); 
-
 </script>
-
 @endsection

@@ -118,7 +118,7 @@
                 <a href="{{ route('opdTreatment') }}" class="slide-item">OPD Treatment List</a>
               </li>
               <li>
-                <a href=" "class="slide-item">X-Ray Reports</a>
+                <a href="{{ route('xraydatewise') }} "class="slide-item">X-Ray Reports</a>
               </li>
               <li>
                 <a href=""class="slide-item">Blood Examination Report</a>
@@ -136,10 +136,10 @@
                 <a href="" class="slide-item">Stool Examination Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">Urine Examination Report</a>
+                <a href="{{ route('urinedatewise') }}" class="slide-item">Urine Examination Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">ECG Report</a>
+                <a href="{{route('ecgdatewise')}}" class="slide-item">ECG Report</a>
               </li>
               <li>
                 <a href="" class="slide-item">Physiotherpy Report</a>

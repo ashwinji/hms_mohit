@@ -66,48 +66,88 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                      <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="Opddata-table" class="table table-striped table-bordered w-500">
-
-                                    <thead>
-                                        <tr>
-                                            <td>S.N</td>
-                                            <td>Date</td>
-                                            <td>Male Adult</td>
-                                            <td>Female Adult</td>
-                                            <td>Male Child</td>
-                                            <td>Female Child</td>
-                                            <td>Sub Total</td>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <th colspan="2">Total</th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                        <th colspan=""></th>
-                                    </tfoot>
-                                    
-
-                                </table>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                                  <thead>
+                                    <tr>
+                                    <td>#</td>
+                                    <td>Year/Month</td>
+                                    <td>Admitted Patients</td>
+                                    <td>Disharge Patients</td>
+                                    <td>Carry Forward In Next Month</td>
+                                    <td>Remarks</td>
+                                  </tr>
+                                  </thead>
+                                  <tfoot>
+                                    <th colspan="2">Total</th>
+                                    <th colspan="2"></th>
+                                  </tfoot>
+                              </table>
+                           </div>
+                     </div>
+               </div>
             </div>
-
-
         </div>
     </div>
 </div>
-
 </div>
+</div>
+@endsection
+
+@section('footerSection')
+
+<script>  
+$(document).ready(function(){
+  $('#opdfilter').on('click',function(e){  
+    e.preventDefault();
+    var _token = $("input[name='_token']").val();
+
+    $('#Opddata-table').DataTable({
+
+      processing: true,
+      serverSide: true,
+      bDestroy: true,
+
+      ajax: {   url: "{{ route('ipdmonth.filter') }}",
+      type: "POST",
+      data:{fromDate: $('#fromDate').val(),
+      toDate: $('#toDate').val(),
+      department: $('#department').val(),
+      _token:_token},  },
+
+        columns:[
+
+        { data: 'sn', data: 'sn' },
+        { data: 'month', name: 'month' },
+        { data: 'count', name: 'count', className:'totalipdmonth' },
+        { data: 'remark', name: 'remark' },
+
+      ],
+      "footerCallback": function(row, data, start, end, display) {
+         var api = this.api();
+         api.columns('.totalipdmonth', { page: 'current' }).every(function () {
+           var sum = this
+           .data()
+           .reduce(function (a, b) {
+             var x = parseFloat(a) || 0;
+             var y = parseFloat(b) || 0;
+             return x + y;
+           }, 0);
+           console.log(sum);
+
+           $(this.footer()).html(sum);
+         });
+       }
+
+
+
+});  
+  });  
+}); 
+</script>
 
 @endsection
