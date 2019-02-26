@@ -110,7 +110,7 @@ class StoolexaminationController extends Controller
     }
 public function sendstooldata()
     {
-           $data=stoolexamination::all();
+           
            $stool= stoolexamination::select('stoolexaminations.id','opds.regDate','stoolexaminations.referredBy','opds.regNum','opds.patientName','stoolexaminations.date','stoolexaminations.investigationAdvised','opds.age')
             ->join('opds', 'stoolexaminations.patientId', '=','opds.regNum')
             ->get();
@@ -122,7 +122,7 @@ public function sendstooldata()
                  <a href="%s">%s</a></div>',
                 route('stool.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
               $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('stool.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                route('stool.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editRecord"></i>'
                 );
               
             })   

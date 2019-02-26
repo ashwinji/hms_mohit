@@ -335,6 +335,25 @@ Route::group(['prefix'=>'report'], function(){
        Route::post('Ecg/ecgfilter','ReportController@ecgFilter')->name('ecg.filter');
        Route::get('/urine','ReportController@urineReport')->name('urinedatewise');
        Route::post('urine/urinefilter','ReportController@urineFilter')->name('urine.filter');
+       Route::get('/yoga','ReportController@yogaReport')->name('yogamonthwise');
+       Route::post('/yoga/yogafilter','ReportController@yogaFilter')->name('yoga.filter');
+       Route::get('/stool','ReportController@stoolReport')->name('stoolmonthwise');
+       Route::post('/stool/stoolfilter','ReportController@stoolFilter')->name('stool.filter');
+       Route::get('/serun','ReportController@serunReport')->name('serunmonthwise');
+       Route::post('/serun/serunfilter','ReportController@serunFilter')->name('serun.filter');
+       Route::get('/semen','ReportController@semenReport')->name('semenmonthwise');
+       Route::post('/semen/semenfilter','ReportController@semenFilter')->name('semen.filter');
+       Route::get('/blood','ReportController@bloodReport')->name('bloodmonthwise');
+       Route::post('/blood/bloodfilter','ReportController@bloodFilter')->name('blood.filter');
+       Route::get('/generalblood','ReportController@generalbloodReport')->name('generalbloodmonthwise');
+       Route::post('/generalblood/generalbloodfilter','ReportController@generalbloodFilter')->name('generalblood.filter');
+       Route::get('/physiotherpy','ReportController@physiotherpyReport')->name('physiotherpymonthwise');
+       Route::post('/physiotherpy/physiotherpyfilter','ReportController@physiotherpyFilter')->name('physiotherpy.filter');
+       Route::get('opdtreatment','ReportController@opdTreatment')->name('opdtreatementlist');
+       Route::post('/opd/opdTreatmentfilter','ReportController@opdtreatmentFilter')->name('opdtreatment.filter');
+       Route::post('/opd/opdTreatmentdatefilter','ReportController@opdTreatmentdatefilter')->name('opdtreatmentdate.filter');
+       
+
 
 	});
 

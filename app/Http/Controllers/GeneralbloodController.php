@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\generalblood;
 use Illuminate\Http\Request;
 use App\Model\ot;
@@ -120,7 +119,7 @@ class GeneralbloodController extends Controller
                  <a href="%s">%s</a>',
                 route('generalblood.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
                 $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('generalblood.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-warning fa fa-edit editRecord"></i>'
+                route('generalblood.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editRecord"></i>'
                 );
               
             })   

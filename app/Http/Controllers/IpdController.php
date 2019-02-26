@@ -199,13 +199,13 @@ class IpdController extends Controller
 
               return sprintf('<div class=" btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger" data-toggle="tooltip" data-placement="top" title="delete">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info" data-toggle="tooltip" data-placement="top" title="view">%s</button>
-                <button  data-id="%s" class="%s btn btn-sm btn-square btn-success" data-toggle="tooltip" data-placement="top" title="add treatment">%s</button>
+                <button  data-id="%s" class="%s btn btn-sm btn-square btn-teal" data-toggle="tooltip" data-placement="top" title="add treatment">%s</button>
                  <a href="%s" data-toggle="tooltip" data-placement="top" title="edit">%s</a>
-                  <button  data-id="%s" class="%s btn btn-sm btn-square btn-success" data-toggle="tooltip" data-placement="top" title="discharge form">%s</button>',
+                  <button  data-id="%s" class="%s btn btn-sm btn-square btn-warning" data-toggle="tooltip" data-placement="top" title="discharge form">%s</button>',
                 route('ipd.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
                 $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
                  $data['id'],"addRecord",'<i class=" fa fa-plus"></i>',
-                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-warning fa fa-edit  editRecord"></i>',
+                route('ipd.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit  editRecord"></i>',
                 $data['id'],"discharge",'<i class=" fa fa-clock-o"></i>'
                                                  );
               

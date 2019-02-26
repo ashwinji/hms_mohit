@@ -123,12 +123,12 @@ class PhysiotherpyController extends Controller
             ->get();
               return DataTables::of( $physiotherpy)->addColumn('action', function($data){
 
-              return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-square btn-danger" data-toggle="tooltip" data-placement="top" title="delete">%s</button>
-             <button  data-id="%s" class="%s btn btn-square btn-info" data-toggle="tooltip" data-placement="top" title="view">%s</button>
+              return sprintf('<div class="btn-sm btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger" data-toggle="tooltip" data-placement="top" title="delete">%s</button>
+             <button  data-id="%s" class="%s btn btn-sm  btn-square btn-info" data-toggle="tooltip" data-placement="top" title="view">%s</button>
                <a href="%s" data-toggle="tooltip" data-placement="top" title="edit">%s</a></div>',
                 route('physco.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
                 $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-success fa fa-edit editrecord"></i>');
+                 route('physiotherpy.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editrecord"></i>');
               
             })        
             ->make(true);

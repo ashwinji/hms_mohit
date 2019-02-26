@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\semenexamination;
 use Illuminate\Http\Request;
 use App\Model\bloodexamination;
@@ -108,7 +107,7 @@ class SemenexaminationController extends Controller
     }
 public function sendsemendata()
     {
-           $data=semenexamination::all();
+           // $data=semenexamination::all();
            $ecg= semenexamination::select('semenexaminations.id','opds.regDate','semenexaminations.referredBy','opds.regNum','opds.patientName','semenexaminations.date','semenexaminations.investigationAdvised','opds.age')
             ->join('opds', 'semenexaminations.patientId', '=','opds.regNum')
             ->get();
@@ -120,7 +119,7 @@ public function sendsemendata()
                  <a href="%s">%s</a></div>',
                 route('semen.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
               $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('semen.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                route('semen.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editRecord"></i>'
                 );
               
             })   

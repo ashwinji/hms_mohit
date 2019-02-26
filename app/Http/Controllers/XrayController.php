@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\xray;
 use Illuminate\Http\Request;
 use App\Model\opd;
@@ -110,19 +109,18 @@ class XrayController extends Controller
     }
 public function sendxraydata()
     {
-           $data=xray::all();
+           
            $stool= xray::select('xrays.id','opds.regDate','xrays.referredBy','opds.regNum','opds.patientName','xrays.date','xrays.investigationAdvised','opds.age')
             ->join('opds', 'xrays.patientId', '=','opds.regNum')
             ->get();
             return DataTables::of($stool)->addColumn('action', function($data){
-
               return sprintf(
                 '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                  <a href="%s">%s</a></div>',
                 route('xray.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
               $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('xray.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                route('xray.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editRecord"></i>'
                 );
               
             })   

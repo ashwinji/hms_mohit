@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\bloodexamination;
 use Illuminate\Http\Request;
 use App\Model\ot;
@@ -120,7 +119,7 @@ class BloodexaminationController extends Controller
             return DataTables::of($bloodexaminations)->addColumn('action', function($data){
 
               return sprintf(
-                '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
+                '<div class="  "><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                  <a href="%s">%s</a></div>',
                 route('blood.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',

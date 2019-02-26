@@ -115,25 +115,25 @@
                 <a href="{{route('ipdmonthwise')}}" class="slide-item">IPD Month  Wise</a>
               </li>
               <li>
-                <a href="{{ route('opdTreatment') }}" class="slide-item">OPD Treatment List</a>
+                <a href="{{ route('opdtreatementlist') }}" class="slide-item">OPD Treatment List</a>
               </li>
               <li>
                 <a href="{{ route('xraydatewise') }} "class="slide-item">X-Ray Reports</a>
               </li>
               <li>
-                <a href=""class="slide-item">Blood Examination Report</a>
+                <a href="{{ route('bloodmonthwise') }}"class="slide-item">Blood Examination Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">General blood Report</a>
+                <a href="{{ route('generalbloodmonthwise') }}" class="slide-item">General blood Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">Semen Examination Report</a>
+                <a href="{{ route('semenmonthwise') }}" class="slide-item">Semen Examination Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">Serum of widal Report</a>
+                <a href="{{ route('serunmonthwise') }}" class="slide-item">Serum of widal Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">Stool Examination Report</a>
+                <a href="{{ route('stoolmonthwise') }}" class="slide-item">Stool Examination Report</a>
               </li>
               <li>
                 <a href="{{ route('urinedatewise') }}" class="slide-item">Urine Examination Report</a>
@@ -142,15 +142,15 @@
                 <a href="{{route('ecgdatewise')}}" class="slide-item">ECG Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">Physiotherpy Report</a>
+                <a href="{{ route('physiotherpymonthwise') }}" class="slide-item">Physiotherpy Report</a>
               </li>
               <li>
-                <a href="" class="slide-item">Yoga Report</a>
+                <a href="{{route('yogamonthwise')}}" class="slide-item">Yoga Report</a>
               </li>
 
           </ul>
       </li>
-      <li>
+    </li>
       <a href="{{route('phistory')}}" class="slide-item">
         <i class="side-menu__icon fa fa-list"></i>
       <span class="side-menu__label">Patient History</span>

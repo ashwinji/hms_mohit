@@ -4,11 +4,12 @@ function printDiv(valPrint) {
     $('.yesPrint').show();
     var divToPrint = document.getElementById('dynamic-tables');
     var htmlToPrint = '' +
-        '<style type="text/css">' +
+        '<style type="text/css">table{width:100%;align:center}' +
         'table th, table td {' +
         'border:1px solid #c9c9c9;' +
         'padding:0.5em;' +
-        'text-align:left;' +
+        'text-align:center;' +
+        'align:center;' +
         'font-size:11px;' +
         '}' +
         'h1, h2, h3, h4 {' +
@@ -31,11 +32,11 @@ function printPopup(valPrint) {
     $('.yesPrint').show();
     var divToPrint = document.getElementById('tables');
     var htmlToPrint = '' +
-        '<style type="text/css">table{width:100%;}' +
+        '<style type="text/css">table{width:100%;align:center}' +
         'table th, table td {' +
         'border:1px solid #c9c9c9;' +
         'padding:0.5em;' +
-        'text-align:left;' +
+        'text-align:center;' +
         'font-size:11px;' +
         '}' +
         'h1, h2, h3, h4 {' +

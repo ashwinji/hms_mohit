@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Model\serumofwidal;
-
 use App\Model\semenexamination;
 use Illuminate\Http\Request;
 use App\Model\bloodexamination;
@@ -113,19 +111,18 @@ class SerumofwidalController extends Controller
     }
 public function sendserundata()
     {
-           $data=serumofwidal::all();
+        
            $serun= serumofwidal::select('serumofwidals.id','opds.regDate','serumofwidals.referredBy','opds.regNum','opds.patientName','serumofwidals.date','serumofwidals.investigationAdvised','opds.age')
             ->join('opds', 'serumofwidals.patientId', '=','opds.regNum')
             ->get();
             return DataTables::of($serun)->addColumn('action', function($data){
-
               return sprintf(
                 '<div class="  btn-group"><button data-url="%s" data-id="%s" class="%s btn btn-sm btn-square btn-danger">%s</button>
                 <button  data-id="%s" class="%s btn btn-sm btn-square btn-info">%s</button>
                  <a href="%s">%s</a></div>',
                 route('serun.delete',$data['id']),$data['id'],"deleteRecord",'<i class=" fa fa-trash"></i>',
               $data['id'],"viewRecord",'<i class=" fa fa-eye"></i>',
-                route('serun.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-danger fa fa-edit editRecord"></i>'
+                route('serun.edit',['id'=>$data['id']]),'<i class="btn btn-sm btn-success fa fa-edit editRecord"></i>'
                 );
               
             })   
