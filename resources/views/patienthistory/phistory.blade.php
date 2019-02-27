@@ -3,34 +3,35 @@
  <meta name="csrf-token" content="{{csrf_token()}}">
 @endsection
 @section('main-content')
+<body>
 <div class="page">
   <div class="row">
-    <div class="col-md-12 col-lg-12">
-    <div class="card">
-			<div class="card-header ">
-				<h3 class="card-title ">Patient History List</h3>
-			</div>
-			<div class="card-body">
-			<div class="table-responsive">
-				<table id="Opddata-table" class="table table-striped table-bordered w-100">
-					<thead>
-					  <tr>
-						<th >S.No</th>
-						<th >Patient Name</th>
-						<th >Reg. ID</th>
-						<th >Rg. Date </th>
-						<th >Address</th>
-						<th >Gender</th>
-						<th >Action</th>
-					  </tr>
-					</thead>
-				  </table>
-			</div>
-		</div>
-		</div>
+    <div class="col-md-12 ">
+        <div class="card">
+    			<div class="card-header ">
+    				<h3 class="card-title ">Patient History List</h3>
+    			</div>
+    	  <div class="card-body">
+    			<div class="table-responsive">
+    				<table id="Opddata-table" class="table table-striped table-bordered w-100">
+    					<thead>
+    					  <tr>
+    						<th >S.No</th>
+    						<th >Patient Name</th>
+    						<th >Reg. ID</th>
+    						<th >Rg. Date </th>
+    						<th >Address</th>
+    						<th >Gender</th>
+    						<th >Action</th>
+    					  </tr>
+    					</thead>
+    			   </table>
+    			</div>
+    		</div>
+    	</div>
 	</div>
 </div>
-
+</div>
 <!-- model for view -->
 <div  class="modal fade" id="myModal" role="dialog" >
     <div class="modal-dialog modal-lg">
@@ -51,10 +52,7 @@
   </div>
 </div>
 <!-- model for view -->
-</div>
-</div>
-</div>
-</div>
+</body>
 @endsection
 @section('footerSection')
 
@@ -79,7 +77,6 @@ $(document).ready(function() {
 });
 
  </script>
-<!-- viewwwwwwwwwwwwww -->
  <script type="text/javascript">
  	$(document).on('click', '.view', function(){
         var id = $(this).attr("id");

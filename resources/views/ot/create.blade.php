@@ -326,14 +326,20 @@ jQuery(document).ready(function(){
                         method: "POST",
                         data: { query: opd, _token: _token },
                         success: function (data) {
-                                console.log(data);
-                                $('#opdDate').val(data.regDate);
-                                $('#patientName').val(data.patientName);
-                                $('#consultant').val(data.consultant);
-                                $('#otherConsultant').val(data.otherConsultant);
-                                $('#age').val(data.age);
-                                $('#gender').val(data.gender);
-                                $('#address').val(data.address);
+                                console.log(data.opd);
+                                console.log(data.ipd);
+                                $('#opdDate').val(data.opd.regDate);
+                                $('#patientName').val(data.opd.patientName);
+                                $('#consultant').val(data.opd.consultant);
+                                $('#otherConsultant').val(data.opd.otherConsultant);
+                                $('#age').val(data.opd.age);
+                                $('#gender').val(data.opd.gender);
+                                $('#address').val(data.opd.address);
+                                $('#ipdRegNum').val(data.ipd.ipdRegNum);
+                                $('#ipdRegDate').val(data.ipd.ipdRegDate);
+
+
+
 
                         }
 

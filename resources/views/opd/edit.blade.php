@@ -60,7 +60,7 @@
                         <div class="form-group">
                                 {!! Form::text('patientName',
                                 $opd->patientName, ['class' =>
-                                'form-control','id'=>'patientName']) !!}
+                                'form-control','id'=>'patientName','readonly'=>'true']) !!}
                         </div>
                 </div>
         </div>
@@ -78,7 +78,7 @@
                         <div class="form-group">
                                 {!! Form::text('regNum', $opd->regNum, ['class'
                                 =>
-                                'form-control','id'=>'regNum','name'=>'regNum'])
+                                'form-control','id'=>'regNum','name'=>'regNum','readonly'=>'true'])
                                 !!}
                         </div>
                 </div>
@@ -156,7 +156,7 @@
                                 ),
                                 $opd->gender,
                                 ['class' =>
-                                'form-control','id'=>'gender','name'=>'gender'])
+                                'form-control','id'=>'gender','name'=>'gender','readonly'=>'true'])
                                 !!}
                         </div>
                 </div>
@@ -222,9 +222,9 @@
 
 
         <center>
-                <button class="btn btn-success" type="submit">Save
+                <button class="btn  btn-square btn-success" type="submit">Save
                 </button>
-                <button class="btn btn-danger" type="reset">Cancel
+                <button class="btn btn-square btn-danger" type="reset">Cancel
                 </button>
 
         </center>

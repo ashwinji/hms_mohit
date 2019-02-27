@@ -350,8 +350,11 @@ Route::group(['prefix'=>'report'], function(){
        Route::get('/physiotherpy','ReportController@physiotherpyReport')->name('physiotherpymonthwise');
        Route::post('/physiotherpy/physiotherpyfilter','ReportController@physiotherpyFilter')->name('physiotherpy.filter');
        Route::get('opdtreatment','ReportController@opdTreatment')->name('opdtreatementlist');
-       Route::post('/opd/opdTreatmentfilter','ReportController@opdtreatmentFilter')->name('opdtreatment.filter');
-       Route::post('/opd/opdTreatmentdatefilter','ReportController@opdTreatmentdatefilter')->name('opdtreatmentdate.filter');
+       Route::get('opdtreatementfilter','ReportController@opdtreatmentFilter')->name('opdtreatmentlist.filter');
+       Route::post('opdtreatmentdate','ReportController@opdTreatmentdatefilter')->name('opdtreatmentlistdate.filter');
+       Route::post('opdtreatementview','OpdController@show')->name('opd.treatment.view');
+
+       
        
 
 

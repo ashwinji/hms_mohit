@@ -204,6 +204,10 @@ class OpdController extends Controller
         ->editColumn('consultant',function($data){
             return $data->doctorName->name;
         })
+        ->addColumn('id',function($data){
+                  static $i=1;
+                  return $i++;
+            })
        // when you want search relatioship data then apply it where you edit column you can filterColumn
        ->filterColumn('consultant', function($q, $keyword) {
                     $q->whereHas('doctorName',function($q) use ($keyword) {

@@ -31,9 +31,10 @@ class opd extends Model
 		return $this->hasOne(medicine::class,'id','medicine');
 	}
 	public function opdTreatmentDetails()
-	{
-		return $this->hasMany(opdtreatments::class,'patientId','id');
-	}
+     {
+          return $this->hasMany(opdtreatments::class,'patientId','id');
+     }
+   
 	public function IpdTreatmentDetails()
 	{
 		return $this->hasmany(ipdtreatments::class,'patientId','id');

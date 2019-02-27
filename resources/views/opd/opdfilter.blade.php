@@ -189,7 +189,7 @@ $(document).ready(function() {
                             ajax: {   url: "{{ route('filter.search') }}",
                                      type: "POST",
                                      data:{
-                                      fromDate: jQuery('#fromDate').val(),
+                                    fromDate: jQuery('#fromDate').val(),
                                      toDate: jQuery('#toDate').val(),
                                      gender: jQuery('#gender').val(),
                                      _token:_token},  },

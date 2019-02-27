@@ -184,8 +184,7 @@ class OtController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum', 'LIKE', '%'.$query.'%')
+          $data = opd::where('regNum', 'LIKE', '%'.$query.'%')
             ->get();
           $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
           foreach($data as $row)
@@ -204,11 +203,10 @@ class OtController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum',$query)
-            ->first();
-
-            return response()->json($data);
+          $data = opd::where('regNum',$query)->first();
+             $ipddata = ipd::where('ipdRegNum',$query)->first();
+            return response()->json(['opd'=>$data,'ipd'=>$ipddata]);
+           
          
      }
     }
