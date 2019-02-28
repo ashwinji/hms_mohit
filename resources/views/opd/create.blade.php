@@ -19,12 +19,12 @@
 		<div class="col-md-12 ">
 		<div class="row">
 			<div class="col-md-offset-3 col-sm-2">
-											<div class="form-group">
+					  <div class="form-group">
 			{!! Form::label('PatientTitle', 'Patient Title:*') !!}
-											</div>
+					 </div>
 			</div>
 			<div class="col-sm-8">
-											<div class="form-group">
+				<div class="form-group">
 			{!! Form::select('patientTitle',array('' => '----Select Title----','Mr.' => 'Mr.',
 									'Mrs.' => 'Mrs.',
 									'Ms.' => 'Ms.',
@@ -33,22 +33,22 @@
 									),
 									'',['class' =>'form-control','id'=>'patientTitle','name'=>'patientTitle'])
 									!!}
-									<div class="error text-danger">{{ $errors->first('patientTitle')}}</div>
-								            </div>
+			     <div class="error text-danger">{{ $errors->first('patientTitle')}}</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-offset-3 col-sm-2">
-									<div class="form-group">
+					<div class="form-group">
 			{!! Form::label('Patient Name', 'Patient Name:*') !!}
-									</div>
+					</div>
 			</div>
-								<div class="col-sm-8">
-										<div class="form-group">
+			<div class="col-sm-8">
+				<div class="form-group">
 			{!! Form::text('patientName', '', ['class' =>'form-control','id'=>'patientName',]) !!}
 			<div class="error text-danger">{{ $errors->first('patientName')}}</div>
-										</div>
-								</div>
+				</div>
+		  </div>
 		</div>
 		<div class="row">
 			<div class="col-md-offset-3 col-sm-2">
@@ -180,7 +180,7 @@
 		</div>
 		<center>
 			<button class="btn btn-lg btn-square btn-success" type="submit">Save</button>
-			<button class="btn btn-lg btn-square btn-danger" type="reset">Cancel</button>
+			<a href="" class="btn btn-lg btn-square btn-danger" type="reset">Cancel</a>
 		</center>
 		{!! Form::close() !!}
 		</div>

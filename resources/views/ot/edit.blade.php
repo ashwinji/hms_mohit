@@ -86,22 +86,22 @@
                                         {!! Form::text('ipdRegNum',$ot->ipdRegNum,
                                         ['class' =>
                                         'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD
-                                        Registration number']) !!}
+                                        Registration number','readonly'=>'true']) !!}
                                 </div>
                         </div>
                         <div class="col-md-offset-3 col-sm-2">
 
                                 <div class="form-group">
-                                        {!! Form::label('ipdRegNUM', 'IPD Date:*') !!}
+                                        {!! Form::label('ipdRegDate', 'IPD Date:*') !!}
                                 </div>
                         </div>
                         <div class="col-sm-3">
 
                                 <div class="form-group">
-                                        {!! Form::date('ipdDate',$ot->ipdRegDate,
+                                        {!! Form::date('ipdRegDate',$ot->ipdRegDate,
                                         ['class' =>
-                                        'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD
-                                        date']) !!}
+                                        'form-control','id'=>'ipdRegDate','placeholder'=>'IPD
+                                        date','readonly'=>'true']) !!}
                                 </div>
                         </div>
                 </div>

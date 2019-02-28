@@ -194,41 +194,44 @@
 								<div>Bed Number</div>
 									<div class="custom-controls-stacked">
 										<label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-											  {!! Form::radio('bedNum','1',true,array("class"=>"custom-control-input",'id'=>'bedNum','checked'=>''))  !!}
+											  {!! Form::radio('bedNum','1',true,array("class"=>"custom-control-input",'id'=>'bedNum1','checked'=>''))  !!}
 												<span class="custom-control-label"><strong>1</strong></span>
 										</label>
 									   <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','2',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','2',false,array("class"=>"custom-control-input",'id'=>'bedNum2'))  !!}
 											<span class="custom-control-label"><strong>2</strong></span>
 									   </label>
 									   <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','3',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','3',false,array("class"=>"custom-control-input",'id'=>'bedNum3'))  !!}
 											<span class="custom-control-label"><strong>3</strong></span>
 									   </label>
 									   <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','4',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','4',false,array("class"=>"custom-control-input",'id'=>'bedNum4'))  !!}
 											<span class="custom-control-label"><strong>4</strong></span>
 									   </label>
 										<label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','5',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','5',false,array("class"=>"custom-control-input",'id'=>'bedNum5'))  !!}
 											<span class="custom-control-label"><strong>5</strong></span>
 									   </label>
 										<label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','6',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','6',false,array("class"=>"custom-control-input",'id'=>'bedNum6'))  !!}
 											<span class="custom-control-label"><strong>6</strong></span>
 									   </label>
 										<label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','7',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','7',false,array("class"=>"custom-control-input",'id'=>'bedNum7'))  !!}
 											<span class="custom-control-label"><strong>7</strong></span>
 									   </label>
 										<label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','8',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','8',false,array("class"=>"custom-control-input",'id'=>'bedNum8'))  !!}
 											<span class="custom-control-label"><strong>8</strong></span>
 									   </label>
 										 <label class="custom-control custom-checkbox col-lg-1 col-md-1 col-sm-4 col-xs-4">
-										   {!! Form::radio('bedNum','9',false,array("class"=>"custom-control-input",'id'=>'bedNum',))  !!}
+										   {!! Form::radio('bedNum','9',false,array("class"=>"custom-control-input",'id'=>'bedNum9'))  !!}
 											<span class="custom-control-label"><strong>9</strong></span>
 									   </label>
+									   <div class="col-lg-12" id="checkRoom"><span class="text-danger"></span>
+									   </div>
+
 							    </div>
 						   </div>
 					  </div>
@@ -588,7 +591,7 @@
 							<div class="form-group">
 								<div>
 									{!! Form::submit('Submit', ['class' => 'btn btn-square btn-success','id'=>'submit']) !!}
-									{!! Form::reset('Cancel', ['class' => 'btn btn-square btn-danger','id'=>'cancel']) !!}
+								    <a href="" class="btn btn-lg btn-square btn-danger" type="reset" id="cancel">Cancel</a>
 								</div>
 							</div>
 						</div>
@@ -669,5 +672,24 @@
 	});
 
 </script>
+<!-- <script type="text/javascript">
+
+function checkRoom(bedNum)
+{
+  var wardName = document.getElementById('wardName').value;
+  alert(wardName+bedNum);
+  if(wardName!='')
+  {
+    $.ajax({
+      url: "",
+      type: 'POST',
+      data: {bedNum:bedNum, wardName:wardName},
+      success:function(data){
+        $('#checkRoom').html(data);
+      }
+    });
+  }
+}
+</script> -->
 
 @endpush

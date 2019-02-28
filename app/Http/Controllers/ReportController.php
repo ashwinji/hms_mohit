@@ -209,13 +209,13 @@ class ReportController extends Controller
       public function opdtreatmentFilter()
       {   
          
-         $opds=opd::select('opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate')
+         $opds=opd::select('opds.id as opd_id','opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate')
          ->join('opdtreatments', 'opdtreatments.patientId', '=','opds.regNum')
          ->get();
           return DataTables::of($opds)
       ->addColumn('action', function($data){
 
-      return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->id.'"></a>';
+      return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->opd_id.'"></a>';
 
       })->addColumn('id',function($data){
                   static $i=1;
@@ -234,13 +234,13 @@ class ReportController extends Controller
       {
            $from = $request->get('fromDate');        
             $to = $request->get('toDate');        
-            $data = opd::whereBetween('regDate',[$from, $to])->select('opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate')
+            $data = opd::whereBetween('regDate',[$from, $to])->select('opds.id as opd_id','opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate')
          ->join('opdtreatments', 'opdtreatments.patientId', '=','opds.regNum')
          ->get();
             
             return DataTables::of($data)->addColumn('action', function($data){
 
-            return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->id.'"></a>';
+              return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->opd_id.'"></a>';
 
             })->editColumn('consultant',function($data){
 

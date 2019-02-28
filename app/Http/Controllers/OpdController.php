@@ -103,7 +103,6 @@ class OpdController extends Controller
     public function show(Request $request )
     {
         $id=$request->id;
-      
         $data=opd::where('id','=',$id)->first();
         $content=\View::make('opd.view',compact('data'));
         $a=$content->render();

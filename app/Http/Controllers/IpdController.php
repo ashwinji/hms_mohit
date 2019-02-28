@@ -94,6 +94,11 @@ class IpdController extends Controller
         'html'=>$a,
       ]);
     }
+    // public function checkRoom(Request $request)
+    // {  
+    //   $id=$request->id;
+    //   $data=ipd::where('id','=',$id)->first();
+    // }
     public function discharge(Request $request)
     {
         $id=$request->id;

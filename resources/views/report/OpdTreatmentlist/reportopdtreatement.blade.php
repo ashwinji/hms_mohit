@@ -2,101 +2,91 @@
 @section('main-content')
 <div class="page">
  <div class="page-main">
-            <div class="col-md-12  col-xl-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">OPD TREATMENTS LIST - FILTER DATA</h3>
-                </div>
-
-                {!! Form::open(array('id'=>'opd-filter-form')) !!}
-
-                <div class="row" style="margin: 10px;">
-                  <div class="col-md-11">
-                    <div class="row">
-                      <div class="col-md-6" >
-                        <div class="form-group">
-                          {!! Form::label('name', 'From') !!}
-                          {!! Form::date('fromDate',  null, ['class' => 'form-control','placeholder' => 'Enter Registration Amount','id'=>'fromDate']) !!}
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-
-                          {!! Form::label('name', 'To') !!}
-                          {!! Form::date('toDate',  null, ['class' => 'form-control','placeholder' => 'Enter Registration Amount','id'=>'toDate']) !!}
-                        </div>
-                      </div>
-                    </div>
+    <div class="col-md-12  col-xl-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">OPD TREATMENTS LIST - FILTER DATA</h3>
+          </div>
+          {!! Form::open(array('id'=>'opd-filter-form')) !!}
+          <div class="row" style="margin: 10px;">
+            <div class="col-md-11">
+              <div class="row">
+                <div class="col-md-6" >
+                  <div class="form-group">
+                    {!! Form::label('name', 'From') !!}
+                    {!! Form::date('fromDate',  null, ['class' => 'form-control','placeholder' => 'Enter Registration Amount','id'=>'fromDate']) !!}
                   </div>
-
-                  <div class="col-md-1">
-                    <div class="form-group">
-                      <button style="margin-top: 28px;" class="btn btn-square btn-success" id="opdfilter">submit</button>
-                    </div>
-                  </div>
-
                 </div>
-
-
-                {!! Form::close() !!}
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {!! Form::label('name', 'To') !!}
+                    {!! Form::date('toDate',  null, ['class' => 'form-control','placeholder' => 'Enter Registration Amount','id'=>'toDate']) !!}
+                  </div>
+                </div>
               </div>
             </div>
-
-      <div class="row">
-       <div class="col-md-12 col-lg-12">
-        <div class="card">
-         <div class="card-header ">
-          <h3 class="card-title ">Latest Records Of Patient</h3>
-
-        </div>
-
-        <div class="card-body">
-         <div class="table-responsive" id="dynamic-tables">
-          <table id="Opdlist-table" class="table table-striped table-bordered w-100 ">
-           <thead>
-             <tr>
-              <th >S.N.</th>
-              <th >Reg.ID</th>
-              <th >Patient Name</th>
-              <th >Patient Age</th>
-              <th >Gender</th>
-              <th >Consultant</th>
-              <th >Rg.Date </th>
-              <th >treatmentDate </th>
-              <th class="noPrint" >Action</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
-
-
-<!-- model for view -->
-<div  class="modal fade" id="myModal" role="dialog" >
-  <div class="modal-dialog modal-lg">
-    
-   
-    <div class="modal-content">
-      <div class="modal-header" >
-        <h4 >Details Of OPD Patients</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="row" id="viewmodal">
-          
-        </div>
-        <div  class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <div class="col-md-1">
+              <div class="form-group">
+                <button style="margin-top: 28px;" class="btn btn-square btn-success" id="opdfilter">submit</button>
+              </div>
+            </div>
+          </div>
+          {!! Form::close() !!}
         </div>
       </div>
-      
-    </div>
+
+ <div class="row">
+      <div class="col-md-12 col-lg-12">
+         <div class="card">
+             <div class="card-header ">
+              <h3 class="card-title ">Latest Records Of Patient</h3>
+            </div>
+            <div class="card-body">
+             <div class="table-responsive" id="dynamic-tables">
+              <table id="Opdlist-table" class="table table-striped table-bordered w-100 ">
+               <thead>
+                 <tr>
+                  <th >S.N.</th>
+                  <th >Reg.ID</th>
+                  <th >Patient Name</th>
+                  <th >Patient Age</th>
+                  <th >Gender</th>
+                  <th >Consultant</th>
+                  <th >Rg.Date </th>
+                  <th >treatmentDate </th>
+                  <th class="noPrint" >Action</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
-<!-- model for view -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="largemodal" aria-hidden="true">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content">
+          <div class="modal-header" >
+             <h4 >Details Of OPD Patients</h4>
+           </div>
+            <div class="page">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="modal-body">
+                            <div id="viewmodal">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-square btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 </div>

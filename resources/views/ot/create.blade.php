@@ -16,6 +16,9 @@
                  </div>
         <div class="card-body">
                 @include('verror.error')
+                          @if (isset($errors) && count($errors) > 0)
+                            <div class=" alert alert-danger text-center"> Go to ipd section first</div>
+                          @endif
                               {!! 
                                 Form::open(array('route'=>'ot.store','files'=>'true','class'=>'fixed','id'=>'profile-form','autocomplete'=>'off'))
                               !!}
@@ -72,18 +75,20 @@
                         <div class="form-group">
                             {!! Form::text('ipdRegNum','',['class'=>'form-control','id'=>'ipdRegNum','name'=>'ipdRegNum','placeholder'=>'IPD Registration number','readonly'=>'true']) 
                             !!}
+                            <div class="error text-danger">{{ $errors->first('ipdRegNum')}}</div>
                         </div>
                     </div>
                     <div class="col-md-offset-3 col-sm-2">
                         <div class="form-group">
-                           {!! Form::label('ipdRegNUM', 'IPD Date:*') !!}
+                           {!! Form::label('ipdRegDate', 'IPD Date:*') !!}
                         </div>
                     </div>
                     <div class="col-sm-3">
                          <div class="form-group">
-                            {!! Form::date('ipdDate', '', ['class' =>'form-control','id'=>'ipdDate','name'=>'ipdDate','placeholder'=>'IPD
+                            {!! Form::date('ipdRegDate', '', ['class' =>'form-control','id'=>'ipdRegDate','placeholder'=>'IPD
                             date','readonly'=>'true'])
                              !!}
+                             <div class="error text-danger">{{ $errors->first('ipdRegDate')}}</div>
                         </div>
                     </div>
                 </div>

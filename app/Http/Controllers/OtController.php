@@ -42,7 +42,7 @@ class OtController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+         // dd($request->all());
         $this->validate($request,[
                 'opdNum'=>'required',
                 'patientName'=>'required',
@@ -50,13 +50,15 @@ class OtController extends Controller
                 'age'=>'required',
                 'gender'=>'required',
                 'address'=>'required',
+                'ipdRegNum'=>'required',
+                'ipdRegDate'=>'required',
              
         ]);
         $ot=new ot;
         $ot->patientId=$request->opdNum;
         $ot->opdDate=$request->opdDate;
         $ot->ipdRegNum=$request->ipdRegNum;
-        $ot->ipdRegDate=$request->ipdDate;
+        $ot->ipdRegDate=$request->ipdRegDate;
         $ot->otDate=$request->otDate;
         $ot->dignosis=$request->diagnosis;
         $ot->otProcessure=$request->otProcessure;
@@ -120,7 +122,7 @@ class OtController extends Controller
         $ot->patientId=$request->opdNum;
         $ot->opdDate=$request->opdDate;
         $ot->ipdRegNum=$request->ipdRegNum;
-        $ot->ipdRegDate=$request->ipdDate;
+        $ot->ipdRegDate=$request->ipdRegDate;
         $ot->otDate=$request->otDate;
         $ot->dignosis=$request->diagnosis;
         $ot->otProcessure=$request->otProcessure;
@@ -204,7 +206,7 @@ class OtController extends Controller
 
           $query = $request->get('query');
           $data = opd::where('regNum',$query)->first();
-             $ipddata = ipd::where('ipdRegNum',$query)->first();
+             $ipddata = ipd::where('patientId',$query)->first();
             return response()->json(['opd'=>$data,'ipd'=>$ipddata]);
            
          
