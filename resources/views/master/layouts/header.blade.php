@@ -5,7 +5,7 @@
       <div class="app-header header py-1 d-flex">
         <div class="container-fluid">
           <div class="d-flex">
-            <a class="header-brand" href="index.html">
+            <a class="header-brand" href="{{route('dashboard')}}">
               <img src="{{asset('assets/images/photos/nrt.png')}} " class="header-brand-img" alt="NRT logo">
             </a>
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>

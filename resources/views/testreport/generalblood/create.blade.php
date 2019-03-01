@@ -200,7 +200,7 @@
 	</script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function () {debugger
+		jQuery(document).ready(function () {
 		    jQuery('#patientId').on('keyup', function () {
 		        var opd = $(this).val();
 		        $('#patientId').html("");

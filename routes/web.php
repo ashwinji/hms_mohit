@@ -353,7 +353,7 @@ Route::group(['prefix'=>'report'], function(){
        Route::get('opdtreatment','ReportController@opdTreatment')->name('opdtreatementlist');
        Route::get('opdtreatementfilter','ReportController@opdtreatmentFilter')->name('opdtreatmentlist.filter');
        Route::post('opdtreatmentdate','ReportController@opdTreatmentdatefilter')->name('opdtreatmentlistdate.filter');
-       Route::post('opdtreatementview','OpdController@addtreatment')->name('opd.treatment.view');
+       Route::post('opdtreatementview','OpdController@show')->name('opd.treatment.view');
 
        
        

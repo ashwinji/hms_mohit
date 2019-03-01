@@ -45,189 +45,154 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('Patient Name', 'Patient
-                        Name:*') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::text('patientName',
-                        $opd->patientName, ['class' =>
-                        'form-control','id'=>'patientName','readonly'=>'true']) !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('regNum', 'Registration
-                        Number:*') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::text('regNum', $opd->regNum, ['class'
-                        =>
-                        'form-control','id'=>'regNum','name'=>'regNum','readonly'=>'true'])
-                        !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('regDate', 'Registration
-                        Date:*') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::date('regDate', $opd->regDate,
-                        ['class' =>
-                        'form-control','id'=>'regDate','name'=>'regDate'])
-                        !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('Address', 'Address:*') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::text('address', $opd->address,
-                        ['class' =>
-                        'form-control','id'=>'address','name'=>'address'])
-                        !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('Age', 'Age:*') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-                        <div class="form-group">
-                        {!! Form::text('Age', $opd->age, ['class' =>
-                        'form-control','id'=>'Age','name'=>'Age']) !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('Gender', 'Gender:*') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-                        <div class="form-group">
-
-                        {!! Form::select('gender',
-                        array(
-                        '' => '----Select Gender----',
-                        'Male Adult' =>'Male Adult',
-                        'Female Adult' =>'Female Adult',
-                        'Male child' =>'Male child',
-                        'Female child' =>'Male child',
-                        ),
-                        $opd->gender,
-                        ['class' =>
-                        'form-control','id'=>'gender','name'=>'gender','readonly'=>'true'])
-                        !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('Consultant', 'Consultant:*')
-                        !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::select('Consultant',$docterlist,
-                        $opd->consultant,
-                        ['class' =>
-                        'form-control','id'=>'Consultant','name'=>'Consultant'])
-                        !!}
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('otherConsultant', 'Other
-                        Consultant') !!}
-                        </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::text('otherConsultant',
-                        $opd->otherConsultant, ['class' =>
-                        'form-control','id'=>'otherConsultant','name'=>'otherConsultant'])
-                        !!}
-                        </div>
-                        </div>
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('Patient Name', 'Patient
+                                Name:*') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::text('patientName',
+                                $opd->patientName, ['class' =>
+                                'form-control','id'=>'patientName','readonly'=>'true']) !!}
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                        <div class="col-md-offset-3 col-sm-2">
-
-                        <div class="form-group">
-                        {!! Form::label('department', 'Department') !!}
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('regNum', 'Registration
+                                Number:*') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::text('regNum', $opd->regNum, ['class'
+                                =>
+                                'form-control','id'=>'regNum','name'=>'regNum','readonly'=>'true'])!!}
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('regDate', 'Registration
+                                Date:*') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::date('regDate', $opd->regDate,
+                                ['class' =>
+                                'form-control','id'=>'regDate','name'=>'regDate'])
+                                !!}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-8">
-
-                        <div class="form-group">
-                        {!! Form::select('department',$department
-                        ,
-                        $opd->department,
-                        ['class' =>
-                        'form-control','id'=>'department','name'=>'department'])
-                        !!}
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('Address', 'Address:*') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::text('address', $opd->address,
+                                ['class' =>
+                                'form-control','id'=>'address','name'=>'address'])
+                                !!}
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('Age', 'Age:*') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::text('Age', $opd->age, ['class' =>
+                                'form-control','id'=>'Age','name'=>'Age']) !!}
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('Gender', 'Gender:*') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::select('gender',
+                                array(
+                                '' => '----Select Gender----',
+                                'Male Adult' =>'Male Adult',
+                                'Female Adult' =>'Female Adult',
+                                'Male child' =>'Male child',
+                                'Female child' =>'Male child',
+                                ),
+                                $opd->gender,
+                                ['class' =>'form-control','id'=>'gender','name'=>'gender','readonly'=>'true'])!!}
+                                </div>
+                            </div>
                         </div>
-
-
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('Consultant', 'Consultant:*')!!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::select('Consultant',$docterlist,
+                                $opd->consultant,
+                                ['class' =>
+                                'form-control','id'=>'Consultant','name'=>'Consultant'])
+                                !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('otherConsultant', 'Other Consultant') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::text('otherConsultant',
+                                $opd->otherConsultant, ['class' =>
+                                'form-control','id'=>'otherConsultant','name'=>'otherConsultant'])!!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-sm-2">
+                                <div class="form-group">
+                                {!! Form::label('department', 'Department') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                {!! Form::select('department',$department
+                                ,
+                                $opd->department,
+                                ['class' =>
+                                'form-control','id'=>'department','name'=>'department'])
+                                !!}
+                                </div>
+                            </div>
+                        </div>
                         <center>
-                        <button class="btn  btn-square btn-success" type="submit">Save
-                        </button>
-                        <button class="btn btn-square btn-danger" type="reset">Cancel
-                        </button>
-
+                            <button class="btn  btn-square btn-success" type="submit">Save
+                            </button>
+                            <button class="btn btn-square btn-danger" type="reset">Cancel
+                            </button>
                         </center>
-
                         {!! Form::close() !!}
                     </div>
                 </div>
