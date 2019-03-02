@@ -49,7 +49,9 @@
 				</table>
 			</div>
 			<div class="text-center">
-			    <div class="label label-primary">Add Treatment Details</div>
+			    <div class="label label-primary">Add Treatment Details </div>
+			   <!--  <a href="{{route('dashboard')}}"><button class="text-center btn btn-large btn-square btn-success">Edit</button></a>
+			    <a href="{{route('dashboard')}}"><button class="text-center btn btn-large btn-square btn-danger">Delete</button></a> --> 
 			</div>
 			{!! Form::open(array('files'=>'true','id'=>'opdTreatement-form','autocomplete'=>'off')) !!}
 			@csrf

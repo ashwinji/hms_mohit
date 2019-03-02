@@ -161,15 +161,10 @@ class PhysiotherpyController extends Controller
     {
        if($request->get('query')){
 
-          $query = $request->get('query');
-          $data = opd::where('regNum',$query)
-            ->first();
-            return response()->json([
-
-                'data1'=>$data,
-                'doctor'=>$data->doctorName->name,
-                'status'=>true,
-            ]);
+        $query = $request->get('query');        
+        $data = opd::where('regNum',$query)->first();
+        $ipddata = ipd::where('patientId',$query)->first();
+         return response()->json(['opd'=>$data,'ipd'=>$ipddata,'doctor'=>$data->doctorName->name,'status'=>true,]);
          
      }
     }

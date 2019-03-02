@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Model\opds;
-use App\Model\ipds;
-use App\Model\ots;
+use App\Model\opd;
+use App\Model\ipd;
+use App\Model\ot;
 use App\Model\opdtreatments;
 use Illuminate\Http\Request;
 

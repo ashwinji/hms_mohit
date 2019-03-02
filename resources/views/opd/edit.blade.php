@@ -27,7 +27,7 @@
                                 Title:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                     {!! Form::select('patientTitle',
                                     array(
@@ -52,7 +52,7 @@
                                 Name:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::text('patientName',
                                 $opd->patientName, ['class' =>
@@ -67,7 +67,7 @@
                                 Number:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::text('regNum', $opd->regNum, ['class'
                                 =>
@@ -82,7 +82,7 @@
                                 Date:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::date('regDate', $opd->regDate,
                                 ['class' =>
@@ -97,7 +97,7 @@
                                 {!! Form::label('Address', 'Address:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::text('address', $opd->address,
                                 ['class' =>
@@ -112,7 +112,7 @@
                                 {!! Form::label('Age', 'Age:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::text('Age', $opd->age, ['class' =>
                                 'form-control','id'=>'Age','name'=>'Age']) !!}
@@ -125,7 +125,7 @@
                                 {!! Form::label('Gender', 'Gender:*') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::select('gender',
                                 array(
@@ -146,7 +146,7 @@
                                 {!! Form::label('Consultant', 'Consultant:*')!!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::select('Consultant',$docterlist,
                                 $opd->consultant,
@@ -162,7 +162,7 @@
                                 {!! Form::label('otherConsultant', 'Other Consultant') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::text('otherConsultant',
                                 $opd->otherConsultant, ['class' =>
@@ -176,7 +176,7 @@
                                 {!! Form::label('department', 'Department') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="form-group">
                                 {!! Form::select('department',$department
                                 ,
@@ -190,8 +190,7 @@
                         <center>
                             <button class="btn  btn-square btn-success" type="submit">Save
                             </button>
-                            <button class="btn btn-square btn-danger" type="reset">Cancel
-                            </button>
+                           <a href="{{route('opd-create')}}" class="btn btn-square btn-danger" type="reset">Cancel</a>
                         </center>
                         {!! Form::close() !!}
                     </div>
