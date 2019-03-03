@@ -14,10 +14,12 @@
             <b style="margin-right: 36px">{{ ucfirst($data->patientName) }}</b>
             <span class="pull-right" style="padding-right: 5px">
               <b style="margin-right: 36px">{{ $data->regNum }}</b>
-            </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href=""></a>
+            </span><i class="fa fa-plus"></i> Add Patients </a></div>
+                        <i  onclick="printDiv('OPD Patients','opduser')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
           </div>
-
-          <table class="table table-bordered table-striped table-hovered">
+          <div id="opduser">
+          <table class="table table-bordered table-striped table-hovered" >
             <thead>
               <tr>
                 <b>
@@ -229,4 +231,5 @@
       {!! Form::close() !!}
     </div>
   </div>
+</div>
 </div>

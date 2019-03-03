@@ -1,8 +1,8 @@
 $('.yesPrint').hide();
-function printDiv(valPrint) {
+function printDiv(valPrint,table) {
     $('.noPrint').hide();
     $('.yesPrint').show();
-    var divToPrint = document.getElementById('dynamic-tables');
+    var divToPrint = document.getElementById(table);
     var htmlToPrint = '' +
         '<style type="text/css">table{width:100%;align:center}' +
         'table th, table td {' +
@@ -27,10 +27,10 @@ function printDiv(valPrint) {
     $('.yesPrint').hide();
 }
 
-function printPopup(valPrint) {
+function printPopup(valPrint,table) {
     $('.noPrint').hide();
     $('.yesPrint').show();
-    var divToPrint = document.getElementById('tables');
+    var divToPrint = document.getElementById(table);
     var htmlToPrint = '' +
         '<style type="text/css">table{width:100%;align:center}' +
         'table th, table td {' +

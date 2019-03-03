@@ -11,6 +11,10 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title"> PATIENTS LIST</div>
+                                    <div> <a href="{{route('yoga.create')}}" class="btn btn-xs btn-success"> <i class="fa fa-plus"></i> Add Patients </a>
+                                        <i  onclick="printDiv('yoga patient LIST','yogauser')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -72,7 +76,7 @@
                     {data: 'regDate',name:'regDate'},           
                     {data:'referredBy',name:'referredBy'},
                     {data:'yogadate',name:'yogadate'},
-                    {data: 'action', name: 'action'},
+                    {data: 'action', name: 'action',className:'noPrint'},
                
                  ]
                });

@@ -10,7 +10,9 @@
                 <div class="col-md-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title"> PATIENTS LIST</div>
+                            <div class="card-title"> PATIENTS LIST  <a href="{{route('ot-create')}}" class="btn btn-xs btn-success"> <i class="fa fa-plus"></i> Add Patients </a></div>
+                        <i  onclick="printDiv('OT EXAMINATION','otuser')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a></div>
                         </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -78,7 +80,7 @@
                 { data: 'opdDate', name: 'opdDate' },
                 { data: 'otDate', name: 'otDate' },
                 { data: 'consultant', name: 'consultant' },
-                { data: 'action', name: 'action' },
+                { data: 'action', name: 'action',className:'noPrint' },
             ]
         });
     });

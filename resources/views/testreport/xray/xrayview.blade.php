@@ -8,9 +8,9 @@
                       <span class="pull-right" style="padding-right: 5px">
                         <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
                       </span>
-                       <i  onclick="printDiv('PHYSIOTHERPY EXAMINATION')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);" ></a>
+                       <i  onclick="printDiv('XRAY EXAMINATION','xray-view')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);" ></a>
                   </div>
-              <table class="table table-bordered table-striped table-hovered" id="dynamic-tables">
+              <table class="table table-bordered table-striped table-hovered" id="xray-view">
                 <thead>
                     <tr>
                       <th>Name </th>

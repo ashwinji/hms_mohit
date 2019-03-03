@@ -153,7 +153,18 @@ class OpdController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
+         $this->validate($request,[
+          'regNum'=>'required|unique:opds,regNum|min:5|',
+          'patientName'=>'required',
+          'regDate'=>'required',
+          'patientTitle'=>'required',
+          'address'=>'required',
+          'Age'=>'required',
+          'gender'=>'required',
+          'Consultant'=>'required',
+          'otherConsultant'=>'required',
+          'department'=>'required',
+        ]); 
         $opd=opd::find($id);
         $opd->patientTitle=$request->patientTitle;
         $opd->patientName=$request->patientName;

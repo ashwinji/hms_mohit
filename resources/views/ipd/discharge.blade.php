@@ -10,7 +10,8 @@
                       <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
                        <span class="pull-right" style="padding-right: 5px">
                        <b style="margin-right: 36px">{{ $data->patientId }}</b>
-                      </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);">
+                      </span> <i  onclick="printDiv('Discharge Form','discharge')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
                       </a>
                    </div>
                </div>
@@ -18,7 +19,7 @@
     </div>
   </div>
 </div>
-<table class="table table-bordered table-striped table-hovered col-lg-12">
+<table class="table table-bordered table-striped table-hovered col-lg-12" id="discharge">
                 <thead>
                   <tr>
                     <th><b>Registration Number</b> </th>

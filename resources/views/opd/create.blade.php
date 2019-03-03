@@ -180,7 +180,7 @@
 		</div>
 		<center>
 			<button class="btn btn-lg btn-square btn-success" type="submit">Save</button>
-			<button class="btn btn-lg btn-square btn-danger" type="reset">Cancel</button>
+			<a href="{{route('opd-create')}}" class="btn btn-lg btn-square btn-danger" type="">Cancel</a>
 		</center>
 		{!! Form::close() !!}
 		</div>

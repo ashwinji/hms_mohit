@@ -10,11 +10,13 @@
 		<div class="col-md-12 col-lg-12">
 			<div class="card">
 				        <div class="card-header">
-						<div class="card-title">xray EXAMINATION PATIENTS LIST</div>
+						<div class="card-title">XRAY EXAMINATION PATIENTS LIST<a href="{{route('xray-create')}}" class="btn btn-xs btn-success"> <i class="fa fa-plus"></i> Add Patients </a></div>
+                        <i  onclick="printDiv('XRAY EXAMINATION','xray')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
 				       </div>
 							<div class="card-body">
                                 <div class="table-responsive">
-								<table id="xray" class="table table-striped table-bordered w-100">
+								<table id="xray" class="table table-striped table-bordered w-100" >
 										<thead>
 										<tr>
 				                            <th>Id</th>
@@ -69,7 +71,7 @@
                 { data: 'age', name: 'age' },
                 { data: 'investigationAdvised', name: 'investigationAdvised' },
                 { data: 'date', name: 'date' },
-                {data: 'action', name: 'action'},
+                {data: 'action', name: 'action',className:'noPrint'},
 
 
 

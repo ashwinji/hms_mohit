@@ -14,19 +14,20 @@
             <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
             <span class="pull-right" style="padding-right: 5px">
               <b style="margin-right: 36px">{{ $data->opd->regNum }}</b>
-            </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
+            </span>  <i  onclick="printDiv('yoga patient Card','opd-table')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
           </div>
-
+          <div id="opd-table">
           <table class="table table-bordered table-striped table-hovered">
             <thead>
-              <tr>
-                <b>
-                  <th>Registration Number </th>
-                </b>
-                <td>{{ $data->opd->regNum }}</td>
-                <th>Registration Date </th>
-                <td>{{ $data->opd->regDate }}</td>
-              </tr>
+                <tr>
+                  <b>
+                    <th>Registration Number </th>
+                  </b>
+                  <td>{{ $data->opd->regNum }}</td>
+                  <th>Registration Date </th>
+                  <td>{{ $data->opd->regDate }}</td>
+                </tr>
               <tr>
 
                 <th>Name </th>
@@ -42,12 +43,13 @@
                 <th>Address </th>
                 <td colspan="3">{{ $data->opd->address }}</td>
               </tr>
-              <th>Referred By </th>
-              <td>{{$data->referredBy}}</td>
-              <th>Test Date </th>
-              <td>{{$data->yogadate}}</td>
-              </tr>
               <tr>
+                <th>Referred By </th>
+                <td>{{$data->referredBy}}</td>
+                <th>Test Date </th>
+                <td>{{$data->yogadate}}</td>
+              </tr>
+             
               <tr>
                 <th>Disease diagnosis</th>
                 <td>{{$data->diseaseName->name}}</td>
@@ -62,8 +64,10 @@
                       <th>Remark </th>
                       <td> {{$data->remark}}></td>
                     </tr>
-              <thead>
+              </thead>
+              
           </table>
+        </div>
         </div>
       </div>
     </div>

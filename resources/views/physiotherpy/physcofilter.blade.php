@@ -10,7 +10,10 @@
             <div class="col-md-12 col-lg-12">
                 <div class="card">
                      <div class="card-header">
-                        <div class="card-title"> PATIENTS LIST</div>
+                        <div class="card-title"> PATIENTS LIST<a href="{{route('physiotherpy-create')}}" class="btn btn-xs btn-success"> <i class="fa fa-plus"></i> Add Patients </a>
+                             <i  onclick="printDiv('Physiotherpy EXAMINATION','physcouser')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
+                        </div>
                      </div>
                     <div class="card-body">
                      <div class="table-responsive">
@@ -66,7 +69,7 @@
                 { data: 'regDate', name: 'regDate' },
                 { data: 'referredBy', name: 'referredBy' },
                 { data: 'phyadate', name: 'phyadate' },
-                { data: 'action', name: 'action' },
+                { data: 'action', name: 'action' ,className:'noPrint'},
 
             ]
         });
@@ -109,10 +112,8 @@
 
 <script type="text/javascript">
     $(document).on('click', ".viewRecord", function (e) {
-        debugger
         var id = $(this).data('id');
         var token = $("meta[name='csrf-token']").attr("content");
-        alert(id);
         $.ajax(
             {
                 url: '{{route("Physiotherpy-show")}}',

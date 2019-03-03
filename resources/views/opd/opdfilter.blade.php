@@ -88,7 +88,10 @@
                             <div class="col-md-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title"> PATIENTS LIST</div>
+                                    <div class="card-title"> PATIENTS LIST
+                                     <a href="{{route('opd-create')}}" class="btn btn-xs btn-success"> <i class="fa fa-plus"></i> Add Patients </a></div>
+                        <i  onclick="printDiv('OPD EXAMINATION','opduser')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -103,7 +106,7 @@
                             <th>Address</th>
                             <th>Gender</th>
                             <th>Consultant</th>
-                            <th>Action</th>
+                            <th>Action </th>
                         </tr>   
                     </thead>
                   </table>
@@ -170,13 +173,13 @@ $(document).ready(function() {
             {data: 'address', name: 'address'},
             {data: 'gender', name: 'gender'},
             {data: 'consultant', name: 'consultant'},
-            {data: 'action', name: 'action'},
+            {data: 'action', name: 'action' ,className:'noPrint'},
             
             
                  ]
                });
 
-      jQuery('#id-opdfilter').click(function(e){alert()
+      jQuery('#id-opdfilter').click(function(e){
                        e.preventDefault();
                        var _token = $("input[name='_token']").val();
                         $('#opduser').DataTable({
@@ -347,7 +350,7 @@ $.ajax(
             _token: token,
         },
         success:function (res) {
-            alert(res.status)
+          
            if(res.status=true){
               swal({
                    title: "Sweet!",

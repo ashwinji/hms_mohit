@@ -63,7 +63,7 @@
               <th >Consultant</th>
               <th >Rg.Date </th>
               <th >Treatment.Date </th>
-              <th class="noPrint" >Action</th>
+              <th >Action</th>
             </tr>
           </thead>
         </table>
@@ -116,7 +116,7 @@
                   { data: 'consultant', name: 'consultant' },
                   { data: 'regDate', name: 'regDate'}, 
                   { data: 'treatmentDate', name: 'treatmentDate'}, 
-                  { data: 'action', name: 'action',className:'noPrint' },
+                  { data: 'action', name: 'action'},
                 ]
               });
  });

@@ -9,13 +9,14 @@
                           <b style="margin-right: 36px">{{ ucfirst($data->opd->patientName) }}</b>
                           <span class="pull-right" style="padding-right: 5px">
                             <b style="margin-right: 36px">{{ $data->patientId }}</b>
-                          </span> <i class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> Print</i> <a href="javascript:void(0);"></a>
+                          </span> <i  onclick="printDiv('IPD patient Card','ipdview')" class=" pull-right fa fa-print btn btn-square btn-info" style="margin-right: 10px;"> 
+                        Print</i> <a href="javascript:void(0);" ></a>
                       </div>
                   </div>
               </div>
           </div>
        </div>
-      <table class="table table-bordered table-striped table-responsive table-hovered col-md-12">
+      <table class="table table-bordered table-striped table-responsive table-hovered col-md-12" id="ipdview">
                 <thead>
                   <tr>
                     <th class="col-md-3"><b>Registration Number</b> </th>
