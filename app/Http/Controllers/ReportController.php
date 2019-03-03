@@ -16,7 +16,7 @@ use App\Model\bloodexamination;
 use App\Model\generalblood;
 use App\Model\physiotherpy;
 use App\Model\yoga;
-use App\Model\opdTreatments;
+use App\Model\opdtreatments;
 use App\User;
 use Carbon\Carbon;
 use DataTables;
@@ -200,22 +200,28 @@ class ReportController extends Controller
 
       }
       }
-     public function opdTreatment()
-    {
-    
-      return view('report.OpdTreatmentlist.reportopdtreatement');
-    }
+       public function opdTreatment()
+      {
+      
+        return view('report.OpdTreatmentlist.reportopdtreatement');
+      }
 
       public function opdtreatmentFilter()
-      {    
-      return DataTables::of(opdtreatments::select('opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate'))
-      ->join('opds', 'opdtreatments.patientId', '=','opds.regNum')
-      ->get()
+      {   
+         
+         $opds=opd::select('opds.id as opd_id','opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate')
+         ->join('opdtreatments', 'opdtreatments.patientId', '=','opds.regNum')
+         ->get();
+          return DataTables::of($opds)
       ->addColumn('action', function($data){
 
-      return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->id.'"></a>';
+      return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->opd_id.'"></a>';
 
-      })->editColumn('consultant',function($data)
+      })->addColumn('id',function($data){
+                  static $i=1;
+                  return $i++;
+            })
+      ->editColumn('consultant',function($data)
       {
 
       return $data->doctorName->name;
@@ -224,20 +230,17 @@ class ReportController extends Controller
 
       }
 
-
-      // date filter
       public function opdTreatmentdatefilter(Request $request)
       {
-
-            $ageFrom = $request->get('fromDate');        
-            $ageTo = $request->get('toDate');        
-
-            $data = (opd::whereBetween('regDate',[$ageFrom, $ageTo])
-            ->select('opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate'))
-             ->join('opdtreatments', 'opdtreatments.patientId', '=','opds.regNum')
-             ->get();
+           $from = $request->get('fromDate');        
+            $to = $request->get('toDate');        
+            $data = opd::whereBetween('regDate',[$from, $to])->select('opds.id as opd_id','opdtreatments.id','opds.patientName','opds.regNum','opds.consultant','opds.gender','opds.regDate','opds.address','opds.age','opdtreatments.treatmentDate')
+         ->join('opdtreatments', 'opdtreatments.patientId', '=','opds.regNum')
+         ->get();
+            
             return DataTables::of($data)->addColumn('action', function($data){
-            return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->id.'"></a>';
+
+              return '<a href="javascript:void(0);" class="btn btn-sm btn-info fa fa-eye opdlistview" id="'.$data->opd_id.'"></a>';
 
             })->editColumn('consultant',function($data){
 
@@ -245,6 +248,7 @@ class ReportController extends Controller
             })
 
             ->make(true);
+           
       }
 
      public function ipdDate()

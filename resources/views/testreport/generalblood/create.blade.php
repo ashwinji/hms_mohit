@@ -199,6 +199,7 @@ $('#cancel').hide();
 });
 </script>
 
+<<<<<<< HEAD
 <script type="text/javascript">
 jQuery(document).ready(function () {debugger
 jQuery('#patientId').on('keyup', function () {
@@ -217,6 +218,26 @@ $('#opd-reg-list').html(data);
 });
 }
 });
+=======
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+		    jQuery('#patientId').on('keyup', function () {
+		        var opd = $(this).val();
+		        $('#patientId').html("");
+		        if (opd != '') {
+		            var _token = $('input[name="_token"]').val();
+		            $.ajax({
+		                    url: "{{ route('yoga.fetch') }}",
+		                    method: "POST",
+		                    data: { query: opd, _token: _token },
+		                    success: function (data) {
+		                    $('#opd-reg-list').fadeIn();
+		                    $('#opd-reg-list').html(data);
+		                    }
+		                    });
+		                     }
+		         });
+>>>>>>> 43aa501ca8c4bb6763b3a162c4858002ea1b578f
 
 });
 </script>

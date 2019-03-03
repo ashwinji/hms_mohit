@@ -12,7 +12,6 @@ use App\Model\dietplan;
 use App\Model\potency;
 use App\Model\wardname;
 use Illuminate\Http\Request;
-use DB;
 use DataTables;
 class IpdController extends Controller
 {
@@ -57,7 +56,7 @@ class IpdController extends Controller
            
           'patientId'=>'required',
           'opdDate'=>'required',
-          'ipdRegNum'=>'required',
+          'ipdRegNum'=>'required|unique:ipds,ipdRegNum',
           'ipdRegDate'=>'required',
           'otherConsultant'=>'required',
           'patientName'=>'required',
@@ -95,6 +94,11 @@ class IpdController extends Controller
         'html'=>$a,
       ]);
     }
+    // public function checkRoom(Request $request)
+    // {  
+    //   $id=$request->id;
+    //   $data=ipd::where('id','=',$id)->first();
+    // }
     public function discharge(Request $request)
     {
         $id=$request->id;
@@ -218,8 +222,7 @@ class IpdController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum', 'LIKE', '%'.$query.'%')
+          $data = opd::where('regNum', 'LIKE', '%'.$query.'%')
             ->get();
           $output = '<ul class="dropdown-menu form-control" style="display:block; position:relative">';
           foreach($data as $row)
@@ -237,10 +240,7 @@ class IpdController extends Controller
        if($request->get('query')){
 
           $query = $request->get('query');
-          $data = DB::table('opds')
-            ->where('regNum',$query)
-            ->first();
-
+          $data = opd::where('regNum',$query)->first();
             return response()->json($data);
          
      }

@@ -1,6 +1,6 @@
 @extends('master.layouts.app')
 @section('headSection')
-<link href="assets/plugins/calendar/clndr.css" rel="stylesheet" />
+<!-- <link href="assets/plugins/calendar/clndr.css" rel="stylesheet" /> -->
 
 @endsection
 @section('main-content')
@@ -296,8 +296,8 @@
 							</div>
 					       </div>
                       	
-                    
-					<div class="row ">
+                <!-- calender and watch     -->    
+					<!-- <div class="row ">
 						<div class="col-md-6">
 							<div class="h-45">
 								<div class="card">
@@ -316,12 +316,13 @@
 
 						</div>				
 				</div>
-                </div>
+                </div> -->
+                <!------------------------------------------>
 
 @endsection
 @section('footerSection')
 <!-- Default calendar -->
-		<script src="{{asset('assets/plugins/calendar/underscore-min.js')}}"></script>
+<!-- 		<script src="{{asset('assets/plugins/calendar/underscore-min.js')}}"></script>
 		<script src="{{asset('assets/plugins/calendar/moment.js')}}"></script>
 		<script src="{{asset('assets/plugins/calendar/clndr.js')}}"></script>
 		<script src="{{asset('assets/plugins/calendar/demo.js')}}"></script>
@@ -407,7 +408,7 @@ function drawHand(ctx, pos, length, width) {
     ctx.stroke();
     ctx.rotate(-pos);
 }
-</script>
+</script>  -->
 
 	
 @endsection
